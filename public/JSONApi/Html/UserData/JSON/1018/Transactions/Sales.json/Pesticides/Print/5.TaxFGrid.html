@@ -1,0 +1,75 @@
+
+<div class="row" style="font-size: 0.8rem">
+  <div class="col-1 border">
+    S.No
+  </div>
+  <div class="col-2 border">
+    Tax %
+  </div>
+  <div class="col-3 border text-center">
+    Taxable Value(₹)
+  </div>
+  <div class="col-2 border text-center">
+    CGST(₹)
+  </div>
+  <div class="col-2 border text-center">
+    SGST(₹)
+  </div>
+  <div class="col-2 border text-center">
+    TotalTax(₹)
+  </div>
+</div>
+
+
+{{#each TaxData}}
+<div class="row" style="font-size: 0.8rem;">
+  <div class="col-1 border">
+    {{ForSNo @index}}
+  </div>
+  <div class="col-2 border">
+    {{TaxPer}} %
+  </div>
+  <div class="col-3 border text-end">
+    {{ShowInIndianDateFormat TaxableAmount}}
+  </div>
+  <div class="col-1 border text-end">
+    {{CgstPer}} %
+  </div>
+  <div class="col-1 border text-end">
+    {{ShowInIndianDateFormat Cgst}}
+  </div>
+  <div class="col-1 border text-end">
+    {{SgstPer}} %
+  </div>
+  <div class="col-1 border text-end">
+    {{ShowInIndianDateFormat Sgst}}
+  </div>
+  <div class="col-2 border text-end">
+    {{ShowInIndianDateFormat gst}}
+  </div>
+</div>
+{{/each}}
+
+
+<div class="row" style="font-size: 0.8rem">
+  <div class="col-1 border">
+  </div>
+  <div class="col-2 border">
+  </div>
+  <div class="col-3 border text-end">
+    {{ShowInIndianDateFormat TaxTotal.TotalTaxableAmount}}
+  </div>
+  <div class="col-1 border text-end">
+  </div>
+  <div class="col-1 border text-end">
+    {{ShowInIndianDateFormat TaxTotal.TotalCgst}}
+  </div>
+  <div class="col-1 border text-end">
+  </div>
+  <div class="col-1 border text-end">
+    {{ShowInIndianDateFormat TaxTotal.TotalSgst}}
+  </div>
+  <div class="col-2 border text-end">
+    {{ShowInIndianDateFormat TaxTotal.Totalgst}}
+  </div>
+</div>

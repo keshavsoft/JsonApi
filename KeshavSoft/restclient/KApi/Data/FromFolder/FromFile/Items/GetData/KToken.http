@@ -1,0 +1,7 @@
+POST http://localhost:4117/JSONUser/Validate/Users/InUserDataJson/ForUserNameAndPassword/LoginCheckReturnTokenOnly
+content-type: application/json
+ 
+{   
+    "inUserName":"MADURAA",
+    "inPassWord":"MADURAA"
+}

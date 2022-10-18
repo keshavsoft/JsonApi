@@ -1,0 +1,27 @@
+{
+    "Path": "KData/JSON",
+    "Masters": {
+        "DisplayJSON": "Display.json",
+        "DataJSON": "Masters.json",
+        "ReturnDataJSON": "ReturnData.json",
+        "SaveCheckJSON": "SaveCheck.json",
+        "BreadcrumbJSON": "Breadcrumb.json"
+    },
+    "Transactions": {
+        "DisplayJSON": "Display.json",
+        "DataJSON": "Transactions.json",
+        "ReturnDataJSON": "ReturnData.json",
+        "SaveCheckJSON": "SaveCheck.json",
+        "BreadcrumbJSON": "Breadcrumb.json"
+    },
+    "Reports": {
+        "DisplayJSON": "LedgerAuto.json",
+        "UiPathFolderName": "Reports"
+    },
+    "Html": "public/Bs5Data/Html",
+    "DalPath": {
+        "Type": "",
+        "hostname": "localhost",
+        "port": "4144"
+    }
+}

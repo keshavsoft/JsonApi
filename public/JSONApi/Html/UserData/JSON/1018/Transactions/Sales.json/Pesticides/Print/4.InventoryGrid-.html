@@ -1,0 +1,76 @@
+{{log "this" this}}
+<table class="table table-bordered table-striped table-sm">
+  <thead>
+    <tr>
+      <th class="text-center" width="5%">S.no</th>
+      <th class="text-center" width="73%">Product Name</th>
+      <th class="text-center" width="10%">HSN Code</th>
+      <th class="text-center" width="5%">Tax Slab</th>
+      <th class="text-center" width="10%">Qty in Cases/Bags</th>
+      <th class="text-center" width="5%">Rate(₹)</th>
+      <th class="text-center" width="16%">Amount(₹)</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each InvGrid}}
+    <tr>
+      <td class="text-center">{{ForSNo @index}}</td>
+      <td class="text-start">
+        <div class="row">
+          <div class="col">{{ProductName}}</div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">Batch:</div>
+              <div class="col">{{Batch}}</div>
+            </div>
+            <div class="row">
+              <div class="col">Mfg.Dt.:</div>
+              <div class="col">{{MfgDt}}</div>
+            </div>
+            <div class="row">
+              <div class="col">Exp.Dt.:</div>
+              <div class="col"></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col">Packing</div>
+              <div class="col"></div>
+            </div>
+            <div class="row">
+              <div class="col">No.of packets/Units</div>
+              <div class="col"></div>
+            </div>
+          </div>
+        </div>
+      </td>
+
+
+
+
+
+      <td class="text-start">{{HSN}}</td>
+      <td class="text-end">{{TaxPer}}%</td>
+      <td class="text-center">{{Qty}}</td>
+      <td class="text-end">{{ShowInIndianDateFormat Rate}}</td>
+      <td class="text-end">{{ShowInIndianDateFormat Amount}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="5" rowspan="2">
+        <b>( in words:{{NumToWord TotalRow.RoundedAmount}} )</b>
+      </td>
+      <td colspan="3" class="text-end">Round Off</td>
+      <td class="text-end">{{ShowInIndianDateFormat TotalRow.RoundOff}}</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="text-end"><b>Total Amount</b></td>
+      <td class="text-end"><b> {{ShowInIndianDateFormat TotalRow.RoundedAmount}}</b></td>
+    </tr>
+  </tfoot>
+</table>

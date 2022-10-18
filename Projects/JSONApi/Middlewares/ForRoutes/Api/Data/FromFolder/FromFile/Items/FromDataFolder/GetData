@@ -1,0 +1,5 @@
+let dal = require("../../../../../../../Dal/Api/Data/FromFolder/FromFile/Items/FromDataFolder/GetData");
+
+exports.UsingFolderAndFile = async ({ inDataPK, inFolderName, inFileNameWithExtension }) => {
+    return await dal.UsingFolderAndFile({ inDataPK, inFolderName, inFileNameWithExtension });
+};

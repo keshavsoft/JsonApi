@@ -1,0 +1,7 @@
+POST  http://localhost:4117/JsonApi/Api/Data/FromFolder/FromFile/Items/GetData/AsArray
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BRFVSQUEiLCJEYXRhUGsiOjEwMTgsImlhdCI6MTY2NTgxNzg2NH0.WkefdLQRoeWretqy0BSh108ZwPi02ORAQK1gBBAab9s
+content-type: application/json
+
+{
+         "inFolderName": "Transactions"
+}

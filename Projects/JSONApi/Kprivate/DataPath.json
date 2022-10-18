@@ -1,0 +1,17 @@
+{
+    "Path": "KData/JSON",
+    "Html": "public/Bs5Data/Html",
+    "DalPath": {
+        "Type": "",
+        "hostname": "keshav7.keshavsoft.net",
+        "port": ""
+    },
+    "DataPath": {
+        "WinPath": "KData\\JSON",
+        "UbuntuPath": "KData/JSON"
+    },
+    "HtmlPathInData": {
+        "WinPath": "KData/Html/Static",
+        "UbuntuPath": "KData"
+    }
+}

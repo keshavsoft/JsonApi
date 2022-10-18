@@ -1,0 +1,335 @@
+{{log this}}
+<div id="divIdDoubleBillPreviews" class="ForPrintDiv">
+  <div class="row">
+    <div class="col border">
+      <div class="row fs-5" style="font-weight: 700">
+        SOMANATHA FARM CHEMICALS
+      </div>
+      <div class="row">
+        PATNAM BAZAR,GUNTUR - 522 003
+      </div>
+      <div class="row">
+        PH No: 0863 - 2221234, CELL No.098660 13809
+      </div>
+      <div class="row">
+        Pin code : 522 003.
+      </div>
+      <div class="row">
+        GSTIN : 37ABLPC6823F1ZQ
+      </div>
+
+    </div>
+    <div class="col border">
+      <div class="row" >
+        <div class="col border">
+          Invoice No
+        </div>
+        <div class="col border">
+          Dated
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col border">
+          Deliverynote
+        </div>
+        <div class="col border">
+          Mode/Terms of Payment
+        </div>
+      </div>
+         <div class="row ">
+        <div class="col border">
+          Supplier's Ref
+        </div>
+        <div class="col border">
+          Other Reference(s)
+        </div>
+      </div>
+    </div>
+
+  </div>
+    
+
+  <div class="row">
+    <div class="col border">
+      <div class="row fs-5" style="font-weight: 700">
+        Consignee
+      </div>
+      <div class="row">
+        Anji Reddy Seeds & Pesticides ,
+        Door No. 8 - 118, Main Road , Opp :- MRO Office,
+        Chagantivaripalem , MUPPALLA , Guntur ( Dt )
+        Cell No.90304 37515
+      </div>
+      <div class="row">
+        Pincode : 522408
+      </div>
+      <div class="row">
+        GSTIN/UIN : 37CPIPD3911E2Z7
+State Name: Andrapradesh(New), Code: 37
+      </div>
+
+    </div>
+    <div class="col border">
+      <div class="row">
+        <div class="col border">
+          Buyers Order No
+        </div>
+        <div class="col border">
+          Dated
+        </div>
+      </div>
+      <div class="row">
+        <div class="col border">
+          Despatch Doc No.
+        </div>
+        <div class="col border">
+          Delivery Note Date
+        </div>
+      </div>
+      <div class="row">
+        <div class="col border">
+          Despatched through
+        </div>
+        <div class="col border">
+          Destination
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Terms of Delivery
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="row border">
+    Bank :
+  </div>
+
+  <div class="row">
+    <div class="col-8 border">
+      <div class="row">
+        <div class="col-3">
+          Buyer Name:
+        </div>
+        <div class="col-9">
+          <b>{{CustomerName}}</b>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col border" style="font-size: 0.7rem;">
+          <div class="row">
+            <div class="col-3">
+              Mobile:
+            </div>
+            <div class="col-9">
+              {{Mobile}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              City:
+            </div>
+            <div class="col-9">
+              {{City}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              Address:
+            </div>
+            <div class="col-9">
+              {{Address}}
+            </div>
+          </div>
+        </div>
+        <div class="col border">
+          <div class="row">
+            <div class="col-3">
+              GST:
+            </div>
+            <div class="col-9">
+              {{GST}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              PAN:
+            </div>
+            <div class="col-9">
+              {{PAN}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-4 border">
+      <div class="row">
+        <div class="col">
+          Credit Tax Invoice
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Number
+        </div>
+        <div class="col">
+          <b>{{BillNumber}}</b>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Date
+        </div>
+        <div class="col">
+          <b></b>{{DateFromyyyyMMddToddMMyyyy Date}}</b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">Dispatch Details : {{DispatchDetails}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">Purchase order no : {{PurchaseOrderNo}}
+    </div>
+  </div>
+
+
+  <table class="table table-bordered table-striped table-sm">
+    <thead>
+      <tr>
+        <th class="text-center" width="5%">S.no</th>
+        <th class="text-center" width="47%">Product Name</th>
+        <th class="text-center" width="10%">HSN</th>
+        <th class="text-center" width="10%">Qty</th>
+        <th class="text-center" width="5%">Rate(₹)</th>
+        <th class="text-center" width="5%">Disc.</th>
+        <th class="text-center" width="12%">Taxable Amount(₹)</th>
+        <th class="text-center" width="5%">Tax</th>
+        <th class="text-center" width="16%">Amount(₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each InvGrid}}
+      <tr>
+        <td class="text-center">{{ForSNo @index}}</td>
+        <td class="text-start">{{ProductName}}</td>
+        <td class="text-start">{{HSN}}</td>
+        <td class="text-center">{{Qty}}</td>
+        <td class="text-end">{{ShowInIndianDateFormat Rate}}</td>
+        <td class="text-end">{{DisPer}}</td>
+        <td class="text-end">{{ShowInIndianDateFormat TaxableAmount}}</td>
+        <td class="text-end">{{TaxPer}}%</td>
+        <td class="text-end">{{ShowInIndianDateFormat TotalAmount}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5" rowspan="2">
+          <b>( in words:{{NumToWord TotalRow.RoundedAmount}} )</b>
+        </td>
+        <td colspan="3" class="text-end">Round Off</td>
+        <td class="text-end">{{ShowInIndianDateFormat TotalRow.RoundOff}}</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="text-end"><b>Total Amount</b></td>
+        <td class="text-end"><b> {{ShowInIndianDateFormat TotalRow.RoundedAmount}}</b></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="row" style="font-size: 0.8rem">
+    <div class="col-1 border">
+      #
+    </div>
+    <div class="col-2 border">
+      Tax %
+    </div>
+    <div class="col-3 border text-center">
+      Taxable Value(₹)
+    </div>
+    <div class="col-2 border text-center">
+      CGST(₹)
+    </div>
+    <div class="col-2 border text-center">
+      SGST(₹)
+    </div>
+    <div class="col-2 border text-center">
+      GST(₹)
+    </div>
+
+  </div>
+
+  {{#each TaxData}}
+  <div class="row" style="font-size: 0.8rem;">
+    <div class="col-1 border">
+      {{ForSNo @index}}
+    </div>
+    <div class="col-2 border">
+      {{TaxPer}} %
+    </div>
+    <div class="col-3 border text-end">
+      {{ShowInIndianDateFormat TaxableAmount}}
+    </div>
+    <div class="col-2 border text-end">
+      {{ShowInIndianDateFormat Cgst}}
+    </div>
+    <div class="col-2 border text-end">
+      {{ShowInIndianDateFormat Sgst}}
+    </div>
+    <div class="col-2 border text-end">
+      {{gst}}
+    </div>
+  </div>
+  {{/each}}
+
+  <div class="row">
+    Company's PAN :
+  </div>
+  <div class="row">
+    <div class="col" style="font-size: 0.7rem">
+      Declaration
+      We declare that this invoice shows the actual price of the goods
+      described and that all particulars are true and correct
+    </div>
+ 
+
+  </div>
+
+  <div class="row">
+    <div class="col border">
+      <div class="row" style="height: 60px">
+        <div class="col">
+          Customer Signature
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="font-size: 0.6rem;">
+          Contact:
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col border">
+      <div class="row" style="height: 60px">
+        <div class="col">
+          for SOMANATHA FARM CHEMICALS
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col text-end" style="font-size: 0.6rem;">
+          Authorized signature.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

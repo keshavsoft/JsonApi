@@ -1,0 +1,48 @@
+{{log "inventorygrid" this}}
+<table class="table table-bordered table-striped table-sm">
+  <thead>
+    <tr >
+      <th class="text-center" style="font-weight: 500" width="5%">S.No</th>
+      <th class="text-center" style="font-weight: 500" width="55%">Product Name</th>
+      <th class="text-center" style="font-weight: 500" width="10%">HSN Code</th>
+      <th class="text-center" style="font-weight: 500" width="5%">Tax Slab</th>
+      <th class="text-center" style="font-weight: 500" width="10%">Packing</th>
+      <th class="text-center" style="font-weight: 500" width="10%">Cases / Bags</th>
+      <th class="text-center" style="font-weight: 500" width="8%">Units</th>
+      <th class="text-center" style="font-weight: 500" width="5%">Rate(₹)</th>
+      <th class="text-center" style="font-weight: 500" width="16%">Amount(₹)</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each InvGrid}}
+    <tr>
+      <td class="text-center">{{ForSNo @index}}</td>
+      <td class="text-start" style="font-size: 11px;">{{ProductName}}<br>
+        <div style="font-size: 10px;"><b> Batch : </b>{{Batch}}  <b> Mfg.Dt.: </b>{{MfgDt}}; <b>Exp.Dt.: : </b>{{ExpDt}}</div>
+     
+      </td>
+      <td class="text-start" style="font-size: 13px;">{{HSN}}</td>
+      <td class="text-end" style="font-size: 13px;">{{TaxPer}}%</td>
+      <td class="text-end" style="font-size: 13px;">{{Packing}}</td>
+      <td class="text-center" style="font-size: 13px;">{{NoOfPackets}}</td>
+      <td class="text-end" style="font-size: 13px;">{{Qty}}</td>
+      <td class="text-end" style="font-size: 13px;">{{ShowInIndianDateFormat Rate}}</td>
+      <td class="text-end" style="font-size: 13px;">{{ShowInIndianDateFormat Amount}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="5" rowspan="2" style="font-weight: 100">
+        ( in words:{{NumToWord TotalRow.RoundedAmount}} )
+      </td>
+      <td colspan="3" class="text-end">Round Off</td>
+      <td class="text-end">{{ShowInIndianDateFormat TotalRow.RoundOff}}</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="text-end"><b>Total Amount</b></td>
+      <td class="text-end"><b> {{ShowInIndianDateFormat TotalRow.RoundedAmount}}</b></td>
+    </tr>
+  </tfoot>
+</table>
