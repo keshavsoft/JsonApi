@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 
 var port = normalizePort(process.env.PORT || '4117');
 
-let SubRouteJSONUser = require("./Projects/JSONUser/Routes");
+//let SubRouteJSONUser = require("./Projects/JSONUser/Routes");
 let SubRouteJSONProject = require("./Projects/JSONApi/Routes");
 
 app.use(cookieParser());
@@ -21,7 +21,7 @@ app.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname + `/Html/JSONProject.html`));
 });
 
-app.use("/JSONUser", SubRouteJSONUser);
+//app.use("/JSONUser", SubRouteJSONUser);
 app.use("/JSONApi", cors({ origin: '*' }), SubRouteJSONProject);
 
 function normalizePort(val) {
