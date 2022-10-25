@@ -1,6 +1,10 @@
 # JsonApi
 Json Crud to end user
 
+must do before node
+
+1.  copy DataSupply folder
+
 follow below steps for development
 
 1.  copy DataSupply folder
