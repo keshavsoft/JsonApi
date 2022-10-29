@@ -215,12 +215,22 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./Utility.html" class="nav-link DashboardAClass text-white">
+                        <a href="/JSONUtility/Html/UserData/Utility.html" class="nav-link DashboardAClass text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
                                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"></path>
                                 <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"></path>
                             </svg>
                             Utilities
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white" onclick="ForLocalStorageClass.jFDeleteuuidInLocalStorage()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-sd-card mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                <path d="M6.25 3.5a.75.75 0 0 0-1.5 0v2a.75.75 0 0 0 1.5 0v-2zm2 0a.75.75 0 0 0-1.5 0v2a.75.75 0 0 0 1.5 0v-2zm2 0a.75.75 0 0 0-1.5 0v2a.75.75 0 0 0 1.5 0v-2zm2 0a.75.75 0 0 0-1.5 0v2a.75.75 0 0 0 1.5 0v-2z"></path>
+                                <path fill-rule="evenodd" d="M5.914 0H12.5A1.5 1.5 0 0 1 14 1.5v13a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5V3.914c0-.398.158-.78.44-1.06L4.853.439A1.5 1.5 0 0 1 5.914 0zM13 1.5a.5.5 0 0 0-.5-.5H5.914a.5.5 0 0 0-.353.146L3.146 3.561A.5.5 0 0 0 3 3.914V14.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-13z"></path>
+                            </svg>
+
+                            LocalStorage
                         </a>
                     </li>
                 </ul>
@@ -2873,6 +2883,16 @@
     
     <script>
     class ForLocalStorageClass {
+        static jFDeleteuuidInLocalStorage = () => {
+            const re = /uuid-/g;
+
+            Object.keys(localStorage).forEach(function (key) {
+                if (key.match(re)) {
+                    delete localStorage[key];
+                }
+            });
+        };
+
         static jFCreateuuid = () => {
             return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
                 var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -2881,7 +2901,7 @@
         };
 
         static jFInsertToLocalStorage = ({ inData }) => {
-            let jVarLocalUUID = this.jFCreateuuid();
+            let jVarLocalUUID = `uuid-${this.jFCreateuuid()}`;
 
             inData.forEach((element, LoopIndex) => {
                 if ("KData" in element) {
@@ -6163,11 +6183,11 @@
                     if (FetchData.KTF) {
                         jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(FetchData.DataFromServer);
 
-                        let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
+                        // let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
 
-                        if (jVarLocalUUID in localStorage) {
-                            jVarGlobalPresentViewData = JSON.parse(localStorage.getItem(jVarLocalUUID));
-                        };
+                        // if (jVarLocalUUID in localStorage) {
+                        //     jVarGlobalPresentViewData = JSON.parse(localStorage.getItem(jVarLocalUUID));
+                        // };
 
                         jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
                             inData: jVarGlobalPresentViewData,
@@ -6527,7 +6547,7 @@
                 <div class="card-body">
                     <h5 class="card-title ItemNameClass">{{ItemName}}</h5>
                     <p>Rows : <span class="RowCountClass">{{RowCount}}</span> </p>
-                    <a href="#" class="btn btn-primary keshavsoftItemclick">Screens : <span class="ScreenCountClass">{{ScreenCount}}</span>
+                    <a href="#" keshavsoftItemName="{{ItemName}}" class="btn btn-primary keshavsoftItemclick">Screens : <span class="ScreenCountClass">{{ScreenCount}}</span>
                     </a>
                 </div>
             </div>
@@ -6660,6 +6680,10 @@
 
         //        jFShowFoldersInMenu();
         KSCommonFuncs.SelectionMenu.FillNavMenuWithValues();
+
+        let jFHeaderLocalStorageFunc = () => {
+
+        };
 
         let jFBuildBreadcrumb = (inMenuObject) => {
             let jVarLocalMenuObject = inMenuObject;
