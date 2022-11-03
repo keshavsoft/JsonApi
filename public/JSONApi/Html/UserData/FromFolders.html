@@ -272,15 +272,16 @@
         </div>
     </nav>
     <div class="container">
-        <nav aria-label="breadcrumb" class="m-2 d-print-none">
-            <ol class="breadcrumb" id="breadcrumbHtmlId">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Masters</a></li>
-                <li class="breadcrumb-item"><a href="#">Products.json</a></li>
-                <li class="breadcrumb-item"><a href="#">Products</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Create (<a href="#">Refresh</a>) </li>
-            </ol>
-        </nav>
+        <div class="input-group mb-3 mt-3">
+            <input type="text" list="FoldersDataListId" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+          
+            <datalist id="FoldersDataListId">
+                <option value="KeshavSoft">
+                </option><option value="9848163021">
+            </option></datalist>
+            
+            <button class="btn btn-outline-secondary" type="button" id="FoldersButtonShowId">Show</button>
+          </div>
 
         <div id="KCont1" class="m-3">
 
@@ -6727,7 +6728,10 @@
     </script>
 
 
-    <script src="/js/bundle.js"></script>
+    <!-- <script src="/js/bundle.js"></script> -->
+ 
+    <script src="../../Js/KeshavSoft/DataAsJson/Tally.js" type="module"></script>
+ 
 </body>
 
 </html>
