@@ -1,8 +1,8 @@
 var jwt = require('jsonwebtoken');
-let CommonSecret = "ku";
+let CommonSecret = "k";
 
 let LocalVerifyToken = (req, res, inKToken, next) => {
-    jwt.verify(inKToken, 'KeshavSoftJSON', (err, authData) => {
+    jwt.verify(inKToken, CommonSecret, (err, authData) => {
         if (err) {
             //  res.end(err);
             res.end("Invalid Token!");

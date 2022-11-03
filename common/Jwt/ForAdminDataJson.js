@@ -1,6 +1,6 @@
 var jwt = require('jsonwebtoken');
 let CommonTokenName = "KAToken";
-let CommonSecret = "ka";
+let CommonSecret = "k";
 
 let LocalFromCoookies = (req, res, next) => {
     jwt.verify(req.cookies[CommonTokenName], CommonSecret, (err, authData) => {
