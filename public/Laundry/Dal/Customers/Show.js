@@ -1,4 +1,17 @@
 let ShowFunc = async () => {
+    let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
+
+    if (typeof Neutralino === 'undefined') {
+        // console.log("hii");
+        return await LocalFromFetch();
+    }
+    else {
+        return await LocalNeu();
+    }
+}
+
+
+let LocalNeu = async () => {
     let LocalJsonFileName = "Customers.json";
 
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
@@ -32,4 +45,23 @@ let ShowFunc = async () => {
     return await LocalReturnObject;
 };
 
+let LocalFromFetch = async () => {
+    let inFetchPostData = {
+        inFolderName: "Masters", inFileName: "Customers.json", inItemName: "CustomerNames", inScreenName: "Show"
+    };
+
+    let jVarLocalFetchUrl = "/JSONApi/API/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig";
+    let jVarLocalFetchHeaders = {
+        method: "post",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(inFetchPostData)
+    }
+    const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+    const data = await response.json();
+    console.log("data", data);
+
+};
 export { ShowFunc };
