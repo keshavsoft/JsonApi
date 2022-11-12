@@ -1,0 +1,273 @@
+[
+    {
+        "DisplayName": "Voucher Type",
+        "DataAttribute": "ksvouchertype",
+        "ShowInTable": true,
+        "ParentClasses": {
+            "Parent1Class": "col-md-6",
+            "Parent2Class": "col-md-6",
+            "Parent3Class": "row col-md-4 mb-3",
+            "InputClass": "form-control"
+        }
+    },
+    {
+        "DisplayName": "Voucher Number",
+        "DataAttribute": "ksvouchernumber",
+        "ShowInTable": true,
+        "ParentClasses": {
+            "Parent1Class": "col-md-6",
+            "Parent2Class": "col-md-6",
+            "Parent3Class": "row col-md-4 mb-3",
+            "InputClass": "form-control"
+        }
+    },
+    {
+        "DisplayName": "Date",
+        "DataAttribute": "ksdate",
+        "ShowInTable": true,
+        "ParentClasses": {
+            "Parent1Class": "col-md-6",
+            "Parent2Class": "col-md-6",
+            "Parent3Class": "row col-md-4 mb-3",
+            "InputClass": "form-control"
+        }
+    },
+    {
+        "DisplayName": "voucherguid",
+        "DataAttribute": "guid",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "Party Name",
+        "DataAttribute": "kspartyname",
+        "ShowInTable": true,
+        "ParentClasses": {
+            "Parent1Class": "col-md-6",
+            "Parent2Class": "col-md-6",
+            "Parent3Class": "row col-md-12 mb-3",
+            "InputClass": "form-control"
+        }
+    },
+    {
+        "DisplayName": "InventoryGrid",
+        "DataAttribute": "InventoryGrid",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "InventoryBatches",
+        "DataAttribute": "InventoryBatches",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "guid",
+        "DataAttribute": "guid",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksconsigneename",
+        "DataAttribute": "ksconsigneename",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksconsigneestate",
+        "DataAttribute": "ksconsigneestate",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksconsigneegst",
+        "DataAttribute": "ksconsigneegst",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksconsigneeaddress",
+        "DataAttribute": "ksconsigneeaddress",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksbuyeraddress",
+        "DataAttribute": "ksbuyeraddress",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksbuyercountry",
+        "DataAttribute": "ksbuyercountry",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksbuyerstatename",
+        "DataAttribute": "ksbuyerstatename",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksbuyerplaceofsupply",
+        "DataAttribute": "ksbuyerplaceofsupply",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksbuyersalestaxno",
+        "DataAttribute": "ksbuyersalestaxno",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksbuyercstnumber",
+        "DataAttribute": "ksbuyercstnumber",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "kspartygstin",
+        "DataAttribute": "kspartygstin",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksledgername",
+        "DataAttribute": "ksledgername",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksdatetime",
+        "DataAttribute": "ksdatetime",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "kscreditperiod",
+        "DataAttribute": "kscreditperiod",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksledger_name",
+        "DataAttribute": "ksledger_name",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksledger_amount",
+        "DataAttribute": "ksledger_amount",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksstockitemname",
+        "DataAttribute": "ksstockitemname",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksstockitemdescription",
+        "DataAttribute": "ksstockitemdescription",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksledger_positive",
+        "DataAttribute": "ksledger_positive",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksitemrate",
+        "DataAttribute": "ksitemrate",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksitemamount",
+        "DataAttribute": "ksitemamount",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksitemactualquantity",
+        "DataAttribute": "ksitemactualquantity",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksitembilledquantity",
+        "DataAttribute": "ksitembilledquantity",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksalterid",
+        "DataAttribute": "ksalterid",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksoptional",
+        "DataAttribute": "ksoptional",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksvoucher_cancelled",
+        "DataAttribute": "ksvoucher_cancelled",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksdiscount",
+        "DataAttribute": "ksdiscount",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksirn",
+        "DataAttribute": "ksirn",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksirnackno",
+        "DataAttribute": "ksirnackno",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksirnackno",
+        "DataAttribute": "ksirnackno",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksledgerdescription",
+        "DataAttribute": "ksledgerdescription",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksstockitembatches",
+        "DataAttribute": "ksstockitembatches",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksstockitemexpiry",
+        "DataAttribute": "ksstockitemexpiry",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    },
+    {
+        "DisplayName": "ksledgerdescription",
+        "DataAttribute": "ksledgerdescription",
+        "DefaultValue": "Object",
+        "CreateNew": false
+    }
+]

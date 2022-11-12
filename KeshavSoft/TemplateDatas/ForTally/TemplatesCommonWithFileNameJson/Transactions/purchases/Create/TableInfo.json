@@ -1,0 +1,37 @@
+{
+    "DisplayName": "from create",
+    "SearchRowArray": {
+        "Label": {
+            "KTF": true,
+            "DisplayObject": {
+                "DisplayText": "KeshavSoft",
+                "ColClass": "md-6 col-sm-12 col-12"
+            }
+        },
+        "Button": {
+            "NewWindow": {
+                "KTF": true,
+                "DisplayObject": {
+                    "ColClass": "md-1",
+                    "SvgPlus": false,
+                    "SvgPlusLarge": false,
+                    "NewWindow": true,
+                    "Table": false
+                }
+            }
+        },
+        "SearchWithEnter": {
+            "KTF": true,
+            "DisplayObject": {
+                "DisplayText": "SearchWithEnter",
+                "ColClass": "md-2 col-sm-4 col-12"
+            }
+        }
+    },
+    "kPK": "guid",
+    "TableRowOptions": {
+        "Show": {
+            "Rowshow": true
+        }
+    }
+}
