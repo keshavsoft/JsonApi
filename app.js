@@ -2,7 +2,9 @@ let CommonProjectName = "JSONImport";
 let CommonProjectNameForJSONApi = "JSONApi";
 let CommonProjectNameForJSONAdminApi = "JSONAdminApi";
 let CommonProjectNameForJSONUtility = "JSONUtility";
+let CommonProjectNameForJSONUser = "JSONUser";
 
+require('dotenv').config()
 
 const express = require('express');
 var path = require('path');
@@ -17,7 +19,7 @@ var port = normalizePort(process.env.PORT || '4119');
 let SubRouteJSONApi = require(`./Projects/${CommonProjectNameForJSONApi}/Routes`);
 //let SubRouteJSONAdminApi = require(`./Projects/${CommonProjectNameForJSONAdminApi}/Routes`);
 //let SubRouteJSONUtility = require(`./Projects/${CommonProjectNameForJSONUtility}/Routes`);
-
+let SubRouteJSONUser = require(`./Projects/${CommonProjectNameForJSONUser}/Routes`);
 
 app.use(cookieParser());
 
@@ -34,6 +36,7 @@ app.get('/', function (req, res, next) {
 app.use(`/${CommonProjectNameForJSONApi}`, SubRouteJSONApi);
 //app.use(`/${CommonProjectNameForJSONAdminApi}`, SubRouteJSONAdminApi);
 //app.use(`/${CommonProjectNameForJSONUtility}`, SubRouteJSONUtility);
+app.use(`/${CommonProjectNameForJSONUser}`, SubRouteJSONUser);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);

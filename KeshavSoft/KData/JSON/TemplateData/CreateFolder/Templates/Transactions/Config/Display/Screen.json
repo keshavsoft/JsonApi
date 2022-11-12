@@ -1,0 +1,14 @@
+{
+    "TableColumns": [],
+    "TableInfo": {},
+    "SubTableColumns": {
+        "InvGrid": {
+            "TableColumns": [],
+            "TableInfo": {}
+        },
+        "FinGrid": {
+            "TableColumns": [],
+            "TableInfo": {}
+        }
+    }
+}

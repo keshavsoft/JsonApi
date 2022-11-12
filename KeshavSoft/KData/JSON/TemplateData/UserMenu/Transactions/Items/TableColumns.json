@@ -1,0 +1,163 @@
+[
+  {
+    "pk": 2,
+    "DisplayName": "Name",
+    "DataAttribute": "Name",
+    "CreateNew": true,
+    "Insert": true,
+    "isDate": false,
+    "isToggle": false,
+    "ShowInTable": true,
+    "ParentClasses": {},
+    "DefaultValue": "",
+    "KDataset": {
+      "SaveCheck": {
+        "Validate": true,
+        "Type": "",
+        "Masters": {
+          "CheckKey": "",
+          "CheckColumnName": ""
+        }
+      }
+    },
+    "Widths": {
+      "px": 100
+    },
+    "DisplayType": {
+      "IsIndianFormat": false,
+      "IsInput": false
+    }
+  },
+  {
+    "pk": 3,
+    "DisplayName": "Screens",
+    "DataAttribute": "Screens",
+    "CreateNew": true,
+    "Insert": true,
+    "isDate": false,
+    "SaveOnEnter": false,
+    "isToggle": false,
+    "ShowInTable": true,
+    "ParentClasses": {},
+    "TextAlign": "Right",
+    "ShowTotal": true,
+    "DefaultValue": "",
+    "Widths": {
+      "px": 50
+    },
+    "DisplayType": {
+      "IsIndianFormat": false,
+      "IsInput": false
+    }
+  },
+  {
+    "pk": 4,
+    "DisplayName": "Rows",
+    "DataAttribute": "Rows",
+    "CreateNew": true,
+    "Insert": true,
+    "isDate": false,
+    "SaveOnEnter": false,
+    "isToggle": false,
+    "ShowInTable": true,
+    "ParentClasses": {},
+    "TextAlign": "Right",
+    "ShowTotal": true,
+    "DefaultValue": "",
+    "Widths": {
+      "px": 50
+    },
+    "DisplayType": {
+      "IsIndianFormat": false,
+      "IsInput": false
+    }
+  },
+  {
+    "pk": 5,
+    "DisplayName": "Min.PK",
+    "DataAttribute": "Min.PK",
+    "CreateNew": true,
+    "Insert": true,
+    "isDate": false,
+    "SaveOnEnter": false,
+    "isToggle": false,
+    "ShowInTable": true,
+    "ParentClasses": {},
+    "TextAlign": "Right",
+    "ShowTotal": true,
+    "DefaultValue": "",
+    "Widths": {
+      "px": 50
+    },
+    "DisplayType": {
+      "IsIndianFormat": false,
+      "IsInput": false
+    }
+  },
+  {
+    "pk": 6,
+    "DisplayName": "Max.PK",
+    "DataAttribute": "Max.PK",
+    "CreateNew": true,
+    "Insert": true,
+    "isDate": false,
+    "SaveOnEnter": false,
+    "isToggle": false,
+    "ShowInTable": true,
+    "ParentClasses": {},
+    "TextAlign": "Right",
+    "ShowTotal": true,
+    "DefaultValue": "",
+    "Widths": {
+      "px": 50
+    },
+    "DisplayType": {
+      "IsIndianFormat": false,
+      "IsInput": false
+    }
+  },
+  {
+    "pk": 7,
+    "DisplayName": "Min.DT.",
+    "DataAttribute": "Min.DT.",
+    "CreateNew": true,
+    "Insert": true,
+    "isDate": false,
+    "SaveOnEnter": false,
+    "isToggle": false,
+    "ShowInTable": true,
+    "ParentClasses": {},
+    "TextAlign": "Right",
+    "ShowTotal": true,
+    "DefaultValue": "",
+    "Widths": {
+      "px": 50
+    },
+    "DisplayType": {
+      "IsIndianFormat": false,
+      "IsInput": false
+    }
+  },
+  {
+    "pk": 8,
+    "DisplayName": "Max.DT.",
+    "DataAttribute": "Max.DT.",
+    "CreateNew": true,
+    "Insert": true,
+    "isDate": false,
+    "SaveOnEnter": false,
+    "isToggle": false,
+    "ShowInTable": true,
+    "ParentClasses": {},
+    "TextAlign": "Right",
+    "ShowTotal": true,
+    "DefaultValue": "",
+    "Widths": {
+      "px": 50
+    },
+    "DisplayType": {
+      "IsIndianFormat": false,
+      "IsInput": false
+    }
+  }
+]
