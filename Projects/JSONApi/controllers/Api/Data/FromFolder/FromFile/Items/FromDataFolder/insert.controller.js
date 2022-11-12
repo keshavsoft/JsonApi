@@ -1,25 +1,18 @@
-let Repos = require("../../../../../../../Dal/Api/Data/FromFolder/FromFile/Items/FromDataFolder/Insert");
+let Repos = require("../../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/FromDataFolder/Insert");
 
 let PostFunc = async (req, res) => {
-    let LocalFolderName = req.body.inFolderName;
-    let LocalFileNameWithExtension = req.body.inJsonFileName;
-    let LocalItemName = req.body.inItemName;
-
-    let inJsonConfig = {
-        inFolderName: LocalFolderName,
-        inFileNameWithExtension: LocalFileNameWithExtension
-
-    };
-    let inItemConfig = {
-        inItemName: LocalItemName
-    }
-
-
-    Repos.PostFunc({ inJsonConfig, inItemConfig, inUserPK, inPostData }).then(PromiseData => {
-        res.end(JSON.stringify(PromiseData));
+    console.log("ssssssssss:", req.body);
+    let LocalDataPK = req.KeshavSoft.DataPk;
+    let LocalInPostData = req.body.inPostData;
+    ``
+    Repos.PostFunc({
+        inJsonConfig: req.body.inJsonConfig,
+        inItemConfig: req.body.inItemConfig,
+        inUserPK: LocalDataPK,
+        inPostData: LocalInPostData
+    }).then(PromiseData => {
+        res.json(PromiseData);
     });
-
-    res.json({});
 };
 
 module.exports = {

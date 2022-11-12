@@ -1,7 +1,16 @@
 POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/Insert
-Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BRFVSQUEiLCJEYXRhUGsiOjEwMTgsImlhdCI6MTY2NTgxNzg2NH0.WkefdLQRoeWretqy0BSh108ZwPi02ORAQK1gBBAab9s
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IksxMSIsIkRhdGFQayI6MjAxNywiaWF0IjoxNjY4MjUyMTcwfQ.L1a8OdpmHwyjOZE0xmffo8F5gcPPa_24UhR5uyEGBq4
 content-type: application/json
- 
-{   
 
-}
+{
+        "inJsonConfig": {
+            "inFolderName": "Masters",
+            "inJsonFileName": "Customers.json"
+        }, "inItemConfig": {
+            "inItemName": "CustomerNames"
+        },
+        "inPostData": {
+            "CustomerName": "aaaaaaaaaaaaaa",
+            "Mobile": 9999999999
+        }
+    }
