@@ -1,10 +1,12 @@
 let getUrl = async (req, res) => {
     let LocalUrlArray = req.originalUrl.split("/");
     let LocalBasePath = LocalUrlArray[1];
-    
+
     switch (LocalBasePath) {
         case "Tally":
+            res.setHeader("Content-Type", "text/html");
             res.end("Copy Tally to public from Repo : https://github.com/keshavsoft/kposthtml");
+
             break;
         case "JSONUser":
             res.end("Copy project : JSONUser from Repo : https://github.com/keshavsoft/JSONUser");
@@ -28,10 +30,13 @@ let postUrl = async (req, res) => {
 
     switch (LocalBasePath) {
         case "Tally":
-            res.end("Copy Tally to public from Repo : https://github.com/keshavsoft/kposthtml");
+            res.setHeader("Content-Type", "text/html");
+            res.end("From Post, Copy Tally to public from Repo : https://github.com/keshavsoft/kposthtml");
+
             break;
         case "JSONUser":
-            res.end("Copy project : JSONUser from Repo : https://github.com/keshavsoft/JSONUser");
+            res.setHeader("Content-Type", "text/html");
+            res.end("From Post, Copy project : JSONUser from Repo : https://github.com/keshavsoft/JSONUser");
 
             break;
         case "JSONImport":

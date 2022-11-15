@@ -1,10 +1,11 @@
 let CommonProjectNameForJSONApi = "JSONApi";
 let CommonProjectNameForJSONUser = "JSONUser";
+let CommonProjectNameForJSONReports = "JSONReports";
 let CommonProjectNameForJSONImport = "JSONImport";
 
 let CommonProjectNameForJSONAdminApi = "JSONAdminApi";
 let CommonProjectNameForJSONUtility = "JSONUtility";
-let CommonProjectNameForJSONReports = "JSONReports";
+
 
 let Commoncontrollers = require("./controllers/missedAll.controller");
 
@@ -21,11 +22,12 @@ var port = normalizePort(process.env.PORT || '4119');
 
 let SubRouteJSONApi = require(`./Projects/${CommonProjectNameForJSONApi}/Routes`);
 
-//let SubRouteJSONUser = require(`./Projects/${CommonProjectNameForJSONUser}/Routes`);
+// let SubRouteJSONUser = require(`./Projects/${CommonProjectNameForJSONUser}/Routes`);
+// let SubRouteJSONReports = require(`./Projects/${CommonProjectNameForJSONReports}/Routes`);
 //let SubRouteJSONImport = require(`./Projects/${CommonProjectNameForJSONImport}/Routes`);
 //let SubRouteJSONAdminApi = require(`./Projects/${CommonProjectNameForJSONAdminApi}/Routes`);
 //let SubRouteJSONUtility = require(`./Projects/${CommonProjectNameForJSONUtility}/Routes`);
-//let SubRouteJSONReports = require(`./Projects/${CommonProjectNameForJSONReports}/Routes`);
+
 
 app.use(cookieParser());
 
@@ -38,11 +40,11 @@ app.get('/', function (req, res, next) {
 
 app.use(`/${CommonProjectNameForJSONApi}`, SubRouteJSONApi);
 
-//app.use(`/${CommonProjectNameForJSONUser}`, SubRouteJSONUser);
+// app.use(`/${CommonProjectNameForJSONUser}`, SubRouteJSONUser);
+// app.use(`/${CommonProjectNameForJSONReports}`, SubRouteJSONReports);
 //app.use(`/${CommonProjectNameForJSONImport}`, SubRouteJSONImport);
 //app.use(`/${CommonProjectNameForJSONAdminApi}`, SubRouteJSONAdminApi);
 //app.use(`/${CommonProjectNameForJSONUtility}`, SubRouteJSONUtility);
-//app.use(`/${CommonProjectNameForJSONReports}`, SubRouteJSONReports);
 
 app.get('/*', Commoncontrollers.getUrl);
 app.post('/*', Commoncontrollers.postUrl);
