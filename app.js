@@ -1,8 +1,12 @@
-//let CommonProjectNameForJSONImport = "JSONImport";
 let CommonProjectNameForJSONApi = "JSONApi";
+let CommonProjectNameForJSONUser = "JSONUser";
+let CommonProjectNameForJSONImport = "JSONImport";
+
 let CommonProjectNameForJSONAdminApi = "JSONAdminApi";
 let CommonProjectNameForJSONUtility = "JSONUtility";
-//let CommonProjectNameForJSONUser = "JSONUser";
+let CommonProjectNameForJSONReports = "JSONReports";
+
+let Commoncontrollers = require("./controllers/missedAll.controller");
 
 require('dotenv').config()
 
@@ -15,12 +19,13 @@ var cookieParser = require('cookie-parser');
 
 var port = normalizePort(process.env.PORT || '4119');
 
-//let SubRouteJSONReports = require(`./Projects/${CommonProjectName}/Routes`);
 let SubRouteJSONApi = require(`./Projects/${CommonProjectNameForJSONApi}/Routes`);
-//let SubRouteJSONAdminApi = require(`./Projects/${CommonProjectNameForJSONAdminApi}/Routes`);
-//let SubRouteJSONUtility = require(`./Projects/${CommonProjectNameForJSONUtility}/Routes`);
+
 //let SubRouteJSONUser = require(`./Projects/${CommonProjectNameForJSONUser}/Routes`);
 //let SubRouteJSONImport = require(`./Projects/${CommonProjectNameForJSONImport}/Routes`);
+//let SubRouteJSONAdminApi = require(`./Projects/${CommonProjectNameForJSONAdminApi}/Routes`);
+//let SubRouteJSONUtility = require(`./Projects/${CommonProjectNameForJSONUtility}/Routes`);
+//let SubRouteJSONReports = require(`./Projects/${CommonProjectNameForJSONReports}/Routes`);
 
 app.use(cookieParser());
 
@@ -31,14 +36,18 @@ app.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname + `/Html/JSONProject.html`));
 });
 
-//app.use(`/${CommonProjectNameForJSONImport}`, SubRouteJSONImport);
-//app.use("/JSONUser", SubRouteJSONUser);
-//app.use("/JSONApi", cors({ origin: '*' }), SubRouteJSONProject);
-//app.use(`/${CommonProjectName}`, SubRouteJSONReports);
 app.use(`/${CommonProjectNameForJSONApi}`, SubRouteJSONApi);
+
+//app.use(`/${CommonProjectNameForJSONUser}`, SubRouteJSONUser);
+//app.use(`/${CommonProjectNameForJSONImport}`, SubRouteJSONImport);
 //app.use(`/${CommonProjectNameForJSONAdminApi}`, SubRouteJSONAdminApi);
 //app.use(`/${CommonProjectNameForJSONUtility}`, SubRouteJSONUtility);
-//app.use(`/${CommonProjectNameForJSONUser}`, SubRouteJSONUser);
+//app.use(`/${CommonProjectNameForJSONReports}`, SubRouteJSONReports);
+
+app.get('/*', Commoncontrollers.getUrl);
+app.post('/*', Commoncontrollers.postUrl);
+
+//app.use("/JSONApi", cors({ origin: '*' }), SubRouteJSONProject);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
