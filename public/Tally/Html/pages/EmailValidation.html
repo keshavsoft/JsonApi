@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let jVarLocalProjectName = "JSONUser";
+
+        let getUrlQueryParams = () => {
+            var queryParams = {}, param;
+            var params = window.location.search.substring(1).split("&");
+            for (var i = 0; i < params.length; i++) {
+                param = params[i].split('=');
+                if (param.length === 2) {
+                    queryParams[param[0]] = param[1];
+                };
+            }
+            return queryParams;
+        };
+
+        let jFOnLoad = () => {
+            const { UserName, FromEmail, KToken } = getUrlQueryParams();
+
+            let jVarFetchUrl = `/${jVarLocalProjectName}/Admin/Api/Email/${UserName}/${FromEmail}/${KToken}`;
+
+            fetch(jVarFetchUrl).then(response => response.json()).then(FetchData => {
+                if (FetchData.KTF) {
+                    //window.location = "sign-in.html"
+                    window.location = "/JSONApi/Html/UserData/FromFolders.html";
+                } else {
+                    if (FetchData.SetupDone) {
+                        //   window.location = "sign-in.html?SetupDone=true";
+                        window.location = "/JSONApi/Html/UserData/FromFolders.html";
+                    };
+                }
+            });
+        };
+
+        jFOnLoad();
+    </script>
+</body>
+
+</html>
