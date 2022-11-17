@@ -12,11 +12,12 @@ let Commoncontrollers = require("./controllers/missedAll.controller");
 require('dotenv').config()
 
 const express = require('express');
-var path = require('path');
-
+const http = require('http');
 const app = express();
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const WebSocket = require('ws');
+const server = http.createServer(app);
 
 var port = normalizePort(process.env.PORT || '4119');
 
@@ -27,7 +28,6 @@ let SubRouteJSONApi = require(`./Projects/${CommonProjectNameForJSONApi}/Routes`
 //let SubRouteJSONImport = require(`./Projects/${CommonProjectNameForJSONImport}/Routes`);
 //let SubRouteJSONAdminApi = require(`./Projects/${CommonProjectNameForJSONAdminApi}/Routes`);
 //let SubRouteJSONUtility = require(`./Projects/${CommonProjectNameForJSONUtility}/Routes`);
-
 
 app.use(cookieParser());
 
@@ -50,6 +50,10 @@ app.get('/*', Commoncontrollers.getUrl);
 app.post('/*', Commoncontrollers.postUrl);
 
 //app.use("/JSONApi", cors({ origin: '*' }), SubRouteJSONProject);
+
+const wss = new WebSocket.Server({ server });
+
+wss.on("connection", require("./Projects/WebSocket/Funcs"));
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
