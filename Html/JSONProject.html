@@ -104,8 +104,8 @@ The above copyright notice and this permission notice shall be included in all c
                     </li>
                     <li class="nav-item">
                         <a href="/JSONApi/Html/UserData/Login/signin.html" target="_blank"
-                        class="btn btn-danger btn-round">
-                        our WORK</a>
+                            class="btn btn-danger btn-round">
+                            our WORK</a>
                     </li>
                 </ul>
             </div>
@@ -180,14 +180,12 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
         <div class="section" id="TallyId">
             <a href="/Tally/pages/sign-in.html" target="_blank">
-                <img class="mx-auto d-block" src="/assets/img/Tally.png"
-                alt="">
+                <img class="mx-auto d-block" src="/assets/img/Tally.png" alt="">
             </a>
         </div>
         <div class="section" id="HobbyId">
             <a href="/Hobby/Html/Dashboard.html" target="_blank">
-                <img class="mx-auto d-block" src="/assets/img/Numismatics.jpeg" width="200" height="200"
-                alt="">
+                <img class="mx-auto d-block" src="/assets/img/Numismatics.jpeg" width="200" height="200" alt="">
             </a>
         </div>
     </div>
@@ -257,6 +255,29 @@ The above copyright notice and this permission notice shall be included in all c
                 status.textContent = 'Locating…';
                 navigator.geolocation.getCurrentPosition(success, error);
             }
+        };
+    </script>
+
+    <script>
+        let jVarGlobalWs = new WebSocket(`ws://${window.location.host}/`);
+
+        function showMessage(message) {
+            console.log("msg : ", message);
+        };
+
+        let jFCheckWebSocket = () => {
+            if ("WebSocket" in window) {
+                jVarGlobalWs.onopen = () => {
+                    console.log('Connection opened!');
+                }
+                jVarGlobalWs.onmessage = ({ data }) => showMessage(data);
+                jVarGlobalWs.onclose = function () {
+                    jVarGlobalWs = null;
+                }
+            } else {
+                // The browser doesn't support WebSocket
+                alert("WebSocket NOT supported by your Browser!");
+            };
         };
     </script>
 

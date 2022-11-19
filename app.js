@@ -8,6 +8,7 @@ let CommonProjectNameForJSONUtility = "JSONUtility";
 
 
 let Commoncontrollers = require("./controllers/missedAll.controller");
+let CommonForWebSocketStart = require("./Projects/WebSocket/Start");
 
 require('dotenv').config()
 
@@ -23,9 +24,9 @@ var port = normalizePort(process.env.PORT || '4119');
 
 let SubRouteJSONApi = require(`./Projects/${CommonProjectNameForJSONApi}/Routes`);
 
-// let SubRouteJSONUser = require(`./Projects/${CommonProjectNameForJSONUser}/Routes`);
+ let SubRouteJSONUser = require(`./Projects/${CommonProjectNameForJSONUser}/Routes`);
 // let SubRouteJSONReports = require(`./Projects/${CommonProjectNameForJSONReports}/Routes`);
-//let SubRouteJSONImport = require(`./Projects/${CommonProjectNameForJSONImport}/Routes`);
+let SubRouteJSONImport = require(`./Projects/${CommonProjectNameForJSONImport}/Routes`);
 //let SubRouteJSONAdminApi = require(`./Projects/${CommonProjectNameForJSONAdminApi}/Routes`);
 //let SubRouteJSONUtility = require(`./Projects/${CommonProjectNameForJSONUtility}/Routes`);
 
@@ -40,9 +41,9 @@ app.get('/', function (req, res, next) {
 
 app.use(`/${CommonProjectNameForJSONApi}`, SubRouteJSONApi);
 
-// app.use(`/${CommonProjectNameForJSONUser}`, SubRouteJSONUser);
+app.use(`/${CommonProjectNameForJSONUser}`, SubRouteJSONUser);
 // app.use(`/${CommonProjectNameForJSONReports}`, SubRouteJSONReports);
-//app.use(`/${CommonProjectNameForJSONImport}`, SubRouteJSONImport);
+app.use(`/${CommonProjectNameForJSONImport}`, SubRouteJSONImport);
 //app.use(`/${CommonProjectNameForJSONAdminApi}`, SubRouteJSONAdminApi);
 //app.use(`/${CommonProjectNameForJSONUtility}`, SubRouteJSONUtility);
 
@@ -50,10 +51,7 @@ app.get('/*', Commoncontrollers.getUrl);
 app.post('/*', Commoncontrollers.postUrl);
 
 //app.use("/JSONApi", cors({ origin: '*' }), SubRouteJSONProject);
-
-const wss = new WebSocket.Server({ server });
-
-wss.on("connection", require("./Projects/WebSocket/Funcs"));
+CommonForWebSocketStart(server);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
@@ -69,7 +67,7 @@ function normalizePort(val) {
     return false;
 };
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Listening in port : ${port}`);
     console.log(`Click to open : http://localhost:${port}`);
 });
