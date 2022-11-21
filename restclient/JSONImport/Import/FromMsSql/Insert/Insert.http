@@ -1,0 +1,7 @@
+POST http://localhost:4119/JSONImport/Import/FromMsSql/Insert/BulkWithFileNameToDataOnly/inFolderName/inFileNameWithExtension
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkRVUkdBUEtMMjIyMyIsIkRhdGFQayI6MTAyMiwiaWF0IjoxNjY5MDE4ODc3fQ.pkTsZeZvc_14JYy496InHmhyMjIqbFKKO7WRNBGAbAY
+content-type: application/json
+
+{
+
+}
