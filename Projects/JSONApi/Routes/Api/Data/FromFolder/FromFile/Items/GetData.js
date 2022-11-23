@@ -2,7 +2,9 @@ let express = require('express');
 let router = express.Router();
 let Repos = require("../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/GetData");
 let commonMiddleWares = require("../../../../../../Middlewares/ForRoutes/Api/Data/FromFolder/FromFile/Items/GetData");
+let CommonController = require("../../../../../../controllers/Api/Data/FromFolder/FromFile/Items/getData.controller");
 
+router.post('/', CommonController.PostFunc);
 
 router.get('/AsArray', commonMiddleWares.AsArray, function (req, res, next) {
   //  console.log("------ : ", req.KeshavSoft);
@@ -51,5 +53,6 @@ router.post('/AsArray', function (req, res, next) {
     res.json({ KTF: false, KReason: "KeshavSoft not found in Request" });
   };
 });
+
 
 module.exports = router;

@@ -18,10 +18,9 @@ let jFPrepareMenuItem = ({ inFileName, inMenuClass, inIconClass }) => {
     jVarLocalMenuNavContainerId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
 };
 
-let jFShowFoldersInMenu = () => {
-    let jVarLocalRoute = jVarGlobalProjectConfig.RouteStart.Start;
-
-    let jVarLocalSubRoute = jVarGlobalSubRoute;
+let jFShowFoldersInMenu = ({ inProjectName, inSubRoute }) => {
+    let jVarLocalRoute = inProjectName;
+    let jVarLocalSubRoute = inSubRoute;
 
     let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/GetDirs/MenuWithDesign`;
 
@@ -45,7 +44,7 @@ let jFShowFoldersInMenu = () => {
         if (dataFromApi !== null) {
             if (dataFromApi.KTF) {
                 console.log("dataFromApi-------- : ", dataFromApi);
-                
+
                 Object.entries(dataFromApi.Folders).forEach(
                     ([key, value]) => {
                         jFPrepareMenuItem({

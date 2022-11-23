@@ -7,3 +7,8 @@ exports.AsArray = async ({ inDataPk, inJsonConfig }) => {
 exports.UsingFolderAndFile = async ({inFolderName, inFileNameWithExtension, inDataPK }) => {
     return await dal.UsingFolderAndFile({ inFolderName, inFileNameWithExtension, inDataPK });
 };
+
+exports.PostFunc = async ({inFolderName, inFileNameWithExtension, inDataPK }) => {
+    return await dal.PostFunc({ inFolderName, inFileNameWithExtension, inDataPK });
+};
+

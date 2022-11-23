@@ -6,7 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/css/Bs5/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="/css/Bs5/bootstrap.min.css"> -->
+
+    <link rel="stylesheet" href="/JSONApi/css/Bs5/bootstrap.min.css">
 
     <title>KeshavSoft</title>
 
@@ -274,14 +276,14 @@
     <div class="container">
         <div class="input-group mb-3 mt-3">
             <input type="text" list="FoldersDataListId" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-          
+
             <datalist id="FoldersDataListId">
                 <option value="KeshavSoft">
                 </option><option value="9848163021">
             </option></datalist>
-            
+
             <button class="btn btn-outline-secondary" type="button" id="FoldersButtonShowId">Show</button>
-          </div>
+        </div>
 
         <div id="KCont1" class="m-3">
 
@@ -325,9 +327,6 @@
                             </div>
                         </div>
                         <input type="submit" class=" btn btn-primary" onclick="GlobalFuncsForLogin.Login.LoginCheck()">
-                        <!-- <button type="button" class="btn btn-primary"
-                        onclick="jVarGlobalAdmin.Login.LoginCheck()">Check</button>
-                         -->
                     </form>
                 </div>
             </div>
@@ -363,39 +362,29 @@
             </div>
         </div>
     </div>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script> -->
-    <script src="/js/lodash.js"></script>
 
+    <script src="/JSONApi/Js/lodash.js"></script>
+<script src="/JSONApi/Js/Bs5/bootstrap.bundle.min.js"></script>
+<script src="/JSONApi/Js/handlebars/handlebars.min-v4.7.7.js"></script>
+<script src="/JSONApi/Js/sweetalert2/sweetalert2@11.js"></script>
+
+<script src="/JSONApi/Js/CommonClassOnly.js"></script>
+<!-- <script src="/JSONApi/Js/KeshavSoftCrudFuncs.js"></script> -->
+
+<script src="/JSONApi/Js/KeshavSoft/FetchFuncs/PreLoad.js"></script>
+<script src="/JSONApi/Js/KeshavSoft/FetchFuncs/MenuFuncs.js"></script>
+<script src="/JSONApi/Js/KeshavSoft/FetchFuncs/DataFuncs/TableFuncs.js"></script>
+
+
+
+<!-- <script src="/js/lodash.js"></script>
     <script src="/js/Bs5/bootstrap.bundle.min.js"></script>
     <script src="/js/handlebars/handlebars.min-v4.7.7.js"></script>
     <script src="/js/sweetalert2/sweetalert2@11.js"></script>
-
-    <!-- <script src="/ClassesStatic/CommonClass.js"></script> -->
-
     <script src="/JSONApi/Js/CommonClassOnly.js"></script>
+    <script src="/ClassesStatic/BuildDynamic.js"></script> -->
 
-    <script src="/ClassesStatic/BuildDynamic.js"></script>
-
-    <script>
-        let jVarGlobalProjectConfig = {
-            RouteStart: {
-                Start: "JSONApi",
-                SubRoute: "API",
-                HtmlPath: "",
-                UserCheckRoute: "JSONUser",
-                AdminSubRoute: "AdminApi",
-            },
-            HtmlValues: {
-                HtmlIds: {
-                    Modals: {
-                        LoginModalId: "exampleModal"
-                    }
-                }
-            }
-        };
-    </script>
-
-    <script src="/js/KeshavSoft/Login.js"></script>
+    <!-- <include src="./src/components/JScripts/KSJsFuncs/LoginClassOnly.html"></include> -->
 
     <script>
     class GlobalClassForLogin {
@@ -564,18 +553,22 @@
         };
     };
 </script>
-    
+
     <script>
         let jVarGlobalProject = "JSONApi";
         let jVarGlobalSubRoute = "Api";
 
         let GlobalFuncsForLogin = new GlobalClassForLogin({ inProjectName: jVarGlobalProject });
         let jVarGlobalClientObject = new PrepareClass({ inProjectName: jVarGlobalProject });
+
+
+        GlobalFuncsForLogin.Login.ClientSideCookieFuncs.CheckToken();
+
     </script>
 
-    <script src="/js/KeshavSoft/FetchFuncs/PreLoad.js"></script>
+    <!-- <script src="/js/KeshavSoft/FetchFuncs/PreLoad.js"></script>
     <script src="/js/KeshavSoft/FetchFuncs/MenuFuncs.js"></script>
-    <script src="/js/KeshavSoft/FetchFuncs/DataFuncs/TableFuncs.js"></script>
+    <script src="/js/KeshavSoft/FetchFuncs/DataFuncs/TableFuncs.js"></script> -->
 
     <!-- <include src="./src/components/Templates/UserData/script.html"></include> -->
     <!-- <include src="./src/components/JScripts/KSJsFuncs/Login.html"></include> -->
@@ -6525,7 +6518,7 @@
         let jVarGlobalPresentViewData;
         let jVarGlobalHBSData = {};
 
-        jVarGlobalLoginFuncs.Login.ClientSideCookieFuncs.CheckToken();
+        //jVarGlobalLoginFuncs.Login.ClientSideCookieFuncs.CheckToken();
 
         jVarGlobalApiFuncs.ApiFuncs.PreLoad.Masters.FillDataFromServer();
 
@@ -6536,8 +6529,8 @@
         });
     </script>
 
-    <script src="/js/KeshavSoftCrudFuncs.js"></script>
-    <script src="/js/WebSocket.js"></script>
+    <!-- <script src="/js/KeshavSoftCrudFuncs.js"></script>
+    <script src="/js/WebSocket.js"></script> -->
 
     <template id="TemplateForBreadcrumb">
     {{#each this}}
@@ -6728,10 +6721,9 @@
     </script>
 
 
-    <!-- <script src="/js/bundle.js"></script> -->
- 
-    <script src="../../Js/KeshavSoft/DataAsJson/Tally.js" type="module"></script>
- 
+    <script src="/JSONApi/Js/KeshavSoftCrudFuncs.js"></script>
+    <script src="/JSONApi/Js/KeshavSoft/DataAsJson/FromFolders.js" type="module"></script>
+
 </body>
 
 </html>

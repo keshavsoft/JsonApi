@@ -1,9 +1,13 @@
 import { FetchAsPostFromFolderName } from "../MenuAsCards/ForFiles.js";
 
-let jFShowFoldersInMenu = () => {
-    let jVarLocalRoute = jVarGlobalProjectConfig.RouteStart.Start;
+let jFShowFoldersInMenu = ({ inProjectName, inSubRoute }) => {
+    // let jVarLocalRoute = jVarGlobalProjectConfig.RouteStart.Start;
 
-    let jVarLocalSubRoute = jVarGlobalSubRoute;
+    // let jVarLocalSubRoute = jVarGlobalSubRoute;
+
+    let jVarLocalRoute = inProjectName;
+    let jVarLocalSubRoute = inSubRoute;
+
 
     let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/GetDirs/MenuWithDesign`;
 
@@ -37,7 +41,7 @@ let jFShowFoldersInMenu = () => {
                     option.value = item;
                     jVarLocalFoldersDataListId.appendChild(option);
                 });
-                
+
                 jVarLocalFoldersButtonShowId.addEventListener("click", FetchAsPostFromFolderName);
                 // let k1 = document.querySelectorAll('[keshavsoftfoldername]');
 

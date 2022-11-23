@@ -10,3 +10,8 @@ exports.UsingFolderAndFile = async ({ inFolderName, inFileNameWithExtension, inD
     let LocalDataToReturn = await CommonDataSupplyWithItemCount.StartFunc({ inFolderName, inFileNameWithExtension, inDataPK });
     return await LocalDataToReturn;
 };
+
+exports.PostFunc = async ({ inFolderName, inFileNameWithExtension, inDataPK }) => {
+    let LocalDataToReturn = await CommonDataSupplyWithItemCount.StartFuncReturnKTF({ inFolderName, inFileNameWithExtension, inDataPK });
+    return await LocalDataToReturn;
+};
