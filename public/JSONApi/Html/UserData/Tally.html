@@ -4339,6 +4339,7 @@
                                         body: JSON.stringify(jVarLocalJsonConfigAndItemConfig)
                                     }).then(response => response.json())
                                         .then(dataFromApi => {
+                                            
                                             if (dataFromApi.KTF === false) {
                                                 inHtmlCard.classList.remove("border-success");
                                                 inHtmlCard.classList.add("border-danger");
@@ -4360,7 +4361,7 @@
                                 if (inDataFromSave.KTF) {
                                     if (inDataFromSave.hasOwnProperty("DataFromServer")) {
                                         jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(inDataFromSave.DataFromServer);
-
+console.log("aaaaaaaaaa : ",jVarGlobalPresentViewData);
                                         let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
 
                                         if (jVarLocalUUID in localStorage) {
