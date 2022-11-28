@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/css/Bs5/bootstrap.min.css">
+    <link rel="stylesheet" href="/JSONApi/css/Bs5/bootstrap.min.css">
 
     <title>KeshavSoft</title>
 
@@ -215,6 +215,15 @@
                         </a>
                     </li>
                     <li>
+                        <a href="./TallySync.html" class="nav-link DashboardAClass text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi d-block mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z">
+                                </path>
+                            </svg>
+                            Tally Sync
+                        </a>
+                    </li>
+                    <li>
                         <a href="/JSONUtility/Html/UserData/Utility.html" class="nav-link DashboardAClass text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
                                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"></path>
@@ -233,7 +242,7 @@
                             LocalStorage
                         </a>
                     </li>
-          
+
                 </ul>
                 <ul class="navbar-nav">
                     <li id="HeaderLoginButtonId">
@@ -263,16 +272,6 @@
         </div>
     </nav>
     <div class="container">
-        <nav aria-label="breadcrumb" class="m-2 d-print-none">
-            <ol class="breadcrumb" id="breadcrumbHtmlId">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Masters</a></li>
-                <li class="breadcrumb-item"><a href="#">Products.json</a></li>
-                <li class="breadcrumb-item"><a href="#">Products</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Create (<a href="#">Refresh</a>) </li>
-            </ol>
-        </nav>
-
         <div id="KCont1" class="m-3">
 
         </div>
@@ -287,105 +286,61 @@
         </div>
     </footer>
 
-    <div id="DataListsID">
+    <script src="/JSONApi/Js/lodash.js"></script>
+<script src="/JSONApi/Js/Bs5/bootstrap.bundle.min.js"></script>
+<script src="/JSONApi/Js/handlebars/handlebars.min-v4.7.7.js"></script>
+<script src="/JSONApi/Js/sweetalert2/sweetalert2@11.js"></script>
 
-    </div>
+<script src="/JSONApi/Js/CommonClassOnly.js"></script>
+<!-- <script src="/JSONApi/Js/KeshavSoftCrudFuncs.js"></script> -->
 
-    <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Enter client user credentials</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="LoginFormPopUpId22" class="" onsubmit="return false" novalidate="">
-                        <div class="mb-3 form-floating is-valid">
-                            <input type="text" class="form-control" id="KUserNameInput" required="">
-                            <label for="KUserNameInput">User Name</label>
-                            <div class="invalid-feedback">
-                                User Name cannot be empty.
-                            </div>
-                        </div>
-                        <div class="mb-3 form-floating">
-                            <input type="password" class="form-control" id="KPasswordInput" required="">
-                            <label for="KPasswordInput">Password</label>
-                            <div class="invalid-feedback">
-                                Password cannot be empty.
-                            </div>
-                        </div>
-                        <input type="submit" class=" btn btn-primary" onclick="GlobalFuncsForLogin.Login.LoginCheck()">
-                        <!-- <button type="button" class="btn btn-primary"
-                        onclick="jVarGlobalAdmin.Login.LoginCheck()">Check</button>
-                         -->
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="AlterPopUpDataId" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Alter Data</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="jVarGlobalClientObject.Api.UserData.Table.Row.Update({inEvent:event})">Update</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<script src="/JSONApi/Js/KeshavSoft/FetchFuncs/PreLoad.js"></script>
+<script src="/JSONApi/Js/KeshavSoft/FetchFuncs/MenuFuncs.js"></script>
+<script src="/JSONApi/Js/KeshavSoft/FetchFuncs/DataFuncs/TableFuncs.js"></script>
 
 
-    <div class="modal fade" id="CreateNewPopUpId" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content KTableDivClass">
-                <div class="modal-body KCardBody">
 
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script> -->
-    <script src="/js/lodash.js"></script>
-
+<!-- <script src="/js/lodash.js"></script>
     <script src="/js/Bs5/bootstrap.bundle.min.js"></script>
     <script src="/js/handlebars/handlebars.min-v4.7.7.js"></script>
     <script src="/js/sweetalert2/sweetalert2@11.js"></script>
+    <script src="/JSONApi/Js/CommonClassOnly.js"></script>
+    <script src="/ClassesStatic/BuildDynamic.js"></script> -->
 
-    <script src="/ClassesStatic/CommonClass.js"></script>
-    <script src="/ClassesStatic/BuildDynamic.js"></script>
+    <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Enter client user credentials</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="LoginFormPopUpId22" class="" onsubmit="return false" novalidate="">
+                    <div class="mb-3 form-floating is-valid">
+                        <input type="text" class="form-control" id="KUserNameInput" required="">
+                        <label for="KUserNameInput">User Name</label>
+                        <div class="invalid-feedback">
+                            User Name cannot be empty.
+                        </div>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="password" class="form-control" id="KPasswordInput" required="">
+                        <label for="KPasswordInput">Password</label>
+                        <div class="invalid-feedback">
+                            Password cannot be empty.
+                        </div>
+                    </div>
+                    <input type="submit" class=" btn btn-primary" onclick="GlobalFuncsForLogin.Login.LoginCheck()">
+                    <!-- <button type="button" class="btn btn-primary"
+                        onclick="jVarGlobalAdmin.Login.LoginCheck()">Check</button>
+                         -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script>
-        let jVarGlobalProjectConfig = {
-            RouteStart: {
-                Start: "JSONApi",
-                SubRoute: "API",
-                HtmlPath: "",
-                UserCheckRoute: "JSONUser",
-                AdminSubRoute: "AdminApi",
-            },
-            HtmlValues: {
-                HtmlIds: {
-                    Modals: {
-                        LoginModalId: "exampleModal"
-                    }
-                }
-            }
-        };
-    </script>
-
-    <script src="/js/KeshavSoft/Login.js"></script>
-    
-    <!-- <include src="./src/components/Templates/UserData/script.html"></include> -->
-    <script>
+<script>
     class GlobalClassForLogin {
         constructor({ inProjectName }) {
             this.Config = {
@@ -393,7 +348,6 @@
                     Start: "JSONProject",
                     SubRoute: "API",
                     HtmlPath: "",
-                    UserCheckRoute: "JSONUser",
                     AdminSubRoute: "AdminApi",
                 },
                 Modal: {
@@ -445,7 +399,7 @@
                 };
             },
             CheckUserNamePassword: async ({ inUserName, inPassword }) => {
-                let jVarLocalUserCheckRoute = this.Config.RouteStart.UserCheckRoute;
+                let jVarLocalUserCheckRoute = this.Config.RouteStart.Start;
                 let jVarLocalFetchUrl = `/${jVarLocalUserCheckRoute}/Validate/Users/InUserDataJson/ForUserNameAndPassword/TokenToCookie`;
 
                 let response = await fetch(jVarLocalFetchUrl, {
@@ -553,16 +507,18 @@
         };
     };
 
-    GlobalFuncsForLogin = new GlobalClassForLogin({});
+    let jVarGlobalProject = "JSONApi";
+    let jVarGlobalSubRoute = "Api";
+
+    let GlobalFuncsForLogin = new GlobalClassForLogin({ inProjectName: jVarGlobalProject });
+
+    GlobalFuncsForLogin.Login.ClientSideCookieFuncs.CheckToken();
 </script>
 
     <script>
         let jVarGlobalPresentViewData;
         let jVarGlobalHBSData = {};
 
-        jVarGlobalLoginFuncs.Login.ClientSideCookieFuncs.CheckToken();
-
-        jVarGlobalApiFuncs.ApiFuncs.PreLoad.Masters.FillDataFromServer();
 
         let jVarHtmlLoginModalId = document.getElementById("LoginModalId");
         jVarHtmlLoginModalId.addEventListener('shown.bs.modal', function (event) {

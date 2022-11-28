@@ -1,8 +1,29 @@
 let getUrl = async (req, res) => {
     let LocalUrlArray = req.originalUrl.split("/");
     let LocalBasePath = LocalUrlArray[1];
+    let LocalLastEndPoint = LocalUrlArray[LocalUrlArray.length - 1];
+
+    if (LocalLastEndPoint.includes(".")) {
+        if (LocalLastEndPoint.split(".")[1] === "html") {
+            if (LocalBasePath === "JSONUser") {
+                res.setHeader("Content-Type", "text/html");
+                return await res.end("Copy JSONUser to public from Repo : https://github.com/keshavsoft/kposthtml");
+            };
+
+            if (LocalBasePath === "JSONAdminApi") {
+                res.setHeader("Content-Type", "text/html");
+                return await res.end("Copy JSONAdminApi to public from Repo : https://github.com/keshavsoft/kposthtml");
+            };
+
+        };
+    };
 
     switch (LocalBasePath) {
+        case "JSONAdminApi":
+            res.setHeader("Content-Type", "text/html");
+            res.end("Copy project : JSONAdminApi from Repo : https://github.com/keshavsoft/AdminApi");
+
+            break;
         case "Tally":
             res.setHeader("Content-Type", "text/html");
             res.end("Copy Tally to public from Repo : https://github.com/keshavsoft/kposthtml");

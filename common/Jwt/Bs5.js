@@ -35,6 +35,31 @@ let LocalVerifyToken = (req, res, inKToken, next) => {
     });
 };
 
+exports.VerifyTokenOnly = async ({ inToken }) => {
+    return new Promise((resolve, reject) => {
+        jwt.verify(inToken, CommonSecret, (err, authData) => {
+            if (err) {
+                reject(false);
+            } else {
+                resolve(true);
+            }
+        });
+    });
+};
+
+exports.VerifyTokenReturnData = async ({ inToken }) => {
+    return await jwt.verify(inToken, CommonSecret);
+
+    // jwt.verify(inToken, CommonSecret, async (err, authData) => {
+    //     console.log("aaaaaaaaaa ", err, authData);
+    //     if (err) {
+    //         return await err;
+    //     } else {
+    //         return await authData;
+    //     };
+    // });
+};
+
 let LocalFromCoookies = (req, res, next) => {
     LocalVerifyToken(req, res, req.cookies.KToken, next);
 };

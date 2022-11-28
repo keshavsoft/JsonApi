@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/JSONApi/css/Bs5/bootstrap.min.css">
+
+    <title>KeshavSoft</title>
+
+    <style>
+        @media print {
+
+            .col-md-1,
+            .col-md-2,
+            .col-md-3,
+            .col-md-4,
+            .col-md-5,
+            .col-md-6,
+            .col-md-7,
+            .col-md-8,
+            .col-md-9,
+            .col-md-10,
+            .col-md-11,
+            .col-md-12 {
+                float: left;
+            }
+
+            .col-md-1 {
+                width: 8%;
+            }
+
+            .col-md-2 {
+                width: 16%;
+            }
+
+            .col-md-3 {
+                width: 25%;
+            }
+
+            .col-md-4 {
+                width: 33%;
+            }
+
+            .col-md-5 {
+                width: 42%;
+            }
+
+            .col-md-6 {
+                width: 50%;
+            }
+
+            .col-md-7 {
+                width: 58%;
+            }
+
+            .col-md-8 {
+                width: 66%;
+            }
+
+            .col-md-9 {
+                width: 75%;
+            }
+
+            .col-md-10 {
+                width: 83%;
+            }
+
+            .col-md-11 {
+                width: 92%;
+            }
+
+            .col-md-12 {
+                width: 100%;
+            }
+        }
+    </style>
+    <style>
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .form-control-dark {
+            color: #fff;
+            background-color: var(--bs-dark);
+            border-color: var(--bs-gray);
+        }
+
+        .form-control-dark:focus {
+            color: #fff;
+            background-color: var(--bs-dark);
+            border-color: #fff;
+            box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .text-small {
+            font-size: 85%;
+        }
+
+        .dropdown-toggle {
+            outline: 0;
+        }
+
+        .tableFixHead {
+            overflow-y: auto;
+            height: 500px;
+        }
+
+        .tableFixHead thead th {
+            position: sticky;
+            top: 0;
+        }
+    </style>
+    <style>
+        .btn-circle {
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            padding: 0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body class="mb-5">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="TablePrintId" viewBox="0 0 16 16">
+            <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"></path>
+            <path fill-rule="evenodd"
+                d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z">
+            </path>
+        </symbol>
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+            <title>Bootstrap</title>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
+            </path>
+        </symbol>
+        <symbol id="home" viewBox="0 0 16 16">
+            <path
+                d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z">
+            </path>
+        </symbol>
+        <symbol id="speedometer2" viewBox="0 0 16 16">
+            <path
+                d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z">
+            </path>
+            <path fill-rule="evenodd"
+                d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z">
+            </path>
+        </symbol>
+        <symbol id="table" viewBox="0 0 16 16">
+            <path
+                d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z">
+            </path>
+        </symbol>
+        <symbol id="people-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+            <path fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z">
+            </path>
+        </symbol>
+        <symbol id="person-x-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z">
+            </path>
+        </symbol>
+        <symbol id="grid" viewBox="0 0 16 16">
+            <path
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z">
+            </path>
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z">
+            </path>
+        </symbol>
+        <symbol id="reboot" viewBox="0 0 16 16">
+
+            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"></path>
+            <path
+                d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z">
+            </path>
+        </symbol>
+        <symbol id="bi bi-card-list" viewBox="0 0 16 16">
+            <path
+                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z">
+            </path>
+            <path
+                d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z">
+            </path>
+
+        </symbol>
+        <symbol id="Refresh" viewBox="0 0 16 16">
+            <path
+                d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z">
+            </path>
+            <path fill-rule="evenodd"
+                d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z">
+            </path>
+        </symbol>
+        <symbol id="settings" viewBox="0 0 16 16">
+            <path
+                d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z">
+            </path>
+            <path
+                d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z">
+            </path>
+        </symbol>
+    </svg>
+
+    <nav id="NavBarId" class="navbar navbar-expand-md navbar-dark bg-dark d-print-none" aria-label="KeshavSoft">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">KeshavSoft</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MenuNavItems"
+                aria-controls="MenuNavItems" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="MenuNavItems">
+                <ul class="navbar-nav me-auto" id="MenuNavContainerId">
+                    <li>
+                        <a href="./Tally.html" class="nav-link DashboardAClass text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi d-block mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z">
+                                </path>
+                            </svg>
+                            From Header
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./FromFolders.html" class="nav-link DashboardAClass text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi d-block mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z">
+                                </path>
+                            </svg>
+                            From Folders
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./FromFolders.html" class="nav-link DashboardAClass text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi d-block mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z">
+                                </path>
+                            </svg>
+                            Tally Sync
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/JSONUtility/Html/UserData/Utility.html" class="nav-link DashboardAClass text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-gear mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z">
+                                </path>
+                                <path
+                                    d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z">
+                                </path>
+                            </svg>
+                            Utilities
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white"
+                            onclick="ForLocalStorageClass.jFDeleteuuidInLocalStorage()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-sd-card mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                <path
+                                    d="M6.25 3.5a.75.75 0 0 0-1.5 0v2a.75.75 0 0 0 1.5 0v-2zm2 0a.75.75 0 0 0-1.5 0v2a.75.75 0 0 0 1.5 0v-2zm2 0a.75.75 0 0 0-1.5 0v2a.75.75 0 0 0 1.5 0v-2zm2 0a.75.75 0 0 0-1.5 0v2a.75.75 0 0 0 1.5 0v-2z">
+                                </path>
+                                <path fill-rule="evenodd"
+                                    d="M5.914 0H12.5A1.5 1.5 0 0 1 14 1.5v13a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5V3.914c0-.398.158-.78.44-1.06L4.853.439A1.5 1.5 0 0 1 5.914 0zM13 1.5a.5.5 0 0 0-.5-.5H5.914a.5.5 0 0 0-.353.146L3.146 3.561A.5.5 0 0 0 3 3.914V14.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-13z">
+                                </path>
+                            </svg>
+
+                            LocalStorage
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav">
+                    <li id="HeaderLoginButtonId">
+                        <a href="#" class="nav-link text-white" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">
+                            <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
+                                <use xlink:href="#person-x-fill"></use>
+                            </svg>
+                            Login
+                        </a>
+                    </li>
+                    <li id="HeaderUserIdLi" class="visually-hidden nav-item dropdown">
+                        <a href="#" id="HeaderUserIdDropDown" data-bs-toggle="dropdown" aria-expanded="false"
+                            class="nav-link text-white dropdown-toggle">
+                            <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            UserName
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="HeaderUserIdDropDown">
+                            <li><a class="dropdown-item" href="#" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">
+                                    <i class="bi bi-power" style="font-size: 1.3rem; color:orangered"></i>
+                                    logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="KCont1" class="m-3">
+            <button type="button" class="btn btn-primary" onclick="jFGiveDesktopClients()">Show Online Firms</button>
+            <br>
+            <button type="button" class="btn btn-primary" id="SyncButtonid" onclick="jFTallySyncNow()">Firm
+                Name</button>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-2 bg-light fixed-bottom">
+        <div class="container">
+            <div class="bg-light d-flex justify-content-between">
+                <div>KeshavSoft v8.06</div>
+                <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/JSONApi/Js/lodash.js"></script>
+    <script src="/JSONApi/Js/Bs5/bootstrap.bundle.min.js"></script>
+    <script src="/JSONApi/Js/handlebars/handlebars.min-v4.7.7.js"></script>
+    <script src="/JSONApi/Js/sweetalert2/sweetalert2@11.js"></script>
+
+    <script src="/JSONApi/Js/CommonClassOnly.js"></script>
+    <!-- <script src="/JSONApi/Js/KeshavSoftCrudFuncs.js"></script> -->
+
+    <script src="/JSONApi/Js/KeshavSoft/FetchFuncs/PreLoad.js"></script>
+    <script src="/JSONApi/Js/KeshavSoft/FetchFuncs/MenuFuncs.js"></script>
+    <script src="/JSONApi/Js/KeshavSoft/FetchFuncs/DataFuncs/TableFuncs.js"></script>
+
+
+
+    <!-- <script src="/js/lodash.js"></script>
+    <script src="/js/Bs5/bootstrap.bundle.min.js"></script>
+    <script src="/js/handlebars/handlebars.min-v4.7.7.js"></script>
+    <script src="/js/sweetalert2/sweetalert2@11.js"></script>
+    <script src="/JSONApi/Js/CommonClassOnly.js"></script>
+    <script src="/ClassesStatic/BuildDynamic.js"></script> -->
+
+    <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Enter client user credentials</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="LoginFormPopUpId22" class="" onsubmit="return false" novalidate="">
+                        <div class="mb-3 form-floating is-valid">
+                            <input type="text" class="form-control" id="KUserNameInput" required="">
+                            <label for="KUserNameInput">User Name</label>
+                            <div class="invalid-feedback">
+                                User Name cannot be empty.
+                            </div>
+                        </div>
+                        <div class="mb-3 form-floating">
+                            <input type="password" class="form-control" id="KPasswordInput" required="">
+                            <label for="KPasswordInput">Password</label>
+                            <div class="invalid-feedback">
+                                Password cannot be empty.
+                            </div>
+                        </div>
+                        <input type="submit" class=" btn btn-primary" onclick="GlobalFuncsForLogin.Login.LoginCheck()">
+                        <!-- <button type="button" class="btn btn-primary"
+                        onclick="jVarGlobalAdmin.Login.LoginCheck()">Check</button>
+                         -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class GlobalClassForLogin {
+            constructor({ inProjectName }) {
+                this.Config = {
+                    RouteStart: {
+                        Start: "JSONProject",
+                        SubRoute: "API",
+                        HtmlPath: "",
+                        AdminSubRoute: "AdminApi",
+                    },
+                    Modal: {
+                        Id: "LoginModalId"
+                    },
+                    Public: {
+                        ProjectName: ""
+                    },
+                    Customize: {
+                        ModalPopUp: {
+                            Show: true,
+                            Type: "SweetAlert"
+                        }
+                    },
+                    ClientSide: {
+                        UrlForIp_Old: "https://api.ipify.org/",
+                        UrlForIp: "http://httpbin.org/ip",
+                    }
+                };
+
+                if (inProjectName === undefined) {
+                    this.Config.Public.ProjectName = this.Config.RouteStart.Start
+                } else {
+                    this.Config.RouteStart.Start = inProjectName;
+                    this.Config.Public.ProjectName = inProjectName;
+                };
+            };
+
+            Login = {
+                LocalStorage: {
+                    FirmDetails: ({ inUserName, inFirmDetails }) => {
+                        localStorage.setItem("kUserName", inUserName);
+                        localStorage.setItem("FirmDetails", JSON.stringify(inFirmDetails));
+                    }
+                },
+                LoginCheck: async () => {
+                    let jVarLocalObject = {};
+                    let jVarReturnData;
+
+                    jVarLocalObject.UserName = document.getElementById("KUserNameInput").value;
+                    jVarLocalObject.Password = document.getElementById("KPasswordInput").value;
+
+                    if (jVarLocalObject.UserName !== "" && jVarLocalObject.Password !== "") {
+                        jVarReturnData = await this.Login.CheckUserNamePassword({ inUserName: jVarLocalObject.UserName, inPassword: jVarLocalObject.Password });
+
+                        if (jVarReturnData.KTF) {
+                            //  jVarGlobalClientObject.DataApi.Folders.PullData();
+                        };
+                    };
+                },
+                CheckUserNamePassword: async ({ inUserName, inPassword }) => {
+                    let jVarLocalUserCheckRoute = this.Config.RouteStart.Start;
+                    let jVarLocalFetchUrl = `/${jVarLocalUserCheckRoute}/Validate/Users/InUserDataJson/ForUserNameAndPassword/TokenToCookie`;
+
+                    let response = await fetch(jVarLocalFetchUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ inUserName, inPassWord: inPassword })
+                    });
+                    let FetchDataJson = await response.json();
+
+                    if (FetchDataJson !== null) {
+                        if (FetchDataJson.KTF) {
+                            var myModalEl = document.getElementById('LoginModalId');
+
+                            var modal = bootstrap.Modal.getInstance(myModalEl) // Returns a Bootstrap modal instance
+
+                            modal.hide();
+
+                            this.Login.LocalStorage.FirmDetails({ inUserName, inFirmDetails: FetchDataJson });
+                            this.Login.ClientSideCookieFuncs.CheckToken();
+                            return await FetchDataJson;
+                        } else {
+                            document.getElementById("KUserNameInput").classList.add("is-invalid");
+                        };
+                    };
+                },
+                StatusCodeFuncs: {
+                    Html: {
+                        Code404: ({ inResponse }) => {
+                            if (inResponse.status === 404) {
+                                jVarGlobalAdmin.HTMLPrepare.jFBS4Alerts.AppendtoKCont1.dangerClosable({ inJVarDataToDisplay: `Html File not Found ${inResponse.url}` });
+                                return null;
+
+                            };
+
+
+                            return inResponse.text();
+                        }
+                    },
+                    Code403: ({ inResponse }) => {
+                        if (inResponse.status === 403) {
+                            let jVarLocalLoginFormPopUpId = document.getElementById("LoginFormPopUpId");
+
+                            if (jVarLocalLoginFormPopUpId !== null) {
+                                var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), { keyboard: false, focus: true });
+                                myModal.show();
+                            };
+                            return null;
+                        };
+
+                        return inResponse.json();
+                    }
+                },
+                ShowLoginDetailsOnDOM: {
+                    InHeader: () => {
+                        let LocalUserName = localStorage.getItem("kUserName");
+                        let jVarLocalHeaderLoginButtonId = document.getElementById("HeaderLoginButtonId");
+
+                        if (jVarLocalHeaderLoginButtonId !== null) {
+                            jVarLocalHeaderLoginButtonId.classList.add("visually-hidden");
+                            document.getElementById("HeaderUserIdLi").classList.remove("visually-hidden");
+
+                            if (LocalUserName !== null) {
+                                document.getElementById("HeaderUserIdDropDown").innerHTML =
+                                    document.getElementById("HeaderUserIdDropDown").innerHTML.replace("UserName", LocalUserName);
+
+                                document.getElementById('NavBarId').classList.remove("bg-danger");
+                                document.getElementById('NavBarId').classList.add("bg-dark");
+                            };
+                        };
+                    }
+                },
+                ClientSideCookieFuncs: {
+                    getCookie: (name) => {
+                        var nameEQ = name + "=";
+                        var ca = document.cookie.split(';');
+                        for (var i = 0; i < ca.length; i++) {
+                            var c = ca[i];
+                            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                        }
+                        return null;
+                    },
+                    CheckToken: () => {
+                        let jVarLocalCookieValue = this.Login.ClientSideCookieFuncs.getCookie("KToken");
+                        if (jVarLocalCookieValue === null) {
+                            localStorage.removeItem("kUserName");
+                            localStorage.removeItem("FirmDetails");
+                            this.Login.ClientSideCookieFuncs.DeleteCookie();
+
+                            let jVarLocalId = this.Config.Modal.Id;
+                            var myModal = new bootstrap.Modal(document.getElementById(jVarLocalId), { keyboard: true, focus: true });
+
+                            myModal.show();
+                        } else {
+                            this.Login.ShowLoginDetailsOnDOM.InHeader();
+                        };
+                    },
+                    DeleteCookie: () => {
+                        document.cookie = "KToken=; expires=Thu, 01 Jan 1947 00:00:00 UTC; path=/;";
+                    }
+                }
+            };
+        };
+
+        let jVarGlobalProject = "JSONApi";
+        let jVarGlobalSubRoute = "Api";
+
+        let GlobalFuncsForLogin = new GlobalClassForLogin({ inProjectName: jVarGlobalProject });
+
+        GlobalFuncsForLogin.Login.ClientSideCookieFuncs.CheckToken();
+    </script>
+
+    <script>
+        let jVarGlobalPresentViewData;
+        let jVarGlobalHBSData = {};
+
+
+        let jVarHtmlLoginModalId = document.getElementById("LoginModalId");
+        jVarHtmlLoginModalId.addEventListener('shown.bs.modal', function (event) {
+            let jVarLocalSubmitButton = event.currentTarget.querySelector(".modal-body input[type='submit']");
+            jVarLocalSubmitButton.focus();
+        });
+    </script>
+
+    <script>
+        let jVarGlobalWs = new WebSocket(`ws://${window.location.host}/`);
+
+        function showMessage(message) {
+            try {
+                let jVarLocalJsonData = JSON.parse(message);
+                console.log("jVarLocalJsonData : ", jVarLocalJsonData);
+                if ("FirmName" in jVarLocalJsonData) {
+                    let jVarLocalSyncButtonid = document.getElementById("SyncButtonid");
+                    jVarLocalSyncButtonid.innerHTML = jVarLocalJsonData.FirmName;
+                };
+
+                switch (message) {
+                    case value:
+
+                        break;
+
+                    default:
+                        break;
+                };
+            } catch (error) {
+                console.log("error : ", error);
+            };
+            console.log("msg : ", message);
+        };
+
+        let jFCheckWebSocket = () => {
+            if ("WebSocket" in window) {
+                jVarGlobalWs.onopen = () => {
+                    console.log('Connection opened!');
+                }
+                jVarGlobalWs.onmessage = ({ data }) => showMessage(data);
+                jVarGlobalWs.onclose = function () {
+                    jVarGlobalWs = null;
+                }
+            } else {
+                // The browser doesn't support WebSocket
+                alert("WebSocket NOT supported by your Browser!");
+            };
+        };
+    </script>
+
+    <script>
+        jFCheckWebSocket();
+
+        let jFTallySyncNow = () => {
+            jVarGlobalWs.send("Send");
+        };
+
+        let jFGiveDesktopClients = () => {
+            jVarGlobalWs.send("GiveDesktopClients");
+        };
+
+        let jFTallySyncSend = () => {
+            jVarGlobalWs.send("Send");
+        };
+
+    </script>
+</body>
+
+</html>

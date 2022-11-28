@@ -1,3 +1,4 @@
+const { json } = require('express');
 const WebSocket = require('ws');
 
 let CommonjwtFunc = require("../../common/Jwt/Bs5");
@@ -5,6 +6,7 @@ let CommonController = require("./controller");
 
 let wss;
 const clients = new Map();
+const clientsInfo = new Map();
 
 let StartFunc = (server) => {
 
@@ -23,7 +25,77 @@ var get_cookies = function (request) {
     return cookies;
 };
 
-let WsOnConnection = (ws, req) => {
+let WsOnConnection = async (ws, req) => {
+    CommonController.insertToClients({
+        inClients: clients,
+        ws
+    });
+
+    // const id = uuidv4();
+    // const color = Math.floor(Math.random() * 360);
+    // const metadata = { id, color };
+
+    // clients.set(ws, metadata);
+
+    let LocalCookie;
+    const ip = req.socket.remoteAddress;
+  //  console.log("ip : ", ip, req.headers);
+    ws.send(ip);
+    if (req.headers.cookie !== undefined) {
+        LocalCookie = get_cookies(req);
+
+        if (LocalCookie.hasOwnProperty("KToken")) {
+            let LocalJwtReturn = await CommonjwtFunc.VerifyTokenOnly({ inToken: LocalCookie.KToken });
+
+            if (LocalJwtReturn === false) {
+                ws.close();
+            };
+
+            let LocalAuthData = await CommonjwtFunc.VerifyTokenReturnData({ inToken: LocalCookie.KToken });
+            console.log("ssssssss : ", LocalAuthData.UserName);
+            //let LocalAuthDataAsJson = JSON.parse(LocalAuthData);
+
+            ws.on('message', (messageAsString) => {
+                CommonController.incoming({
+                    inComingMessage: messageAsString.toString(),
+                    inClients: clients,
+                    ws,
+                    inClientsInfo: clientsInfo,
+                    inUserName: LocalAuthData.UserName
+                });
+            });
+
+            ws.on('close', () => {
+                clients.delete(ws);
+                console.log('closed');
+            });
+
+            ws.send('Hai Socket established');
+        } else {
+            ws.close();
+        }
+    } else {
+        console.log("else------ : ");
+        
+        ws.on('message', (messageAsString) => {
+            CommonController.incoming({
+                inComingMessage: messageAsString.toString(),
+                inClients: clients,
+                ws,
+                inClientsInfo: clientsInfo
+            });
+        });
+
+        ws.on('close', () => {
+            clients.delete(ws);
+            console.log('closed');
+        });
+
+        //  ws.send('Hai Socket established');
+    }
+};
+
+let WsOnConnection_28Nov2022 = async (ws, req) => {
     const id = uuidv4();
     const color = Math.floor(Math.random() * 360);
     const metadata = { id, color };
@@ -38,30 +110,21 @@ let WsOnConnection = (ws, req) => {
         LocalCookie = get_cookies(req);
 
         if (LocalCookie.hasOwnProperty("KToken")) {
-            let LocalJwtReturn = CommonjwtFunc.ForKeshavSoftRedirectToLogin({ inToken: LocalCookie.KToken });
+            let LocalJwtReturn = await CommonjwtFunc.VerifyTokenOnly({ inToken: LocalCookie.KToken });
 
-            if (LocalJwtReturn.KTF === false) {
+            if (LocalJwtReturn === false) {
                 ws.close();
             };
 
-            ws.on('message', function incoming(messageAsString) {
-                const message = JSON.parse(messageAsString);
-                const metadata = clients.get(ws);
-
-                message.sender = metadata.id;
-                message.color = metadata.color;
-
-                const outbound = JSON.stringify(message);
-
-                [...clients.keys()].forEach((client) => {
-                    client.send(outbound);
+            ws.on('message', (messageAsString) => {
+                CommonController.incoming({
+                    inComingMessage: messageAsString.toString(),
+                    inClients: clients,
+                    ws
                 });
-
-                console.log('-----: %s', messageAsString, clients.keys().length);
-                //   Dal.SaveOnly({ inJsonConfig: { inFolderName: "Masters", inJsonFileName: "Chat.json" }, inItemConfig: { inItemName: "Names", inScreenName: "Name1" }, inUserName: "GPS", inPostData: { "Chat": message } }).then().catch();
             });
 
-            ws.on('close', function incoming() {
+            ws.on('close', () => {
                 clients.delete(ws);
                 console.log('closed');
             });
@@ -72,8 +135,6 @@ let WsOnConnection = (ws, req) => {
         }
     } else {
         ws.on('message', (messageAsString) => {
-            console.log("incoming : ", messageAsString.toString());
-            //const message = JSON.parse(messageAsString);
             const message = {};
 
             message.inComingMessage = messageAsString.toString();
@@ -102,7 +163,7 @@ let WsOnConnection = (ws, req) => {
             console.log('closed');
         });
 
-      //  ws.send('Hai Socket established');
+        //  ws.send('Hai Socket established');
     }
 };
 

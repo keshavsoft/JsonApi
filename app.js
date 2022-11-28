@@ -25,8 +25,8 @@ let SubRouteJSONApi = require(`./Projects/${CommonProjectNameForJSONApi}/Routes`
 
 let SubRouteJSONUser = require(`./Projects/${CommonProjectNameForJSONUser}/Routes`);
 // let SubRouteJSONReports = require(`./Projects/${CommonProjectNameForJSONReports}/Routes`);
-// let SubRouteJSONImport = require(`./Projects/${CommonProjectNameForJSONImport}/Routes`);
-// let SubRouteJSONAdminApi = require(`./Projects/${CommonProjectNameForJSONAdminApi}/Routes`);
+let SubRouteJSONImport = require(`./Projects/${CommonProjectNameForJSONImport}/Routes`);
+let SubRouteJSONAdminApi = require(`./Projects/${CommonProjectNameForJSONAdminApi}/Routes`);
 // let SubRouteJSONUtility = require(`./Projects/${CommonProjectNameForJSONUtility}/Routes`);
 
 app.use(cookieParser());
@@ -42,8 +42,8 @@ app.use(`/${CommonProjectNameForJSONApi}`, SubRouteJSONApi);
 
 app.use(`/${CommonProjectNameForJSONUser}`, SubRouteJSONUser);
 // app.use(`/${CommonProjectNameForJSONReports}`, SubRouteJSONReports);
-// app.use(`/${CommonProjectNameForJSONImport}`, SubRouteJSONImport);
-// app.use(`/${CommonProjectNameForJSONAdminApi}`, SubRouteJSONAdminApi);
+app.use(`/${CommonProjectNameForJSONImport}`, SubRouteJSONImport);
+ app.use(`/${CommonProjectNameForJSONAdminApi}`, SubRouteJSONAdminApi);
 // app.use(`/${CommonProjectNameForJSONUtility}`, SubRouteJSONUtility);
 
 app.get('/*', Commoncontrollers.getUrl);
