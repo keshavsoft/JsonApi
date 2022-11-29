@@ -15,6 +15,10 @@ let getUrl = async (req, res) => {
                 return await res.end("Copy JSONAdminApi to public from Repo : https://github.com/keshavsoft/kposthtml");
             };
 
+            if (LocalBasePath === "JSONReports") {
+                res.setHeader("Content-Type", "text/html");
+                return await res.end("Copy JSONReports to public from Repo : https://github.com/keshavsoft/kposthtml");
+            };
         };
     };
 
