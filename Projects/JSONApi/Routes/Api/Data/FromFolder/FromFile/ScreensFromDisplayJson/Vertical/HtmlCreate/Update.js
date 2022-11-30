@@ -5,24 +5,21 @@ let CommonMiddleWares = require("../../../../../../../../Middlewares/ForRoutes/A
 
 
 router.post("/", CommonMiddleWares.FromParams, (req, res) => {
-    console.log("jjjjj", req.body);
     let LocalJsonConfig = req.body.JsonConfig;
     let LocalItemConfig = req.body.ItemConfig;
     let LocalBody = req.body.inDataToUpdate;
     let LocalRowPK = req.body.pk;
     let LocalDataPk = req.KeshavSoft.DataPk;
-  
-    {
-        Repos.WithPK({
-            inJsonConfig: LocalJsonConfig,
-            inItemConfig: LocalItemConfig,
-            inDataPK: LocalDataPk,
-            inPostData: LocalBody,
-            inRowPK: LocalRowPK
-        }).then(promiseData => {
-            res.end(JSON.stringify(promiseData))
-        });
-    };
+
+    Repos.WithPK({
+        inJsonConfig: LocalJsonConfig,
+        inItemConfig: LocalItemConfig,
+        inDataPK: LocalDataPk,
+        inPostData: LocalBody,
+        inRowPK: LocalRowPK
+    }).then(promiseData => {
+        res.end(JSON.stringify(promiseData))
+    });
 
 
     // Repos.WithPK({
