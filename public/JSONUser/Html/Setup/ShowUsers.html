@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Dashboard Template · Bootstrap v5.1</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <a id="HeaderLoginButtonId" class="nav-link px-3" href="#" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">Sign out</a>
+                <a id="HeaderUserIdLi" class="nav-link px-3 visually-hidden" href="#" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">UserName</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../Dashboard.html">
+                                <span data-feather="home"></span>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file"></span>
+                                Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="shopping-cart"></span>
+                                Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Customers/Show.html">
+                                <span data-feather="users"></span>
+                                Customers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Show.html">
+                                <span data-feather="bar-chart-2"></span>
+                                Setup Customers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="layers"></span>
+                                Integrations
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Saved reports</span>
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle"></span>
+                        </a>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text"></span>
+                                Current month
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text"></span>
+                                Last quarter
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text"></span>
+                                Social engagement
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text"></span>
+                                Year-end sale
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div id="KCont1">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col">
+                                    <h4>Show all customers</h4>
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="" id="" placeholder="Search" class="form-control" onkeyup="jFTableSearch(event)">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>DataKey</th>
+                                        <th>UserName</th>
+                                        <th>Password</th>
+                                        <th>Setup</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="KTableBodyId">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Enter client user credentials</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="LoginFormPopUpId" class="" onsubmit="return false" novalidate="">
+                        <div class="mb-3 form-floating is-valid">
+                            <input type="text" class="form-control" id="KUserNameInput" required="">
+                            <label for="KUserNameInput">User Name</label>
+                            <div class="invalid-feedback">
+                                User Name cannot be empty.
+                            </div>
+                        </div>
+                        <div class="mb-3 form-floating">
+                            <input type="password" class="form-control" id="KPasswordInput" required="">
+                            <label for="KPasswordInput">Password</label>
+                            <div class="invalid-feedback">
+                                Password cannot be empty.
+                            </div>
+                        </div>
+                        <input type="submit" class=" btn btn-primary" onclick="jVarGlobalClientObject.Login.LoginCheck()">
+                        <!-- <button type="button" class="btn btn-primary"
+                    onclick="jVarGlobalAdmin.Login.LoginCheck()">Check</button>
+                     -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+
+    <!-- <script src="../js/dashboard.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <script>
+        Handlebars.registerHelper('ForSNo', function (item) {
+            return item + 1;
+        });
+    </script>
+
+    <script id="HbsTemplateForBody" type="text/x-handlebars">
+                  {{#each this}}
+                  <tr>
+                      <td class="text-center">
+                          {{ForSNo @index}}
+                      </td>
+                      <td>{{@key}}</td>
+                      <td>{{UserName}}</td>
+                      <td>{{PassWord}}</td>
+                  </tr>
+                  {{/each}}
+  </script>
+
+
+    <script id="HbsTemplateForBody1" type="text/x-handlebars">
+    <div class="card">
+      <div class="card-header">
+          <div class="row">
+              <div class="col">
+                  <h4>Show all customers</h4>
+              </div>
+              <div class="col">
+                  <input type="text" name="" id="" placeholder="Search" class="form-control"
+                      onkeyup="jFTableSearch(event)">
+              </div>
+          </div>
+  
+      </div>
+      <div class="card-body">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>DataKey</th>
+                      <th>UserName</th>
+                      <th>Password</th>
+                      <th>Setup</th>
+                  </tr>
+              </thead>
+              <tbody id="KTableBodyId">
+                  {{#each this}}
+                  <tr>
+                      <td class="text-center">
+                          {{ForSNo @index}}
+                      </td>
+                      <td>{{@key}}</td>
+                      <td>{{UserName}}</td>
+                      <td>{{PassWord}}</td>
+                      <td class="text-right">
+                          <button type="button" rel="tooltip" class="btn btn-outline-primary btn-sm "
+                              onclick="jFSetup({{@key}})">
+                              <i class="bi bi-trash"> </i>Setup
+                          </button>
+                      </td>
+                  </tr>
+                  {{/each}}
+              </tbody>
+          </table>
+      </div>
+  
+  </div>
+
+  <div class="modal fade" id="SetupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Setup successfull.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </script>
+
+
+    <script>
+        let jVarGlobalPresentViewData;
+
+        let jVarLocalApiFuncs = {
+            PullData: {
+                getUserAsync: async () => {
+                    let jVarLocalUrl = "/JSONUser/Users/Api/ShowData";
+                    let response = await fetch(jVarLocalUrl);
+                    let data = await response.json();
+                    return data;
+                }
+            },
+            ShowData: async () => {
+                jVarLocalApiFuncs.PullData.getUserAsync().then(data => {
+                    let jVarLocalRawTemplate = document.getElementById("HbsTemplateForBody").innerHTML;
+                    jVarGlobalPresentViewData = data;
+                    document.getElementById("KTableBodyId").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(jVarGlobalPresentViewData);
+                });
+            }
+        };
+
+        let jFTableSearch = (inEvent) => {
+            let jVarLocalCurrentTarget = inEvent.currentTarget;
+            let jVarLocalClosestCard = jVarLocalCurrentTarget.closest(".card");
+            let jVarLocalTableBodyId = jVarLocalClosestCard.querySelector(".card-body table tbody");
+
+            var filter, table, tr, td, i;
+            filter = jVarLocalCurrentTarget.value;
+
+            for (var i = 0, row; row = jVarLocalTableBodyId.rows[i]; i++) {
+                jVarLocalTableBodyId.rows[i].classList.add("d-none");
+
+                for (var j = 0, col; col = row.cells[j]; j++) {
+                    if (col.innerHTML.includes(filter)) {
+
+                        jVarLocalTableBodyId.rows[i].classList.remove("d-none");
+
+                        break;
+                    };
+                }
+            }
+        };
+
+        let jFSetup = async (inDataPk) => {
+            let jVarLocalUrl = `/JSONUser/Users/Api/Setup/${inDataPk}`;
+            let response = await fetch(jVarLocalUrl);
+            let data = await response.json();
+
+            if (data.KTF) {
+                var myModal = new bootstrap.Modal(document.getElementById('SetupModal'), {
+                    keyboard: false
+                });
+                myModal.show();
+            };
+        };
+
+        feather.replace({ 'aria-hidden': 'true' })
+
+        class jPrepareClass {
+            constructor({ inProjectName }) {
+                this.Config = {
+                    RouteStart: {
+                        Start: "Gps",
+                        SubRoute: "API",
+                        HtmlPath: "",
+                        UserCheckRoute: "JSONUser",
+                        AdminSubRoute: "AdminApi",
+                    },
+                    Modal: {
+                        Id: "LoginModalId"
+                    },
+                    Public: {
+                        ProjectName: ""
+                    },
+                    Customize: {
+                        ModalPopUp: {
+                            Show: true,
+                            Type: "SweetAlert"
+                        }
+                    },
+                    Token: {
+                        KName: "KAToken"
+                    }
+                };
+
+                if (inProjectName === undefined) {
+                    this.Config.Public.ProjectName = this.Config.RouteStart.Start
+                } else {
+                    this.Config.RouteStart.Start = inProjectName;
+                    this.Config.Public.ProjectName = inProjectName;
+                };
+            };
+
+            UI = {
+                ValidateFuncs: {
+                    LoginFormPopUpValidate: () => {
+                        let jVarLocalLoginFormPopUpId = document.getElementById("LoginFormPopUpId");
+
+                        if (jVarLocalLoginFormPopUpId != null) {
+                            jVarLocalLoginFormPopUpId.addEventListener('submit', function (event) {
+                                if (!jVarLocalLoginFormPopUpId.checkValidity()) {
+                                    event.preventDefault()
+                                    event.stopPropagation()
+                                }
+
+                                jVarLocalLoginFormPopUpId.classList.add('was-validated')
+                            }, false);
+                        };
+                    }
+                },
+                ModalFuncs: {
+                    LoadToDOM: () => {
+                        let LocalFetchURL = `/${this.Config.Public.ProjectName}/Html/Modals/Login.html`;
+                        fetch(LocalFetchURL).then((FetchData) => { return FetchData.text() })
+                            .then((FetchDataText) => {
+                                let LocalModalId = this.Config.Modal.Id;
+                                document.body.innerHTML += FetchDataText;
+
+                                document.getElementById(LocalModalId).addEventListener('shown.bs.modal', function (event) {
+                                    event.currentTarget.querySelector("input").focus();
+                                });
+
+                                this.UI.ValidateFuncs.LoginFormPopUpValidate();
+
+                            }).catch((error) => console.log(error));
+                    },
+                    Show: () => {
+                        localStorage.removeItem("kUserName");
+                        localStorage.removeItem("FirmDetails");
+                        this.Login.ClientSideCookieFuncs.DeleteCookie();
+
+                        let jVarLocalId = this.Config.Modal.Id;
+                        var myModal = new bootstrap.Modal(document.getElementById(jVarLocalId), { keyboard: true, focus: true });
+
+                        myModal.show();
+                    }
+                },
+                Show: {
+                    ShowData: () => {
+                        fetch('/Bs5Data/Html/Modals/ShowData.html')
+                            .then(response => response.text())
+                            .then(dataForUi => {
+                                //console.log(data);
+                                document.getElementById("KCont1").innerHTML = dataForUi;
+                            });
+                    }
+                },
+                UserData: {
+                    FetchHtml: (inJVarThis) => {
+                        this.NavBar.SetActiveItem(inJVarThis);
+
+                        let jVarLocalRoute = this.Config.RouteStart.Start;
+                        let jVarLocalFetchUrl = `/${jVarLocalRoute}/Html/UserData/UserData.html`;
+
+                        fetch(`${jVarLocalFetchUrl}`)
+                            .then(response => {
+                                return this.Login.StatusCodeFuncs.Html.Code404({ inResponse: response });
+                            })
+                            .then(dataForUi => {
+                                if (dataForUi !== null) {
+                                    //document.querySelector("body main .container").innerHTML = dataForUi;
+                                    document.getElementById("KCont1").innerHTML = dataForUi;
+
+                                    jVarGlobalClientObject.DataApi.Folders.PullData();
+                                }
+                            });
+                    }
+                },
+                Reports: {
+                    FetchHtml: () => {
+                        let jVarLocalRoute = this.Config.RouteStart.Start;
+                        let jVarLocalFetchUrl = `/${jVarLocalRoute}/Html/UserData/Reports/Reports.html`;
+
+                        fetch(`${jVarLocalFetchUrl}`)
+                            .then(response => {
+                                return this.Login.StatusCodeFuncs.Html.Code404({ inResponse: response });
+                            })
+                            .then(dataForUi => {
+                                if (dataForUi !== null) {
+                                    document.querySelector("body main .container").innerHTML = dataForUi;
+
+                                    jVarGlobalClientObject.DataApi.Reports.Items.PullData();
+                                }
+                            });
+                    },
+                    WithFilters: () => {
+                        let jVarLocalRoute = this.Config.RouteStart.Start;
+                        let jVarLocalFetchUrl = `/${jVarLocalRoute}/Html/UserData/Reports/Filters.html`;
+
+                        fetch(`${jVarLocalFetchUrl}`)
+                            .then(response => {
+                                return this.Login.StatusCodeFuncs.Html.Code404({ inResponse: response });
+                            })
+                            .then(dataForUi => {
+                                if (dataForUi !== null) {
+                                    document.querySelector("body main .container").innerHTML = dataForUi;
+
+                                    jVarGlobalClientObject.DataApi.Reports.Items.PullData();
+                                }
+                            });
+                    }
+                },
+                DataConfig: {
+                    FetchHtml: () => {
+                        let jVarLocalRoute = this.Config.RouteStart.Start;
+                        let jVarLocalFetchUrl = `/${jVarLocalRoute}/Html/UserData/DataConfig.html`;
+
+                        fetch(`${jVarLocalFetchUrl}`)
+                            .then(response => {
+                                return this.Login.StatusCodeFuncs.Html.Code404({ inResponse: response });
+                            })
+                            .then(dataForUi => {
+                                if (dataForUi !== null) {
+                                    document.querySelector("body main .container").innerHTML = dataForUi;
+
+                                    jVarGlobalClientObject.DataApi.Reports.Items.PullData();
+                                }
+                            });
+                    },
+                    WithFilters: () => {
+                        let jVarLocalRoute = this.Config.RouteStart.Start;
+                        let jVarLocalFetchUrl = `/${jVarLocalRoute}/Html/UserData/Dataconfig.html`;
+
+                        fetch(`${jVarLocalFetchUrl}`)
+                            .then(response => {
+                                return this.Login.StatusCodeFuncs.Html.Code404({ inResponse: response });
+                            })
+                            .then(dataForUi => {
+                                if (dataForUi !== null) {
+                                    document.querySelector("body main .container").innerHTML = dataForUi;
+
+                                    jVarGlobalClientObject.DataApi.Reports.Items.PullData();
+                                }
+                            });
+                    }
+                }
+            };
+
+            Login = {
+                LocalStorage: {
+                    FirmDetails: ({ inUserName, inFirmDetails }) => {
+                        localStorage.setItem("kUserName", inUserName);
+                        localStorage.setItem("FirmDetails", JSON.stringify(inFirmDetails));
+                    }
+                },
+                LoginCheck: async () => {
+                    let jVarLocalObject = {};
+                    let jVarReturnData;
+
+                    jVarLocalObject.UserName = document.getElementById("KUserNameInput").value;
+                    jVarLocalObject.Password = document.getElementById("KPasswordInput").value;
+
+                    if (jVarLocalObject.UserName !== "" && jVarLocalObject.Password !== "") {
+                        jVarReturnData = await this.Login.CheckUserNamePassword({ inUserName: jVarLocalObject.UserName, inPassword: jVarLocalObject.Password });
+
+                        if (jVarReturnData.KTF) {
+                            jVarLocalApiFuncs.ShowData();
+                        };
+                    };
+                },
+                CheckUserNamePassword: async ({ inUserName, inPassword }) => {
+                    //let jVarLocalUserCheckRoute = this.Config.RouteStart.UserCheckRoute;
+                    //let jVarLocalFetchUrl = `http://localhost:5000/JSONUser/Admin/Api/Check/LoginCheck/${inUserName}/${inPassword}`;
+                    //      let jVarLocalFetchUrl = `/JSONUser/Admin/Api/Check/LoginCheck/${inUserName}/${inPassword}`;
+                    let jVarLocalFetchUrl = "/JSONUser/Admin/Api/InAdminDataJson/Check/LoginCheck";
+
+                    let response = await fetch(jVarLocalFetchUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ inUserName, inPassword })
+                    });
+                    let FetchDataJson = await response.json();
+
+                    if (FetchDataJson !== null) {
+                        if (FetchDataJson.KTF) {
+                            var myModalEl = document.getElementById('LoginModalId');
+
+                            var modal = bootstrap.Modal.getInstance(myModalEl) // Returns a Bootstrap modal instance
+
+                            modal.hide();
+
+                            this.Login.LocalStorage.FirmDetails({ inUserName, inFirmDetails: FetchDataJson });
+                            this.Login.ClientSideCookieFuncs.CheckToken();
+                            return await FetchDataJson;
+                        } else {
+                            document.getElementById("KUserNameInput").classList.add("is-invalid")
+                        };
+                    };
+                },
+                StatusCodeFuncs: {
+                    Html: {
+                        Code404: ({ inResponse }) => {
+                            if (inResponse.status === 404) {
+                                console.log("inResponse : ", inResponse);
+
+                                jVarGlobalAdmin.HTMLPrepare.jFBS4Alerts.AppendtoKCont1.dangerClosable({ inJVarDataToDisplay: `Html File not Found ${inResponse.url}` });
+                                return null;
+
+                            };
+
+
+                            return inResponse.text();
+                        }
+                    },
+                    Code403: ({ inResponse }) => {
+                        // console.log("inResponse : ", inResponse);
+                        if (inResponse.status === 403) {
+                            let jVarLocalLoginFormPopUpId = document.getElementById("LoginFormPopUpId");
+
+                            if (jVarLocalLoginFormPopUpId !== null) {
+                                var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), { keyboard: false, focus: true });
+                                myModal.show();
+                            };
+                            return null;
+                        };
+
+                        return inResponse.json();
+                    }
+                },
+                ShowLoginDetailsOnDOM: {
+                    InHeader: () => {
+                        let LocalUserName = localStorage.getItem("kUserName");
+                        let jVarLocalHeaderLoginButtonId = document.getElementById("HeaderLoginButtonId");
+
+                        if (jVarLocalHeaderLoginButtonId !== null) {
+                            jVarLocalHeaderLoginButtonId.classList.add("visually-hidden");
+                            document.getElementById("HeaderUserIdLi").classList.remove("visually-hidden");
+
+                            if (LocalUserName !== null) {
+                                document.getElementById("HeaderUserIdLi").innerHTML = LocalUserName
+                                //document.getElementById("HeaderUserIdDropDown").innerHTML.replace("UserName", LocalUserName);
+                            };
+                        };
+                    }
+                },
+                ClientSideCookieFuncs: {
+                    getCookie: (name) => {
+                        var nameEQ = name + "=";
+                        var ca = document.cookie.split(';');
+                        for (var i = 0; i < ca.length; i++) {
+                            var c = ca[i];
+                            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                        }
+                        return null;
+                    },
+                    CheckToken: () => {
+                        let jVarLocalCookieValue;
+                        jVarLocalCookieValue = this.Login.ClientSideCookieFuncs.getCookie("KAToken");
+                        if (jVarLocalCookieValue === null) {
+                            this.UI.ModalFuncs.Show();
+                        } else {
+                            this.Login.ShowLoginDetailsOnDOM.InHeader();
+                            jVarLocalApiFuncs.ShowData();
+                        };
+                    },
+                    DeleteCookie: () => {
+                        document.cookie = "KAToken=; expires=Thu, 01 Jan 1947 00:00:00 UTC; path=/;";
+                    }
+                }
+            };
+        };
+
+        let jVarGlobalClientObject = new jPrepareClass({});
+
+        jVarGlobalClientObject.Login.ClientSideCookieFuncs.CheckToken();
+    </script>
+
+</body>
+
+</html>
