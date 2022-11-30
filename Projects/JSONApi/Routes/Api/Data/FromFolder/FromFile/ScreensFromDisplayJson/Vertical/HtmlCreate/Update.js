@@ -3,7 +3,6 @@ let router = express.Router();
 let Repos = require("../../../../../../../../Repository/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Update")
 let CommonMiddleWares = require("../../../../../../../../Middlewares/ForRoutes/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Update")
 
-
 router.post("/", CommonMiddleWares.FromParams, (req, res) => {
     let LocalJsonConfig = req.body.JsonConfig;
     let LocalItemConfig = req.body.ItemConfig;
