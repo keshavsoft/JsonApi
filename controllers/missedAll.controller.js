@@ -52,8 +52,12 @@ let getUrl = async (req, res) => {
 let postUrl = async (req, res) => {
     let LocalUrlArray = req.originalUrl.split("/");
     let LocalBasePath = LocalUrlArray[1];
-
+    console.log("sssssssssss ; ", req.originalUrl);
     switch (LocalBasePath) {
+        case "JSONAdminApi":
+            res.status(503).send("From Post, Copy JSONAdminApi to public from Repo : https://github.com/keshavsoft/JSONAdminApi");
+
+            break;
         case "Tally":
             res.setHeader("Content-Type", "text/html");
             res.end("From Post, Copy Tally to public from Repo : https://github.com/keshavsoft/kposthtml");
