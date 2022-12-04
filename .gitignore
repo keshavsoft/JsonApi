@@ -1,12 +1,16 @@
 .vscode/
 node_modules/
 
-
 /KData
 /DataSupply
 
 web.config
 
 /common-
+
+/Projects/JSONAdminApi-
+/Projects/JSONImport-
+/Projects/JSONUser-
+/Tally-
 
 .env
