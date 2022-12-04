@@ -52,7 +52,7 @@ let getUrl = async (req, res) => {
 let postUrl = async (req, res) => {
     let LocalUrlArray = req.originalUrl.split("/");
     let LocalBasePath = LocalUrlArray[1];
-    console.log("sssssssssss ; ", req.originalUrl);
+    
     switch (LocalBasePath) {
         case "JSONAdminApi":
             res.status(503).send("From Post, Copy JSONAdminApi to public from Repo : https://github.com/keshavsoft/JSONAdminApi");
@@ -64,8 +64,10 @@ let postUrl = async (req, res) => {
 
             break;
         case "JSONUser":
-            res.setHeader("Content-Type", "text/html");
-            res.end("From Post, Copy project : JSONUser from Repo : https://github.com/keshavsoft/JSONUser");
+            res.status(503).send("From Post, Copy JSONUser to public from Repo : https://github.com/keshavsoft/JSONUser");
+
+            // res.setHeader("Content-Type", "text/html");
+            // res.end("From Post, Copy project : JSONUser from Repo : https://github.com/keshavsoft/JSONUser");
 
             break;
         case "JSONImport":
