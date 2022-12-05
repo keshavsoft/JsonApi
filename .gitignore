@@ -12,8 +12,10 @@ web.config
 /Projects/JSONImport
 /Projects/JSONUser
 /Projects/Tally
+/Projects/JSONReports
 
 /public/JSONUser
 /public/Tally
+/public/JSONReports
 
 .env
