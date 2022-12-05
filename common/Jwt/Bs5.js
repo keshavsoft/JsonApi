@@ -3,36 +3,42 @@ let CommonCheckDataPK = require("../../DataSupply/Fs/Config/CheckDataPK");
 let CommonSecret = "k";
 
 let LocalVerifyToken = (req, res, inKToken, next) => {
-    jwt.verify(inKToken, CommonSecret, (err, authData) => {
+    try {
+        console.log("inKToken : ", inKToken);
+        jwt.verify(inKToken, CommonSecret, (err, authData) => {
 
-        if (err) {
-            //  res.end(err);
-            res.end("Invalid Token!");
-        } else {
-            if (("DataPk" in authData) === false) {
-                res.end("Invalid Token -1.");
+            if (err) {
+                //  res.end(err);
+                res.end("Invalid Token!");
             } else {
-                let LocalFromForExistence = CommonCheckDataPK.ForExistence({ inDataPK: authData.DataPk });
-
-                if ("KTF" in LocalFromForExistence) {
-                    if (LocalFromForExistence.KTF === false) {
-                        res.end(LocalFromForExistence.KReason);
-                    } else {
-                        if (("KeshavSoft" in req) === false) {
-                            req.KeshavSoft = { Headers: {} };
-                        };
-
-                        req.KeshavSoft.kUserName = authData.UserName;
-                        req.KeshavSoft.DataPk = parseInt(authData.DataPk);
-
-                        next();
-                    };
+                if (("DataPk" in authData) === false) {
+                    res.end("Invalid Token -1.");
                 } else {
-                    res.end("KTF not found in ForExistence!");
+                    let LocalFromForExistence = CommonCheckDataPK.ForExistence({ inDataPK: authData.DataPk });
+
+                    if ("KTF" in LocalFromForExistence) {
+                        if (LocalFromForExistence.KTF === false) {
+                            res.end(LocalFromForExistence.KReason);
+                        } else {
+                            if (("KeshavSoft" in req) === false) {
+                                req.KeshavSoft = { Headers: {} };
+                            };
+
+                            req.KeshavSoft.kUserName = authData.UserName;
+                            req.KeshavSoft.DataPk = parseInt(authData.DataPk);
+
+                            next();
+                        };
+                    } else {
+                        res.end("KTF not found in ForExistence!");
+                    };
                 };
             };
-        };
-    });
+        });
+
+    } catch (error) {
+        console.log("error from jwt : ", error);
+    };
 };
 
 exports.VerifyTokenOnly = async ({ inToken }) => {
