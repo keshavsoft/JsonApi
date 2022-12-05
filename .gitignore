@@ -8,9 +8,12 @@ web.config
 
 /common-
 
-/Projects/JSONAdminApi-
-/Projects/JSONImport-
-/Projects/JSONUser-
-/Tally-
+/Projects/JSONAdminApi
+/Projects/JSONImport
+/Projects/JSONUser
+/Projects/Tally
+
+/public/JSONUser
+/public/Tally
 
 .env
