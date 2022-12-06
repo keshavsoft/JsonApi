@@ -17,5 +17,6 @@ web.config
 /public/JSONUser
 /public/Tally
 /public/JSONReports
+/public/JSONAdminApi
 
 .env

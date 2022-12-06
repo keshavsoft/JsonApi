@@ -25,7 +25,7 @@ let insertToClientsInfo = ({ inComingMessage, inClientsInfo, inClientId }) => {
 
 let SwitchOnIncomingMessage = ({ inComingMessage, inWs, inClientsInfo, inUserName }) => {
 
-    console.log("switch : ", inUserName, inClientsInfo);
+    console.log("SwitchOnIncomingMessage : ", inUserName, inComingMessage);
 
 
     switch (inComingMessage) {
@@ -33,7 +33,7 @@ let SwitchOnIncomingMessage = ({ inComingMessage, inWs, inClientsInfo, inUserNam
             inWs.send("------------");
             break;
         case "GiveDesktopClients":
-            //    inWs.send("------------GiveDesktopClients", inUserName);
+          //      inWs.send("------------GiveDesktopClients", inUserName);
             let LocalFoundClientInfo = inClientsInfo.get(inUserName);
             let LocalJsonToSend = {};
 
