@@ -327,6 +327,11 @@
         </div>
     </div>
 
+    <div id="DataListsID">
+
+</div>
+
+<script src="/JSONApi/Js/KeshavSoft/FetchFuncs/PreLoad.js"></script>
     <script id="Bs5/Icons/Svg" KS="KeshavSoft" type="text/x-handlebars-template">
     {{#if SvgPlusLarge}}
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
@@ -4388,14 +4393,12 @@
                     Header: {
                         AddButtonClick: async (inEvent) => {
                             let jVarLocalCurrentTarget = inEvent.currentTarget;
-                            //                                let jVarClosestCardBodyForItems = jVarLocalCurrentTarget.closest(".CardBodyForItems");
                             let jVarClosestCardBodyForItems = document.getElementById("KCont1");
 
-                            let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
-                            let jVarLocalSubRoute = jVarGlobalClientObject.Config.RouteStart.SubRoute;
+                            let jVarLocalRoute = this.Config.RouteStart.Start;
+                            let jVarLocalSubRoute = this.Config.RouteStart.SubRoute;
                             let jVarLocalBodyData = await this.ApiFuncs.Table.Card.Config.PullJsonAndItemConfig(jVarLocalCurrentTarget);
 
-                            //                                let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensDisplayForFile/Vertical/HtmlCreate/Fromjson`;
                             let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Fromjson`;
 
                             let response = await fetch(jVarLocalFetchUrl, {
@@ -6315,6 +6318,7 @@
 
     <script>
         let jVarGlobalKeshavSoftLocalFuncsObject = new KeshavSoftLocalFuncs({});
+        jVarGlobalApiFuncs.ApiFuncs.PreLoad.Masters.FillDataFromServer();
     </script>
 
 </body>

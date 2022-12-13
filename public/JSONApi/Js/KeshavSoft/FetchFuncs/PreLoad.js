@@ -24,7 +24,7 @@ class jVarGlobalApiFuncsClass {
         PreLoad: {
             Masters: {
                 FillDataFromServer: () => {
-                    jVarGlobalClientObject.Api.PreLoad.Masters.CommonFuncs.ShowToastFuncs.ForDataList();
+//                    jVarGlobalClientObject.Api.PreLoad.Masters.CommonFuncs.ShowToastFuncs.ForDataList();
 
                     let jVarLocalRoute = this.Config.RouteStart.Start;
                     let jVarLocalSubRoute = this.Config.RouteStart.SubRoute;

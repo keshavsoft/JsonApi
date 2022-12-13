@@ -4,23 +4,20 @@ let jVarLocalObjectFromUrlSearchParams = ReturnFolderAndFileNameAndItemName();
 
 let jFShowFolderInBreadcrumb = ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName }) => {
     let jVarLocalBreadcrumbFolderNameId = document.getElementById("BreadcrumbFolderNameId");
-    jVarLocalBreadcrumbFolderNameId.href = `Files.html?FolderName=${inFolderName}`;
+    jVarLocalBreadcrumbFolderNameId.href = `Menu/AsCards/Files.html?FolderName=${inFolderName}`;
     jVarLocalBreadcrumbFolderNameId.innerHTML = inFolderName;
 
     let jVarLocalBreadcrumbFileNameId = document.getElementById("BreadcrumbFileNameId");
-    jVarLocalBreadcrumbFileNameId.href = `Items.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}`;
+    jVarLocalBreadcrumbFileNameId.href = `Menu/AsCards/Items.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}`;
     jVarLocalBreadcrumbFileNameId.innerHTML = inFileNameWithExtension;
 
     let jVarLocalBreadcrumbItemNameId = document.getElementById("BreadcrumbItemNameId");
-    jVarLocalBreadcrumbItemNameId.href = `Screens.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}&ItemName=${inItemName}`;
+    jVarLocalBreadcrumbItemNameId.href = `Menu/AsCards/Screens.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}&ItemName=${inItemName}`;
     jVarLocalBreadcrumbItemNameId.innerHTML = inItemName;
 
     let jVarLocalBreadcrumbScreenNameId = document.getElementById("BreadcrumbScreenNameId");
     jVarLocalBreadcrumbScreenNameId.innerHTML = inScreenName;
 };
-
-console.log("jVarLocalObjectFromUrlSearchParams : ", jVarLocalObjectFromUrlSearchParams);
-
 
 let jFTableShow = ({ inProjectName, inSubRoute, inFolderName, inFileName, inItemName, inScreenName }) => {
     let jVarCardBody = document.getElementById("KCont1");
@@ -67,7 +64,6 @@ let jFTableShow = ({ inProjectName, inSubRoute, inFolderName, inFileName, inItem
         };
     });
 };
-
 
 let StartFunc = ({ inProjectName, inSubRoute }) => {
     let LocalRowCount = 0;
