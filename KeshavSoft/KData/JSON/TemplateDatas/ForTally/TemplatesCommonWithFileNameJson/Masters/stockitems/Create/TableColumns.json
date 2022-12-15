@@ -1,0 +1,29 @@
+[
+    {
+        "DisplayName": "stockitemname",
+        "DataAttribute": "stockitemname",
+        "ShowInTable": true,
+        "ParentClasses": {
+            "Parent1Class": "col-md-6",
+            "Parent2Class": "col-md-6",
+            "Parent3Class": "row col-md-4 mb-3",
+            "InputClass": "form-control"
+        }
+    },
+    {
+        "DisplayName": "stockopeningbalance",
+        "DataAttribute": "stockopeningbalance",
+        "ShowInTable": true,
+        "ParentClasses": {
+            "Parent1Class": "col-md-6",
+            "Parent2Class": "col-md-6",
+            "Parent3Class": "row col-md-4 mb-3",
+            "InputClass": "form-control"
+        }
+    },
+    {
+        "DisplayName": "guid",
+        "DataAttribute": "guid",
+        "CreateNew": false
+    }
+]
