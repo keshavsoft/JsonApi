@@ -602,7 +602,7 @@
     
     {{#if this.Show.Rowshow}}
     <td class="ButtonClass">
-        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Body.Row.ShowClick({ inEvent :event})"
+        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.Body.Row.ShowClick({ inEvent :event})"
             style="color: forestgreen;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-arrow-right-square" viewBox="0 0 16 16">
@@ -628,7 +628,7 @@
     
     {{#if this.Edit.RowEdit}}
     <td class="ButtonClass">
-        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Body.Row.Edit.ButtonClick({inEvent:event})"
+        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.Body.Row.Edit.ButtonClick({inEvent:event})"
             style="color: forestgreen;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
                 viewBox="0 0 16 16">
@@ -5392,7 +5392,11 @@
                             let jVarLocalRoute = this.Config.RouteStart.Start;
                             let jVarLocalSubRoute = this.Config.RouteStart.SubRoute;
                             let JsonPK = parseInt(jVarClosestTr.dataset.pk);
-                            let jVarLocalItemConfig = jVarGlobalClientObject.Api.UserData.CommonFuncs.PrepareJsonAndItemConfig({ inCurrentTarget: jVarLocalCurrentTarget });
+                            //let jVarLocalItemConfig = jVarGlobalClientObject.Api.UserData.CommonFuncs.PrepareJsonAndItemConfig({ inCurrentTarget: jVarLocalCurrentTarget });
+                            let jVarLocalItemConfig = this.ApiFuncs.Table.CommonFuncs.PrepareJsonAndItemConfigInsertKey({ inCurrentTarget: jVarLocalCurrentTarget });
+
+console.log("jVarLocalItemConfig : ", jVarLocalItemConfig);
+
 
                             let jVarLocalFolderName = jVarLocalItemConfig.FolderName;
                             let jVarLocalFileName = jVarLocalItemConfig.FileName;
