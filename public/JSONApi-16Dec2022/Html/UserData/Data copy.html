@@ -327,14 +327,11 @@
         </div>
     </div>
 
-    <!-- AddForPreload -->
     <div id="DataListsID">
 
 </div>
 
 <script src="/JSONApi/Js/KeshavSoft/FetchFuncs/PreLoad.js"></script>
-
-    <!-- AddForCrud -->
     <script id="Bs5/Icons/Svg" KS="KeshavSoft" type="text/x-handlebars-template">
     {{#if SvgPlusLarge}}
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
@@ -819,11 +816,11 @@
         {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
         <td style="text-align:{{val1.TextAlign}}">
             {{#if val1.ShowTotal}}
-                {{#if (IsIndianDateFormat ../KData.TableColumns key1) }}
-                    {{ShowInIndianDateFormat (TableColumnTotal key1 ../KData.TableData)}}
-                {{else}}
-                    {{TableColumnTotal key1 ../KData.TableData}}
-                {{/if}}
+            {{#if (IsIndianDateFormat ../KData.TableColumns key1) }}
+            {{ShowInIndianDateFormat (TableColumnTotal key1 ../KData.TableData)}}
+            {{else}}
+            {{TableColumnTotal key1 ../KData.TableData}}
+            {{/if}}
             {{/if}}
         </td> {{/if}} {{/each}}
     </tr>
@@ -1441,7 +1438,9 @@
     
         {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
         <td style="text-align:{{val1.TextAlign}}">
-            {{TableFooterShowTotal val1 key1 ../KData.TableColumns ../KData.TableData}}
+            {{#if val1.ShowTotal}}
+                {{TableFooterShowTotal (TableColumnTotal key1 ../KData.TableData)}}
+            {{/if}}
         </td> {{/if}} {{/each}}
     </tr>
     {{/if}}
@@ -3290,8 +3289,6 @@
 <script src="/JSONApi/Js/sweetalert2/sweetalert2@11.js"></script>
 <script src="/JSONApi/Js/Bs5/bootstrap.bundle.min.js"></script>
 <script src="/JSONApi/Js/handlebars/handlebars.min-v4.7.7.js"></script>
-
-<!-- this is from addforcrud -->
 
 <script>
     class KeshavSoftLocalFuncs {
@@ -5980,32 +5977,32 @@
             Vertical: {
                 KeyPress: {
                     EnterOnClient: ({ inEvent }) => {
-                        if (inEvent.keyCode === 13) {
-                            let jVarLocalCurrentTarget = inEvent.currentTarget;
-                            let jVarLocalClosestForm = jVarLocalCurrentTarget.closest("form");
+                            if (inEvent.keyCode === 13) {
+                                let jVarLocalCurrentTarget = inEvent.currentTarget;
+                                let jVarLocalClosestForm = jVarLocalCurrentTarget.closest("form");
+                                
+                                let jVarLocalFetchPostData = this.VerticalCommonFuncs.PreparePostData.ForSave({ jVarHtmlCardBody: jVarLocalClosestForm });
 
-                            let jVarLocalFetchPostData = this.VerticalCommonFuncs.PreparePostData.ForSave({ jVarHtmlCardBody: jVarLocalClosestForm });
+                                if ("clienteval" in jVarLocalCurrentTarget.dataset) {
+                                    if ("enteronclient" in jVarLocalCurrentTarget.dataset) {
+                                        if (jVarLocalCurrentTarget.dataset.enteronclient === "true") {
+                                            let jVarLocalClientEval = inEvent.currentTarget.dataset.clienteval;
+    
+                                            Object.entries(jVarLocalFetchPostData).forEach(
+                                                ([key, value]) =>{
+                                                    jVarLocalClientEval = jVarLocalClientEval.replace(`{{${key}}}`, parseFloat(value));
+                                                }
+                                            );
 
-                            if ("clienteval" in jVarLocalCurrentTarget.dataset) {
-                                if ("enteronclient" in jVarLocalCurrentTarget.dataset) {
-                                    if (jVarLocalCurrentTarget.dataset.enteronclient === "true") {
-                                        let jVarLocalClientEval = inEvent.currentTarget.dataset.clienteval;
+                                            inEvent.currentTarget.value = eval(jVarLocalClientEval);
+                                        };
+                                    }
+                                } else {
 
-                                        Object.entries(jVarLocalFetchPostData).forEach(
-                                            ([key, value]) => {
-                                                jVarLocalClientEval = jVarLocalClientEval.replace(`{{${key}}}`, parseFloat(value));
-                                            }
-                                        );
+                                };
 
-                                        inEvent.currentTarget.value = eval(jVarLocalClientEval);
-                                    };
-                                }
-                            } else {
-
-                            };
-
-                        }
-                    },
+                            }
+                        },
                     EnterToServer: async ({ inEvent }) => {
                         if (inEvent.keyCode === 13) {
                             let jVarLocalCurrentTarget = inEvent.currentTarget;
@@ -6143,7 +6140,6 @@
     };
 </script>
 
-    <!-- LoginClassOnly -->
     <script>
     class GlobalClassForLogin {
         constructor({ inProjectName }) {

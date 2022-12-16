@@ -3291,8 +3291,6 @@
 <script src="/JSONApi/Js/Bs5/bootstrap.bundle.min.js"></script>
 <script src="/JSONApi/Js/handlebars/handlebars.min-v4.7.7.js"></script>
 
-<!-- this is from addforcrud -->
-
 <script>
     class KeshavSoftLocalFuncs {
         constructor({ inProjectName }) {
@@ -5980,32 +5978,32 @@
             Vertical: {
                 KeyPress: {
                     EnterOnClient: ({ inEvent }) => {
-                        if (inEvent.keyCode === 13) {
-                            let jVarLocalCurrentTarget = inEvent.currentTarget;
-                            let jVarLocalClosestForm = jVarLocalCurrentTarget.closest("form");
+                            if (inEvent.keyCode === 13) {
+                                let jVarLocalCurrentTarget = inEvent.currentTarget;
+                                let jVarLocalClosestForm = jVarLocalCurrentTarget.closest("form");
+                                
+                                let jVarLocalFetchPostData = this.VerticalCommonFuncs.PreparePostData.ForSave({ jVarHtmlCardBody: jVarLocalClosestForm });
 
-                            let jVarLocalFetchPostData = this.VerticalCommonFuncs.PreparePostData.ForSave({ jVarHtmlCardBody: jVarLocalClosestForm });
+                                if ("clienteval" in jVarLocalCurrentTarget.dataset) {
+                                    if ("enteronclient" in jVarLocalCurrentTarget.dataset) {
+                                        if (jVarLocalCurrentTarget.dataset.enteronclient === "true") {
+                                            let jVarLocalClientEval = inEvent.currentTarget.dataset.clienteval;
+    
+                                            Object.entries(jVarLocalFetchPostData).forEach(
+                                                ([key, value]) =>{
+                                                    jVarLocalClientEval = jVarLocalClientEval.replace(`{{${key}}}`, parseFloat(value));
+                                                }
+                                            );
 
-                            if ("clienteval" in jVarLocalCurrentTarget.dataset) {
-                                if ("enteronclient" in jVarLocalCurrentTarget.dataset) {
-                                    if (jVarLocalCurrentTarget.dataset.enteronclient === "true") {
-                                        let jVarLocalClientEval = inEvent.currentTarget.dataset.clienteval;
+                                            inEvent.currentTarget.value = eval(jVarLocalClientEval);
+                                        };
+                                    }
+                                } else {
 
-                                        Object.entries(jVarLocalFetchPostData).forEach(
-                                            ([key, value]) => {
-                                                jVarLocalClientEval = jVarLocalClientEval.replace(`{{${key}}}`, parseFloat(value));
-                                            }
-                                        );
+                                };
 
-                                        inEvent.currentTarget.value = eval(jVarLocalClientEval);
-                                    };
-                                }
-                            } else {
-
-                            };
-
-                        }
-                    },
+                            }
+                        },
                     EnterToServer: async ({ inEvent }) => {
                         if (inEvent.keyCode === 13) {
                             let jVarLocalCurrentTarget = inEvent.currentTarget;
@@ -6142,6 +6140,7 @@
         };
     };
 </script>
+
 
     <!-- LoginClassOnly -->
     <script>
