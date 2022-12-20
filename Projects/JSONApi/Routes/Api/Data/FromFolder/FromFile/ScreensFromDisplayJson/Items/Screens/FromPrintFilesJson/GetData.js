@@ -3,7 +3,6 @@ let router = express();
 let Repos = require('../../../../../../../../../Repository/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Screens/FromPrintFilesJson/GetData')
 
 router.post('/AsArray', (req, res) => {
-    //console.log("hhhhhhhhhhhhh----------", req.body);
     let LocalDataPK;
     let LocalFolderName;
     let LocalFileName;

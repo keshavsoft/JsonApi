@@ -545,104 +545,108 @@
     
     </script>
     <script id="MainTable/Body/Row/KTbodyRowOptions" KS="KeshavSoft" type="text/x-handlebars-template">
-    {{#if this.Delete.Simple}}
-    <td class="ButtonClass">
-        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.Body.Row.DeleteNew({inEvent:event})">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
-                viewBox="0 0 16 16">
-                <path
-                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                <path fill-rule="evenodd"
-                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-            </svg>
-        </a>
-    </td>
-    {{/if}}
+        {{#if this.Delete.Simple}}
+        <td class="ButtonClass">
+            <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.Body.Row.DeleteNew({inEvent:event})">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                    <path fill-rule="evenodd"
+                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                </svg>
+            </a>
+        </td>
+        {{/if}}
+        
+        {{#if this.PrintToPrinter.FromData}}
+        <td class="ButtonClass">
+            <a href="#"
+                onclick="jClassGlobalPrintFuncs.jFPrint({inEvent:event,inJsonConfig:{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'JsonConfig'}},             inItemConfig:{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'ItemConfig'}} })">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
+                    viewBox="0 0 16 16">
+                    <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+                    <path
+                        d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
+                </svg>
+            </a>
+        </td>
+        {{/if}}
+        
+        {{#if this.PrintToPrinter.Double}}
+        {{log "sss : " this @key}}
+        <td class="ButtonClass">
+            <a href="#" class="MainTable Body Row Options Print" data-jsonconfig="{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'JsonConfig'}}"
+            data-itemconfig = "{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'ItemConfig'}}"
+             data-pk="16"   >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
+                    viewBox="0 0 16 16">
+                    <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+                    <path
+                        d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
+                </svg>
+            </a>
+        </td>
+        {{/if}}
+        
+        {{#if this.PrintToPrinter.Barcode}}
+        <td class="ButtonClass">
+            <a href="#" onclick="jVarGlobalClientObject.Api.UserData.Table.Row.Barcode.Print({inEvent:event})">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
+                    viewBox="0 0 16 16">
+                    <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+                    <path
+                        d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
+                </svg>
+            </a>
+        </td>
+        {{/if}}
+        
+        {{#if this.Show.Rowshow}}
+        <td class="ButtonClass">
+            <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Body.Row.ShowClick({ inEvent :event})"
+                style="color: forestgreen;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+                </svg>
+            </a>
+        </td>
+        {{/if}}
+        
+        {{#if this.PopUp.Rowshow}}
+        <td class="ButtonClass">
+            <a href="#" onclick="jVarGlobalClientObject.Api.UserData.Table.Row.Edit.PopUp({ inEvent :event})"
+                style="color: forestgreen;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+        </td>
+        {{/if}}
+        
+        {{#if this.Edit.RowEdit}}
+        <td class="ButtonClass">
+            <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Body.Row.Edit.ButtonClick({inEvent:event})"
+                style="color: forestgreen;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                </svg>
+            </a>
+        </td>
+        {{/if}}
+        
+        
+        </script>
+        
     
-    {{#if this.PrintToPrinter.FromData}}
-    <td class="ButtonClass">
-        <a href="#"
-            onclick="jClassGlobalPrintFuncs.jFPrint({inEvent:event,inJsonConfig:{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'JsonConfig'}},             inItemConfig:{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'ItemConfig'}} })">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
-                viewBox="0 0 16 16">
-                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
-                <path
-                    d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
-            </svg>
-        </a>
-    </td>
-    {{/if}}
-    
-    {{#if this.PrintToPrinter.Double}}
-    <td class="ButtonClass">
-        <a href="#"
-            onclick="jClassGlobalPrintFuncs.jFPrintFromData({inEvent:event,inJsonConfig:{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'JsonConfig'}},             inItemConfig:{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'ItemConfig'}} })">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
-                viewBox="0 0 16 16">
-                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
-                <path
-                    d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
-            </svg>
-        </a>
-    </td>
-    {{/if}}
-    
-    {{#if this.PrintToPrinter.Barcode}}
-    <td class="ButtonClass">
-        <a href="#" onclick="jVarGlobalClientObject.Api.UserData.Table.Row.Barcode.Print({inEvent:event})">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
-                viewBox="0 0 16 16">
-                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
-                <path
-                    d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
-            </svg>
-        </a>
-    </td>
-    {{/if}}
-    
-    {{#if this.Show.Rowshow}}
-    <td class="ButtonClass">
-        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.Body.Row.ShowClick({ inEvent :event})"
-            style="color: forestgreen;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-arrow-right-square" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-            </svg>
-        </a>
-    </td>
-    {{/if}}
-    
-    {{#if this.PopUp.Rowshow}}
-    <td class="ButtonClass">
-        <a href="#" onclick="jVarGlobalClientObject.Api.UserData.Table.Row.Edit.PopUp({ inEvent :event})"
-            style="color: forestgreen;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-                <path
-                    d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
-            </svg>
-        </a>
-    </td>
-    {{/if}}
-    
-    {{#if this.Edit.RowEdit}}
-    <td class="ButtonClass">
-        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.Body.Row.Edit.ButtonClick({inEvent:event})"
-            style="color: forestgreen;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
-                viewBox="0 0 16 16">
-                <path
-                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                <path fill-rule="evenodd"
-                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-            </svg>
-        </a>
-    </td>
-    {{/if}}
-    
-    
-    </script>
     <script id="MainTable/Body/Row/NormalFromTableDataRow" KS="KeshavSoft" type="text/x-handlebars-template">
     <tr class="KTableRow {{this.RowClass}}" data-klevel="{{Table_KLevel inTableInfo.KLevel}}"
         data-pk="{{array_value_indexret inTableColumns inTableInfo.kPK this.DisplayText}}"
@@ -5392,12 +5396,11 @@
                             let jVarLocalRoute = this.Config.RouteStart.Start;
                             let jVarLocalSubRoute = this.Config.RouteStart.SubRoute;
                             let JsonPK = parseInt(jVarClosestTr.dataset.pk);
-                            //let jVarLocalItemConfig = jVarGlobalClientObject.Api.UserData.CommonFuncs.PrepareJsonAndItemConfig({ inCurrentTarget: jVarLocalCurrentTarget });
+                            //  let jVarLocalItemConfig = jVarGlobalClientObject.Api.UserData.CommonFuncs.PrepareJsonAndItemConfig({ inCurrentTarget: jVarLocalCurrentTarget });
+
                             let jVarLocalItemConfig = this.ApiFuncs.Table.CommonFuncs.PrepareJsonAndItemConfigInsertKey({ inCurrentTarget: jVarLocalCurrentTarget });
 
-console.log("jVarLocalItemConfig : ", jVarLocalItemConfig);
-
-
+                            //console.log("jVarLocalItemConfig : ", jVarLocalItemConfig);
                             let jVarLocalFolderName = jVarLocalItemConfig.FolderName;
                             let jVarLocalFileName = jVarLocalItemConfig.FileName;
                             let jVarLocalItemName = jVarLocalItemConfig.ItemName;
@@ -6313,6 +6316,134 @@ console.log("jVarLocalItemConfig : ", jVarLocalItemConfig);
                 }
             }
         };
+    };
+</script>
+
+    <!-- KSJsClientSidePrintFuncs -->
+    <script>
+    class jClassGlobalPrintFuncs {
+        static CommonFuncs = {
+            ForPrint: ({ inPromiseArray, inCurrentTarget }) => {
+                let jVarLocalHtmlFilesArray;
+                let jVarLocalJsonData;
+                let jVarLocalKTF = true;
+
+                let jVarLocalUrlFromPrepareForUrl = jVarGlobalClientObject.Print.Ui.CommonFuncs.FromPublic.PrepareForUrl({ inCurrentTarget });
+
+                Promise.all(inPromiseArray)
+                    .then(responses => {
+                        return Promise.all(responses.map((LoopItem, LoopIndex) => {
+                            return LoopItem.json();
+                        }));
+                    }).then(responses => {
+                        // all responses are resolved successfully
+                        for (let LoopIndex = 0; LoopIndex < responses.length; LoopIndex++) {
+                            const jVarLocalLoopValue = responses[LoopIndex];
+                            
+                            switch (LoopIndex) {
+                                case 0:
+                                    if (jVarLocalLoopValue.KTF) {
+                                        jVarLocalHtmlFilesArray = jVarLocalLoopValue.DataFromServer;
+                                    } else {
+                                        jVarLocalKTF = false;
+                                    };
+
+                                    break;
+                                case 1:
+                                    if (jVarLocalLoopValue.KTF) {
+                                        jVarLocalJsonData = jVarLocalLoopValue.JsonData;
+                                    } else {
+                                        jVarLocalKTF = false;
+                                    };
+
+                                    break;
+                                default:
+                                    break;
+                            };
+                        };
+
+                        if (jVarLocalKTF) {
+                            jFPullPrintFiles({
+                                inPrintFilesArray: jVarLocalHtmlFilesArray,
+                                inJsonData: jVarLocalJsonData,
+                                inHtmlPath: jVarLocalUrlFromPrepareForUrl
+                            });
+                        } else {
+                            console.log("insufficient data!");
+                        }
+                    });
+            }
+        };
+
+        static jFPrint = ({ inEvent, inJsonConfig, inItemConfig }) => {
+            let PromiseArray = [];
+            let jVarLocalCurrentTarget = inEvent.currentTarget;
+            let JsonPK = jVarLocalCurrentTarget.closest("tr").dataset.pk;
+            let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
+            let jVarLocalKTF = true;
+
+            let jVarLocalBodyObject = {
+                inFolderName: inJsonConfig.inFolderName,
+                inJsonFileName: inJsonConfig.inJsonFileName,
+                inItemName: inItemConfig.inItemName,
+                inRowPK: JsonPK
+            };
+
+            let jVarLocalCookieFirmDetails = localStorage.getItem("FirmDetails");
+            let jVarLocalDataPk = JSON.parse(jVarLocalCookieFirmDetails);
+
+            let jVarLocalFetchForHtmlFiles = `${window.location.origin}/${jVarLocalRoute}/Api/Preview/ForHtml`;
+
+            PromiseArray.push(fetch(jVarLocalFetchForHtmlFiles));
+            PromiseArray.push(fetch(`${window.location.origin}/${jVarLocalRoute}/Api/Preview/ShowData`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jVarLocalBodyObject)
+            }));
+
+            this.CommonFuncs.ForPrint({ inPromiseArray: PromiseArray, inCurrentTarget: jVarLocalCurrentTarget });
+        };
+
+
+        static jFPrintFromData = ({ inEvent, inJsonConfig, inItemConfig }) => {
+            let PromiseArray = [];
+            let jVarLocalCurrentTarget = inEvent.currentTarget;
+            let JsonPK = jVarLocalCurrentTarget.closest("tr").dataset.pk;
+            let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
+
+            let jVarLocalBodyObject = {
+                ...inJsonConfig, ...inItemConfig, inRowPK: JsonPK
+            };
+
+            //let jVarLocalFetchForHtmlFiles = `${window.location.origin}/${jVarLocalRoute}/Api/Preview/ForHtml`;
+
+            let jVarLocalFetchForHtmlFiles = `${window.location.origin}/${jVarLocalRoute}/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Screens/FromPrintFilesJson/GetData/AsArray`;
+            let jVarLocalFetchJsonData = `${window.location.origin}/${jVarLocalRoute}/Api/Preview/ShowData/FromDataFolder`;
+            let jVarLocalFetchForHtmlFilesHeaders = {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jVarLocalBodyObject)
+            };
+
+            PromiseArray.push(fetch(jVarLocalFetchForHtmlFiles, jVarLocalFetchForHtmlFilesHeaders));
+            PromiseArray.push(fetch(jVarLocalFetchJsonData, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jVarLocalBodyObject)
+            }));
+
+            this.CommonFuncs.ForPrint({ inPromiseArray: PromiseArray, inCurrentTarget: jVarLocalCurrentTarget });
+        };
+
     };
 </script>
 

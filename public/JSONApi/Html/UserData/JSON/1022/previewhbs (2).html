@@ -1,0 +1,91 @@
+
+  <div class="row">
+    <div class="col-8 border">
+      <div class="row">
+        <div class="col-3">
+          Buyer Name:
+        </div>
+        <div class="col-9">
+          <b>{{nam2}}</b>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3">
+          Mobile:
+        </div>
+        <div class="col-9">
+          <b>{{nam4}}</b>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          GST:
+        </div>
+        <div class="col-9">
+          <b>{{gst}}</b>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-4 border">
+      <div class="row">
+        <div class="col">
+          Credit Tax Invoice
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Number
+        </div>
+        <div class="col">
+          <b>{{BillNumber}}</b>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Date
+        </div>
+        <div class="col">
+          <b></b>{{DateFromyyyyMMddToddMMyyyy Date}}</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-striped table-sm">
+    <thead>
+      <tr>
+        <th class="text-center" width="5%">S.no</th>
+        <th class="text-center" width="47%">Product Name</th>
+        <th class="text-center" width="10%">HSN</th>
+        <th class="text-center" width="5%">Qty</th>
+        <th class="text-center" width="10%">Rate(₹)</th>
+        <th class="text-center" width="5%">Tax</th>
+        <th class="text-center" width="16%">Amount(₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each InvGrid}}
+      <tr>
+        <td class="text-center">{{ForSNo @index}}</td>
+        <td class="text-start">{{ProductName}}</td>
+        <td class="text-start">{{ProductGroup8Name}}</td>
+        <td class="text-end">{{Qty}}</td>
+        <td class="text-end">{{ShowInIndianDateFormat UnitRate}}</td>
+        <td class="text-end">{{TaxPer}}%</td>
+        <td class="text-end">{{ShowInIndianDateFormat Amount}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+    <tfoot>
+      {{log "TotalRow" TotalRow}}
+      <tr>
+        <td colspan="3">
+          <b>( in words:{{NumToWord TotalRow.Amount}} )</b>
+        </td>
+        <td colspan="3" class="text-end"><b>Total Amount</b></td>
+        <td class="text-end"><b> {{ShowInIndianDateFormat TotalRow.Amount}}</b></td>
+      </tr>
+    </tfoot>
+  </table>

@@ -1,0 +1,207 @@
+{{log this}}
+<div id="divIdDoubleBillPreviews" class="ForPrintDiv">
+  <div class="row">
+    <div class="col border">
+      <div class="fs-5">
+        <b>SRI DURGA AGENCIES</b>
+      </div>
+      GST:37AASFS2627R2ZB
+      <br>
+      PALAKOL. Phone :9848491891
+    </div>
+    <div class="col border">
+      <p>19-2-9, OPP:CHINNAGOPURAM</p>
+      <p>StateName : AndhraPredesh ,Code :37</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 border">
+      <div class="row">
+        <div class="col-3">
+          Buyer Name:
+        </div>
+        <div class="col-9">
+          <b>{{nam2}}</b>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3">
+          Mobile:
+        </div>
+        <div class="col-9">
+          <b>{{nam4}}</b>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          GST:
+        </div>
+        <div class="col-9">
+          <b>{{gst}}</b>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-4 border">
+      <div class="row">
+        <div class="col">
+          Credit Tax Invoice
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Number
+        </div>
+        <div class="col">
+          <b>{{BillNumber}}</b>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Date
+        </div>
+        <div class="col">
+          <b></b>{{DateFromyyyyMMddToddMMyyyy Date}}</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-striped table-sm">
+    <thead>
+      <tr>
+        <th class="text-center" width="5%">S.no</th>
+        <th class="text-center" width="47%">Product Name</th>
+        <th class="text-center" width="10%">HSN</th>
+        <th class="text-center" width="5%">Qty</th>
+        <th class="text-center" width="10%">Rate(₹)</th>
+        <th class="text-center" width="5%">Tax</th>
+        <th class="text-center" width="16%">Amount(₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each InvGrid}}
+      <tr>
+        <td class="text-center">{{ForSNo @index}}</td>
+        <td class="text-start">{{ProductName}}</td>
+        <td class="text-start">{{ProductGroup8Name}}</td>
+        <td class="text-end">{{Qty}}</td>
+        <td class="text-end">{{ShowInIndianDateFormat UnitRate}}</td>
+        <td class="text-end">{{TaxPer}}%</td>
+        <td class="text-end">{{ShowInIndianDateFormat Amount}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+    <tfoot>
+      {{log "TotalRow" TotalRow}}
+      <tr>
+        <td colspan="3">
+          <b>( in words:{{NumToWord TotalRow.Amount}} )</b>
+        </td>
+        <td colspan="3" class="text-end"><b>Total Amount</b></td>
+        <td class="text-end"><b> {{ShowInIndianDateFormat TotalRow.Amount}}</b></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="row">
+    <div class="col">
+      <div class="row" style="font-size: 0.8rem">
+        <div class="col-1 border">
+          #
+        </div>
+        <div class="col-2 border">
+          Tax %
+        </div>
+        <div class="col-5 border text-center">
+          Taxable Value(₹)
+        </div>
+        <div class="col-2 border text-center">
+          CGST(₹)
+        </div>
+        <div class="col-2 border text-center">
+          SGST(₹)
+        </div>
+      </div>
+
+      {{#each TaxData}}
+      <div class="row" style="font-size: 0.8rem;">
+        <div class="col-1 border">
+          {{ForSNo @index}}
+        </div>
+        <div class="col-2 border">
+          {{TaxPer}} %
+        </div>
+        <div class="col-5 border text-end">
+          {{ShowInIndianDateFormat TaxableAmount}}
+        </div>
+        <div class="col-2 border text-end">
+          {{ShowInIndianDateFormat Cgst}}
+        </div>
+        <div class="col-2 border text-end">
+          {{ShowInIndianDateFormat Sgst}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <div class="col">
+      <div class="row">
+        Terms & Conditions :
+      </div>
+      <div class="row">
+        <div class="col" style="font-size: 0.7rem">
+          1 . Goods once sold will not be taken back or exchanged.
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="font-size: 0.7rem">
+          2 . Intrest @12% P.A. will be charged on delay payments.
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="font-size: 0.7rem">
+          3 . All disputes are subjected to Kakinada jurisdiction only.
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="font-size: 0.7rem">
+          4 . E. & O.E.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col border">
+      <div class="row" style="height: 60px">
+        <div class="col">
+          Customer Signature
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="font-size: 0.6rem;">
+          Contact:
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col border">
+      <div class="row" style="height: 60px">
+        <div class="col">
+          For SRI DURGA AGENCIES
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col text-end" style="font-size: 0.6rem;">
+          Authorized signature.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
