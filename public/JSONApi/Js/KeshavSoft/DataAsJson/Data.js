@@ -9,6 +9,4 @@ jFShowFoldersInMenu({
 ShowDataFuncsStartFunc({
     inProjectName: jVarGlobalProject,
     inSubRoute: jVarGlobalSubRoute
-}).then(p => {
-    console.log("p : ", p);
-})
+});

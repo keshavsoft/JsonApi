@@ -635,6 +635,10 @@
     {{> ReportTable/KTableWithCardAndSearchRow}}
     {{/case}}
     
+    {{#case 'ReportTableForPrint'}}
+    {{> ReportTableForPrint/KTable}}
+    {{/case}}
+    
     {{#case 'MainTable'}}
     {{> MainTable/KTableWithCardAndSearchRow}}
     {{/case}}
@@ -814,8 +818,9 @@
     
     {{#if this.PrintToPrinter.Double}}
     <td class="ButtonClass">
-        <a href="#"
-            onclick="jClassGlobalPrintFuncs.jFPrintFromData({inEvent:event,inJsonConfig:{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'JsonConfig'}},             inItemConfig:{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'ItemConfig'}} })">
+        <a href="#" class="MainTable Body Row Options Print" data-jsonconfig="{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'JsonConfig'}}"
+        data-itemconfig = "{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'ItemConfig'}}"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
                 viewBox="0 0 16 16">
                 <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
@@ -824,6 +829,7 @@
             </svg>
         </a>
     </td>
+    
     {{/if}}
     
     {{#if this.PrintToPrinter.Barcode}}
@@ -841,7 +847,7 @@
     
     {{#if this.Show.Rowshow}}
     <td class="ButtonClass">
-        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Body.Row.ShowClick({ inEvent :event})"
+        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.Body.Row.ShowClick({ inEvent :event})"
             style="color: forestgreen;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-arrow-right-square" viewBox="0 0 16 16">
@@ -1946,6 +1952,182 @@
     </div>
     </script>
     <script id="ReportTable/Vertical/KPopUp" KS="KeshavSoft" type="text/x-handlebars-template">
+    <div class="card KTableDivClass" data-pk="{{KData.TableInfo.PK}}"
+        data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
+        data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
+        data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
+        data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}">
+        <div class="card-header">
+            {{#if KData.TableInfo.SearchRowArray.Label.KTF}}
+            <h4>{{KData.TableInfo.SearchRowArray.Label.DisplayObject.DisplayText}}</h4>
+            {{/if}}
+        </div>
+        <div class="card-body KCardBody">
+            {{> Vertical/KVertical/CardBody}}
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                {{#if KData.TableInfo.Vertical.VerticalCreate.saveFromKeyAsTree}}
+                <div class="col">
+                    <button
+                        onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.PopUp.SaveFuncs.StartFunc(event)"
+                        type="button" class="btn btn-primary">Save New</button>
+                </div>
+                {{/if}}
+    
+                <div class="col visually-hidden">
+                    <div id="ShowSuccess" class="alert alert-success alert-dismissible fade show">
+                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="nc-icon nc-simple-remove"></i>
+                        </button>
+                        <span><b> Saved </b> successfully </span>
+                    </div>
+                </div>
+    
+                <div id="ShowFailure" class="col visually-hidden">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Duplicate!</strong> Unsuccessfull.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </script>
+    <script id="ReportTableForPrint/Body/KTablebody" KS="KeshavSoft" type="text/x-handlebars-template">
+    {{#each this.KData.TableData as |val key|}}
+    {{> ReportTableForPrint/Body/Row/NormalFromTableInfo inTableColumns=../KData.TableColumns inTableInfo=../KData.TableInfo this=this}}
+    {{/each}}
+    
+    </script>
+    <script id="ReportTableForPrint/Body/Row/KTCellValue" KS="KeshavSoft" type="text/x-handlebars-template">
+    <td class="KCol-{{@index}}" data-kcol={{@index}}
+    style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'TextAlign'}}">
+    {{#if (lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DisplayType') 'IsInput') }}
+    <input ksr2 class="form-control" type="text"
+        name="{{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DataAttribute'}}"
+        list="{{lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'HtmlAttributes') 'list'}}"
+        data-KeshavSoft="{{JSON2string (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'KDatasetStuff')}}"
+        data-ksdatalistvalue="{{CellValue}}"
+        value="{{CellValue}}">
+    {{else}}
+    {{#if (lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DisplayType') 'IsIndianFormat') }}
+    {{ShowInIndianDateFormat CellValue}}
+    {{else}}
+    {{CellValue}}
+    {{/if}}
+    
+    {{/if}}
+    </td>
+    
+    </script>
+    <script id="ReportTableForPrint/Body/Row/NormalFromTableInfo" KS="KeshavSoft" type="text/x-handlebars-template">
+    <tr class="KTableRow {{this.RowClass}}" data-klevel="{{Table_KLevel inTableInfo.KLevel}}"
+        data-pk="{{array_value_indexret inTableColumns inTableInfo.kPK this.DisplayText}}"
+        data-details="{{array_value_indexret inTableColumns inTableInfo.kDetails this.DisplayText}}"
+        data-kjsonfilename="{{this.TableKJsonFileName}}">
+    
+        <td style="text-align:right; display:none" class="kClassSearchSNo"></td>
+        <td style="text-align:right">{{array_index_sno @index}}</td>
+        {{#each DisplayText as | val1 key1 |}}
+        {{#if (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'ShowInTable')}}
+    
+        {{> ReportTableForPrint/Body/Row/KTCellValue}}
+        
+        {{/if}} {{/each}}
+    </tr>
+    
+    
+    </script>
+    <script id="ReportTableForPrint/Footer/Show/BalanceRow" KS="KeshavSoft" type="text/x-handlebars-template">
+    <tr class="table-info">
+        <td style="text-align:right; display:none" class="kClassSearchSNo"></td>
+        <td></td>
+    
+        {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
+        <th style="text-align:{{val1.TextAlign}}">
+            {{#if val1.Footer.Show.Balance.ShowTF}}
+            {{#if (IsIndianDateFormat ../KData.TableColumns key1) }}
+            {{ShowInIndianDateFormatPositiveOnly (TableColumnBalance key1 ../KData.TableData ../KData.TableColumns)}}
+            {{else}}
+            {{TableColumnBalance key1 ../KData.TableData ../KData.TableColumns}}
+            {{/if}}
+            {{/if}}
+        </th> {{/if}} {{/each}}
+    </tr>
+    </script>
+    <script id="ReportTableForPrint/Footer" KS="KeshavSoft" type="text/x-handlebars-template">
+    {{#if this.KData.TableInfo.FooterType.ShowTotals}}
+    <tr ReportTableShowTotals class="table-info">
+        <td style="text-align:right; display:none" class="kClassSearchSNo"></td>
+        <td>{{this.KData.TableData.length}}</td>
+    
+        {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
+        <th style="text-align:{{val1.TextAlign}}">
+            {{TableFooterShowTotal val1 key1 ../KData.TableColumns ../KData.TableData}}
+        </th> {{/if}} {{/each}}
+    </tr>
+    {{/if}}
+    
+    {{#if this.KData.TableInfo.FooterType.ShowBalance}}
+    {{> ReportTableForPrint/Footer/Show/BalanceRow}}
+    {{/if}}
+    </script>
+    <script id="ReportTableForPrint/Head/KThead" KS="KeshavSoft" type="text/x-handlebars-template">
+    <tr>
+        <th width="5%" class="kClassSearchSNo" style="cursor:pointer; text-align:right; display:none">#</th>
+        <th width="5%" style="cursor:pointer; text-align:right;">#</th>
+        {{#each this.KData.TableColumns as |val1 key1|}}
+        {{#if val1.ShowInTable}}
+        <th class="KCol-{{@index}} kclass1 {{TableClasses.ColumnClass}}"
+            width="{{TableColumnWidth  ../KData.TableColumns key1}}%" data-dataattribute="{{this.DataAttribute}}"
+            data-viewtype="{{this.ViewType}}" data-showtotal="{{this.ShowTotal}}"
+            data-editable="{{array_index_Editable this.DisplayMode.Editable}}"
+            onclick="KeshavSoftCrud.AllFuncs.Table.Head.CellClick(event)" style="cursor: pointer;">
+            {{this.DisplayName}}
+            {{#if Head.Bs5UpArrow}}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+            </svg>
+            {{/if}}
+    
+            {{#if Head.Bs5DownArrow}}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-down"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293V2.5zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+            </svg>
+            {{/if}}
+        </th>
+        {{/if}} {{/each}}
+    </tr>
+    </script>
+    <script id="ReportTableForPrint/KTable" KS="KeshavSoft" type="text/x-handlebars-template">
+    <div class="table-responsive">
+        <table class=" table KTableClass table-hover {{KData.TableInfo.ParentClasses.Table.TableClass}}"
+            id="{{KData.TableInfo.TableId}}" data-KType="{{KData.TableInfo.TableKType}}"
+            data-kjsonfilename="{{KData.TableInfo.TableKJsonFileName}}" data-pk="{{KData.TableInfo.DataAttributes.PK}}"
+            data-queryname="{{KData.TableInfo.DataAttributes.QueryName}}" data-KGlobalIndex="{{KGlobalIndex}}"
+            data-jsonType="{{KData.TableInfo.DataAttributes.JsonType}}"
+            data-jsonItemName="{{KData.TableInfo.DataAttributes.JsonItemName}}"
+            data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}"
+            data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
+            data-ShowType="{{KData.TableInfo.DataAttributes.ShowType}}">
+            <thead>
+                {{> ReportTableForPrint/Head/KThead }}
+            </thead>
+            <tbody>
+                {{> ReportTableForPrint/Body/KTablebody }}
+            </tbody>
+            <tfoot>
+                {{#if KData.TableInfo.ShowFooter}} {{> ReportTableForPrint/Footer }} {{/if}}
+            </tfoot>
+        </table>
+    </div>
+    </script>
+    <script id="ReportTableForPrint/Vertical/KPopUp" KS="KeshavSoft" type="text/x-handlebars-template">
     <div class="card KTableDivClass" data-pk="{{KData.TableInfo.PK}}"
         data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
         data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"

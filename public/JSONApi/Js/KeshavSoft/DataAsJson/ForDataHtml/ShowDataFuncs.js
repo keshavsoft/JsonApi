@@ -1,5 +1,4 @@
 import { ReturnFolderAndFileNameAndItemName } from "./urlSearchParams.js";
-import { jFPrintFromData } from "./PrintFuncs/MainTable.js";
 
 let jVarLocalObjectFromUrlSearchParams = ReturnFolderAndFileNameAndItemName();
 
@@ -20,7 +19,7 @@ let jFShowFolderInBreadcrumb = ({ inFolderName, inFileNameWithExtension, inItemN
     jVarLocalBreadcrumbScreenNameId.innerHTML = inScreenName;
 };
 
-let jFTableShow = async ({ inProjectName, inSubRoute, inFolderName, inFileName, inItemName, inScreenName }) => {
+let jFTableShow = ({ inProjectName, inSubRoute, inFolderName, inFileName, inItemName, inScreenName }) => {
     let jVarCardBody = document.getElementById("KCont1");
 
     let jVarLocalRoute = inProjectName;
@@ -32,53 +31,9 @@ let jFTableShow = async ({ inProjectName, inSubRoute, inFolderName, inFileName, 
 
     let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig`;
 
-    let response = await fetch(jVarLocalFetchUrl, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            inFolderName: jVarLocalFolderName,
-            inFileName: jVarLocalFileName,
-            inItemName: jVarLocalItemName,
-            inScreenName: jVarLocalScreenName
-        })
-    });
+    console.log("jVarLocalFetchUrl : ", jVarLocalFetchUrl);
 
-    let FetchData = await response.json();
 
-    if (FetchData.KTF) {
-        jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(FetchData.DataFromServer);
-        jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
-            inData: jVarGlobalPresentViewData,
-            inHtmlParent: jVarCardBody
-        });
-
-        let jVarLocalPrintButtons = document.querySelectorAll(".Options.Print");
-        //MainTable Body Row Options Print
-        jVarLocalPrintButtons.forEach((spanElement) => {
-            spanElement.addEventListener("click", (event) => {
-                jFPrintFromData({
-                    inEvent: event,
-                    inProjectName: jVarLocalRoute
-                })
-            });
-        });
-    };
-};
-
-let jFTableShow1 = ({ inProjectName, inSubRoute, inFolderName, inFileName, inItemName, inScreenName }) => {
-    let jVarCardBody = document.getElementById("KCont1");
-
-    let jVarLocalRoute = inProjectName;
-    let jVarLocalSubRoute = inSubRoute;
-    let jVarLocalFolderName = inFolderName;
-    let jVarLocalFileName = inFileName;
-    let jVarLocalItemName = inItemName;
-    let jVarLocalScreenName = inScreenName;
-
-    let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig`;
 
     fetch(jVarLocalFetchUrl, {
         method: 'POST',
@@ -96,6 +51,10 @@ let jFTableShow1 = ({ inProjectName, inSubRoute, inFolderName, inFileName, inIte
         if (!response.ok) { throw new Error(response.statusText) };
         return response.json();
     }).then((FetchData) => {
+
+        console.log("FetchData : ", FetchData);
+
+
         if (FetchData.KTF) {
             jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(FetchData.DataFromServer);
             jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
@@ -106,7 +65,7 @@ let jFTableShow1 = ({ inProjectName, inSubRoute, inFolderName, inFileName, inIte
     });
 };
 
-let StartFunc = async ({ inProjectName, inSubRoute }) => {
+let StartFunc = ({ inProjectName, inSubRoute }) => {
     let LocalRowCount = 0;
 
     if ("FolderName" in jVarLocalObjectFromUrlSearchParams) {
@@ -137,13 +96,13 @@ let StartFunc = async ({ inProjectName, inSubRoute }) => {
                         inScreenName: jVarLocalObjectFromUrlSearchParams.ScreenName
                     });
 
-                    await jFTableShow({
+                    jFTableShow({
                         inProjectName, inSubRoute,
                         inFolderName: jVarLocalObjectFromUrlSearchParams.FolderName,
                         inFileName: jVarLocalObjectFromUrlSearchParams.FileName,
                         inItemName: jVarLocalObjectFromUrlSearchParams.ItemName,
                         inScreenName: jVarLocalObjectFromUrlSearchParams.ScreenName
-                    })
+                    });
 
                     // if ("RowCount" in jVarLocalFromReturnFolderAndFileNameAndItemName) {
                     //     LocalRowCount = jVarLocalFromReturnFolderAndFileNameAndItemName.RowCount;
