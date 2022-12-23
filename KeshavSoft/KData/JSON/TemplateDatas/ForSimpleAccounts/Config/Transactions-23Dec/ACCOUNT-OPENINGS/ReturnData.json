@@ -1,5 +1,5 @@
 {
-    "PAYMENT": {
+    "ACCOUNT-OPENING": {
         "Alter": {
             "Table": {
                 "Row": {
@@ -101,7 +101,7 @@
                 "Row": {
                     "Delete": {
                         "ReturnData": {
-                            "DataType": "TableShowwithAlert",
+                            "DataType": "TableShowWithAlert",
                             "KTF": true
                         }
                     }
