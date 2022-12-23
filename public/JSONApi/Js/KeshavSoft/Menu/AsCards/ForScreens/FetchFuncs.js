@@ -79,13 +79,9 @@ let LocalStartFunc = ({ inFilesObjects, inFolderName, inFileNameWithExtension, i
                 inColumnCount: value.ColumnCount,
                 inRowCount: jVarLocalRowCount
             };
-            console.log("LoopInsideDataObject : ", LoopInsideDataObject);
             let jVarLocalFromLoop = template(LoopInsideDataObject);
 
             jVarLocalNewRow.insertAdjacentHTML("beforeend", jVarLocalFromLoop);
-
-
-            //jVarLocalNewRow.appendChild(jVarLocalFromLoop);
         });
     jVarLocalKCont1.innerHTML = " ";
     jVarLocalKCont1.appendChild(jVarLocalNewRow);

@@ -43,48 +43,10 @@ let ScreensFetchAsPost = ({ inFolderName, inFileNameWithExtension, inItemName, i
                     inItemName: jVarLocalItemName,
                     inRowCount: jVarLocalRowCount
                 });
-
-                // this.ForScreens.CommonFuncs.BuildBreadcrumb({
-                //     inFolderName: jVarLocalFolderName,
-                //     inFileNameWithExtension: jVarLocalFileNameWithExtension,
-                //     inItemName: jVarLocalItemName
-                // });
-
             };
         };
     });
 };
-
-// CommonFuncs: {
-//     BuildBreadcrumb: ({ inFolderName, inFileNameWithExtension, inItemName }) => {
-//         let jVarLocalFolderName = inFolderName;
-//         let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-//         let jVarLocalItemName = inItemName;
-
-//         let jVarLocalbreadcrumbObject = {};
-//         jVarLocalbreadcrumbObject.Home = {};
-
-//         jVarLocalbreadcrumbObject[jVarLocalFolderName] = {
-//             onClick: `jGlobalClassForCardMenu.ForFolders.Breadcrumb.ItemClick({inFolderName:'${jVarLocalFolderName}'})`
-//         };
-
-//         jVarLocalbreadcrumbObject[jVarLocalFileNameWithExtension] = {
-//             onClick: `jGlobalClassForCardMenu.ForFiles.Breadcrumb.ItemClick(
-//                         {inFolderName:'${jVarLocalFolderName}',
-//                         inFileNameWithExtension:'${jVarLocalFileNameWithExtension}'})`
-//         };
-
-//         jVarLocalbreadcrumbObject[jVarLocalItemName] = {
-//             onClick: `jGlobalClassForCardMenu.ForItems.Breadcrumb.ItemClick(
-//                         {inFolderName:'${jVarLocalFolderName}',
-//                         inFileNameWithExtension:'${jVarLocalFileNameWithExtension}',
-//                         inItemName:'${jVarLocalItemName}'})`
-//         };
-
-//         jFBuildBreadcrumb(jVarLocalbreadcrumbObject);
-//     }
-// },
-
 
 let LocalStartFunc = ({ inFilesObjects, inFolderName, inFileNameWithExtension, inItemName, inRowCount }) => {
     let jVarLocalFolderName = inFolderName;

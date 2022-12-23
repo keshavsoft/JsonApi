@@ -274,13 +274,12 @@
         </div>
     </nav>
     <div class="container">
-        <nav aria-label="breadcrumb" class="m-2 d-print-none">
-            <ol class="breadcrumb" id="breadcrumbHtmlId">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Masters</a></li>
-                <li class="breadcrumb-item"><a href="#">Products.json</a></li>
-                <li class="breadcrumb-item"><a href="#">Products</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Create (<a href="#">Refresh</a>) </li>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-2 border">
+                <li class="breadcrumb-item"><a href="#" id="BreadcrumbFolderNameId">FolderName</a></li>
+                <li class="breadcrumb-item"><a href="#" id="BreadcrumbFileNameId">FileName</a></li>
+                <li class="breadcrumb-item"><a href="#" id="BreadcrumbItemNameId">ItemName</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="BreadcrumbScreenNameId">ScreenName</li>
             </ol>
         </nav>
 
@@ -292,15 +291,11 @@
     <footer class="footer mt-auto py-2 bg-light fixed-bottom">
         <div class="container">
             <div class="bg-light d-flex justify-content-between">
-                <div>KeshavSoft v8.06</div>
+                <div>KeshavSoft v12.12</div>
                 <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
             </div>
         </div>
     </footer>
-
-    <div id="DataListsID">
-
-    </div>
 
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -332,236 +327,14 @@
         </div>
     </div>
 
-    <div class="modal fade" id="AlterPopUpDataId" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Alter Data</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+    <!-- AddForPreload -->
+    <div id="DataListsID">
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="jVarGlobalClientObject.Api.UserData.Table.Row.Update({inEvent:event})">Update</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="modal fade" id="CreateNewPopUpId" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content KTableDivClass">
-                <div class="modal-body KCardBody">
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <script src="/JSONApi/Js/lodash.js"></script>
-<script src="/JSONApi/Js/Bs5/bootstrap.bundle.min.js"></script>
-<script src="/JSONApi/Js/handlebars/handlebars.min-v4.7.7.js"></script>
-<script src="/JSONApi/Js/sweetalert2/sweetalert2@11.js"></script>
-
-<script src="/JSONApi/Js/CommonClassOnly.js"></script>
-<!-- <script src="/JSONApi/Js/KeshavSoftCrudFuncs.js"></script> -->
+</div>
 
 <script src="/JSONApi/Js/KeshavSoft/FetchFuncs/PreLoad.js"></script>
-<script src="/JSONApi/Js/KeshavSoft/FetchFuncs/MenuFuncs.js"></script>
-<script src="/JSONApi/Js/KeshavSoft/FetchFuncs/DataFuncs/TableFuncs.js"></script>
 
-
-
-<!-- <script src="/js/lodash.js"></script>
-    <script src="/js/Bs5/bootstrap.bundle.min.js"></script>
-    <script src="/js/handlebars/handlebars.min-v4.7.7.js"></script>
-    <script src="/js/sweetalert2/sweetalert2@11.js"></script>
-    <script src="/JSONApi/Js/CommonClassOnly.js"></script>
-    <script src="/ClassesStatic/BuildDynamic.js"></script> -->
-    <script>
-    class GlobalClassForLogin {
-        constructor({ inProjectName }) {
-            this.Config = {
-                RouteStart: {
-                    Start: "JSONProject",
-                    SubRoute: "API",
-                    HtmlPath: "",
-                    AdminSubRoute: "AdminApi",
-                },
-                Modal: {
-                    Id: "LoginModalId"
-                },
-                Public: {
-                    ProjectName: ""
-                },
-                Customize: {
-                    ModalPopUp: {
-                        Show: true,
-                        Type: "SweetAlert"
-                    }
-                },
-                ClientSide: {
-                    UrlForIp_Old: "https://api.ipify.org/",
-                    UrlForIp: "http://httpbin.org/ip",
-                }
-            };
-
-            if (inProjectName === undefined) {
-                this.Config.Public.ProjectName = this.Config.RouteStart.Start
-            } else {
-                this.Config.RouteStart.Start = inProjectName;
-                this.Config.Public.ProjectName = inProjectName;
-            };
-        };
-
-        Login = {
-            LocalStorage: {
-                FirmDetails: ({ inUserName, inFirmDetails }) => {
-                    localStorage.setItem("kUserName", inUserName);
-                    localStorage.setItem("FirmDetails", JSON.stringify(inFirmDetails));
-                }
-            },
-            LoginCheck: async () => {
-                let jVarLocalObject = {};
-                let jVarReturnData;
-
-                jVarLocalObject.UserName = document.getElementById("KUserNameInput").value;
-                jVarLocalObject.Password = document.getElementById("KPasswordInput").value;
-
-                if (jVarLocalObject.UserName !== "" && jVarLocalObject.Password !== "") {
-                    jVarReturnData = await this.Login.CheckUserNamePassword({ inUserName: jVarLocalObject.UserName, inPassword: jVarLocalObject.Password });
-
-                    if (jVarReturnData.KTF) {
-                        //  jVarGlobalClientObject.DataApi.Folders.PullData();
-                    };
-                };
-            },
-            CheckUserNamePassword: async ({ inUserName, inPassword }) => {
-                let jVarLocalUserCheckRoute = this.Config.RouteStart.Start;
-                let jVarLocalFetchUrl = `/${jVarLocalUserCheckRoute}/Validate/Users/InUserDataJson/ForUserNameAndPassword/TokenToCookie`;
-
-                let response = await fetch(jVarLocalFetchUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ inUserName, inPassWord: inPassword })
-                });
-                let FetchDataJson = await response.json();
-
-                if (FetchDataJson !== null) {
-                    if (FetchDataJson.KTF) {
-                        var myModalEl = document.getElementById('LoginModalId');
-
-                        var modal = bootstrap.Modal.getInstance(myModalEl) // Returns a Bootstrap modal instance
-
-                        modal.hide();
-
-                        this.Login.LocalStorage.FirmDetails({ inUserName, inFirmDetails: FetchDataJson });
-                        this.Login.ClientSideCookieFuncs.CheckToken();
-                        return await FetchDataJson;
-                    } else {
-                        document.getElementById("KUserNameInput").classList.add("is-invalid");
-                    };
-                };
-            },
-            StatusCodeFuncs: {
-                Html: {
-                    Code404: ({ inResponse }) => {
-                        if (inResponse.status === 404) {
-                            jVarGlobalAdmin.HTMLPrepare.jFBS4Alerts.AppendtoKCont1.dangerClosable({ inJVarDataToDisplay: `Html File not Found ${inResponse.url}` });
-                            return null;
-
-                        };
-
-
-                        return inResponse.text();
-                    }
-                },
-                Code403: ({ inResponse }) => {
-                    if (inResponse.status === 403) {
-                        let jVarLocalLoginFormPopUpId = document.getElementById("LoginFormPopUpId");
-
-                        if (jVarLocalLoginFormPopUpId !== null) {
-                            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), { keyboard: false, focus: true });
-                            myModal.show();
-                        };
-                        return null;
-                    };
-
-                    return inResponse.json();
-                }
-            },
-            ShowLoginDetailsOnDOM: {
-                InHeader: () => {
-                    let LocalUserName = localStorage.getItem("kUserName");
-                    let jVarLocalHeaderLoginButtonId = document.getElementById("HeaderLoginButtonId");
-
-                    if (jVarLocalHeaderLoginButtonId !== null) {
-                        jVarLocalHeaderLoginButtonId.classList.add("visually-hidden");
-                        document.getElementById("HeaderUserIdLi").classList.remove("visually-hidden");
-
-                        if (LocalUserName !== null) {
-                            document.getElementById("HeaderUserIdDropDown").innerHTML =
-                                document.getElementById("HeaderUserIdDropDown").innerHTML.replace("UserName", LocalUserName);
-
-                            document.getElementById('NavBarId').classList.remove("bg-danger");
-                            document.getElementById('NavBarId').classList.add("bg-dark");
-                        };
-                    };
-                }
-            },
-            ClientSideCookieFuncs: {
-                getCookie: (name) => {
-                    var nameEQ = name + "=";
-                    var ca = document.cookie.split(';');
-                    for (var i = 0; i < ca.length; i++) {
-                        var c = ca[i];
-                        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-                    }
-                    return null;
-                },
-                CheckToken: () => {
-                    let jVarLocalCookieValue = this.Login.ClientSideCookieFuncs.getCookie("KToken");
-                    if (jVarLocalCookieValue === null) {
-                        localStorage.removeItem("kUserName");
-                        localStorage.removeItem("FirmDetails");
-                        this.Login.ClientSideCookieFuncs.DeleteCookie();
-
-                        let jVarLocalId = this.Config.Modal.Id;
-                        var myModal = new bootstrap.Modal(document.getElementById(jVarLocalId), { keyboard: true, focus: true });
-
-                        myModal.show();
-                    } else {
-                        this.Login.ShowLoginDetailsOnDOM.InHeader();
-                    };
-                },
-                DeleteCookie: () => {
-                    document.cookie = "KToken=; expires=Thu, 01 Jan 1947 00:00:00 UTC; path=/;";
-                }
-            }
-        };
-    };
-</script>
-
-    <script>
-        let jVarGlobalProject = "JSONApi";
-        let jVarGlobalSubRoute = "Api";
-
-        let GlobalFuncsForLogin = new GlobalClassForLogin({ inProjectName: jVarGlobalProject });
-        let jVarGlobalClientObject = new PrepareClass({ inProjectName: jVarGlobalProject });
-
-
-        GlobalFuncsForLogin.Login.ClientSideCookieFuncs.CheckToken();
-
-    </script>
-
+    <!-- AddForCrud -->
     <script id="Bs5/Icons/Svg" KS="KeshavSoft" type="text/x-handlebars-template">
     {{#if SvgPlusLarge}}
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
@@ -3694,42 +3467,13 @@
     </div>
     </script>
     
-    <script>
-    class ForLocalStorageClass {
-        static jFDeleteuuidInLocalStorage = () => {
-            const re = /uuid-/g;
 
-            Object.keys(localStorage).forEach(function (key) {
-                if (key.match(re)) {
-                    delete localStorage[key];
-                }
-            });
-        };
+<script src="/JSONApi/Js/lodash.js"></script>
+<script src="/JSONApi/Js/sweetalert2/sweetalert2@11.js"></script>
+<script src="/JSONApi/Js/Bs5/bootstrap.bundle.min.js"></script>
+<script src="/JSONApi/Js/handlebars/handlebars.min-v4.7.7.js"></script>
 
-        static jFCreateuuid = () => {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        };
-
-        static jFInsertToLocalStorage = ({ inData }) => {
-            let jVarLocalUUID = `uuid-${this.jFCreateuuid()}`;
-
-            inData.forEach((element, LoopIndex) => {
-                if ("KData" in element) {
-                    if ("TableInfo" in element.KData) {
-                        element.KData.TableInfo.DataAttributes.localstorageid = jVarLocalUUID;
-                        element.KData.TableInfo.DataAttributes.localstoragearrayindex = LoopIndex;
-                    };
-                };
-            });
-
-            localStorage.setItem(jVarLocalUUID, JSON.stringify(inData));
-            return jVarLocalUUID;
-        };
-    };
-</script>
+<!-- this is from addforcrud -->
 
 <script>
     class KeshavSoftLocalFuncs {
@@ -4458,11 +4202,11 @@
                                     if (inDataFromSave.hasOwnProperty("DataFromServer")) {
                                         jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(inDataFromSave.DataFromServer);
 
-                                        let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
-                                        
-                                        if (jVarLocalUUID in localStorage) {
-                                            jVarGlobalPresentViewData = JSON.parse(localStorage.getItem(jVarLocalUUID));
-                                        };
+                                        // let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
+
+                                        // if (jVarLocalUUID in localStorage) {
+                                        //     jVarGlobalPresentViewData = JSON.parse(localStorage.getItem(jVarLocalUUID));
+                                        // };
 
                                         jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
                                             inData: jVarGlobalPresentViewData,
@@ -4833,14 +4577,12 @@
                     Header: {
                         AddButtonClick: async (inEvent) => {
                             let jVarLocalCurrentTarget = inEvent.currentTarget;
-                            //                                let jVarClosestCardBodyForItems = jVarLocalCurrentTarget.closest(".CardBodyForItems");
                             let jVarClosestCardBodyForItems = document.getElementById("KCont1");
 
-                            let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
-                            let jVarLocalSubRoute = jVarGlobalClientObject.Config.RouteStart.SubRoute;
+                            let jVarLocalRoute = this.Config.RouteStart.Start;
+                            let jVarLocalSubRoute = this.Config.RouteStart.SubRoute;
                             let jVarLocalBodyData = await this.ApiFuncs.Table.Card.Config.PullJsonAndItemConfig(jVarLocalCurrentTarget);
 
-                            //                                let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensDisplayForFile/Vertical/HtmlCreate/Fromjson`;
                             let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Fromjson`;
 
                             let response = await fetch(jVarLocalFetchUrl, {
@@ -4880,7 +4622,7 @@
 
                             let jVarLocalRoute = this.Config.RouteStart.Start;
                             let jVarLocalSubRoute = this.Config.RouteStart.SubRoute;
-//                            let JsonPK = parseInt(jVarClosestTr.dataset.pk);
+                            //                            let JsonPK = parseInt(jVarClosestTr.dataset.pk);
 
                             let JsonPK = jVarClosestTr.dataset.pk;
                             let jVarLocalItemConfig = jVarGlobalClientObject.Api.UserData.CommonFuncs.PrepareJsonAndItemConfig({ inCurrentTarget: jVarLocalCurrentTarget });
@@ -5152,11 +4894,11 @@
                                     if (inDataFromSave.hasOwnProperty("DataFromServer")) {
                                         jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(inDataFromSave.DataFromServer);
 
-                                        let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
+                                        // let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
 
-                                        if (jVarLocalUUID in localStorage) {
-                                            jVarGlobalPresentViewData = JSON.parse(localStorage.getItem(jVarLocalUUID));
-                                        };
+                                        // if (jVarLocalUUID in localStorage) {
+                                        //     jVarGlobalPresentViewData = JSON.parse(localStorage.getItem(jVarLocalUUID));
+                                        // };
 
                                         jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
                                             inData: jVarGlobalPresentViewData,
@@ -5751,7 +5493,7 @@
                                             if (jVarLocalClosestCard.dataset.localstorageid in localStorage) {
                                                 let jVarLocalLocalStorageArrayNeeded = JSON.parse(localStorage.getItem(jVarLocalClosestCard.dataset.localstorageid));
                                                 jVarGlobalPresentViewData = jVarLocalLocalStorageArrayNeeded[jVarLocalClosestCard.dataset.localstoragearrayindex];
-                                            
+
                                             } else {
                                                 console.log("localstoragearrayindex not found in card dataset");
                                             };
@@ -5832,8 +5574,11 @@
                             let jVarLocalRoute = this.Config.RouteStart.Start;
                             let jVarLocalSubRoute = this.Config.RouteStart.SubRoute;
                             let JsonPK = parseInt(jVarClosestTr.dataset.pk);
-                            let jVarLocalItemConfig = jVarGlobalClientObject.Api.UserData.CommonFuncs.PrepareJsonAndItemConfig({ inCurrentTarget: jVarLocalCurrentTarget });
+                            //  let jVarLocalItemConfig = jVarGlobalClientObject.Api.UserData.CommonFuncs.PrepareJsonAndItemConfig({ inCurrentTarget: jVarLocalCurrentTarget });
 
+                            let jVarLocalItemConfig = this.ApiFuncs.Table.CommonFuncs.PrepareJsonAndItemConfigInsertKey({ inCurrentTarget: jVarLocalCurrentTarget });
+
+                            //console.log("jVarLocalItemConfig : ", jVarLocalItemConfig);
                             let jVarLocalFolderName = jVarLocalItemConfig.FolderName;
                             let jVarLocalFileName = jVarLocalItemConfig.FileName;
                             let jVarLocalItemName = jVarLocalItemConfig.ItemName;
@@ -5862,11 +5607,11 @@
                                     if (FetchData.KTF) {
                                         jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(FetchData.DataFromServer);
 
-                                        let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
+                                        // let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
 
-                                        if (jVarLocalUUID in localStorage) {
-                                            jVarGlobalPresentViewData = JSON.parse(localStorage.getItem(jVarLocalUUID));
-                                        };
+                                        // if (jVarLocalUUID in localStorage) {
+                                        //     jVarGlobalPresentViewData = JSON.parse(localStorage.getItem(jVarLocalUUID));
+                                        // };
 
                                         jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
                                             inData: jVarGlobalPresentViewData,
@@ -6101,11 +5846,11 @@
                                     if (inDataFromSave.hasOwnProperty("DataFromServer")) {
                                         jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(inDataFromSave.DataFromServer);
 
-                                        let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
+                                        // let jVarLocalUUID = ForLocalStorageClass.jFInsertToLocalStorage({ inData: jVarGlobalPresentViewData });
 
-                                        if (jVarLocalUUID in localStorage) {
-                                            jVarGlobalPresentViewData = JSON.parse(localStorage.getItem(jVarLocalUUID));
-                                        };
+                                        // if (jVarLocalUUID in localStorage) {
+                                        //     jVarGlobalPresentViewData = JSON.parse(localStorage.getItem(jVarLocalUUID));
+                                        // };
 
                                         jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
                                             inData: jVarGlobalPresentViewData,
@@ -6419,6 +6164,33 @@
             },
             Vertical: {
                 KeyPress: {
+                    EnterOnClient: ({ inEvent }) => {
+                        if (inEvent.keyCode === 13) {
+                            let jVarLocalCurrentTarget = inEvent.currentTarget;
+                            let jVarLocalClosestForm = jVarLocalCurrentTarget.closest("form");
+
+                            let jVarLocalFetchPostData = this.VerticalCommonFuncs.PreparePostData.ForSave({ jVarHtmlCardBody: jVarLocalClosestForm });
+
+                            if ("clienteval" in jVarLocalCurrentTarget.dataset) {
+                                if ("enteronclient" in jVarLocalCurrentTarget.dataset) {
+                                    if (jVarLocalCurrentTarget.dataset.enteronclient === "true") {
+                                        let jVarLocalClientEval = inEvent.currentTarget.dataset.clienteval;
+
+                                        Object.entries(jVarLocalFetchPostData).forEach(
+                                            ([key, value]) => {
+                                                jVarLocalClientEval = jVarLocalClientEval.replace(`{{${key}}}`, parseFloat(value));
+                                            }
+                                        );
+
+                                        inEvent.currentTarget.value = eval(jVarLocalClientEval);
+                                    };
+                                }
+                            } else {
+
+                            };
+
+                        }
+                    },
                     EnterToServer: async ({ inEvent }) => {
                         if (inEvent.keyCode === 13) {
                             let jVarLocalCurrentTarget = inEvent.currentTarget;
@@ -6555,511 +6327,177 @@
         };
     };
 </script>
+
+    <!-- LoginClassOnly -->
     <script>
-    class jGlobalClassForCardMenu {
-        static ForFolders = {
-            Breadcrumb: {
-                ItemClick: ({ inFolderName }) => {
-                    let jVarLocalNavItem = document.getElementById("MenuNavContainerId").querySelector(`a[keshavsoftfoldername="${inFolderName}"]`);
-                    this.ForFiles.FetchAsPost(jVarLocalNavItem, inFolderName);
+    class GlobalClassForLogin {
+        constructor({ inProjectName }) {
+            this.Config = {
+                RouteStart: {
+                    Start: "JSONProject",
+                    SubRoute: "API",
+                    HtmlPath: "",
+                    AdminSubRoute: "AdminApi",
+                },
+                Modal: {
+                    Id: "LoginModalId"
+                },
+                Public: {
+                    ProjectName: ""
+                },
+                Customize: {
+                    ModalPopUp: {
+                        Show: true,
+                        Type: "SweetAlert"
+                    }
+                },
+                ClientSide: {
+                    UrlForIp_Old: "https://api.ipify.org/",
+                    UrlForIp: "http://httpbin.org/ip",
                 }
-            },
-            CommonFuncs: {
-                BuildBreadcrumb: ({ inFolderName }) => {
-                    let jVarLocalFolderName = inFolderName;
+            };
 
-                    let jVarLocalbreadcrumbObject = {};
-
-                    jVarLocalbreadcrumbObject.Home = {};
-
-                    jVarLocalbreadcrumbObject[jVarLocalFolderName] = {
-                        onClick: `jGlobalClassForCardMenu.ForFolders.Breadcrumb.ItemClick({inFolderName:'${inFolderName}'})`
-                    };
-
-                    jFBuildBreadcrumb(jVarLocalbreadcrumbObject);
-                }
-            }
+            if (inProjectName === undefined) {
+                this.Config.Public.ProjectName = this.Config.RouteStart.Start
+            } else {
+                this.Config.RouteStart.Start = inProjectName;
+                this.Config.Public.ProjectName = inProjectName;
+            };
         };
 
-        static ForFiles = {
-            Breadcrumb: {
-                ItemClick: ({ inFolderName, inFileNameWithExtension }) => {
-                    this.ForItems.FetchAsPost(inFolderName, inFileNameWithExtension);
+        Login = {
+            LocalStorage: {
+                FirmDetails: ({ inUserName, inFirmDetails }) => {
+                    localStorage.setItem("kUserName", inUserName);
+                    localStorage.setItem("FirmDetails", JSON.stringify(inFirmDetails));
                 }
             },
-            FetchAsPost: (inCurrentTarget, inFolderName) => {
-                let jVarLocalCurrentTarget = inCurrentTarget;
-                let jVarLocalClosestNavbar = jVarLocalCurrentTarget.closest("ul");
+            LoginCheck: async () => {
+                let jVarLocalObject = {};
+                let jVarReturnData;
 
-                let jVarLocalFolderName = inFolderName;
+                jVarLocalObject.UserName = document.getElementById("KUserNameInput").value;
+                jVarLocalObject.Password = document.getElementById("KPasswordInput").value;
 
-                let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
-                let jVarLocalSubRoute = jVarGlobalClientObject.Config.RouteStart.SubRoute;
+                if (jVarLocalObject.UserName !== "" && jVarLocalObject.Password !== "") {
+                    jVarReturnData = await this.Login.CheckUserNamePassword({ inUserName: jVarLocalObject.UserName, inPassword: jVarLocalObject.Password });
 
-                let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/GetFilesAsTree/WithItemAndScreenCount`;
+                    if (jVarReturnData.KTF) {
+                        //  jVarGlobalClientObject.DataApi.Folders.PullData();
+                    };
+                };
+            },
+            CheckUserNamePassword: async ({ inUserName, inPassword }) => {
+                let jVarLocalUserCheckRoute = this.Config.RouteStart.Start;
+                let jVarLocalFetchUrl = `/${jVarLocalUserCheckRoute}/Validate/Users/InUserDataJson/ForUserNameAndPassword/TokenToCookie`;
 
-                fetch(jVarLocalFetchUrl, {
+                let response = await fetch(jVarLocalFetchUrl, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ inFolderName })
-                }).then(response => {
-                    if (response.status === 403) {
-                        let jVarLocalModalId = this.Config.Ht.HtmlIds.Modals.LoginModalId;
-                        let jVarLocalLoginFormPopUpId = document.getElementById(jVarLocalModalId);
+                    body: JSON.stringify({ inUserName, inPassWord: inPassword })
+                });
+                let FetchDataJson = await response.json();
+
+                if (FetchDataJson !== null) {
+                    if (FetchDataJson.KTF) {
+                        var myModalEl = document.getElementById('LoginModalId');
+
+                        var modal = bootstrap.Modal.getInstance(myModalEl) // Returns a Bootstrap modal instance
+
+                        modal.hide();
+
+                        this.Login.LocalStorage.FirmDetails({ inUserName, inFirmDetails: FetchDataJson });
+                        this.Login.ClientSideCookieFuncs.CheckToken();
+                        return await FetchDataJson;
+                    } else {
+                        document.getElementById("KUserNameInput").classList.add("is-invalid");
+                    };
+                };
+            },
+            StatusCodeFuncs: {
+                Html: {
+                    Code404: ({ inResponse }) => {
+                        if (inResponse.status === 404) {
+                            jVarGlobalAdmin.HTMLPrepare.jFBS4Alerts.AppendtoKCont1.dangerClosable({ inJVarDataToDisplay: `Html File not Found ${inResponse.url}` });
+                            return null;
+
+                        };
+
+
+                        return inResponse.text();
+                    }
+                },
+                Code403: ({ inResponse }) => {
+                    if (inResponse.status === 403) {
+                        let jVarLocalLoginFormPopUpId = document.getElementById("LoginFormPopUpId");
 
                         if (jVarLocalLoginFormPopUpId !== null) {
-                            var myModal = new bootstrap.Modal(jVarLocalLoginFormPopUpId, { keyboard: false, focus: true });
+                            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), { keyboard: false, focus: true });
                             myModal.show();
                         };
                         return null;
                     };
 
-                    return response.json();
-                }).then(dataFromApi => {
-                    if (dataFromApi !== null) {
-                        this.ForFiles.ToUi.StartFunc({
-                            inFilesObjects: dataFromApi,
-                            inFolderName: jVarLocalFolderName
-                        });
-
-                        jVarLocalClosestNavbar.querySelectorAll("li a").forEach(element => {
-                            element.classList.remove("text-info");
-                            element.classList.add("text-white");
-                        });
-
-                        jVarLocalCurrentTarget.classList.remove("text-white");
-                        jVarLocalCurrentTarget.classList.add("text-info");
-
-                        this.ForFolders.CommonFuncs.BuildBreadcrumb({ inFolderName: jVarLocalFolderName });
-                    };
-                });
-            },
-            CommonFuncs: {
-                BuildBreadcrumb: ({ inFolderName, inFileNameWithExtension }) => {
-                    let jVarLocalFolderName = inFolderName;
-                    let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-
-                    let jVarLocalbreadcrumbObject = {};
-                    jVarLocalbreadcrumbObject.Home = {};
-
-                    jVarLocalbreadcrumbObject[jVarLocalFolderName] = {
-                        onClick: `jGlobalClassForCardMenu.ForFolders.Breadcrumb.ItemClick(
-                                {inFolderName:'${jVarLocalFolderName}'})`
-                    };
-
-                    jVarLocalbreadcrumbObject[jVarLocalFileNameWithExtension] = {
-                        onClick: `jGlobalClassForCardMenu.ForFiles.Breadcrumb.ItemClick(
-                                {inFolderName:'${jVarLocalFolderName}',
-                                inFileNameWithExtension:'${jVarLocalFileNameWithExtension}'})`
-                    };
-
-                    jFBuildBreadcrumb(jVarLocalbreadcrumbObject);
+                    return inResponse.json();
                 }
             },
-            ToUi: {
-                StartFunc: ({ inFolderName, inFilesObjects }) => {
-                    let jVarLocalFilesObjects = inFilesObjects;
-                    let jVarLocalKCont1 = document.getElementById("KCont1");
-                    let jVarLocalNewRow = document.createElement("div");
-                    jVarLocalNewRow.setAttribute("class", "row");
+            ShowLoginDetailsOnDOM: {
+                InHeader: () => {
+                    let LocalUserName = localStorage.getItem("kUserName");
+                    let jVarLocalHeaderLoginButtonId = document.getElementById("HeaderLoginButtonId");
 
-                    Object.entries(jVarLocalFilesObjects).forEach(
-                        ([key, value]) => {
-                            let jVarLocalFromLoop = this.ForFiles.ToUi.CommonFuncs.LoopFunc({
-                                inFolderName: inFolderName,
-                                inFileName: value.FileName,
-                                inItemCount: Object.keys(value.Items).length
-                            });
-                            jVarLocalNewRow.appendChild(jVarLocalFromLoop);
-                        });
+                    if (jVarLocalHeaderLoginButtonId !== null) {
+                        jVarLocalHeaderLoginButtonId.classList.add("visually-hidden");
+                        document.getElementById("HeaderUserIdLi").classList.remove("visually-hidden");
 
-                    jVarLocalKCont1.innerHTML = " ";
-                    jVarLocalKCont1.appendChild(jVarLocalNewRow);
-                },
-                CommonFuncs: {
-                    LoopFunc: ({ inFolderName, inFileName, inItemCount }) => {
-                        let jVarLocalTemplate = document.getElementById("TemplateForFiles");
-                        var jVarLocalTemplateClone = jVarLocalTemplate.cloneNode(true);
-                        jVarLocalTemplateClone.innerHTML = jVarLocalTemplateClone.innerHTML.replace(/{{FileName}}/g, inFileName);
-                        jVarLocalTemplateClone.innerHTML = jVarLocalTemplateClone.innerHTML.replace("{{ItemCount}}", inItemCount);
-                        jVarLocalTemplateClone.innerHTML = jVarLocalTemplateClone.innerHTML.replace("{{FolderName}}", inFolderName);
+                        if (LocalUserName !== null) {
+                            document.getElementById("HeaderUserIdDropDown").innerHTML =
+                                document.getElementById("HeaderUserIdDropDown").innerHTML.replace("UserName", LocalUserName);
 
-                        return document.importNode(jVarLocalTemplateClone.content, true);
+                            document.getElementById('NavBarId').classList.remove("bg-danger");
+                            document.getElementById('NavBarId').classList.add("bg-dark");
+                        };
+                    };
+                }
+            },
+            ClientSideCookieFuncs: {
+                getCookie: (name) => {
+                    var nameEQ = name + "=";
+                    var ca = document.cookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
                     }
+                    return null;
+                },
+                CheckToken: () => {
+                    let jVarLocalCookieValue = this.Login.ClientSideCookieFuncs.getCookie("KToken");
+                    if (jVarLocalCookieValue === null) {
+                        localStorage.removeItem("kUserName");
+                        localStorage.removeItem("FirmDetails");
+                        this.Login.ClientSideCookieFuncs.DeleteCookie();
+
+                        let jVarLocalId = this.Config.Modal.Id;
+                        var myModal = new bootstrap.Modal(document.getElementById(jVarLocalId), { keyboard: true, focus: true });
+
+                        myModal.show();
+                    } else {
+                        this.Login.ShowLoginDetailsOnDOM.InHeader();
+                    };
+                },
+                DeleteCookie: () => {
+                    document.cookie = "KToken=; expires=Thu, 01 Jan 1947 00:00:00 UTC; path=/;";
                 }
             }
         };
-
-        static ForItems = {
-            Breadcrumb: {
-                ItemClick: ({ inFolderName, inFileNameWithExtension, inItemName }) => {
-                    this.ForScreens.FetchAsPost(inFolderName, inFileNameWithExtension, inItemName);
-                }
-            },
-            FetchAsPost: (inFolderName, inFileNameWithExtension) => {
-                let jVarLocalFolderName = inFolderName;
-                let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-
-                let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
-                let jVarLocalSubRoute = jVarGlobalClientObject.Config.RouteStart.SubRoute;
-
-                let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/Items/GetData/AsArray`;
-
-                fetch(jVarLocalFetchUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        inFolderName: jVarLocalFolderName,
-                        inFileNameWithExtension: jVarLocalFileNameWithExtension
-                    })
-                }).then(response => {
-                    if (response.status === 403) {
-                        let jVarLocalModalId = this.Config.Ht.HtmlIds.Modals.LoginModalId;
-                        let jVarLocalLoginFormPopUpId = document.getElementById(jVarLocalModalId);
-
-                        if (jVarLocalLoginFormPopUpId !== null) {
-                            var myModal = new bootstrap.Modal(jVarLocalLoginFormPopUpId, { keyboard: false, focus: true });
-                            myModal.show();
-                        };
-                        return null;
-                    };
-
-                    return response.json();
-                }).then(dataFromApi => {
-                    if (dataFromApi !== null) {
-                        this.ForItems.ToUi.StartFunc({
-                            inFilesObjects: dataFromApi,
-                            inFolderName: jVarLocalFolderName,
-                            inFileNameWithExtension: jVarLocalFileNameWithExtension
-                        });
-
-                        this.ForItems.CommonFuncs.BuildBreadcrumb({
-                            inFolderName: jVarLocalFolderName,
-                            inFileNameWithExtension: jVarLocalFileNameWithExtension
-                        });
-                    };
-                });
-            },
-            CommonFuncs: {
-                BuildBreadcrumb: ({ inFolderName, inFileNameWithExtension }) => {
-                    let jVarLocalFolderName = inFolderName;
-                    let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-
-                    let jVarLocalbreadcrumbObject = {};
-                    jVarLocalbreadcrumbObject.Home = {};
-                    jVarLocalbreadcrumbObject[jVarLocalFolderName] = {
-                        onClick: `jGlobalClassForCardMenu.ForFolders.Breadcrumb.ItemClick({inFolderName:'${jVarLocalFolderName}'})`
-                    };
-
-                    jVarLocalbreadcrumbObject[jVarLocalFileNameWithExtension] = {
-                        onClick: `jGlobalClassForCardMenu.ForFiles.Breadcrumb.ItemClick(
-                                {inFolderName:'${jVarLocalFolderName}',
-                                inFileNameWithExtension:'${jVarLocalFileNameWithExtension}'})`
-                    };
-
-                    jFBuildBreadcrumb(jVarLocalbreadcrumbObject);
-                }
-            },
-            ToUi: {
-                StartFunc: ({ inFolderName, inFileNameWithExtension, inFilesObjects }) => {
-                    let jVarLocalFolderName = inFolderName;
-                    let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-                    let jVarLocalFilesObjects = inFilesObjects;
-
-                    let jVarLocalKCont1 = document.getElementById("KCont1");
-                    let jVarLocalNewRow = document.createElement("div");
-                    jVarLocalNewRow.setAttribute("class", "row");
-
-                    Object.entries(jVarLocalFilesObjects).forEach(
-                        ([key, value]) => {
-                            let jVarLocalFromLoop = this.ForItems.ToUi.CommonFuncs.LoopFunc({
-                                inFolderName: jVarLocalFolderName,
-                                inFileNameWithExtension: jVarLocalFileNameWithExtension,
-                                inItemName: value.ItemName,
-                                inRowCount: value.RowCount,
-                                inScreenCount: value.ScreenCount
-                            });
-
-                            jVarLocalNewRow.appendChild(jVarLocalFromLoop);
-                        }
-                    );
-
-                    jVarLocalKCont1.innerHTML = " ";
-                    jVarLocalKCont1.appendChild(jVarLocalNewRow);
-                },
-                CommonFuncs: {
-                    LoopFunc: ({ inFolderName, inFileNameWithExtension, inItemName, inRowCount, inScreenCount }) => {
-                        let jVarLocalFolderName = inFolderName;
-                        let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-                        let jVarLocalItemName = inItemName;
-
-                        let jVarLocalTemplate = document.getElementById("TemplateForItemCard");
-                        var jVarLocalTemplateClone = jVarLocalTemplate.cloneNode(true);
-
-                        jVarLocalTemplateClone.content.querySelector("a").setAttribute("onclick", `jGlobalClassForCardMenu.ForScreens.FetchAsPost('${jVarLocalFolderName}','${inFileNameWithExtension}','${jVarLocalItemName}','${inRowCount}')`);
-                        jVarLocalTemplateClone.content.querySelector(".ItemNameClass").innerHTML = jVarLocalItemName;
-                        jVarLocalTemplateClone.content.querySelector(".RowCountClass").innerHTML = inRowCount;
-                        jVarLocalTemplateClone.content.querySelector(".ScreenCountClass").innerHTML = inScreenCount;
-
-                        return document.importNode(jVarLocalTemplateClone.content, true);
-                    }
-                }
-            }
-        };
-
-        static ForScreens = {
-            FetchAsPost: (inFolderName, inFileNameWithExtension, inItemName, inRowCount) => {
-                let jVarLocalFolderName = inFolderName;
-                let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-                let jVarLocalItemName = inItemName;
-                let jVarLocalRowCount = inRowCount;
-
-                let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
-                let jVarLocalSubRoute = jVarGlobalClientObject.Config.RouteStart.SubRoute;
-
-                let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/Items/Screens/GetData/AsArrayOfObjects`;
-
-                fetch(jVarLocalFetchUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        inFolderName: jVarLocalFolderName,
-                        inFileNameWithExtension: jVarLocalFileNameWithExtension,
-                        inItemName: jVarLocalItemName
-                    })
-                }).then(response => {
-                    if (response.status === 403) {
-                        let jVarLocalModalId = this.Config.Ht.HtmlIds.Modals.LoginModalId;
-                        let jVarLocalLoginFormPopUpId = document.getElementById(jVarLocalModalId);
-
-                        if (jVarLocalLoginFormPopUpId !== null) {
-                            var myModal = new bootstrap.Modal(jVarLocalLoginFormPopUpId, { keyboard: false, focus: true });
-                            myModal.show();
-                        };
-                        return null;
-                    };
-
-                    return response.json();
-                }).then(dataFromApi => {
-                    if (dataFromApi !== null) {
-                        if (dataFromApi.KTF) {
-                            this.ForScreens.ToUi.StartFunc({
-                                inFilesObjects: dataFromApi.ScreensWithColumnCount,
-                                inFolderName: jVarLocalFolderName,
-                                inFileNameWithExtension: jVarLocalFileNameWithExtension,
-                                inItemName: jVarLocalItemName,
-                                inRowCount: jVarLocalRowCount
-                            });
-
-                            this.ForScreens.CommonFuncs.BuildBreadcrumb({
-                                inFolderName: jVarLocalFolderName,
-                                inFileNameWithExtension: jVarLocalFileNameWithExtension,
-                                inItemName: jVarLocalItemName
-                            });
-                        };
-                    };
-                });
-            },
-            CommonFuncs: {
-                BuildBreadcrumb: ({ inFolderName, inFileNameWithExtension, inItemName }) => {
-                    let jVarLocalFolderName = inFolderName;
-                    let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-                    let jVarLocalItemName = inItemName;
-
-                    let jVarLocalbreadcrumbObject = {};
-                    jVarLocalbreadcrumbObject.Home = {};
-
-                    jVarLocalbreadcrumbObject[jVarLocalFolderName] = {
-                        onClick: `jGlobalClassForCardMenu.ForFolders.Breadcrumb.ItemClick({inFolderName:'${jVarLocalFolderName}'})`
-                    };
-
-                    jVarLocalbreadcrumbObject[jVarLocalFileNameWithExtension] = {
-                        onClick: `jGlobalClassForCardMenu.ForFiles.Breadcrumb.ItemClick(
-                                {inFolderName:'${jVarLocalFolderName}',
-                                inFileNameWithExtension:'${jVarLocalFileNameWithExtension}'})`
-                    };
-
-                    jVarLocalbreadcrumbObject[jVarLocalItemName] = {
-                        onClick: `jGlobalClassForCardMenu.ForItems.Breadcrumb.ItemClick(
-                                {inFolderName:'${jVarLocalFolderName}',
-                                inFileNameWithExtension:'${jVarLocalFileNameWithExtension}',
-                                inItemName:'${jVarLocalItemName}'})`
-                    };
-
-                    jFBuildBreadcrumb(jVarLocalbreadcrumbObject);
-                }
-            },
-            ToUi: {
-                StartFunc: ({ inFilesObjects, inFolderName, inFileNameWithExtension, inItemName, inRowCount }) => {
-                    let jVarLocalFolderName = inFolderName;
-                    let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-                    let jVarLocalFilesObjects = inFilesObjects;
-                    let jVarLocalItemName = inItemName;
-                    let jVarLocalRowCount = inRowCount;
-
-                    let jVarLocalKCont1 = document.getElementById("KCont1");
-                    let jVarLocalNewRow = document.createElement("div");
-                    jVarLocalNewRow.setAttribute("class", "row");
-                    Object.entries(jVarLocalFilesObjects).forEach(
-                        ([key, value]) => {
-                            let jVarLocalFromLoop = this.ForScreens.ToUi.CommonFuncs.LoopFunc({
-                                inFolderName: jVarLocalFolderName,
-                                inFileNameWithExtension: jVarLocalFileNameWithExtension,
-                                inItemName: jVarLocalItemName,
-                                inScreenName: value.ScreenName,
-                                inColumnCount: value.ColumnCount,
-                                inRowCount: jVarLocalRowCount
-                            });
-                            jVarLocalNewRow.appendChild(jVarLocalFromLoop);
-                        });
-                    jVarLocalKCont1.innerHTML = " ";
-                    jVarLocalKCont1.appendChild(jVarLocalNewRow);
-
-                },
-                CommonFuncs: {
-                    LoopFunc: ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName, inColumnCount, inRowCount }) => {
-                        let jVarLocalFolderName = inFolderName;
-                        let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-                        let jVarLocalItemName = inItemName;
-                        let jVarLocalColumnCount = inColumnCount;
-                        let jVarLocalRowCount = inRowCount;
-                        let jVarLocalScreenName = inScreenName;
-
-                        let jVarLocalTemplate = document.getElementById("TemplateForScreens");
-                        var jVarLocalTemplateClone = jVarLocalTemplate.cloneNode(true);
-
-                        jVarLocalTemplateClone.content.querySelector("a").setAttribute("onclick", `
-                            jGlobalClassForCardMenu.ForJsonData.FetchAsPost({
-                                inFolderName: "${jVarLocalFolderName}",
-                                inFileName: "${jVarLocalFileNameWithExtension}",
-                                inItemName: "${jVarLocalItemName}",
-                                inScreenName: "${jVarLocalScreenName}"
-                                })`);
-
-                        jVarLocalTemplateClone.content.querySelector(".ScreenNameClass").innerHTML = inScreenName;
-                        jVarLocalTemplateClone.content.querySelector(".ColumnCountClass").innerHTML = jVarLocalColumnCount;
-                        jVarLocalTemplateClone.content.querySelector(".RowCountClass").innerHTML = jVarLocalRowCount;
-
-
-                        jVarLocalTemplateClone.innerHTML = jVarLocalTemplateClone.innerHTML.replace(/{{ItemName}}/g, inItemName);
-                        // jVarLocalTemplateClone.innerHTML = jVarLocalTemplateClone.innerHTML.replace("{{ItemCount}}", inItemCount);
-                        jVarLocalTemplateClone.innerHTML = jVarLocalTemplateClone.innerHTML.replace("{{FolderName}}", jVarLocalFolderName);
-                        jVarLocalTemplateClone.innerHTML = jVarLocalTemplateClone.innerHTML.replace("{{FileNameWithExtension}}", jVarLocalFileNameWithExtension);
-                        //jVarLocalTemplateClone.innerHTML = jVarLocalTemplateClone.innerHTML.replace("{{ColumnCount}}", inColumnCount);
-                        jVarLocalTemplateClone.innerHTML = jVarLocalTemplateClone.innerHTML.replace("{{ScreenName}}", inScreenName);
-
-                        return document.importNode(jVarLocalTemplateClone.content, true);
-                    }
-
-                }
-            }
-        };
-
-        static ForJsonData = {
-            FetchAsPost: ({ inFolderName, inFileName, inItemName, inScreenName }) => {
-                let jVarCardBody = document.getElementById("KCont1");
-
-                let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
-                let jVarLocalSubRoute = jVarGlobalClientObject.Config.RouteStart.SubRoute;
-
-                let jVarLocalFolderHtmlControl = document.getElementById("FolderSelected");
-
-                let jVarLocalFolderName = inFolderName;
-                let jVarLocalFileName = inFileName;
-                let jVarLocalItemName = inItemName;
-                let jVarLocalScreenName = inScreenName;
-
-                let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig`;
-                fetch(jVarLocalFetchUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        inFolderName: jVarLocalFolderName,
-                        inFileName: jVarLocalFileName,
-                        inItemName: jVarLocalItemName,
-                        inScreenName: jVarLocalScreenName
-                    })
-                }).then(response => {
-                    if (!response.ok) { throw new Error(response.statusText) };
-                    return response.json();
-                }).then((FetchData) => {
-                    if (FetchData.KTF) {
-                        jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(FetchData.DataFromServer);
-
-                        jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
-                            inData: jVarGlobalPresentViewData,
-                            inHtmlParent: jVarCardBody
-                        });
-
-                        jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.SetFocusFuncs.TableShow({ inHtmlParent: jVarCardBody });
-
-                        this.ForJsonData.CommonFuncs.BuildBreadcrumb({
-                            inFolderName: jVarLocalFolderName,
-                            inFileNameWithExtension: jVarLocalFileName,
-                            inItemName: jVarLocalItemName,
-                            inScreenName: jVarLocalScreenName
-                        });
-                    };
-                });
-            },
-            CommonFuncs: {
-                BuildBreadcrumb: ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName }) => {
-                    let jVarLocalFolderName = inFolderName;
-                    let jVarLocalFileNameWithExtension = inFileNameWithExtension;
-                    let jVarLocalItemName = inItemName;
-                    let jVarLocalScreenName = inScreenName;
-
-                    let jVarLocalbreadcrumbObject = {};
-                    jVarLocalbreadcrumbObject.Home = {};
-
-                    jVarLocalbreadcrumbObject[jVarLocalFolderName] = {
-                        onClick: `jGlobalClassForCardMenu.ForFolders.Breadcrumb.ItemClick({inFolderName:'${jVarLocalFolderName}'})`
-                    };
-
-                    jVarLocalbreadcrumbObject[jVarLocalFileNameWithExtension] = {
-                        onClick: `jGlobalClassForCardMenu.ForFiles.Breadcrumb.ItemClick(
-                                {inFolderName:'${jVarLocalFolderName}',
-                                inFileNameWithExtension:'${jVarLocalFileNameWithExtension}'})`
-                    };
-
-                    jVarLocalbreadcrumbObject[jVarLocalItemName] = {
-                        onClick: `jGlobalClassForCardMenu.ForItems.Breadcrumb.ItemClick(
-                                {inFolderName:'${jVarLocalFolderName}',
-                                inFileNameWithExtension:'${jVarLocalFileNameWithExtension}',
-                                inItemName:'${jVarLocalItemName}'})`
-                    };
-
-                    jFBuildBreadcrumb(jVarLocalbreadcrumbObject);
-                    let jVarLocalbreadcrumbLastItem = `<li class="breadcrumb-item">${jVarLocalScreenName}
-                             (<a href="#" onclick="
-                             jGlobalClassForCardMenu.ForJsonData.FetchAsPost({
-                                inFolderName: '${jVarLocalFolderName}',
-                                inFileName: '${jVarLocalFileNameWithExtension}',
-                                inItemName: '${jVarLocalItemName}',
-                                inScreenName: '${jVarLocalScreenName}'
-                                })
-                             ">Refresh</a>)</li>`;
-
-                    let jVarLocalbreadcrumbHtmlId = document.getElementById("breadcrumbHtmlId");
-                    jVarLocalbreadcrumbHtmlId.insertAdjacentHTML("beforeend", jVarLocalbreadcrumbLastItem);
-                }
-            }
-        }
     };
 </script>
 
+    <!-- KSJsClientSidePrintFuncs -->
     <script>
     class jClassGlobalPrintFuncs {
         static CommonFuncs = {
@@ -7188,123 +6626,13 @@
 </script>
 
     <script>
-        let jFPullPrintFiles = ({ inPrintFilesArray, inJsonData, inHtmlPath }) => {
-            let jVarLocalPrintFilesArray = inPrintFilesArray;
-            let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
-            let jVarLocalCookieFirmDetails = localStorage.getItem("FirmDetails");
-            let jVarLocalDataPk = JSON.parse(jVarLocalCookieFirmDetails);
-
-            PromiseArray = jVarLocalPrintFilesArray.map(element => {
-                return fetch(`${window.location.origin}/${jVarLocalRoute}/Html/UserData/JSON/${jVarLocalDataPk.kPK}/${inHtmlPath}/${element}`);
-            });
-
-            Promise.all(PromiseArray)
-                .then(responses => {
-                    return Promise.all(responses.map((LoopItem, LoopIndex) => {
-                        return LoopItem.text();
-                    }));
-                }).then(responses => {
-                    for (let LoopIndex = 0; LoopIndex < responses.length; LoopIndex++) {
-                        const jVarLocalLoopValue = responses[LoopIndex];
-
-                        var template = Handlebars.compile(jVarLocalLoopValue);
-                        jVarLocalToShowHtml = template(inJsonData);
-                        document.getElementById("KCont1").insertAdjacentHTML("beforeend", jVarLocalToShowHtml);
-                    };
-
-                    window.print();
-                });
-        };
-
-        let jFPrint = ({ inEvent, inJsonConfig, inItemConfig }) => {
-            let PromiseArray = [];
-            let jVarLocalCurrentTarget = inEvent.currentTarget;
-            let JsonPK = jVarLocalCurrentTarget.closest("tr").dataset.pk;
-            let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
-            let jVarLocalKTF = true;
-
-            let jVarLocalBodyObject = {
-                inFolderName: inJsonConfig.inFolderName,
-                inJsonFileName: inJsonConfig.inJsonFileName,
-                inItemName: inItemConfig.inItemName,
-                inRowPK: JsonPK
-            };
-
-            let jVarLocalCookieFirmDetails = localStorage.getItem("FirmDetails");
-            let jVarLocalDataPk = JSON.parse(jVarLocalCookieFirmDetails);
-
-            let jVarLocalUrlFromPrepareForUrl = jVarGlobalClientObject.Print.Ui.CommonFuncs.FromPublic.PrepareForUrl({ inCurrentTarget: jVarLocalCurrentTarget });
-
-            let jVarLocalFetchForHtmlFiles = `${window.location.origin}/${jVarLocalRoute}/Api/Preview/ForHtml`;
-
-            let jVarLocalHtmlFilesArray;
-            let jVarLocalJsonData;
-
-            PromiseArray.push(fetch(jVarLocalFetchForHtmlFiles));
-            PromiseArray.push(fetch(`${window.location.origin}/${jVarLocalRoute}/Api/Preview/ShowData`, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(jVarLocalBodyObject)
-            }));
-
-            Promise.all(PromiseArray)
-                .then(responses => {
-                    return Promise.all(responses.map((LoopItem, LoopIndex) => {
-                        return LoopItem.json();
-                    }));
-                }).then(responses => {
-                    // all responses are resolved successfully
-                    for (let LoopIndex = 0; LoopIndex < responses.length; LoopIndex++) {
-                        const jVarLocalLoopValue = responses[LoopIndex];
-
-                        switch (LoopIndex) {
-                            case 0:
-                                if (jVarLocalLoopValue.KTF) {
-                                    jVarLocalHtmlFilesArray = jVarLocalLoopValue.JsonData;
-                                } else {
-                                    jVarLocalKTF = false;
-                                };
-
-                                break;
-                            case 1:
-                                if (jVarLocalLoopValue.KTF) {
-                                    jVarLocalJsonData = jVarLocalLoopValue.JsonData;
-                                } else {
-                                    jVarLocalKTF = false;
-                                };
-
-                                break;
-                            default:
-                                break;
-                        };
-                    };
-
-                    if (jVarLocalKTF) {
-                        jFPullPrintFiles({
-                            inPrintFilesArray: jVarLocalHtmlFilesArray,
-                            inJsonData: jVarLocalJsonData,
-                            inHtmlPath: jVarLocalUrlFromPrepareForUrl
-                        });
-                    } else {
-                        console.log("insufficient data!");
-                    }
-
-                });
-        };
-
-        let jVarGlobalKeshavSoftLocalFuncsObject = new KeshavSoftLocalFuncs({});
-    </script>
-
-    <script>
         let jVarGlobalPresentViewData;
         let jVarGlobalHBSData = {};
+        let jVarGlobalProject = "JSONApi";
+        let jVarGlobalSubRoute = "Api";
 
-        //jVarGlobalLoginFuncs.Login.ClientSideCookieFuncs.CheckToken();
-
-        jVarGlobalApiFuncs.ApiFuncs.PreLoad.Masters.FillDataFromServer();
+        let GlobalFuncsForLogin = new GlobalClassForLogin({ inProjectName: jVarGlobalProject });
+        GlobalFuncsForLogin.Login.ClientSideCookieFuncs.CheckToken();
 
         let jVarHtmlLoginModalId = document.getElementById("LoginModalId");
         jVarHtmlLoginModalId.addEventListener('shown.bs.modal', function (event) {
@@ -7313,195 +6641,28 @@
         });
     </script>
 
-    <template id="TemplateForBreadcrumb">
-    {{#each this}}
-    <li class="breadcrumb-item"><a href="#" onclick="{{onClick}}">{{@key}}</a></li>
-    {{/each}}
-</template>
 
-<template id="TemplateForMenuItem">
-    <li>
-        <a href="#" keshavsoftfoldername="{{MenuName}}" class="nav-link {{MenuClass}}">
+    <template id="TemplateForMenuItemInDataHtml">
+        <li>
+            <a href="Menu/AsCards/Files.html?FolderName={{MenuName}}" keshavsoftfoldername="{{MenuName}}" class="nav-link {{MenuClass}}">
 
-            <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
-                <use xlink:href="#{{IconClass}}"></use>
-            </svg>
+                <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
+                    <use xlink:href="#{{IconClass}}"></use>
+                </svg>
 
-            {{MenuName}}
-        </a>
-    </li>
-</template>
+                {{MenuName}}
+            </a>
+        </li>
+    </template>
 
-<template id="TemplateForFiles">
-    <div class="col-4">
-        <div class="card mb-3">
-            <div class="card-header">
-                <div class="card-body">
-                    <h5 class="card-title">{{FileName}}</h5>
-                    <a href="#" keshavsoftfilename="{{FileName}}" class="btn btn-primary keshavsoftfilesclick">Items -
-                        {{ItemCount}}</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
-<template id="TemplateForItemCard">
-    <div class="col-4">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-body">
-                    <h5 class="card-title ItemNameClass">{{ItemName}}</h5>
-                    <p>Rows : <span class="RowCountClass">{{RowCount}}</span> </p>
-                    <a href="#" keshavsoftItemName="{{ItemName}}" class="btn btn-primary keshavsoftItemclick">Screens : <span class="ScreenCountClass">{{ScreenCount}}</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
-<template id="TemplateForScreens">
-    <div class="col-3">
-        <div class="card border-success mb-3" style="max-width: 18rem;">
-            <div class="card-header bg-transparent border-success ScreenNameClass">{{ScreenName}}</div>
-            <div class="card-body text-success">
-                <h5 class="card-title">Rows : <span class="RowCountClass">{{RowCount}}</span></h5>
-            </div>
-            <div class="card-footer bg-transparent border-success"> <a href="#" class="btn btn-success">Columns :
-                    <span class="ColumnCountClass">{{ColumnCount}}</span> </a>
-            </div>
-        </div>
-    </div>
-</template>
-
-    <script>
-
-        let jFPrepareMenuItem = ({ inFileName, inMenuClass, inIconClass }) => {
-            let jVarLocalFileName = inFileName;
-            let jVarLocalMenuClass = inMenuClass;
-            let jVarLocalIconClass = inIconClass;
-
-            let jVarLocalMenuNavContainerId = document.getElementById("MenuNavContainerId");
-            let jVarLocalTemplate = document.getElementById("TemplateForMenuItem");
-
-            var template = Handlebars.compile(jVarLocalTemplate.innerHTML);
-
-            jVarLocalToShowHtml = template({
-                MenuName: jVarLocalFileName, MenuClass: jVarLocalMenuClass,
-                IconClass: jVarLocalIconClass
-            });
-
-            jVarLocalMenuNavContainerId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
-        };
-
-        let jFPullForTableShow = (inEvent, inFileName, inItemName, inScreenName) => {
-            let jVarLocalCurrentTarget = inEvent.currentTarget;
-            let jVarClosestCard = jVarLocalCurrentTarget.closest(".card");
-            let jVarCardBody = jVarClosestCard.querySelector(".card-body");
-
-            let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
-            let jVarLocalSubRoute = jVarGlobalClientObject.Config.RouteStart.SubRoute;
-
-            let jVarLocalFolderHtmlControl = document.getElementById("FolderSelected");
-
-            let jVarLocalFolderName = jVarLocalFolderHtmlControl.value;
-            let jVarLocalFileName = inFileName;
-            let jVarLocalItemName = inItemName;
-            //let jVarLocalScreenName = "Create";
-            let jVarLocalScreenName = inScreenName;
-            //let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensDisplayForFile/PullData/WithConfig?inFolderName=${jVarLocalFolderName}&inJsonFileName=${jVarLocalFileName}&inItemName=${jVarLocalItemName}&inScreenName=${jVarLocalScreenName}`;
-            let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig`;
-
-            fetch(jVarLocalFetchUrl, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    inFolderName: jVarLocalFolderName,
-                    inFileName: jVarLocalFileName,
-                    inItemName: jVarLocalItemName,
-                    inScreenName: jVarLocalScreenName
-                })
-            }).then(response => {
-                if (!response.ok) { throw new Error(response.statusText) };
-                return response.json();
-            }).then((FetchData) => {
-                if (FetchData.KTF) {
-                    jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(FetchData.DataFromServer);
-                    //                    jVarCardBody.innerHTML = jVarGlobalClientObject.AppendToDOM.BuildAndReturnHtml({});
-                    jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({ inData: jVarGlobalPresentViewData, inHtmlParent: jVarCardBody });
-                    //  jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.SetFocusFuncs.TableShow({ inHtmlParent: jVarCardBody });
-
-                    // KeshavSoftCrud.DataListFuns.ReverseFunc({ inParentDiv: jVarCardBody });
-                };
-            });
-        };
-
-        let jFTableShow = ({ inFolderName, inFileName, inItemName, inScreenName }) => {
-            let jVarCardBody = document.getElementById("KCont1");
-
-            let jVarLocalRoute = jVarGlobalClientObject.Config.RouteStart.Start;
-            let jVarLocalSubRoute = jVarGlobalClientObject.Config.RouteStart.SubRoute;
-
-            let jVarLocalFolderHtmlControl = document.getElementById("FolderSelected");
-
-            let jVarLocalFolderName = inFolderName;
-            let jVarLocalFileName = inFileName;
-            let jVarLocalItemName = inItemName;
-            let jVarLocalScreenName = inScreenName;
-
-            let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig`;
-            fetch(jVarLocalFetchUrl, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    inFolderName: jVarLocalFolderName,
-                    inFileName: jVarLocalFileName,
-                    inItemName: jVarLocalItemName,
-                    inScreenName: jVarLocalScreenName
-                })
-            }).then(response => {
-                if (!response.ok) { throw new Error(response.statusText) };
-                return response.json();
-            }).then((FetchData) => {
-                if (FetchData.KTF) {
-                    jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(FetchData.DataFromServer);
-                    jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
-                        inData: jVarGlobalPresentViewData,
-                        inHtmlParent: jVarCardBody
-                    });
-                };
-            });
-        };
-
-        //        jFShowFoldersInMenu();
-        KSCommonFuncs.SelectionMenu.FillNavMenuWithValues();
-
-        let jFHeaderLocalStorageFunc = () => {
-
-        };
-
-        let jFBuildBreadcrumb = (inMenuObject) => {
-            let jVarLocalMenuObject = inMenuObject;
-            let jVarLocalbreadcrumbHtmlId = document.getElementById("breadcrumbHtmlId");
-
-            var jVarGlobalTemplate = Handlebars.compile(document.getElementById("TemplateForBreadcrumb").innerHTML);
-            let jVarGlobalHtml = jVarGlobalTemplate(jVarLocalMenuObject);
-
-            jVarLocalbreadcrumbHtmlId.innerHTML = "";
-            jVarLocalbreadcrumbHtmlId.insertAdjacentHTML("beforeend", jVarGlobalHtml);
-        };
-    </script>
 
     <script src="/JSONApi/Js/KeshavSoftCrudFuncs.js"></script>
-    <script src="/JSONApi/Js/KeshavSoft/DataAsJson/Main.js" type="module"></script>
+    <script src="/JSONApi/Js/KeshavSoft/DataAsJson/ForCrud/Print.js" type="module"></script>
 
+    <script>
+        let jVarGlobalKeshavSoftLocalFuncsObject = new KeshavSoftLocalFuncs({});
+        jVarGlobalApiFuncs.ApiFuncs.PreLoad.Masters.FillDataFromServer();
+    </script>
 
 </body>
 

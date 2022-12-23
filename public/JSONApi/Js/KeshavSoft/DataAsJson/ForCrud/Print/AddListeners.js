@@ -1,5 +1,4 @@
 import { ReturnFolderAndFileNameAndItemName } from "./urlSearchParams.js";
-import { jFPrintFromData } from "./PrintFuncs/MainTable.js";
 
 let jVarLocalObjectFromUrlSearchParams = ReturnFolderAndFileNameAndItemName();
 
@@ -68,44 +67,6 @@ let jFTableShow = async ({ inProjectName, inSubRoute, inFolderName, inFileName, 
         // });
 
     };
-};
-
-let jFTableShow1 = ({ inProjectName, inSubRoute, inFolderName, inFileName, inItemName, inScreenName }) => {
-    let jVarCardBody = document.getElementById("KCont1");
-
-    let jVarLocalRoute = inProjectName;
-    let jVarLocalSubRoute = inSubRoute;
-    let jVarLocalFolderName = inFolderName;
-    let jVarLocalFileName = inFileName;
-    let jVarLocalItemName = inItemName;
-    let jVarLocalScreenName = inScreenName;
-
-    let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig`;
-
-    fetch(jVarLocalFetchUrl, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            inFolderName: jVarLocalFolderName,
-            inFileName: jVarLocalFileName,
-            inItemName: jVarLocalItemName,
-            inScreenName: jVarLocalScreenName
-        })
-    }).then(response => {
-        if (!response.ok) { throw new Error(response.statusText) };
-        return response.json();
-    }).then((FetchData) => {
-        if (FetchData.KTF) {
-            jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(FetchData.DataFromServer);
-            jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
-                inData: jVarGlobalPresentViewData,
-                inHtmlParent: jVarCardBody
-            });
-        };
-    });
 };
 
 let StartFunc = async ({ inProjectName, inSubRoute }) => {

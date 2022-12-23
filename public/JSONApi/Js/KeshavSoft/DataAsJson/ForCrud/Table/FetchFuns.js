@@ -1,19 +1,19 @@
-import { ReturnFolderAndFileNameAndItemName } from "./urlSearchParams.js";
-import { jFPrintFromData } from "./PrintFuncs/MainTable.js";
+import { ReturnFolderAndFileNameAndItemName } from "../CommonFuncs/urlSearchParams.js";
+import { jFShowFolderInBreadcrumb } from "../CommonFuncs/BreadcrumbFuncs.js";
 
 let jVarLocalObjectFromUrlSearchParams = ReturnFolderAndFileNameAndItemName();
 
-let jFShowFolderInBreadcrumb = ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName }) => {
+let jFShowFolderInBreadcrumb_Local = ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName }) => {
     let jVarLocalBreadcrumbFolderNameId = document.getElementById("BreadcrumbFolderNameId");
-    jVarLocalBreadcrumbFolderNameId.href = `Menu/AsCards/Files.html?FolderName=${inFolderName}`;
+    jVarLocalBreadcrumbFolderNameId.href = `../Menu/AsCards/Files.html?FolderName=${inFolderName}`;
     jVarLocalBreadcrumbFolderNameId.innerHTML = inFolderName;
 
     let jVarLocalBreadcrumbFileNameId = document.getElementById("BreadcrumbFileNameId");
-    jVarLocalBreadcrumbFileNameId.href = `Menu/AsCards/Items.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}`;
+    jVarLocalBreadcrumbFileNameId.href = `../Menu/AsCards/Items.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}`;
     jVarLocalBreadcrumbFileNameId.innerHTML = inFileNameWithExtension;
 
     let jVarLocalBreadcrumbItemNameId = document.getElementById("BreadcrumbItemNameId");
-    jVarLocalBreadcrumbItemNameId.href = `Menu/AsCards/Screens.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}&ItemName=${inItemName}`;
+    jVarLocalBreadcrumbItemNameId.href = `../Menu/AsCards/Screens.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}&ItemName=${inItemName}`;
     jVarLocalBreadcrumbItemNameId.innerHTML = inItemName;
 
     let jVarLocalBreadcrumbScreenNameId = document.getElementById("BreadcrumbScreenNameId");
@@ -68,44 +68,6 @@ let jFTableShow = async ({ inProjectName, inSubRoute, inFolderName, inFileName, 
         // });
 
     };
-};
-
-let jFTableShow1 = ({ inProjectName, inSubRoute, inFolderName, inFileName, inItemName, inScreenName }) => {
-    let jVarCardBody = document.getElementById("KCont1");
-
-    let jVarLocalRoute = inProjectName;
-    let jVarLocalSubRoute = inSubRoute;
-    let jVarLocalFolderName = inFolderName;
-    let jVarLocalFileName = inFileName;
-    let jVarLocalItemName = inItemName;
-    let jVarLocalScreenName = inScreenName;
-
-    let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig`;
-
-    fetch(jVarLocalFetchUrl, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            inFolderName: jVarLocalFolderName,
-            inFileName: jVarLocalFileName,
-            inItemName: jVarLocalItemName,
-            inScreenName: jVarLocalScreenName
-        })
-    }).then(response => {
-        if (!response.ok) { throw new Error(response.statusText) };
-        return response.json();
-    }).then((FetchData) => {
-        if (FetchData.KTF) {
-            jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(FetchData.DataFromServer);
-            jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
-                inData: jVarGlobalPresentViewData,
-                inHtmlParent: jVarCardBody
-            });
-        };
-    });
 };
 
 let StartFunc = async ({ inProjectName, inSubRoute }) => {
