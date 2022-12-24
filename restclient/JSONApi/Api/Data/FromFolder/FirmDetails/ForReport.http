@@ -1,0 +1,3 @@
+GET http://localhost:4119/JSONApi/Api/Data/FromFolder/FirmDetails/ForReport
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkZJTjEiLCJEYXRhUGsiOjIwMSwiaWF0IjoxNjcxODU4MzkxfQ.qnNXdtcmqPFYKGmPovdKUapCxY4SngDnHxDskwLsDXc
+content-type: application/json
