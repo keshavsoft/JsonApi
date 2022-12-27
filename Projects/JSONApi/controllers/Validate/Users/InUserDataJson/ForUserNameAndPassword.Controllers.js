@@ -1,15 +1,11 @@
-let express = require("express");
-let router = express.Router();
-
 let Repo = require("../../../../Repository/Validate/Users/InUserDataJson/ForUserNameAndPassword")
 let CommonjwtFunc = require("../../../../../../common/Jwt/Bs5");
-let CommonControllers = require("../../../../controllers/Validate/Users/InUserDataJson/ForUserNameAndPassword.Controllers")
 
-router.post('/TokenToCookie', (req, res,) => {
+let TokenToCookieFirmDetailsAlso = (req, res,) => {
     let LocalUserName = req.body.inUserName;
     let LocalPassWord = req.body.inPassWord;
 
-    Repo.ForUserAndPasswordReturnFirmDetails({
+    Repo.TokenToCookieFirmDetailsAlso({
         inUserName: LocalUserName,
         inPassWord: LocalPassWord,
     }).then(PromiseData => {
@@ -17,6 +13,7 @@ router.post('/TokenToCookie', (req, res,) => {
             res.json(PromiseData);
         } else {
             if (PromiseData.kPK > 0) {
+                console.log("PromiseData : ", PromiseData);
                 CommonjwtFunc.CreateToken({
                     inUserName: LocalUserName,
                     inDataPk: PromiseData.kPK
@@ -30,8 +27,6 @@ router.post('/TokenToCookie', (req, res,) => {
             };
         };
     })
-});
+};
 
-router.post('/TokenToCookieFirmDetailsAlso', CommonControllers.TokenToCookieFirmDetailsAlso);
-
-module.exports = router;
+module.exports = { TokenToCookieFirmDetailsAlso };

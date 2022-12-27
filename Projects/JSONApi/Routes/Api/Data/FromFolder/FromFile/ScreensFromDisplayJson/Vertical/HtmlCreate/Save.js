@@ -6,7 +6,7 @@ router.post("/", (req, res) => {
     let LocalJsonConfig = req.body.JsonConfig;
     let LocalItemConfig = req.body.ItemConfig;
     let LocalBody = req.body.inDataToSave;
-
+    console.log("LocalBody : ", LocalBody);
     let LocalDataPk = req.KeshavSoft.DataPk;
 
     Repos.CheckAndSave({
