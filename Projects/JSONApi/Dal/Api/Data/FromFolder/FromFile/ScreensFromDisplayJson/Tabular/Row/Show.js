@@ -6,5 +6,7 @@ exports.FromParams = async ({ inDataPK, inJsonConfig, inItemConfig, inJsonPk }) 
         inJsonConfig, inItemConfig, inPK: inJsonPk
     });
 
+    console.log("sssssss : ", inDataPK, inJsonConfig, inItemConfig, inJsonPk);
+
     return await LocalDataToReturn;
 };

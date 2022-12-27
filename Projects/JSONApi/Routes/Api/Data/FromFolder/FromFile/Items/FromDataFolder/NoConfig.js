@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let Repos = require("../../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/FromDataFolder/NoConfig");
+let Repos = require("../../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK");
 
 router.get('/:FolderName/:FileName/:ItemName', function (req, res, next) {
   //  console.log("------ : ", req.KeshavSoft);
@@ -10,7 +10,7 @@ router.get('/:FolderName/:FileName/:ItemName', function (req, res, next) {
   let LocalFileName = req.params.FileName;
   let LocalItemName = req.params.ItemName;
 
-//  console.log("-----ppppp : ", LocalFileName);
+  //  console.log("-----ppppp : ", LocalFileName);
   Repos.GetFunc({
     inDataPk: LocalDataPk,
     inFolderName: LocalFolderName,
