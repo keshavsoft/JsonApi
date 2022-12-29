@@ -1,5 +1,9 @@
 let dal = require("../../../../../../../../Dal/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking");
 
+exports.CreateNewFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName }) => {
+    return await dal.CreateNewFunc({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName });
+};
+
 exports.InsertFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert }) => {
     return await dal.InsertFunc({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert });
 };

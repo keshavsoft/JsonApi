@@ -5,6 +5,19 @@ let CommonDataSupplyDelete = require("../../../../../../../../../../DataSupply/F
 let CommonDataSupplyUpdateData = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/ConsiderDisplayJson/UpdateData/FromFolderFileItemName");
 //let CommonDataSupplyInsertNew = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/ConsiderDisplayJson/PushData/InsertNew");
 let CommonDataSupplyInsertNew = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/ConsiderDisplayJson/PushData/InsertNewWithChecking");
+let CommonFromColumnsObject = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/ConfigFolder/UserFolder/UserFileAsFolder/DisplayJsonFile/ItemName/ScreenName/TableColumns/PullData/ForCreateNew/ColumnsObject");
+
+exports.CreateNewFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName }) => {
+    let LocalReturnObject = await CommonFromColumnsObject.StartFunc({
+        inDataPK,
+        inFolderName,
+        inFileNameWithExtension: `${inFileNameOnly}.json`,
+        inItemName,
+        inScreenName
+    });
+
+    return await LocalReturnObject;
+};
 
 exports.InsertFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert }) => {
     let LocalReturnObject = await CommonDataSupplyInsertNew.StartFunc({

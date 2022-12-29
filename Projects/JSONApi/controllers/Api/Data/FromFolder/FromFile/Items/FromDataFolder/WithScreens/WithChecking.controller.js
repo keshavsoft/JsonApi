@@ -1,5 +1,28 @@
 let Repos = require("../../../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking");
 
+let CreateNewFunc = async (req, res, next) => {
+    let LocalDataPk = req.KeshavSoft.DataPk;
+    let LocalFolderName = req.body.FolderName;
+    let LocalFileName = req.body.FileNameOnly;
+    let LocalItemName = req.body.ItemName;
+    let LocalScreenName = req.body.ScreenName;
+    console.log("ppppppppppppp");
+
+    let PromiseData = await Repos.CreateNewFunc({
+        inDataPK: LocalDataPk,
+        inFolderName: LocalFolderName,
+        inFileNameOnly: LocalFileName,
+        inItemName: LocalItemName,
+        inScreenName: LocalScreenName
+    });
+
+    res.end(JSON.stringify(PromiseData));
+
+    // .then(PromiseData => {
+    //     res.end(JSON.stringify(PromiseData));
+    // });
+};
+
 let InsertFunc = async (req, res, next) => {
     let LocalDataPk = req.KeshavSoft.DataPk;
     let LocalFolderName = req.body.FolderName;
@@ -92,12 +115,11 @@ let PatchFunc = async (req, res, next) => {
     res.end(JSON.stringify(PromiseData));
 };
 
-//patch
-
 module.exports = {
     PostFunc,
     DeleteFunc,
     PatchFunc,
-    InsertFunc
+    InsertFunc,
+    CreateNewFunc
 };
 
