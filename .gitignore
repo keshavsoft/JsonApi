@@ -13,10 +13,12 @@ web.config
 /Projects/JSONUser
 /Projects/Tally
 /Projects/JSONReports
+/Projects/JSONUtility
 
 /public/JSONUser
 /public/Tally
 /public/JSONReports
 /public/JSONAdminApi
+/public/JSONUtility
 
 .env

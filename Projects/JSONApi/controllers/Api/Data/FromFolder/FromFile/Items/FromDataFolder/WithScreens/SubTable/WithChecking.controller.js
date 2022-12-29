@@ -1,21 +1,48 @@
-let Repos = require("../../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/FromDataFolder/RowData");
+let Repos = require("../../../../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking");
+
+let InsertFunc = async (req, res, next) => {
+    let LocalDataPk = req.KeshavSoft.DataPk;
+    let LocalFolderName = req.body.FolderName;
+    let LocalFileName = req.body.FileNameOnly;
+    let LocalItemName = req.body.ItemName;
+    let LocalScreenName = req.body.ScreenName;
+    let LocalJsonPK = req.body.JsonPk;
+    let LocalDataToInsert = req.body.DataToInsert;
+    let LocalSubTableKey = req.body.SubTableKey;
+    console.log("ccccccccccccc", LocalSubTableKey);
+    let PromiseData = await Repos.InsertFunc({
+        inDataPK: LocalDataPk,
+        inFolderName: LocalFolderName,
+        inFileNameOnly: LocalFileName,
+        inItemName: LocalItemName,
+        inScreenName: LocalScreenName,
+        inJsonPk: LocalJsonPK,
+        inSubTableKey: LocalSubTableKey,
+        inDataToInsert: LocalDataToInsert
+    });
+
+    res.end(JSON.stringify(PromiseData));
+
+    // .then(PromiseData => {
+    //     res.end(JSON.stringify(PromiseData));
+    // });
+};
 
 let PostFunc = async (req, res, next) => {
-    //  console.log("------ : ", req.KeshavSoft);
-    //let LocalUserName = req.KeshavSoft.kUserName;
     let LocalDataPk = req.KeshavSoft.DataPk;
     let LocalFolderName = req.body.FolderName;
     let LocalFileName = req.body.FileNameOnly;
     let LocalItemName = req.body.ItemName;
     let LocalJsonPK = req.body.JsonPk;
-    //JsonPk
+    let LocalSubTableKey = "";
 
     let PromiseData = await Repos.PostFunc({
         inDataPK: LocalDataPk,
         inFolderName: LocalFolderName,
         inFileNameOnly: LocalFileName,
         inItemName: LocalItemName,
-        inJsonPk: LocalJsonPK
+        inJsonPk: LocalJsonPK,
+        inSubTableKey: LocalSubTableKey
     });
 
     res.end(JSON.stringify(PromiseData));
@@ -49,6 +76,8 @@ let PatchFunc = async (req, res, next) => {
     let LocalFolderName = req.body.FolderName;
     let LocalFileName = req.body.FileNameOnly;
     let LocalItemName = req.body.ItemName;
+    let LocalScreenName = req.body.ScreenName;
+
     let LocalJsonPK = req.body.JsonPk;
     let LocalDataToUpdate = req.body.DataToUpdate;
     //JsonPk
@@ -58,6 +87,7 @@ let PatchFunc = async (req, res, next) => {
         inFolderName: LocalFolderName,
         inFileNameOnly: LocalFileName,
         inItemName: LocalItemName,
+        inScreenName: LocalScreenName,
         inJsonPk: LocalJsonPK,
         inDataToUpdate: LocalDataToUpdate
     });
@@ -70,6 +100,7 @@ let PatchFunc = async (req, res, next) => {
 module.exports = {
     PostFunc,
     DeleteFunc,
-    PatchFunc
+    PatchFunc,
+    InsertFunc
 };
 

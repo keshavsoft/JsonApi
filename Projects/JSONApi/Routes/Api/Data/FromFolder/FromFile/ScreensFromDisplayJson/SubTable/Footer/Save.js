@@ -10,7 +10,7 @@ router.post('/', CommonMiddlewares.SaveFunc, function (req, res, next) {
   let LocalinInsertKey = req.body.insertkey;
   let LocalJsonPK = req.body.pk;
   let LocalDataPK = req.KeshavSoft.DataPk;
-
+  console.log("subtable : ", req.body);
   Repos.SaveFunc({
     inDataPK: LocalDataPK,
     inJsonConfig: LocalJsonConfig,
