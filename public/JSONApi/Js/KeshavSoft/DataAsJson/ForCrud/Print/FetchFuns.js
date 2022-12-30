@@ -100,7 +100,7 @@ let jFPullPrintFiles = async ({ inProjectName, inSubRoute, inFolderName, inFileN
 
         for (let LoopIndex = 0; LoopIndex < FetchData.HtmlData.length; LoopIndex++) {
             const jVarLocalLoopValue = Object.values(FetchData.HtmlData[LoopIndex])[0];
-            console.log("jVarLocalLoopValue : ", jVarLocalLoopValue, inJsonData);
+
             var template = Handlebars.compile(jVarLocalLoopValue);
             let jVarLocalToShowHtml = template(inJsonData);
             document.getElementById("KCont1").insertAdjacentHTML("beforeend", jVarLocalToShowHtml);
@@ -114,6 +114,9 @@ let jFPullPrintFiles = async ({ inProjectName, inSubRoute, inFolderName, inFileN
         // k1.innerHTML = Object.values(FetchData.HtmlData[0])[0];
 
         return await true;
+    } else {
+        console.log("FetchData : ", FetchData.KReason);
+        Swal.fire(FetchData.KReason.path);
     };
 };
 
