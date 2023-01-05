@@ -3,7 +3,6 @@ import { StartFunc as FooterStartFunc } from "./Footer/ButtonClicks.js";
 
 let StartFunc = ({ inProjectName, inSubRoute }) => {
     KeyPressStartFunc();
-    
     FooterStartFunc({
         inProjectName,
         inSubRoute

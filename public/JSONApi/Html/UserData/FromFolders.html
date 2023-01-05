@@ -1278,8 +1278,8 @@
     {{/if}}
     
     {{#if KData.TableInfo.SearchRowArray.Button.NewWindow.KTF}}
-    <div class="col-{{KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject.ColClass}}">
-        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Card.Header.AddButtonClick(event)"
+    <div class="CardHeaderButtons col-{{KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject.ColClass}}">
+        <a href="#" 
             title="Add new row in new window as Vertical" class="btn btn-outline-primary">
             {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject}}
         </a>
@@ -2384,9 +2384,8 @@
     {{#if KDataAttributes.onkeypress}}
     <input kh2 id="{{DataAttribute}}" name="{{DataAttribute}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
         data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" data-dataattribute="{{DataAttribute}}"
-        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterOnClient({ inEvent:event })" type="text"
+      type="text"
         class="form-control KeshavSoftonkeypress" value="{{DefaultValue}}"
-        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterToServer({inEvent:event})" placeholder=""
         autocomplete="off" list="{{HtmlAttributes.list}}" data-KeshavSoft="{{JSON2string KDatasetStuff}}" />
     {{else}}
     {{#if KDataAttributes.CustomDataList}}
@@ -3600,12 +3599,9 @@
             <div class="row">
                 {{#if KData.TableInfo.Vertical.VerticalCreate.saveFromKeyAsTree}}
                 <div class="col">
-                    <button
-                        onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Vertical.SaveFuncs.StartFunc(event)"
-                        type="button" class="btn btn-success">Save New</button>
+                    <button type="button" class="btn btn-success KVerticalFooterSaveButtonClass">Save New</button>
                 </div>
                 {{/if}}
-    
     
                 <div class="col visually-hidden">
     

@@ -116,10 +116,6 @@ let Vertical = {
                     inKCont1: jVarLocalKCont1,
                     inProjectName, inSubRoute
                 }).then(PromiseData => {
-                    if (PromiseData.KTF) {
-                        window.location.href = `Show.html${window.location.search}&JsonPk=${PromiseData.kPK}`;
-                    };
-                   // console.log("ssssssssss : ", PromiseData);
                 });
             };
         },
@@ -202,7 +198,13 @@ let Vertical = {
                                 let jVarLocalShowFailure = inHtmlCard.querySelector("#ShowFailure");
                                 jVarLocalShowFailure.classList.remove("visually-hidden");
                             } else {
-                                resolve(dataFromApi);
+                                let jVarLocalKSHtmlFindRow = document.getElementById("KSHtmlFindRow");
+                                if (jVarLocalKSHtmlFindRow !== null) {
+                                    jVarLocalKSHtmlFindRow.dataset.pk = dataFromApi.kPK;
+                                };
+                                if (Vertical.SaveFuncs.CommonFuncs.PostSave({ inDataFromSave: dataFromApi, inCardBodyForItems, inHtmlCard, inKCont1 })) {
+                                    resolve(dataFromApi);
+                                };
                             };
                         });
                 });

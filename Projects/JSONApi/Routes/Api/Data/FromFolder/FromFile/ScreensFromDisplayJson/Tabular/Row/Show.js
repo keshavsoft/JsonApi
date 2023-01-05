@@ -106,5 +106,34 @@ router.post("/FromParams", CommonMiddlewares.FromParams, (req, res) => {
   }).catch();
 });
 
+router.post("/ForInsert", CommonMiddlewares.FromParams, (req, res) => {
+  let LocalDataPK = req.KeshavSoft.DataPk;
+  let LocalFolderName = req.body.FolderName;
+  let LocalFileName = req.body.FileNameWithExtension;
+  let LocalItemName = req.body.ItemName;
+  let LocalScreenName = req.body.Screenname;
+  let LocalJsonPk = req.body.JsonPk;
+  console.log("ForInsert ------------------: ", req.body);
+  let LocalJsonConfig = {
+    inFolderName: LocalFolderName,
+    inJsonFileName: LocalFileName
+  };
+
+  let LocalItemConfig = {
+    inItemName: LocalItemName,
+    inScreenName: LocalScreenName
+  };
+
+  Repos.ForInsert({
+    inDataPK: LocalDataPK,
+    inJsonConfig: LocalJsonConfig,
+    inItemConfig: LocalItemConfig,
+    inJsonPk: LocalJsonPk
+
+  }).then(PromiseData => {
+    res.end(JSON.stringify(PromiseData));
+  }).catch();
+});
+
 
 module.exports = router;
