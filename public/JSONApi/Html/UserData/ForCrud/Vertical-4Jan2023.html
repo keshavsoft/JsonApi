@@ -1039,8 +1039,8 @@
     {{/if}}
     
     {{#if KData.TableInfo.SearchRowArray.Button.NewWindow.KTF}}
-    <div class="CardHeaderButtons col-{{KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject.ColClass}}">
-        <a href="#" 
+    <div class="col-{{KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject.ColClass}}">
+        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Card.Header.AddButtonClick(event)"
             title="Add new row in new window as Vertical" class="btn btn-outline-primary">
             {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject}}
         </a>
@@ -2145,8 +2145,9 @@
     {{#if KDataAttributes.onkeypress}}
     <input kh2 id="{{DataAttribute}}" name="{{DataAttribute}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
         data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" data-dataattribute="{{DataAttribute}}"
-      type="text"
+        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterOnClient({ inEvent:event })" type="text"
         class="form-control KeshavSoftonkeypress" value="{{DefaultValue}}"
+        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterToServer({inEvent:event})" placeholder=""
         autocomplete="off" list="{{HtmlAttributes.list}}" data-KeshavSoft="{{JSON2string KDatasetStuff}}" />
     {{else}}
     {{#if KDataAttributes.CustomDataList}}
@@ -6641,22 +6642,22 @@
     </script>
 
 
-<template id="TemplateForMenuItemInDataHtml">
-    <li>
-        <a href="../Menu/AsCards/Files.html?FolderName={{MenuName}}" keshavsoftfoldername="{{MenuName}}" class="nav-link {{MenuClass}}">
+    <template id="TemplateForMenuItemInDataHtml">
+        <li>
+            <a href="Menu/AsCards/Files.html?FolderName={{MenuName}}" keshavsoftfoldername="{{MenuName}}" class="nav-link {{MenuClass}}">
 
-            <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
-                <use xlink:href="#{{IconClass}}"></use>
-            </svg>
+                <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
+                    <use xlink:href="#{{IconClass}}"></use>
+                </svg>
 
-            {{MenuName}}
-        </a>
-    </li>
-</template>
+                {{MenuName}}
+            </a>
+        </li>
+    </template>
 
 
     <script src="/JSONApi/Js/KeshavSoftCrudFuncs.js"></script>
-    <script src="/JSONApi/Js/KeshavSoft/DataAsJson/ForCrud/Vertical.js" type="module"></script>
+    <script src="/JSONApi/Js/KeshavSoft/DataAsJson/Data.js" type="module"></script>
 
     <script>
         let jVarGlobalKeshavSoftLocalFuncsObject = new KeshavSoftLocalFuncs({});

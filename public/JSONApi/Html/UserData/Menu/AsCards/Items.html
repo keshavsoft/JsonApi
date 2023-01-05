@@ -525,6 +525,24 @@
         </li>
     </template>
 
+    <template id="TemplateForItemCard1">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-body">
+                        <h5 class="card-title">{{inFileNameWithExtension}}</h5>
+                        <h6 class="card-title">{{inItemName}} - {{inScreenCount}}</h6>
+                        <p>Rows : <span class="RowCountClass">{{inRowCount}}</span> </p>
+                        <a href="Screens.html?FolderName={{inFolderName}}&FileName={{inFileNameWithExtension}}&ItemName={{inItemName}}&RowCount={{inRowCount}}" keshavsoftItemName="{{ItemName}}" class="btn btn-primary keshavsoftItemclick">Screens :
+                            <span class="ScreenCountClass">{{ScreenCount}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    
     <template id="TemplateForItemCard">
         <div class="col-4">
             <div class="card">
@@ -532,9 +550,7 @@
                     <div class="card-body">
                         <h4 class="card-title">{{inItemName}}</h4>
                         <p>Screens : <span class="RowCountClass">{{inScreenCount}}</span> </p>
-                        <a href="Screens.html?FolderName={{inFolderName}}&FileName={{inFileNameWithExtension}}&ItemName={{inItemName}}&RowCount={{inRowCount}}"
-                         keshavsoftItemName="{{ItemName}}"
-                          class="btn btn-primary keshavsoftItemclick">Show :
+                        <a href="Screens.html?FolderName={{inFolderName}}&FileName={{inFileNameWithExtension}}&ItemName={{inItemName}}&RowCount={{inRowCount}}" keshavsoftItemName="{{ItemName}}" class="btn btn-primary keshavsoftItemclick">Show :
                             <span class="ScreenCountClass">{{inRowCount}}</span>
                         </a>
                     </div>
@@ -543,6 +559,7 @@
         </div>
     </template>
 
+    
     <script src="/JSONApi/Js/KeshavSoft/Menu/AsCards/Items.js" type="module"></script>
 </body>
 

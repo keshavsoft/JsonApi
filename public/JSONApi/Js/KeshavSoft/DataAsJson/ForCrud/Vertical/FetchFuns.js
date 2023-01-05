@@ -3,24 +3,7 @@ import { jFShowFolderInBreadcrumb } from "../CommonFuncs/BreadcrumbFuncs.js";
 
 let jVarLocalObjectFromUrlSearchParams = ReturnFolderAndFileNameAndItemName();
 
-let jFShowFolderInBreadcrumb_Local = ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName }) => {
-    let jVarLocalBreadcrumbFolderNameId = document.getElementById("BreadcrumbFolderNameId");
-    jVarLocalBreadcrumbFolderNameId.href = `../Menu/AsCards/Files.html?FolderName=${inFolderName}`;
-    jVarLocalBreadcrumbFolderNameId.innerHTML = inFolderName;
-
-    let jVarLocalBreadcrumbFileNameId = document.getElementById("BreadcrumbFileNameId");
-    jVarLocalBreadcrumbFileNameId.href = `../Menu/AsCards/Items.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}`;
-    jVarLocalBreadcrumbFileNameId.innerHTML = inFileNameWithExtension;
-
-    let jVarLocalBreadcrumbItemNameId = document.getElementById("BreadcrumbItemNameId");
-    jVarLocalBreadcrumbItemNameId.href = `../Menu/AsCards/Screens.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}&ItemName=${inItemName}`;
-    jVarLocalBreadcrumbItemNameId.innerHTML = inItemName;
-
-    let jVarLocalBreadcrumbScreenNameId = document.getElementById("BreadcrumbScreenNameId");
-    jVarLocalBreadcrumbScreenNameId.innerHTML = inScreenName;
-};
-
-let jFTableShow = async ({ inProjectName, inSubRoute, inFolderName, inFileName, inItemName, inScreenName }) => {
+let jVLocalVerticalShow = async ({ inProjectName, inSubRoute, inFolderName, inFileName, inItemName, inScreenName }) => {
     let jVarCardBody = document.getElementById("KCont1");
 
     let jVarLocalRoute = inProjectName;
@@ -30,7 +13,8 @@ let jFTableShow = async ({ inProjectName, inSubRoute, inFolderName, inFileName, 
     let jVarLocalItemName = inItemName;
     let jVarLocalScreenName = inScreenName;
 
-    let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig`;
+    //   let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig`;
+    let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Fromjson`;
 
     let response = await fetch(jVarLocalFetchUrl, {
         method: 'POST',
@@ -101,7 +85,7 @@ let StartFunc = async ({ inProjectName, inSubRoute }) => {
                         inScreenName: jVarLocalObjectFromUrlSearchParams.ScreenName
                     });
 
-                    return await jFTableShow({
+                    return await jVLocalVerticalShow({
                         inProjectName, inSubRoute,
                         inFolderName: jVarLocalObjectFromUrlSearchParams.FolderName,
                         inFileName: jVarLocalObjectFromUrlSearchParams.FileName,

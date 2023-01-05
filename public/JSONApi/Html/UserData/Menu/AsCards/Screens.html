@@ -526,6 +526,24 @@
         </li>
     </template>
 
+    <template id="TemplateForScreens1">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-body">
+                        <h5 class="card-title d-none">{{inFileNameWithExtension}}</h5>
+                        <h6 class="card-title d-none">{{inItemName}}</h6>
+                        <h7 class="card-title">{{inScreenName}}</h7>
+                        <p>Rows : <span class="RowCountClass">{{inRowCount}}</span> </p>
+                        <a href="../../ForCrud/Table.html?FolderName={{inFolderName}}&FileName={{inFileNameWithExtension}}&ItemName={{inItemName}}&ScreenName={{inScreenName}}" keshavsoftItemName="{{ItemName}}" class="btn btn-primary keshavsoftItemclick">Screens :
+                            <span class="ScreenCountClass">{{ScreenCount}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
     <template id="TemplateForScreens">
         <div class="col-4">
             <div class="card">
@@ -533,8 +551,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{inItemName}}</h5>
                         <h6 class="card-title">{{inScreenName}}</h6>
-                        <a href="../../ForCrud/Table.html?FolderName={{inFolderName}}&FileName={{inFileNameWithExtension}}&ItemName={{inItemName}}&ScreenName={{inScreenName}}"
-                         keshavsoftItemName="{{ItemName}}" class="btn btn-success keshavsoftItemclick">Show :
+                        <a href="../../ForCrud/Table.html?FolderName={{inFolderName}}&FileName={{inFileNameWithExtension}}&ItemName={{inItemName}}&ScreenName={{inScreenName}}" keshavsoftItemName="{{ItemName}}" class="btn btn-success keshavsoftItemclick">Show :
                             <span class="ScreenCountClass">{{inRowCount}}</span>
                         </a>
                     </div>
