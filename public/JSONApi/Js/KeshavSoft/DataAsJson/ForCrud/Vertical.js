@@ -13,6 +13,9 @@ VerticalStartFunc({
     inSubRoute: jVarGlobalSubRoute
 }).then(p => {
     if (p) {
-        AddListenersFuncsStartFunc();
+        AddListenersFuncsStartFunc({
+            inProjectName: jVarGlobalProject,
+            inSubRoute: jVarGlobalSubRoute
+        });
     };
 });
