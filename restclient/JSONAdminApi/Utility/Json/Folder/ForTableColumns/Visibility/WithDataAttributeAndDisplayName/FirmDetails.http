@@ -1,0 +1,8 @@
+GET http://localhost:4120/JSONAdminApi/AdminApi/Utility/Json/Folder/ForTableColumns/Visibility/WithDataAttributeAndDisplayName
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkZJTjEiLCJEYXRhUGsiOjMwMSwiaWF0IjoxNjczMzM1NTQxfQ.IMn98IYbgp-zWOSCYlRTeXyva6nZUf9PzZ5bFnz_aGo
+content-type: application/json
+
+{
+    
+ 
+    }
