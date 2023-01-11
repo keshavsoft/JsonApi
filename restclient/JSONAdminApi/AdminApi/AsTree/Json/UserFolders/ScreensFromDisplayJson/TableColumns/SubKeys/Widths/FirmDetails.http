@@ -1,0 +1,6 @@
+GET http://localhost:4120/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableColumns/SubKeys/Widths
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkZJTjEiLCJEYXRhUGsiOjMwMSwiaWF0IjoxNjczNDI5OTcwfQ.wsi5iqiXADg1f7fxmUltCH1bbq-rfDdD6jTf-fZHfBM
+content-type: application/json
+
+{
+}
