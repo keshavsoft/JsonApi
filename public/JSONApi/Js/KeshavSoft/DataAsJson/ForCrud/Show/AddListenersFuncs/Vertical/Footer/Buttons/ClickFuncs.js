@@ -144,6 +144,15 @@ let LocalCheckBeforeSave = (jVarHtmlCardBody) => {
 
 };
 
+let LoacalCollectionContains = ({ collection, searchText }) => {
+    for (var i = 0; i < collection.length; i++) {
+        if (collection[i].value.indexOf(searchText) > -1) {
+            return collection[i].text;
+        }
+    }
+    return "";
+};
+
 let localForTagInput = ({ inLoopItem }) => {
     let jVarLocalValue = inLoopItem.value;
     let jVarLocalKeshavSoftStuffed;
@@ -153,7 +162,7 @@ let localForTagInput = ({ inLoopItem }) => {
 
         if (inLoopItem.list !== null) {
             if (jVarLocalKeshavSoftStuffed.DataListReverse) {
-                jVarLocalValue = this.PreparePostData.CommonFuncs.ByTagName.collectionContains({ collection: inLoopItem.list.options, searchText: inLoopItem.value });
+                jVarLocalValue = LoacalCollectionContains({ collection: inLoopItem.list.options, searchText: inLoopItem.value });
             };
         };
 
