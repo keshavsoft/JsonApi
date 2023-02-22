@@ -13,7 +13,7 @@ let TokenToCookieFirmDetailsAlso = (req, res,) => {
             res.json(PromiseData);
         } else {
             if (PromiseData.kPK > 0) {
-                console.log("PromiseData : ", PromiseData);
+           //     console.log("PromiseData : ", PromiseData);
                 CommonjwtFunc.CreateToken({
                     inUserName: LocalUserName,
                     inDataPk: PromiseData.kPK
