@@ -188,6 +188,14 @@ The above copyright notice and this permission notice shall be included in all c
                 <img class="mx-auto d-block" src="/assets/img/Numismatics.jpeg" width="200" height="200" alt="">
             </a>
         </div>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <a href="/keshavSoft/Bullayya/Registration.html">
+                    <img src="./reg2.png" class="img-fluid img-thumbnail" alt="">
+                </a>
+            </div>
+        </div>
     </div>
 
     <!--   Core JS Files   -->
@@ -279,6 +287,14 @@ The above copyright notice and this permission notice shall be included in all c
                 alert("WebSocket NOT supported by your Browser!");
             };
         };
+    </script>
+
+    <script>
+        const toastLiveExample = document.getElementById('liveToast')
+
+        const toast = new bootstrap.Toast(toastLiveExample)
+
+        toast.show();
     </script>
 
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
