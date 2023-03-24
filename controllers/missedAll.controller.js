@@ -7,17 +7,17 @@ let getUrl = async (req, res) => {
         if (LocalLastEndPoint.split(".")[1] === "html") {
             if (LocalBasePath === "JSONUser") {
                 res.setHeader("Content-Type", "text/html");
-                return await res.end("Copy JSONUser to public from Repo : https://github.com/keshavsoft/kposthtml");
+                return await res.end("Copy JSONUser to public from Repo : https://github.com/keshavsoft/KStaticFiles");
             };
 
             if (LocalBasePath === "JSONAdminApi") {
                 res.setHeader("Content-Type", "text/html");
-                return await res.end("Copy JSONAdminApi to public from Repo : https://github.com/keshavsoft/kposthtml");
+                return await res.end("Copy JSONAdminApi to public from Repo : https://github.com/keshavsoft/KStaticFiles");
             };
 
             if (LocalBasePath === "JSONReports") {
                 res.setHeader("Content-Type", "text/html");
-                return await res.end("Copy JSONReports to public from Repo : https://github.com/keshavsoft/kposthtml");
+                return await res.end("Copy JSONReports to public from Repo : https://github.com/keshavsoft/KStaticFiles");
             };
         };
     };
