@@ -5,6 +5,6 @@ exports.AsArray = async ({ inDataPK, inFolderName, inFileNameWithExtension, inIt
    //   let LocalDataToReturn = await CommonDataSupply.ReturnArray({ inDataPK, inFolderName, inFileNameWithExtension, inItemName, inScreenName });
 
    let LocalDataToReturn = await CommonDataSupply.StartFunc({ inDataPK, inFolderName, inFileNameWithExtension, inItemName, inScreenName });
-   console.log("LocalDataToReturn: ", LocalDataToReturn);
+   
    return await LocalDataToReturn;
 };
