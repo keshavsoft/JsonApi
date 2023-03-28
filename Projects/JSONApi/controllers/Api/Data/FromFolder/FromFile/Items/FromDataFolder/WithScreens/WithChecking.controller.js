@@ -49,6 +49,34 @@ let InsertFunc = async (req, res, next) => {
     //     res.end(JSON.stringify(PromiseData));
     // });
 };
+let InsertWithPkFunc = async (req, res, next) => {
+    let LocalDataPk = req.KeshavSoft.DataPk;
+    let LocalFolderName = req.body.FolderName;
+    let LocalFileName = req.body.FileNameOnly;
+    let LocalItemName = req.body.ItemName;
+    let LocalScreenName = req.body.ScreenName;
+    let LocalJsonPK = req.body.JsonPk;
+    let LocalDataToInsert = req.body.inPostData;
+
+    console.log("----------:", LocalDataToInsert);
+
+
+    let PromiseData = await Repos.InsertWithPkFunc({
+        inDataPK: LocalDataPk,
+        inFolderName: LocalFolderName,
+        inFileNameOnly: LocalFileName,
+        inItemName: LocalItemName,
+        inScreenName: LocalScreenName,
+        inJsonPk: LocalJsonPK,
+        inDataToInsert: LocalDataToInsert
+    });
+
+    res.end(JSON.stringify(PromiseData));
+
+    // .then(PromiseData => {
+    //     res.end(JSON.stringify(PromiseData));
+    // });
+};
 
 let PostFunc = async (req, res, next) => {
     let LocalDataPk = req.KeshavSoft.DataPk;
@@ -120,6 +148,7 @@ module.exports = {
     DeleteFunc,
     PatchFunc,
     InsertFunc,
-    CreateNewFunc
+    CreateNewFunc,
+    InsertWithPkFunc
 };
 

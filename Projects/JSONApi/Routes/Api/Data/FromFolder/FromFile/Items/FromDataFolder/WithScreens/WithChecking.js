@@ -8,5 +8,6 @@ router.post('/Insert', CommonConrollers.InsertFunc);
 router.post('/', CommonConrollers.PostFunc);
 router.delete('/', CommonConrollers.DeleteFunc);
 router.patch('/', CommonConrollers.PatchFunc);
+router.post('/InsertWithPk', CommonConrollers.InsertWithPkFunc);
 
 module.exports = router;
