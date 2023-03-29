@@ -1,8 +1,0 @@
-GET http://localhost:4120/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableColumns/SubKeys/KDataset
-Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkRVUkdBUEtMMjIyMyIsIkRhdGFQayI6MTAyMiwiaWF0IjoxNjgwMDkxNzI5fQ.PLZl6rgJxSs7DD9cn4zK-SXppPwrIj-56e9WNpnH4t4
-content-type: application/json
-
-{
-    "inUserName":"JATIN",
-"inPassWord":"JATIN"
-}
