@@ -42,12 +42,8 @@ let InsertFunc = async (req, res, next) => {
         inJsonPk: LocalJsonPK,
         inDataToInsert: LocalDataToInsert
     });
-
+    // console.log("PromiseData : ", PromiseData);
     res.end(JSON.stringify(PromiseData));
-
-    // .then(PromiseData => {
-    //     res.end(JSON.stringify(PromiseData));
-    // });
 };
 let InsertWithPkFunc = async (req, res, next) => {
     let LocalDataPk = req.KeshavSoft.DataPk;
