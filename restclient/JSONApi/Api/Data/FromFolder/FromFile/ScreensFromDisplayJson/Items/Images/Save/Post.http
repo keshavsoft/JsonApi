@@ -1,0 +1,16 @@
+POST http://localhost:4120/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Save
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkRVUkdBUEtMMjIyMyIsIkRhdGFQayI6MTAyMiwiaWF0IjoxNjgwMzM1MDY5fQ.xRnDi6088K1Gn5_iDTB6djcOW9lTwfVnB1JaoEF_i4c
+content-type: application/json
+
+{
+        "inJsonConfig": {
+            "inFolderName": "Masters",
+            "inJsonFileName": "Customers.json"
+        }, "inItemConfig": {
+            "inItemName": "CustomerNames"
+        },
+        "inPostData": {
+            "CustomerName": "aaaaaaaaaaaaaa",
+            "Mobile": 9999999999
+        }
+    }
