@@ -1,0 +1,2 @@
+GET http://localhost:4120/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Custom/PostFromPk/21
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BR1VWQUEiLCJEYXRhUGsiOjkwMSwiaWF0IjoxNjgwMzc5MTExfQ.nVaqb8IZpv0MDcUf771zKeRdYVFIYe7YC0b54SN6It0

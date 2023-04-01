@@ -1,0 +1,7 @@
+POST http://localhost:4120/JSONApi/Validate/Users/InUserDataJson/ForUserNameAndPassword/LoginCheckReturnTokenOnly
+content-type: application/json
+ 
+{   
+"inUserName":"MAGUVAA",
+"inPassWord":"MAGUVAA"
+}
