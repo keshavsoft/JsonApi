@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/stats" enctype="multipart/form-data" method="post" id="form1">
+        <div class="form-group">
+            <input type="file" class="form-control-file" name="uploaded_file" id="fileUpload">
+            <input type="text" class="form-control" placeholder="Number of speakers" name="nspeakers">
+            <input type="submit" value="Get me the stats!" class="btn btn-default">
+        </div>
+    </form>
+
+    <button onclick="uploadImage()">Upload</button>
+
+    <button onclick="jF1()">Show Image</button>
+
+    <img id="Img1" src="" alt="">
+
+    <script>
+        let jF1 = async () => {
+            let response = await fetch(`/file`);
+            const imageBlob = await response.blob();
+
+            const imageObjectURL = URL.createObjectURL(imageBlob);
+
+            const image = document.getElementById('Img1')
+            image.src = imageObjectURL;
+
+        };
+
+        let uploadImage = () => {
+            // This assumes the form's name is `myForm`
+            //  var form = document.getElementById("form1");
+            //var formData = new FormData(form);
+            var formData = new FormData();
+            let jVarLocalfileUpload = document.getElementById("fileUpload");
+            var input = document.querySelector('input[type=file]');
+            let file = input.files[0];
+
+            let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Save";
+            //  formData.Keshav = "Purna";
+            formData.append("inFolderName", "Masters");
+            formData.append("inFileNameOnly", "Items");
+            formData.append("inItemName", "ItemName");
+            formData.append('uploaded_file', file);
+
+            fetch(jVarLocalFetchUrl, {
+                method: 'POST',
+                body: formData
+            });
+        };
+
+        const handleImageUpload = event => {
+            const files = event.target.files
+            const formData = new FormData();
+            formData.append('uploaded_file', files[0])
+
+            fetch('/stats', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.path)
+                })
+                .catch(error => {
+                    console.error(error)
+                })
+        };
+
+        // document.querySelector('#fileUpload').addEventListener('change', event => {
+        //     handleImageUpload(event)
+        // });
+
+
+    </script>
+</body>
+
+</html>
