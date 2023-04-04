@@ -46,9 +46,10 @@
 
             let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Save";
             //  formData.Keshav = "Purna";
-            formData.append("inFolderName", "Masters");
-            formData.append("inFileNameOnly", "Items");
-            formData.append("inItemName", "ItemName");
+            formData.append("inFolderName", "QrCodes");
+            formData.append("inFileNameOnly", "Generate");
+            formData.append("inItemName", "Barcodes");
+            formData.append("inRowPk", "17");
             formData.append('uploaded_file', file);
 
             fetch(jVarLocalFetchUrl, {

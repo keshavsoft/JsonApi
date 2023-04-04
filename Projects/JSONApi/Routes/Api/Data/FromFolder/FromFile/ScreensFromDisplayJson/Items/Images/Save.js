@@ -3,7 +3,8 @@ let router = express();
 const multer = require('multer');
 var path = require('path');
 //let DataSu = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/Images/UsingMulter");
-let DataSu = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/JsonFileAsFolder/ItemNameAsFolder/ImagesFolder/InsertToFolder/UsingMulter");
+//let DataSu = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/JsonFileAsFolder/ItemNameAsFolder/ImagesFolder/InsertToFolder/UsingMulter");
+let DataSu = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/JsonFileAsFolder/ItemNameAsFolder/ImagesFolder/RowPkAsFolder/InsertToRowPkAsFolder/UsingMulter");
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
