@@ -6,7 +6,6 @@ let CreateNewFunc = async (req, res, next) => {
     let LocalFileName = req.body.FileNameOnly;
     let LocalItemName = req.body.ItemName;
     let LocalScreenName = req.body.ScreenName;
-    console.log("ppppppppppppp");
 
     let PromiseData = await Repos.CreateNewFunc({
         inDataPK: LocalDataPk,
@@ -32,7 +31,6 @@ let InsertFunc = async (req, res, next) => {
     let LocalJsonPK = req.body.JsonPk;
     let LocalDataToInsert = req.body.inPostData;
 
-
     let PromiseData = await Repos.InsertFunc({
         inDataPK: LocalDataPk,
         inFolderName: LocalFolderName,
@@ -42,7 +40,7 @@ let InsertFunc = async (req, res, next) => {
         inJsonPk: LocalJsonPK,
         inDataToInsert: LocalDataToInsert
     });
-    // console.log("PromiseData : ", PromiseData);
+    
     res.end(JSON.stringify(PromiseData));
 };
 let InsertWithPkFunc = async (req, res, next) => {
