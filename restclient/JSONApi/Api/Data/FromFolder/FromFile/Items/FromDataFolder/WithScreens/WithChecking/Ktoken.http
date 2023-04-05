@@ -1,0 +1,7 @@
+POST http://localhost:4120/JSONApi/Validate/Users/InUserDataJson/ForUserNameAndPassword/TokenToCookie
+content-type: application/json
+ 
+{   
+"inUserName":"DURGAPKL2122",
+"inPassWord":"DURGAPKL2122"
+}

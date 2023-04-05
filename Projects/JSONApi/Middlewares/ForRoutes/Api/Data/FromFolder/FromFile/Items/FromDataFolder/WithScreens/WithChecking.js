@@ -8,7 +8,8 @@ exports.InsertFunc = (req, res, next) => {
                 FileNameOnly: "",
                 ItemName: "",
                 ScreenName: "",
-                insertkey: "",
+                inJsonPk: "",
+                inDataToInsert: "",
             },
             originalUrl: req.originalUrl
         });

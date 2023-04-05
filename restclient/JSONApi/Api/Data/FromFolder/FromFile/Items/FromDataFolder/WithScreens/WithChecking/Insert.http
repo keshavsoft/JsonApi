@@ -1,0 +1,12 @@
+POST http://localhost:4120/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/insert
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkRVUkdBUEtMMjEyMiIsIkRhdGFQayI6MTAyNCwiaWF0IjoxNjgwNjk5NzYxfQ.1GlPLVXhnJ6_ZBr5pv2CVhtD18em2sHmr08dLdN7aPo;
+content-type: application/json
+
+{  
+      "FolderName": "Masters",
+        "FileNameOnly": "Accounts",
+         "ItemName": "Accounts",
+          "ScreenName": "Create",
+          "inJsonPk": "",
+          "inDataToInsert": ""
+  }
