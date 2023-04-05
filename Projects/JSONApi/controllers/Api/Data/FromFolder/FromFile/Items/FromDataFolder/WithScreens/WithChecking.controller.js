@@ -40,9 +40,10 @@ let InsertFunc = async (req, res, next) => {
         inJsonPk: LocalJsonPK,
         inDataToInsert: LocalDataToInsert
     });
-    
+
     res.end(JSON.stringify(PromiseData));
 };
+
 let InsertWithPkFunc = async (req, res, next) => {
     let LocalDataPk = req.KeshavSoft.DataPk;
     let LocalFolderName = req.body.FolderName;
