@@ -1,11 +1,7 @@
 POST http://localhost:4120/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByColumn/IsEqual
-Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BR1VWQUEiLCJEYXRhUGsiOjkwMSwiaWF0IjoxNjgwNDQzODg3fQ.R4tDoj7JXgwlK_ClxOFa0PmzbI6sXCsrHOm7dG2jlJo
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BR1VWQUEiLCJEYXRhUGsiOjkwMSwiaWF0IjoxNjgxMjIxNzYzfQ.iXQFbrDNZmGUvizaKlBFNIBVygrv1kuIRb7RTL-A8dw
 content-type: application/json
 
 {
-       "inFolderName": "QrCodes",
-       "inFileNameOnly":"Generate",
-           "inItemName": "Barcodes",
-"inColumnName":"InventorySerial",
-"inValueToCheck":"2"
+
     }

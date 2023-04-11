@@ -1,0 +1,10 @@
+POST http://localhost:4120/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/CreateNew
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BR1VWQUEiLCJEYXRhUGsiOjkwMSwiaWF0IjoxNjgxMjIyMTk4fQ.EeIfwPZonc9syIDq-D2bTKjjtEHD_No9Co7jFffhGFI
+content-type: application/json
+
+{
+    "FolderName":"Sales",
+    "FileNameOnly":"",
+    "ItemName":"",
+    "ScreenName":""
+      }
