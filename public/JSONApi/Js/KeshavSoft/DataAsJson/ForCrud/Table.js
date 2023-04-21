@@ -16,6 +16,9 @@ ShowDataFuncsStartFunc({
     if (p) {
         jFAddtoPrintButtonInTable();
         CardHeaderStartFunc();
-        AddListenersFuncsStartFunc();
+        AddListenersFuncsStartFunc({
+            inRoute: jVarGlobalProject,
+            inSubRoute: jVarGlobalSubRoute
+        });
     };
 });
