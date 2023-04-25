@@ -1,12 +1,12 @@
 var jwt = require('jsonwebtoken');
-let CommonCheckDataPK = require("../../DataSupply/Fs/Config/CheckDataPK");
+// let CommonCheckDataPK = require("../../DataSupply/Fs/Config/CheckDataPK");
+let CommonFromDataSupply = require("../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/Check");
+
 let CommonSecret = "k";
 
 let LocalVerifyToken = (req, res, inKToken, next) => {
     try {
-        console.log("inKToken : ", inKToken);
         jwt.verify(inKToken, CommonSecret, (err, authData) => {
-
             if (err) {
                 //  res.end(err);
                 res.end("Invalid Token!");
@@ -14,8 +14,9 @@ let LocalVerifyToken = (req, res, inKToken, next) => {
                 if (("DataPk" in authData) === false) {
                     res.end("Invalid Token -1.");
                 } else {
-                    let LocalFromForExistence = CommonCheckDataPK.ForExistence({ inDataPK: authData.DataPk });
-
+                    // let LocalFromForExistence = CommonCheckDataPK.ForExistence({ inDataPK: authData.DataPk });
+                    let LocalFromForExistence = CommonFromDataSupply.ForExistence({ inDataPK: authData.DataPk });
+                    
                     if ("KTF" in LocalFromForExistence) {
                         if (LocalFromForExistence.KTF === false) {
                             res.end(LocalFromForExistence.KReason);
