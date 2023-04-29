@@ -1,6 +1,0 @@
-GET http://localhost:4120/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableColumns/AllInOneWithValues
-Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkZJTjEiLCJEYXRhUGsiOjMwMSwiaWF0IjoxNjc0MzExODk2fQ.5uuJGMXI22NRQb6egxqhW8j3cSOMxd1Qyg_hoEE6xaI
-content-type: application/json
-
-{
-}

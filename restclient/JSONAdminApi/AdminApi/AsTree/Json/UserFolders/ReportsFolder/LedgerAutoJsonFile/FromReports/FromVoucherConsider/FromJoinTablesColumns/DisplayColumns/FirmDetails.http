@@ -1,6 +1,0 @@
-GET http://localhost:4120/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/FromVoucherConsider/FromJoinTablesColumns/Duplicate
-Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik5TUDIyMjMiLCJEYXRhUGsiOjEwMjQsImlhdCI6MTY3NzE1MjY4NH0.wfeR8KIgnqka5PmWtPVlt5FPFtDisdKeoBhxOp8SQBg;
-content-type: application/json
-
-{
-}

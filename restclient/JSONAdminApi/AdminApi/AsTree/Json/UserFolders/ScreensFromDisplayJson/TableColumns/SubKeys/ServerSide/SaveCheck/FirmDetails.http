@@ -1,6 +1,0 @@
-GET http://localhost:4120/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableColumns/SubKeys/ServerSide/TransformBeforeSave
-Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IkZJTjEiLCJEYXRhUGsiOjMwMSwiaWF0IjoxNjczNDMzNzg2fQ.Ck1REIsuupQiZ-1UZlxyvllTCUQi7c3Tqh50QoRY_CM
-content-type: application/json
-
-{
-}
