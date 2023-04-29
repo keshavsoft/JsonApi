@@ -21,4 +21,6 @@ web.config
 /public/JSONAdminApi
 /public/JSONUtility
 
+/restclient/JSONAdminApi
+
 .env
