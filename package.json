@@ -13,6 +13,7 @@
     "archiver-zip-encryptable": "^1.0.10",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "decompress": "^4.2.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-xml-bodyparser": "^0.3.0",
