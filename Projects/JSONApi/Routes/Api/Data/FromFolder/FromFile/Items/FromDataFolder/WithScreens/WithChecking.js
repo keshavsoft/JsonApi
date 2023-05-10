@@ -6,6 +6,7 @@ let CommonMiddlewares = require("../../../../../../../../Middlewares/ForRoutes/A
 
 router.post('/CreateNew', CommonMiddlewares.CreateNewFunc, CommonConrollers.CreateNewFunc);
 router.post('/Insert', CommonConrollers.InsertFunc);
+router.post('/InsertWithTimeStamp', CommonConrollers.InsertWithTimeStamp);
 router.post('/', CommonConrollers.PostFunc);
 router.delete('/', CommonConrollers.DeleteFunc);
 router.patch('/', CommonConrollers.PatchFunc);
