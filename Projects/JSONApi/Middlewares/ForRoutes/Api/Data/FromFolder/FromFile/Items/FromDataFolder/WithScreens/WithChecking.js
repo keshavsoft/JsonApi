@@ -57,7 +57,6 @@ exports.InsertWithTimeStamp = (req, res, next) => {
                 FileNameOnly: {},
                 ItemName: {},
                 ScreenName: {},
-                JsonPk: {},
                 inPostData: {},
 
             },
@@ -88,11 +87,6 @@ exports.InsertWithTimeStamp = (req, res, next) => {
                                 res.json({ KTF: false, KReason: "ScreenName not found in body" })
 
                             } else {
-
-                                if (("JsonPk" in req.body) === false) {
-                                    res.json({ KTF: false, KReason: "JsonPk not found in body" })
-
-                                }else
                                 if (("inPostData" in req.body) === false) {
                                     res.json({ KTF: false, KReason: "inPostData not found in body" })
                                 }

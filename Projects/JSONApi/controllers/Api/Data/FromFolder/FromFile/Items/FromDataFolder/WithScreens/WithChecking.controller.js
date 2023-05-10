@@ -53,7 +53,6 @@ let InsertWithTimeStamp = async (req, res, next) => {
     let LocalFileName = req.body.FileNameOnly;
     let LocalItemName = req.body.ItemName;
     let LocalScreenName = req.body.ScreenName;
-    let LocalJsonPK = req.body.JsonPk;
     let LocalDataToInsert = req.body.inPostData;
 
 
@@ -63,7 +62,6 @@ let InsertWithTimeStamp = async (req, res, next) => {
         inFileNameOnly: LocalFileName,
         inItemName: LocalItemName,
         inScreenName: LocalScreenName,
-        inJsonPk: LocalJsonPK,
         inDataToInsert: LocalDataToInsert
     });
     // console.log("PromiseData : ", PromiseData);
