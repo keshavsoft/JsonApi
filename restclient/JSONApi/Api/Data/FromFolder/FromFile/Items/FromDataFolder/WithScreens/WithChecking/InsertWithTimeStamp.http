@@ -1,0 +1,13 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/InsertWithTimeStamp
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IktJUkFBTkEiLCJEYXRhUGsiOjIwLCJpYXQiOjE2ODM3MTgzOTN9.s77Ex3r81a_yOwXQsQJFyAyrBJcJplaJrtJGP1Z1y-c
+content-type: application/json
+
+{
+     "FolderName":"Masters",
+       "FileNameOnly": "Items",
+                "ItemName":"ItemNames",
+                "ScreenName":"Create",
+                "JsonPk": "20",
+                "inPostData": "ItemName"
+  
+ }
