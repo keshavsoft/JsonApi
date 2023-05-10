@@ -1,13 +1,12 @@
 POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/InsertWithTimeStamp
-Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IktJUkFBTkEiLCJEYXRhUGsiOjIwLCJpYXQiOjE2ODM3MTgzOTN9.s77Ex3r81a_yOwXQsQJFyAyrBJcJplaJrtJGP1Z1y-c
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BR1VWQUEiLCJEYXRhUGsiOjkwMSwiaWF0IjoxNjgzNzI4MzA5fQ.xzFfsoGjBpoX4BBljQaizO6meWfy6NcK13WcEn8DN2w
 content-type: application/json
 
 {
-     "FolderName":"Masters",
-       "FileNameOnly": "Items",
-                "ItemName":"ItemNames",
+     "FolderName":"Purchases",
+       "FileNameOnly": "Vouchers",
+                "ItemName":"VouchersName",
                 "ScreenName":"Create",
-                "JsonPk": "20",
-                "inPostData": "ItemName"
+                "inPostData": {"SupplierName": "SVT DESIGNS", "BillNumber": "", "Date": "", "AliasName": "SVT", "TotalAmount": null}
   
  }

@@ -38,7 +38,6 @@ exports.InsertWithTimeStamp = async ({ inDataPK, inFolderName, inFileNameOnly, i
         inDataPK,
         inFolderName, inFileNameOnly, inItemName,
         inScreenName,
-        inJsonPk,
         inDataToInsert
     });
 
