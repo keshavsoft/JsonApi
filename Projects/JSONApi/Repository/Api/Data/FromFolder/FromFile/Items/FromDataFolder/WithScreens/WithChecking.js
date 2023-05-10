@@ -8,6 +8,9 @@ exports.InsertFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName
     return await dal.InsertFunc({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert });
 };
 
+exports.InsertWithTimeStamp = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert }) => {
+    return await dal.InsertWithTimeStamp({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert });
+};
 exports.InsertWithPkFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert }) => {
     return await dal.InsertWithPkFunc({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert });
 };

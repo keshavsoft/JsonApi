@@ -33,6 +33,18 @@ exports.InsertFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName
     return await LocalReturnObject;
 };
 
+exports.InsertWithTimeStamp = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert }) => {
+    let LocalReturnObject = await CommonDataSupplyInsertNew.InsertWithTimeStamp({
+        inDataPK,
+        inFolderName, inFileNameOnly, inItemName,
+        inScreenName,
+        inJsonPk,
+        inDataToInsert
+    });
+
+    return await LocalReturnObject;
+};
+
 exports.InsertWithPkFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert }) => {
     let LocalReturnObject = await CommonDataSupplyInsertWithPk.StartFunc({
         inDataPK,
