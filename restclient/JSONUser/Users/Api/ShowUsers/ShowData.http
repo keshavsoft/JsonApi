@@ -1,0 +1,12 @@
+GET  http://localhost:4119/JSONUser/Users/Api/ShowUsers
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IktFU0hBViIsIkRhdGFQayI6MTYsImlhdCI6MTY4Mzk1MzcyOH0.9WrnM3HEuEus0JDxz9OFCJFp96YB2Gb-yxCeSpOY_es
+content-type: application/json
+
+{
+    "CreatedLog":{},
+    "JSONObject":{
+        "19": {"UserName": "FAQ", "PassWord": "FAQ"},
+        "901": {"UserName": "MAGUVA", "PassWord": "MAGUVA"}
+    }
+
+}
