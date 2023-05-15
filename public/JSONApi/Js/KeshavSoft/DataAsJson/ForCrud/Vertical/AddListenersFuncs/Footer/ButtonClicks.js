@@ -36,7 +36,7 @@ let Vertical = {
                     inProjectName, inSubRoute
                 }).then(PromiseData => {
                     if (PromiseData.KTF) {
-                        //   window.location.href = `Show.html${window.location.search}&JsonPk=${PromiseData.kPK}`;
+                         window.location.href = `Show.html${window.location.search}&JsonPk=${PromiseData.kPK}`;
                     };
                     // console.log("ssssssssss : ", PromiseData);
                 });
