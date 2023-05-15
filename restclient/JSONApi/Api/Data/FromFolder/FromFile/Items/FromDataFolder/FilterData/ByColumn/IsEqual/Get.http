@@ -1,7 +1,12 @@
 POST http://localhost:4120/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByColumn/IsEqual
-Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BR1VWQUEiLCJEYXRhUGsiOjkwMSwiaWF0IjoxNjgxMjIxNzYzfQ.iXQFbrDNZmGUvizaKlBFNIBVygrv1kuIRb7RTL-A8dw
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BR1VWQUEiLCJEYXRhUGsiOjkwMSwiaWF0IjoxNjg0MTY0NzExfQ.F8ibtvMrEXVXuRUUdeMgAsieQz9g1dzd1Ze1L6MYjdU
 content-type: application/json
 
 {
+"inFolderName":"Sales",
+"inFileNameOnly":"Bills",
+"inItemName":"BillsQrCode",
+"inColumnName":"pk",
+"inValueToCheck":1235
 
     }
