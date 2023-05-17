@@ -4,6 +4,7 @@ let router = express.Router();
 let Repo = require("../../../../Repository/Validate/Users/InUserDataJson/ForUserNameAndPassword")
 let CommonjwtFunc = require("../../../../../../common/Jwt/Bs5");
 let CommonControllers = require("../../../../controllers/Validate/Users/InUserDataJson/ForUserNameAndPassword.Controllers")
+let CommonMiddlewares = require("../../../../Middlewares/Validate/Users/InUserDataJson/ForUserNameAndPassword")
 
 router.post('/TokenToCookie', (req, res,) => {
     let LocalUserName = req.body.inUserName;
@@ -32,7 +33,7 @@ router.post('/TokenToCookie', (req, res,) => {
     });
 });
 
-router.post('/TokenToCookieFirmDetailsAlso', CommonControllers.TokenToCookieFirmDetailsAlso);
+router.post('/TokenToCookieFirmDetailsAlso',CommonMiddlewares.TokenToCookieFirmDetailsAlso, CommonControllers.TokenToCookieFirmDetailsAlso);
 
 router.post('/LoginCheckReturnTokenOnly', (req, res,) => {
     if ("inUserName" in req.body) {
