@@ -1,0 +1,10 @@
+POST  http://localhost:4120/JSONApi/Validate/Users/InUserDataJson/ForUserNameAndPassword/TokenToCookieFirmDetailsAlso
+Cookie:  KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BR1VWQUEiLCJEYXRhUGsiOjkwMSwiaWF0IjoxNjg0MzE1OTc2fQ.2DbiN3siWwAesYhdgxiWTXxUBn4vzp3C73AVCIYOah4
+content-type: application/json
+
+
+{
+"inUserName":"MAGUVAA",
+"inPassWord":"MAGUVAA"
+}
+
