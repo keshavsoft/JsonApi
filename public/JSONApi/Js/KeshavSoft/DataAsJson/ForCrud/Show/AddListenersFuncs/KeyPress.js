@@ -1,3 +1,5 @@
+import { StartFunc as StartFuncKeyPress } from "./Footer/KeyPress.js";
+
 let ByTagName = {
     ForTagInput: ({ inLoopItem }) => {
         let jVarLocalValue = inLoopItem.value;
@@ -55,14 +57,15 @@ let LocalForInputsNeeded = ({ jVarHtmlCardBody }) => {
     return jVarLocalFetchBodydata;
 };
 
-
-let StartFunc = async () => {
+let StartFunc = async ({ inProjectName, inSubRoute }) => {
 
     let jVarLocalFind = document.querySelectorAll(".KeshavSoftonkeypress");
     //MainTable Body Row Options Print
     jVarLocalFind.forEach((spanElement) => {
         spanElement.addEventListener("keypress", LocalKeyPress);
     });
+
+    StartFuncKeyPress({ inProjectName, inSubRoute });
 };
 
 let LocalKeyPress = async (inEvent) => {
