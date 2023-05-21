@@ -1,0 +1,10 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/VerticalToShow
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IktJUkFOQSIsIkRhdGFQayI6MTAyNCwiaWF0IjoxNjg0NjgyNTQyfQ.GpVe1SSERSYn0hHcMFTK2TXvCSOi51hZxIWOTh7ko4U
+content-type: application/json
+
+ {
+        "inFolderName": "Masters",
+        "inFileName": "Items.json",
+        "inItemName": "ItemNames",
+        "inScreenName": "Create"
+}

@@ -4,6 +4,18 @@ let StartFunc = () => {
     for (let i = 0; i < jVarLocalMainTableSearchTableFooter.length; i++) {
         jVarLocalMainTableSearchTableFooter[i].addEventListener("click", LocalButtonClick);
     };
+
+    LocalMainTableVerticalToShowAddListener();
+};
+
+let LocalMainTableVerticalToShowAddListener = () => {
+    let jVarLocalMainTableSearchTableFooter = document.querySelectorAll(".MainTableVerticalToShow");
+
+    for (let i = 0; i < jVarLocalMainTableSearchTableFooter.length; i++) {
+        jVarLocalMainTableSearchTableFooter[i].addEventListener("click", (params) => {
+            window.location.href = `VerticalToShow.html${window.location.search}`;
+        });
+    };
 };
 
 let LocalButtonClick = (event) => {

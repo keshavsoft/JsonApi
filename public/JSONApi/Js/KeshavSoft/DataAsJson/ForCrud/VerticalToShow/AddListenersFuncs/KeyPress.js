@@ -25,7 +25,43 @@ let ByTagName = {
     }
 };
 
+let LocalForInputsNeeded = ({ jVarHtmlCardBody }) => {
+    let jVarLocalHtmlNamesArray = jVarHtmlCardBody.querySelectorAll("[name]");
+
+    let jVarLocalFetchBodydata = {};
+
+    jVarLocalHtmlNamesArray.forEach((LoopItem) => {
+        jVarLocalFetchBodydata[LoopItem.name] = LoopItem.value;
+
+        switch (LoopItem.tagName) {
+            case "INPUT":
+                jVarLocalFetchBodydata[LoopItem.name] = ByTagName.ForTagInput({ inLoopItem: LoopItem });
+
+                break;
+
+            default:
+                switch (LoopItem.type) {
+                    case "checkbox":
+                        jVarLocalFetchBodydata[LoopItem.name] = LoopItem.checked;
+                        break;
+                    default:
+                        jVarLocalFetchBodydata[LoopItem.name] = LoopItem.value;
+                        break;
+                };
+                break;
+        };
+    });
+
+    return jVarLocalFetchBodydata;
+};
+
 let StartFunc = async ({ inProjectName, inSubRoute }) => {
+    let jVarLocalFind = document.querySelectorAll(".KeshavSoftonkeypress");
+    //MainTable Body Row Options Print
+    jVarLocalFind.forEach((spanElement) => {
+        spanElement.addEventListener("keypress", LocalKeyPress);
+    });
+
     let jVarLocalKeshavSoftEnterToServer = document.querySelectorAll(".KeshavSoftEnterToServer");
     //MainTable Body Row Options Print
     jVarLocalKeshavSoftEnterToServer.forEach((spanElement) => {
@@ -67,7 +103,6 @@ let jFLocalEnterToServer = async ({ inEvent, inProjectName, inSubRoute }) => {
         let jVarLocalCurrentName = jVarLocalCurrentTarget.name;
 
         let jVarLocalHtmlCard = jVarLocalCurrentTarget.closest(".card");
-        let jVarLocalClosestTr = jVarLocalCurrentTarget.closest("tr");
 
         let LocalDataFromServer;
 
@@ -103,7 +138,7 @@ let jFLocalEnterToServer = async ({ inEvent, inProjectName, inSubRoute }) => {
 
             jFLocalAfterFetch({
                 inDataFromServer: LocalDataFromServer,
-                inClosestTr: jVarLocalClosestTr,
+                inHtmlCard: jVarLocalHtmlCard,
                 inCurrentName: jVarLocalCurrentName
             });
 
@@ -113,14 +148,41 @@ let jFLocalEnterToServer = async ({ inEvent, inProjectName, inSubRoute }) => {
     }
 };
 
-let jFLocalAfterFetch = ({ inDataFromServer, inClosestTr, inCurrentName }) => {
-    let jVarLocalVerticalInputElements = inClosestTr.querySelectorAll("[data-dataattribute]");
+let jFLocalAfterFetch = ({ inDataFromServer, inHtmlCard, inCurrentName }) => {
+    let jVarLocalVerticalInputElements = inHtmlCard.querySelectorAll("[data-dataattribute]");
     
     jVarLocalVerticalInputElements.forEach((LoopItem) => {
         if (LoopItem.name.replace(inCurrentName, "") in inDataFromServer) {
             LoopItem.value = inDataFromServer[LoopItem.name.replace(inCurrentName, "")];
         };
     });
+};
+
+let LocalKeyPress = async (inEvent) => {
+    if (inEvent.keyCode === 13) {
+        let jVarLocalCurrentTarget = inEvent.currentTarget;
+        let jVarLocalClosestForm = jVarLocalCurrentTarget.closest("tr");
+
+        if ("clienteval" in jVarLocalCurrentTarget.dataset) {
+            if ("enteronclient" in jVarLocalCurrentTarget.dataset) {
+                if (jVarLocalCurrentTarget.dataset.enteronclient === "true") {
+                    let jVarLocalClientEval = inEvent.currentTarget.dataset.clienteval;
+                    let jVarLocalFetchPostData = LocalForInputsNeeded({ jVarHtmlCardBody: jVarLocalClosestForm });
+
+                    Object.entries(jVarLocalFetchPostData).forEach(
+                        ([key, value]) => {
+                            jVarLocalClientEval = jVarLocalClientEval.replace(`{{${key}}}`, parseFloat(value));
+                        }
+                    );
+
+                    inEvent.currentTarget.value = eval(jVarLocalClientEval);
+                };
+            }
+        } else {
+
+        };
+
+    };
 };
 
 export { StartFunc }

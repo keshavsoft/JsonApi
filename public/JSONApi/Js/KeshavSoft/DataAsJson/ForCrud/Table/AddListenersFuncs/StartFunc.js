@@ -6,6 +6,7 @@ let StartFunc = ({ inRoute, inSubRoute }) => {
     TableStartFunc();
     StartFuncButtonClickFuncs();
     StartFuncFooter({ inRoute, inSubRoute });
+    
 };
 
 export { StartFunc };
