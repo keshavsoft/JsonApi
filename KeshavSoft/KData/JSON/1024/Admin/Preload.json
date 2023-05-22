@@ -1,0 +1,19 @@
+{
+    "Masters-Items": {
+        "JsonConfig": {
+            "UserFolderName": "",
+            "inFolderName": "Masters",
+            "inJsonFileName": "Items.json"
+        },
+        "ItemConfig": {
+            "ItemName": "ItemNames"
+        },
+        "Columns": [
+            "ItemName",
+            "pk"
+        ],
+        "DataListInfo": {
+            "DatalistID": "Masters-Items"
+        }
+    }
+}
