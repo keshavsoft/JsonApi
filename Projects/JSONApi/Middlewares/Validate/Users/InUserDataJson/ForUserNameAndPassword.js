@@ -6,7 +6,7 @@ exports.TokenToCookieFirmDetailsAlso = (req, res, next) => {
             KReason: "post requst body should contain : ",
             body: {
                 inUserName: "",
-                inPassword: ""
+                inPassWord: ""
             },
         });
         return;
@@ -15,8 +15,8 @@ exports.TokenToCookieFirmDetailsAlso = (req, res, next) => {
         res.json({KTF:false,KReason:"inUserName not found in body"})
         return;
     };
-    if (("inPassword" in req.body)===false) {
-        res.json({KTF:false,KReason:"inPassword not found in body"})
+    if (("inPassWord" in req.body)===false) {
+        res.json({KTF:false,KReason:"inPassWord not found in body"})
         return;
     };
     next();
