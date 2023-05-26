@@ -17,5 +17,10 @@ VerticalStartFunc({
             inProjectName: jVarGlobalProject,
             inSubRoute: jVarGlobalSubRoute
         });
+
+        let jVarLocalFirstInput = document.querySelector("table input");
+        if (jVarLocalFirstInput===null ===false) {
+            jVarLocalFirstInput.focus();
+        };
     };
 });
