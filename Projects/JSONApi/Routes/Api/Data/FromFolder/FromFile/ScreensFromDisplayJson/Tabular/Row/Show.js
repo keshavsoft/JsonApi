@@ -113,7 +113,7 @@ router.post("/ForInsert", CommonMiddlewares.FromParams, (req, res) => {
   let LocalItemName = req.body.ItemName;
   let LocalScreenName = req.body.Screenname;
   let LocalJsonPk = req.body.JsonPk;
-  console.log("ForInsert ------------------: ", req.body);
+  
   let LocalJsonConfig = {
     inFolderName: LocalFolderName,
     inJsonFileName: LocalFileName
