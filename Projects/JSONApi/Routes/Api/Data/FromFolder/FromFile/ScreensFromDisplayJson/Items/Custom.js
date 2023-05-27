@@ -6,7 +6,6 @@ router.get('/PostFromPk/:inRowPk', (req, res) => {
     // res.end("ssssssssssssssss");
     let LocalRowPk = req.params.inRowPk;
     let LocalDataPk = req.KeshavSoft.DataPk;
-    console.log("-aaaaaaaaaaaaaa", LocalDataPk);
 
     Repos.GetFunc({
         inClientName: "Maguva",
