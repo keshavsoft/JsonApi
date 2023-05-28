@@ -20,6 +20,7 @@ web.config
 /public/JSONReports
 /public/JSONAdminApi
 /public/JSONUtility
+/public/ClientLogin
 
 /restclient/JSONAdminApi
 
