@@ -1,3 +1,5 @@
 {
-    "HomeHtml": "Garments/Index"
+    "HomeHtml": "JSONProject",
+    "HomeHtmlForGarments": "Garments/Index",
+    "HomeHtmlForJsonApi": "JSONProject"
 }
