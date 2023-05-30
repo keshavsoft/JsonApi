@@ -6,9 +6,9 @@ let CommonProjectNameForJSONImport = "JSONImport";
 let CommonProjectNameForJSONAdminApi = "JSONAdminApi";
 let CommonProjectNameForJSONUtility = "JSONUtility";
 
-
 let Commoncontrollers = require("./controllers/missedAll.controller");
 let CommonForWebSocketStart = require("./Projects/WebSocket/Start");
+let CommonHomeController = require("./Home.controller");
 
 require('dotenv').config()
 
@@ -34,9 +34,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json({ limit: '100mb' }));
 
-app.get('/', function (req, res, next) {
-    res.sendFile(path.join(__dirname + `/Html/JSONProject.html`));
-});
+// app.get('/', function (req, res, next) {
+//     res.sendFile(path.join(__dirname + `/Html/JSONProject.html`));
+// });
+
+app.get('/', CommonHomeController.GetFunc);
+
 
 app.use(`/${CommonProjectNameForJSONApi}`, SubRouteJSONApi);
 
