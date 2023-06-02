@@ -1,5 +1,7 @@
 ROBOCOPY ..\JSONDataSupply\DataSupply DataSupply\  /MIR
 
+ROBOCOPY ..\AdminApi\Projects\JSONAdminApi Projects\JSONAdminApi\  /MIR
+
 xcopy ..\KStaticFiles\public\Projects\ClientLogin public\ClientLogin\  /s /e /Y
 xcopy ..\KStaticFiles\public\Projects\JSONAdminApi  public\JSONAdminApi\  /s /e /Y
 xcopy ..\KStaticFiles\public\Projects\JSONReports  public\JSONReports\  /s /e /Y
