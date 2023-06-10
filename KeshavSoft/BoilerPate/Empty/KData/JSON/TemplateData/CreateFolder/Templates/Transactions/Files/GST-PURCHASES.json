@@ -1,0 +1,337 @@
+{
+    "Create": {
+        "TableColumns": {
+            "VoucherName": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "pk": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "VoucherValue": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "VoucherSign": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam1": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam2": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam3": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam4": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam5": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam6": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam7": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam10": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "ParentVoucherName": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "ToGodown": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "InvGrid": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "FinGrid": {
+                "ShowInTable": false,
+                "CreateNew": false,
+                "DefaultValue": "Object"
+            }
+        },
+        "SubTableColumns": {
+            "InvGrid": {
+                "TableColumns": {
+                    "sno": {
+                        "ShowInTable": true,
+                        "CreateNew": true
+                    },
+                    "pk": {
+                        "ShowInTable": false,
+                        "CreateNew": false
+                    },
+                    "FK": {
+                        "ShowInTable": false
+                    }
+                }
+            }
+        }
+    },
+    "Alter": {
+        "TableColumns": {
+            "VoucherName": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "pk": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "VoucherValue": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "VoucherSign": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam1": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam2": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam3": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam4": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam5": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam6": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam7": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam10": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "ParentVoucherName": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "ToGodown": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "InvGrid": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "FinGrid": {
+                "ShowInTable": false,
+                "CreateNew": false,
+                "DefaultValue": "Object"
+            }
+        },
+        "SubTableColumns": {
+            "InvGrid": {
+                "TableColumns": {
+                    "sno": {
+                        "ShowInTable": true,
+                        "CreateNew": true
+                    },
+                    "pk": {
+                        "ShowInTable": false,
+                        "CreateNew": false
+                    },
+                    "FK": {
+                        "ShowInTable": false
+                    }
+                }
+            }
+        }
+    },
+    "Print": {
+        "TableColumns": {
+            "AccountName": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "AccountCode": {
+                "KDatasetStuff": {
+                    "DataListReverse": true
+                },
+                "HtmlAttributes": {
+                    "KTF": true,
+                    "list": "Masters-Accounts"
+                },
+                "DisplayType": {
+                    "IsInput": true
+                }
+            },
+            "BillNumber": {
+                "KDataset": {
+                    "HTMLControlType": "Number",
+                    "Min": "1",
+                    "Max": "9000",
+                    "Step": "1"
+                }
+            },
+            "Date": {
+                "KDataset": {
+                    "HTMLControlType": "Date"
+                }
+            },
+            "VoucherName": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "pk": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "VoucherValue": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "VoucherSign": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam1": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam2": {
+                "ShowInTable": true,
+                "CreateNew": true
+            },
+            "nam3": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam4": {
+                "ShowInTable": true,
+                "CreateNew": true
+            },
+            "nam5": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam6": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam7": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "nam10": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "ParentVoucherName": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "ToGodown": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "FromGodown": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "acc_cod4": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "acc_cod5": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "InvGrid": {
+                "ShowInTable": false,
+                "CreateNew": false
+            },
+            "FinGrid": {
+                "ShowInTable": false,
+                "CreateNew": false,
+                "DefaultValue": "Object"
+            }
+        },
+        "SubTableColumns": {
+            "InvGrid": {
+                "TableColumns": {
+                    "sno": {
+                        "ShowInTable": true,
+                        "CreateNew": true
+                    },
+                    "pk": {
+                        "ShowInTable": false,
+                        "CreateNew": false
+                    },
+                    "FK": {
+                        "ShowInTable": false
+                    },
+                    "InvGridAccountName": {
+                        "ShowInTable": false
+                    },
+                    "ProductName": {
+                        "ShowInTable": false
+                    },
+                    "BatchNo": {
+                        "ShowInTable": false
+                    },
+                    "MfgDate": {
+                        "ShowInTable": false
+                    },
+                    "ExpDate": {
+                        "ShowInTable": false
+                    },
+                    "Tax": {
+                        "ShowInTable": false
+                    },
+                    "InvGridAccountCode": {
+                        "HtmlAttributes": {
+                            "KTF": true,
+                            "list": "Masters-Accounts"
+                        },
+                        "DisplayType": {
+                            "IsInput": true
+                        }
+                    },
+                    "ProductCode": {
+                        "HtmlAttributes": {
+                            "KTF": true,
+                            "list": "Masters-Products"
+                        },
+                        "DisplayType": {
+                            "IsInput": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

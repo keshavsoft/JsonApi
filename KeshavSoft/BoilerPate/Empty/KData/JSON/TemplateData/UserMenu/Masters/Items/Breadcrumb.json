@@ -1,0 +1,15 @@
+{
+    "HTMLControlType": "Breadcrumb",
+    "KData": {
+        "LiArray": [
+            {
+                "DisplayText": "Home",
+                "isAnchor": true
+            },
+            {
+                "DisplayText": "Masters",
+                "isAnchor": false
+            }
+        ]
+    }
+}

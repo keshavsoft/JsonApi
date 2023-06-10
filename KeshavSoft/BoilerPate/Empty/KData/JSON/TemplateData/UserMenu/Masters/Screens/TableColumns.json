@@ -1,0 +1,62 @@
+[
+  {
+    "pk": 2,
+    "DisplayName": "Name",
+    "DataAttribute": "Name",
+    "CreateNew": true,
+    "Insert": true,
+    "isDate": false,
+    "isToggle": false,
+    "ShowInTable": true,
+    "ParentClasses": {},
+    "DefaultValue": "",
+    "KDataset": {
+      "SaveCheck": {
+        "Validate": true,
+        "Type": "",
+        "Masters": {
+          "CheckKey": "",
+          "CheckColumnName": ""
+        }
+      }
+    },
+    "Widths": {
+      "px": 100
+    },
+    "DisplayType": {
+      "IsIndianFormat": false,
+      "IsInput": false
+    }
+  },
+  {
+    "pk": 3,
+    "DisplayName": "Screens",
+    "DataAttribute": "Screens",
+    "CreateNew": true,
+    "Insert": true,
+    "isDate": false,
+    "SaveOnEnter": false,
+    "isToggle": false,
+    "ShowInTable": true,
+    "ParentClasses": {},
+    "TextAlign": "Right",
+    "DefaultValue": "",
+    "KDataset": {
+      "SaveCheck": {
+        "Validate": true,
+        "Type": "",
+        "Masters": {
+          "CheckKey": "Barcodes",
+          "CheckColumnName": "Barcode"
+        }
+      }
+    },
+    "Widths": {
+      "px": 50
+    },
+    "DisplayType": {
+      "IsIndianFormat": false,
+      "IsInput": false
+    }
+  }
+]

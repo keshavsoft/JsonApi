@@ -1,0 +1,16 @@
+{
+    "HTMLControlType": "Breadcrumb",
+    "KData": {
+        "LiArray": [
+            {
+                "DisplayText": "Home",
+                "isAnchor": true
+            },
+            {
+                "DisplayText": "Transactions",
+                "isAnchor": true,
+                "onclick": "JVarGlobalAPICalls.Menu.ForTable.Recent({ inJVarKType:'Transactions',  inJVarRouteStarting:'JSON', inJVarSubRouteStarting:'Api'})"
+            }
+        ]
+    }
+}

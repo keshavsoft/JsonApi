@@ -1,0 +1,14 @@
+{
+    "Firm": {
+        "FirmName": "Simple Accounts",
+        "FromDate": "01-04-2020",
+        "ToDate": "31-03-2021",
+        "Config": {
+            "Ui": {
+                "Login": {
+                    "RedirectPage": "/JSONApi/Html/UserData/Menu/AsCards/Files.html"
+                }
+            }
+        }
+    }
+}

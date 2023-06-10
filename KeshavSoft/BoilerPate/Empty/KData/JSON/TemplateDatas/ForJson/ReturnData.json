@@ -1,0 +1,34 @@
+{
+    "CustomersName": {
+        "Create": {
+            "Table": {
+                "Row": {
+                    "Delete": {
+                        "ReturnData": {
+                            "DataType": "TableShow",
+                            "KTF": true
+                        }
+                    }
+                },
+                "Footer": {
+                    "Save": {
+                        "ReturnData": {
+                            "DataType": "TableShow",
+                            "KTF": true
+                        }
+                    }
+                }
+            },
+            "Vertical": {
+                "Footer": {
+                    "Save": {
+                        "ReturnData": {
+                            "DataType": "TableShowWithAlert",
+                            "KTF": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

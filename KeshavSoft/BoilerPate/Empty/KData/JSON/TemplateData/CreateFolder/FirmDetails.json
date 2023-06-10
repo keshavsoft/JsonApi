@@ -1,0 +1,14 @@
+{
+    "Firm": {
+        "FirmName": "JASTHI",
+        "FromDate": "01-04-2020",
+        "ToDate": "31-03-2021",
+        "Config": {
+            "Ui": {
+                "Login": {
+                    "RedirectPage": "/JSONProject/Html/Hobby/Entry.html"
+                }
+            }
+        }
+    }
+}

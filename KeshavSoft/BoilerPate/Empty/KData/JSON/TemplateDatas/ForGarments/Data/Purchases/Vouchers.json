@@ -1,0 +1,52 @@
+{
+    "VouchersName": {
+        "1": {
+            "VoucherName": "",
+            "pk": "",
+            "BillNumber": "16",
+            "Date": "2022-12-06",
+            "VoucherValue": "",
+            "VoucherSign": "",
+            "ParentVoucherName": "",
+            "AccountCode": "",
+            "AccountName": "",
+            "nam1": "",
+            "nam2": "",
+            "nam3": "",
+            "nam4": "",
+            "nam5": "",
+            "nam6": "",
+            "nam7": "",
+            "nam10": "",
+            "acc_cod4": "",
+            "acc_cod5": "",
+            "FromGodown": "",
+            "ToGodown": "",
+            "InvGrid": {}
+        },
+        "2": {
+            "VoucherName": "",
+            "pk": "",
+            "BillNumber": 25,
+            "Date": "2022-12-29",
+            "VoucherValue": "",
+            "VoucherSign": "",
+            "ParentVoucherName": "",
+            "AccountCode": "",
+            "AccountName": "",
+            "nam1": "",
+            "nam2": "",
+            "nam3": "",
+            "nam4": "",
+            "nam5": "",
+            "nam6": "",
+            "nam7": "",
+            "nam10": "",
+            "acc_cod4": "",
+            "acc_cod5": "",
+            "FromGodown": "",
+            "ToGodown": "",
+            "InvGrid": {}
+        }
+    }
+}

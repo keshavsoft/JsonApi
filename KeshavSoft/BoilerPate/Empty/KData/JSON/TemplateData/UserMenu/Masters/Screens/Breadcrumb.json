@@ -1,0 +1,16 @@
+{
+    "HTMLControlType": "Breadcrumb",
+    "KData": {
+        "LiArray": [
+            {
+                "DisplayText": "Home",
+                "isAnchor": true
+            },
+            {
+                "DisplayText": "Masters",
+                "isAnchor": true,
+                "onclick": "JVarGlobalAPICalls.Menu.ForTable.Recent({ inJVarKType:'Masters',  inJVarRouteStarting:'JSON', inJVarSubRouteStarting:'Api'})"
+            }
+        ]
+    }
+}

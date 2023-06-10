@@ -1,0 +1,131 @@
+{
+    "SearchRowArray": {
+        "Label": {
+            "KTF": true,
+            "DisplayObject": {
+                "DisplayText": "Masters Show",
+                "ColClass": "md-8 col-sm-12 col-12"
+            }
+        },
+        "Search": {
+            "KTF": true,
+            "DisplayObject": {
+                "DisplayText": "Masters Search",
+                "ColClass": "md-4 col-sm-8 col-12"
+            }
+        },
+        "Button": {
+            "TableBulk": {
+                "Show": {
+                    "KTF": false
+                },
+                "Update": {
+                    "KTF": false
+                }
+            },
+            "Excel": {
+                "KTF": false
+            },
+            "PopUp": {
+                "WithUI": {
+                    "KTF": false
+                },
+                "WithApi": {
+                    "KTF": false,
+                    "DisplayObject": {
+                        "ColClass": "md-1"
+                    }
+                }
+            },
+            "NewWindow": {
+                "WithUI": {
+                    "KTF": false,
+                    "DisplayObject": {
+                        "ColClass": "md-4 col-sm-8 col-12"
+                    }
+                },
+                "WithApi": {
+                    "KTF": false
+                },
+                "WithApiNew": {
+                    "KTF": false,
+                    "DisplayObject": {
+                        "ColClass": "md-2"
+                    }
+                }
+            },
+            "Footer": {
+                "WithApi": {
+                    "KTF": false,
+                    "DisplayObject": {
+                        "ColClass": "md-2 col-sm-4 col-12"
+                    }
+                }
+            }
+        }
+    },
+    "DataAttributes": {
+        "ShowType": "",
+        "QueryName": "",
+        "JsonItemName": "",
+        "JsonType": "Masters",
+        "kRouteStarting": "JSON",
+        "kSubRouteStarting": "Api"
+    },
+    "TableRowOptions": {
+        "Copy": {
+            "KTF": false
+        },
+        "ShowinTable": {
+            "KTF": true
+        },
+        "Delete": {
+            "RowDelete": false,
+            "RowDeleteJSON": false,
+            "RowDeleteInvGridJSON": false,
+            "RowDeleteInPopUp": false,
+            "JSON": false
+        },
+        "Edit": {
+            "RowEdit": false,
+            "RowEditWithUi": false,
+            "RowEditJSON": false,
+            "JSON": false
+        },
+        "CreateNew": {
+            "RowCreateNew": false,
+            "NewWindow": {
+                "ApiToServer": {
+                    "KTF": true
+                }
+            }
+        },
+        "Show": {
+            "RowShow": false,
+            "RowDetails": false,
+            "RowShowAll": false
+        },
+        "InvGrid": {
+            "RowInvGrid": false
+        },
+        "BarcodePrint": {
+            "SVJP": false
+        },
+        "BillSave": {
+            "Edit": false
+        },
+        "Design": false
+    },
+    "Vertical": {
+        "VerticalCreate": {
+            "save": false,
+            "saveNew": false,
+            "saveNewReturnData": false
+        }
+    },
+    "ParentClasses": {
+        "Parent1Class": "col-md-8",
+        "Parent2Class": "col-md-4",
+        "Parent3Class": "col-md-12"
+    }
+}

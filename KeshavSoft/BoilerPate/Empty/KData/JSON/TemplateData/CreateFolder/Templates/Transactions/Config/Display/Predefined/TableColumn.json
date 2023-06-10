@@ -1,0 +1,34 @@
+{
+    "VoucherName": {
+        "DefaultValueInsert": {
+            "InsertMode": "FromKey"
+        }
+    },
+    "Date": {
+        "KDataset": {
+            "HTMLControlType": "Date"
+        },
+        "ServerSide": {
+            "DefaultValueCreate": {
+                "ControlType": "Date",
+                "Type": "PresentDate"
+            }
+        }
+    },
+    "BillNumber": {
+        "KDataset": {
+            "HTMLControlType": "Number"
+        },
+        "ServerSide": {
+            "DefaultValueCreate": {
+                "ControlType": "Number",
+                "Type": "Max",
+                "IncrementBy": 1,
+                "StartValue": 1
+            }
+        }
+    },
+    "InvGrid": {
+        "DefaultValue": "Object"
+    }
+}
