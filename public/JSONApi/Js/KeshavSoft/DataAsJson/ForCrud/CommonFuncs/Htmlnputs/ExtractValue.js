@@ -61,7 +61,7 @@ const StartFunc = ({ inLoopItem }) => {
     switch (jVarLocalItem.tagName) {
         case "INPUT":
             jVarLocalValue = LocalTypeFunc({ inLoopItem: jVarLocalItem });
-
+            console.log("bbbbbbbb : ", jVarLocalValue);
             break;
         default:
             switch (jVarLocalItem.type) {
@@ -81,9 +81,10 @@ const StartFunc = ({ inLoopItem }) => {
 let LocalcCllectionContains = ({ collection, searchText }) => {
     for (var i = 0; i < collection.length; i++) {
         if (collection[i].value.indexOf(searchText) > -1) {
-            return collection[i].text;
+            return parseInt(collection[i].text);
         }
-    }
+    };
+
     return "";
 };
 

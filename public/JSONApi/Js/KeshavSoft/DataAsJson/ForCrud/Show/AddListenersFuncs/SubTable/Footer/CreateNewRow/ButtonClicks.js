@@ -6,7 +6,6 @@ let StartFunc = async ({ inProjectName, inSubRoute }) => {
     jVarLocalFind.forEach((spanElement) => {
         spanElement.addEventListener("click", async (inEvent) => {
             jFLocalButtonClick({ inEvent, inProjectName, inSubRoute });
-            console.log("in------- : ", inEvent.currentTarget);
         });
     });
 };

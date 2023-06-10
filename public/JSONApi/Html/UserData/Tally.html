@@ -2309,9 +2309,7 @@
     
     {{#if this.Edit.SubTableRowEdit}}
     <td class="ButtonClass">
-        <a href="#"
-            onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Subtable.Body.Row.Edit.ButtonClick({inEvent:event})"
-            style="color: brown;">
+        <a href="#" class="SubTableFooterBodyRowEditClass" style="color: brown;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
                 viewBox="0 0 16 16">
                 <path
@@ -2456,14 +2454,8 @@
     
     {{/if}}
     
-    <td class="UpdateClass" style="display: none;">
-        <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Body.Row.Update({inEvent:event})" type="button"
-            class="btn btn-outline-primary">Update</button>
-    </td>
-    
     <td class="UpdateSubTableClass" style="display: none;">
-        <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Subtable.Body.Row.Update({inEvent:event})"
-            type="button" class="btn btn-outline-success">Update</button>
+        <button type="button" class="btn btn-outline-success SubTableFooterBodyRowUpdateClass">Update</button>
     </td>
     </script>
     <script id="SubTable/Footer/Show/BalanceRow" KS="KeshavSoft" type="text/x-handlebars-template">
