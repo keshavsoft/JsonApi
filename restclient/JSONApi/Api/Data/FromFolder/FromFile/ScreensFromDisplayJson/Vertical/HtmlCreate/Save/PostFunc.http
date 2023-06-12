@@ -1,0 +1,9 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Save
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IlNTViIsIkRhdGFQayI6MjAyMywiaWF0IjoxNjg2NTc3NDA0fQ.LIEDgJ0ros-zFMvk00haV7qWjvMpyenZy3ZIlBFCgXM
+content-type: application/json
+
+{
+    "JsonConfig":{"inFolderName":"Masters","inJsonFileName":"Customers.json"},
+    "ItemConfig":{"inItemName":"CustomerName","inScreenName":"Create"},
+    "inDataToSave":{"CustomrName": "KSV"}
+}
