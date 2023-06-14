@@ -8,7 +8,7 @@ let CommonProjectNameForJSONUtility = "JSONUtility";
 
 let Commoncontrollers = require("./controllers/missedAll.controller");
 let CommonForWebSocketStart = require("./Projects/WebSocket/Start");
-let CommonHomeController = require("./Home.controller");
+let CommonHomeController = require("./StartUp/Home.controller");
 
 require('dotenv').config()
 
