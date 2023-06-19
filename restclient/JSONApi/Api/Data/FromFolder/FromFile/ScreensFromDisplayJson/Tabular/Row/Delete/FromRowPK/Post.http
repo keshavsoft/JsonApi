@@ -1,0 +1,6 @@
+POST  http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Tabular/Row/Delete/FromRowPK
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IksyMyIsIkRhdGFQayI6MSwiaWF0IjoxNjg3MTczNjg2fQ._0FUBqxDmxhxF5-AfWrXStuO9337dLO2G3OzR5-txgo
+
+{
+
+}
