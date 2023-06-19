@@ -1,0 +1,9 @@
+{
+    "Project": "JSONApi",
+    "SubRoute": "Api",
+    "LocalStorageKeys": {
+        "HeaderKeys": {
+            "HeaderFoldersKey": "HeaderFolders"
+        }
+    }
+}

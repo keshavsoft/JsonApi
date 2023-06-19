@@ -555,7 +555,7 @@
     <script id="MainTable/Body/Row/KTbodyRowOptions" KS="KeshavSoft" type="text/x-handlebars-template">
     {{#if this.Delete.Simple}}
     <td class="ButtonClass">
-        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.Body.Row.DeleteNew({inEvent:event})">
+        <a href="#" class="KMainTableBodyRowDeleteButtonClass">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
                 viewBox="0 0 16 16">
                 <path
@@ -3316,8 +3316,8 @@
     {{/if}}
     
     {{#if KData.TableInfo.SearchRowArray.Button.NewWindow.KTF}}
-    <div class="col-{{KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject.ColClass}}">
-        <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Card.Header.AddButtonClick(event)"
+    <div class="CardHeaderButtons col-{{KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject.ColClass}}">
+        <a href="#" 
             title="Add new row in new window as Vertical" class="btn btn-outline-primary">
             {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject}}
         </a>
@@ -3402,12 +3402,12 @@
     </script>
     <script id="Vertical/KVerticalForShow" KS="KeshavSoft" type="text/x-handlebars-template">
     <div class="{{KData.TableInfo.ParentClasses.Parent3Class}}">
-        <div KVerticalForShow class="card KTableDivClass d-print-none" data-pk="{{KData.TableInfo.kPK}}"
+        <div KVerticalForShow class="card KTableDivClass" data-pk="{{KData.TableInfo.kPK}}"
             data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
             data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
             data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
             data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}">
-            <div class="card-header ">
+            <div class="card-header d-print-none">
                 {{> Vertical/KVertical/CardHeader/Search/KSearchRow}}
             </div>
             <div class="card-body KCardBody">
