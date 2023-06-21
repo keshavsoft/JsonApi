@@ -4,6 +4,7 @@
     "LocalStorageKeys": {
         "HeaderKeys": {
             "HeaderFoldersKey": "HeaderFolders"
-        }
+        },
+        "ForDataList": "ForDataList"
     }
 }

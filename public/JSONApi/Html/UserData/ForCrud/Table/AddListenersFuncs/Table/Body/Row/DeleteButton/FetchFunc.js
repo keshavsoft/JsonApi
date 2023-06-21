@@ -1,21 +1,11 @@
 import ConfigJson from "../../../../../../../../../Config.json" assert{type: "json"};
 import { StartFunc as StartFuncFromCard } from "../../../../../../CommonFuncs/FromCard/FromDataSetAsSingleObject.js";
 import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
-import { StartFunc as StartFuncButtonClickFunc } from "./ButtonClickFunc.js";
 
-let StartFunc = () => {
-    let jVarLocalCardHeaderButtons = document.querySelectorAll(".KMainTableBodyRowDeleteButtonClass");
+const StartFunc = ({currentTarget}) => {
 
-    for (let i = 0; i < jVarLocalCardHeaderButtons.length; i++) {
-        jVarLocalCardHeaderButtons[i].addEventListener("click", StartFuncButtonClickFunc);
-    };
-};
-
-let LocalButtonClick = (event) => {
-    let jVarLocalCurrentTarget = event.currentTarget;
-
-    let jVarClosestCard = jVarLocalCurrentTarget.closest(".KTableDivClass");
-    let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
+    let jVarClosestCard = currentTarget.closest(".KTableDivClass");
+    let jVarClosestTr = currentTarget.closest("tr");
 
     let jVarLocalRoute = ConfigJson.Project;
     let jVarLocalSubRoute = ConfigJson.SubRoute;
@@ -41,18 +31,8 @@ let LocalButtonClick = (event) => {
         return response.json();
     }).then((FetchData) => {
         StartFuncAfterFetch({ inFetchData: FetchData });
-        // if (FetchData.KTF) {
-        //     jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(FetchData.DataFromServer);
-
-        //     jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
-        //         inData: jVarGlobalPresentViewData,
-        //         inHtmlParent: jVarLocalKCont1
-        //     });
-
-        //     Swal.fire("Deleted!");
-        // };
-
     });
+
 };
 
-export { StartFunc }
+export { StartFunc };

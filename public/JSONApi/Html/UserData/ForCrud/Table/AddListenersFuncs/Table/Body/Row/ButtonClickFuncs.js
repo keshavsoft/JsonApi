@@ -18,8 +18,22 @@ let LocalButtonClick = (event) => {
     let jVarLocalDataset = jVarLocalClosestTr.dataset;
     let jVarLocalPk = jVarLocalDataset.pk;
 
-    window.location.href = `Show.html${window.location.search}&JsonPk=${jVarLocalPk}`;
-    //console.log("aaaaaaa : ", jVarLocalDataset);
+    Swal.fire({
+        title: 'Are you sure?',
+        icon: 'warning',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Yes, delete it!',
+        confirmButtonText: 'Show'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = `Show.html${window.location.search}&JsonPk=${jVarLocalPk}`;
+
+        };
+
+    });
+
 };
 
 export { StartFunc }
