@@ -1,0 +1,6 @@
+GET  http://localhost:4119/JSONApi/Api/Data/Masters/PreLoad/ShowData
+content-type: application/json
+
+{
+        
+}
