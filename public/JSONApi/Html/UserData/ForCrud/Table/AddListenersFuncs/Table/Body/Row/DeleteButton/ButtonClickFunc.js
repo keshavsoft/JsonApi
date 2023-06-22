@@ -13,14 +13,10 @@ let StartFunc = async (event) => {
         cancelButtonText: 'Yes, delete it!',
         confirmButtonText: 'Cancel'
     }).then((result) => {
-        if (result.isConfirmed) {
-        } else {
-            StartFuncFetchFunc({ currentTarget: jVarLocalCurrentTarget })
-
+        if (result.isDismissed && result.dismiss === "cancel") {
+            StartFuncFetchFunc({ currentTarget: jVarLocalCurrentTarget });
         };
-
     });
-
 };
 
 export { StartFunc }
