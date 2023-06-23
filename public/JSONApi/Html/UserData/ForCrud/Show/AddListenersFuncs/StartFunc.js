@@ -3,6 +3,7 @@ import { StartFunc as FooterStartFunc } from "./Footer/ButtonClicks.js";
 import { StartFunc as StartFuncClickFuncs } from "./Vertical/Footer/Buttons/ClickFuncs.js";
 import { StartFunc as StartFuncSubTable } from "./SubTable/Footer/CreateNewRow/ButtonClicks.js";
 import { StartFunc as StartFuncEditClick } from "./SubTable/Body/Row/EditClick.js";
+import { StartFunc as StartFuncDelete } from "./SubTable/Body/Row/Delete/StartFunc.js";
 
 // import { StartFunc as StartFuncUpdateClicks } from "./SubTable/Body/Row/UpdateClicks.js";
 
@@ -18,10 +19,11 @@ let StartFunc = ({ inProjectName, inSubRoute }) => {
         inProjectName,
         inSubRoute
     });
-    
+
     StartFuncSubTable({ inProjectName, inSubRoute });
 
     StartFuncEditClick({ inProjectName, inSubRoute });
+    StartFuncDelete();
     // StartFuncUpdateClicks({ inProjectName, inSubRoute });
 };
 

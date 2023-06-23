@@ -1,0 +1,6 @@
+POST  http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/SubTable/Row/Delete/FromRowPK
+content-type: application/json
+
+{
+        
+}

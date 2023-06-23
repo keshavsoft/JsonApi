@@ -2,6 +2,6 @@ POST http://localhost:4119/JSONApi/Validate/Users/InUserDataJson/ForUserNameAndP
 content-type: application/json
  
 {   
-"inUserName":"KIRANA",
-"inPassWord":"KIRANA"
+"inUserName":"1022",
+"inPassWord":"1022"
 }
