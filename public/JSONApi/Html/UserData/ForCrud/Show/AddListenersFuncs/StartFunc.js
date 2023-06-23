@@ -4,27 +4,30 @@ import { StartFunc as StartFuncClickFuncs } from "./Vertical/Footer/Buttons/Clic
 import { StartFunc as StartFuncSubTable } from "./SubTable/Footer/CreateNewRow/ButtonClicks.js";
 import { StartFunc as StartFuncEditClick } from "./SubTable/Body/Row/EditClick.js";
 import { StartFunc as StartFuncDelete } from "./SubTable/Body/Row/Delete/StartFunc.js";
+import { StartFunc as StartFuncStartEdit } from "./SubTable/Body/Row/Edit/StartEdit.js";
 
 // import { StartFunc as StartFuncUpdateClicks } from "./SubTable/Body/Row/UpdateClicks.js";
 
 let StartFunc = ({ inProjectName, inSubRoute }) => {
-    KeyPressStartFunc({ inProjectName, inSubRoute });
+  KeyPressStartFunc({ inProjectName, inSubRoute });
 
-    FooterStartFunc({
-        inProjectName,
-        inSubRoute
-    });
+  FooterStartFunc({
+    inProjectName,
+    inSubRoute,
+  });
 
-    StartFuncClickFuncs({
-        inProjectName,
-        inSubRoute
-    });
+  StartFuncClickFuncs({
+    inProjectName,
+    inSubRoute,
+  });
 
-    StartFuncSubTable({ inProjectName, inSubRoute });
+  StartFuncSubTable({ inProjectName, inSubRoute });
 
-    StartFuncEditClick({ inProjectName, inSubRoute });
-    StartFuncDelete();
-    // StartFuncUpdateClicks({ inProjectName, inSubRoute });
+  //StartFuncEditClick({ inProjectName, inSubRoute });
+  StartFuncStartEdit({ inProjectName, inSubRoute });
+
+  StartFuncDelete();
+  // StartFuncUpdateClicks({ inProjectName, inSubRoute });
 };
 
-export { StartFunc }
+export { StartFunc };
