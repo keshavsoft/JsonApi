@@ -121,8 +121,68 @@ let HandleBarsHelpers = () => {
         return "";
     });
 
-
     Handlebars.registerHelper('HrefToSubTableToggles', function (inDataAttributes) {
+        if (jVarGlobalPublicConfig === undefined === false) {
+            let jVarPublicConfig = jVarGlobalPublicConfig;
+            let LocalFolderName = "";
+            let LocalFileName = "";
+            let LocalItemName = "";
+            let LocalScreenName = "";
+            let LocalInsertKey = "";
+
+            LocalInsertKey = inDataAttributes.InsertKey;
+
+            if ("JsonConfig" in inDataAttributes) {
+                try {
+                    let jVarLocalParsed = JSON.parse(inDataAttributes.JsonConfig);
+
+                    if ("inFolderName" in jVarLocalParsed) {
+                        LocalFolderName = jVarLocalParsed.inFolderName;
+                    };
+
+                    if ("inJsonFileName" in jVarLocalParsed) {
+                        LocalFileName = jVarLocalParsed.inJsonFileName;
+                    };
+                } catch (error) {
+
+                }
+            };
+
+            if ("ItemConfig" in inDataAttributes) {
+                try {
+                    let jVarLocalParsed = JSON.parse(inDataAttributes.ItemConfig);
+
+                    if ("inItemName" in jVarLocalParsed) {
+                        LocalItemName = jVarLocalParsed.inItemName;
+                    };
+
+                    if ("inScreenName" in jVarLocalParsed) {
+                        LocalScreenName = jVarLocalParsed.inScreenName;
+                    };
+                } catch (error) {
+
+                }
+            };
+
+            let jVarLocalFileNameOnly = LocalFileName.replace(/\.[^/.]+$/, "");
+
+            let queryString = `${window.location.origin}/${jVarPublicConfig.AdminFolder}/Html/Admin/SubTableColumns/Tabular/Alter/Toggles.html`;
+
+            const myUrlWithParams = new URL(queryString);
+
+            myUrlWithParams.searchParams.append("inFolderName", LocalFolderName);
+            myUrlWithParams.searchParams.append("inFileName", jVarLocalFileNameOnly);
+            myUrlWithParams.searchParams.append("inItemName", LocalItemName);
+            myUrlWithParams.searchParams.append("inScreenName", LocalScreenName);
+            myUrlWithParams.searchParams.append("subtablecolumnkey", LocalInsertKey);
+
+            return myUrlWithParams.href;
+        };
+
+        return "";
+    });
+
+    Handlebars.registerHelper('HrefToSubTableToggles2', function (inDataAttributes) {
         console.log("qqqqqqqq : ", inDataAttributes, typeof inDataAttributes);
         if (jVarGlobalPublicConfig === undefined === false) {
             let jVarPublicConfig = jVarGlobalPublicConfig;
