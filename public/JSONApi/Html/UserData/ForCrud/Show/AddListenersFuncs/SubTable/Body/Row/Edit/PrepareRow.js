@@ -1,6 +1,9 @@
 import { StartFunc as StartFuncUpdateClicks } from "../UpdateClicks/StartFunc.js";
 
 let StartFunc = ({ inEvent, inProjectName, inSubRoute }) => {
+    let jVarLocalCurrentTarget = inEvent.currentTarget;
+    let jVarLocalClosestTd = jVarLocalCurrentTarget.closest("td");
+
     Swal.fire({
         title: 'Are you sure?',
         icon: 'warning',
@@ -11,17 +14,21 @@ let StartFunc = ({ inEvent, inProjectName, inSubRoute }) => {
         confirmButtonText: 'Show'
     }).then((result) => {
         if (result.isConfirmed) {
-            jFLocalRemoveChild({ inEvent });
-            jFLocalAddContent({ inEvent });
-            jFLocalinnerHTML({ inEvent });
+            jFLocalRemoveChild({ inCurrentTarget: jVarLocalCurrentTarget });
+            jFLocalAddContent({ inCurrentTarget: jVarLocalCurrentTarget });
+            jFLocalinnerHTML({ inCurrentTarget: jVarLocalCurrentTarget });
 
-            StartFuncUpdateClicks({ inClosestTd: jVarLocalClosestTd, inProjectName, inSubRoute });
+            StartFuncUpdateClicks({
+                inClosestTd: jVarLocalClosestTd,
+                inProjectName, inSubRoute
+            });
         };
     });
 };
 
-let jFLocalRemoveChild = ({ inEvent }) => {
-    let jVarLocalCurrentTarget = inEvent.currentTarget;
+let jFLocalRemoveChild = ({ inCurrentTarget }) => {
+    let jVarLocalCurrentTarget = inCurrentTarget;
+
     let jVarLocalClosestTd = jVarLocalCurrentTarget.closest("td");
     jVarLocalClosestTd.classList.remove("ButtonClass");
 
@@ -32,8 +39,8 @@ let jFLocalRemoveChild = ({ inEvent }) => {
     });
 };
 
-let jFLocalAddContent = ({ inEvent }) => {
-    let jVarLocalCurrentTarget = inEvent.currentTarget;
+let jFLocalAddContent = ({ inCurrentTarget }) => {
+    let jVarLocalCurrentTarget = inCurrentTarget;
     let jVarLocalClosestTd = jVarLocalCurrentTarget.closest("td");
     jVarLocalClosestTd.classList.remove("ButtonClass");
 
@@ -61,8 +68,8 @@ let jFLocalAddContent = ({ inEvent }) => {
     });
 };
 
-let jFLocalinnerHTML = ({ inEvent }) => {
-    let jVarLocalCurrentTarget = inEvent.currentTarget;
+let jFLocalinnerHTML = ({ inCurrentTarget }) => {
+    let jVarLocalCurrentTarget = inCurrentTarget;
     let jVarLocalClosestTd = jVarLocalCurrentTarget.closest("td");
     jVarLocalClosestTd.classList.remove("ButtonClass");
 
