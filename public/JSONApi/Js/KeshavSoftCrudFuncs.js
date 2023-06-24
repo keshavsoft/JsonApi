@@ -151,11 +151,11 @@ let HandleBarsHelpers = () => {
                 try {
                     let jVarLocalParsed = JSON.parse(inDataAttributes.ItemConfig);
 
-                    if ("inFolderName" in jVarLocalParsed) {
+                    if ("inItemName" in jVarLocalParsed) {
                         LocalItemName = jVarLocalParsed.inItemName;
                     };
 
-                    if ("inJsonFileName" in jVarLocalParsed) {
+                    if ("inScreenName" in jVarLocalParsed) {
                         LocalScreenName = jVarLocalParsed.inScreenName;
                     };
                 } catch (error) {
