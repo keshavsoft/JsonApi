@@ -1,3 +1,7 @@
+let jVarGlobalPublicConfig = {
+    AdminFolder: "JSONAdminApi"
+};
+
 jVarGlobalHBSData = {
     KTableData: "",
     KTableDataSimple: "",
@@ -71,6 +75,81 @@ let jVarGlobalhelpersObject = {
 };
 
 let HandleBarsHelpers = () => {
+    Handlebars.registerHelper('HrefToMainToggles', function (inDataAttributes) {
+        if (jVarGlobalPublicConfig === undefined === false) {
+            let jVarPublicConfig = jVarGlobalPublicConfig;
+
+            let jVarLocalJsonConfig = JSON.parse(inDataAttributes.JsonConfig);
+            let jVarLocalItemConfig = JSON.parse(inDataAttributes.ItemConfig);
+            let jVarLocalFileNameOnly = jVarLocalJsonConfig.inJsonFileName.replace(/\.[^/.]+$/, "");
+
+            let queryString = `${window.location.origin}/${jVarPublicConfig.AdminFolder}/Html/Admin/Columns/Tabular/Alter/Toggles.html`;
+            console.log("pppppppppp : ", queryString, jVarLocalItemConfig.inItemName, jVarLocalItemConfig.inScreenName);
+            const myUrlWithParams = new URL(queryString);
+
+            myUrlWithParams.searchParams.append("inFolderName", jVarLocalJsonConfig.inFolderName);
+            myUrlWithParams.searchParams.append("inFileName", jVarLocalFileNameOnly);
+            myUrlWithParams.searchParams.append("inItemName", jVarLocalItemConfig.inItemName);
+            myUrlWithParams.searchParams.append("inScreenName", jVarLocalItemConfig.inScreenName);
+
+            return myUrlWithParams.href;
+        };
+
+        return "";
+    });
+
+    Handlebars.registerHelper('HrefToSubTableToggles', function (inDataAttributes) {
+        console.log("qqqqqqqq : ", inDataAttributes, typeof inDataAttributes);
+        if (jVarGlobalPublicConfig === undefined === false) {
+            let jVarPublicConfig = jVarGlobalPublicConfig;
+            let LocalFolderName = "";
+            let LocalFileName = "";
+            let LocalItemName = "";
+            let LocalScreenName = "";
+
+            if ("JsonConfig" in inDataAttributes) {
+                if (typeof inDataAttributes.JsonConfig === 'object' && inDataAttributes.JsonConfig !== null) {
+                    if ("inFolderName" in inDataAttributes.JsonConfig) {
+                        LocalFolderName = inDataAttributes.JsonConfig.inFolderName;
+                    };
+
+                    if ("inJsonFileName" in inDataAttributes.JsonConfig) {
+                        LocalFileName = inDataAttributes.JsonConfig.inJsonFileName;
+                    };
+                };
+            };
+
+            if ("ItemConfig" in inDataAttributes) {
+                if (typeof inDataAttributes.ItemConfig === 'object' && inDataAttributes.ItemConfig !== null) {
+                    if ("inItemName" in inDataAttributes.ItemConfig) {
+                        LocalItemName = Attributes.ItemConfig.inFolderName;
+                    };
+
+                    if ("inScreenName" in inDataAttributes.ItemConfig) {
+                        LocalScreenName = Attributes.ItemConfig.inScreenName;
+                    };
+                };
+            };
+
+            let jVarLocalFileNameOnly = LocalFileName.replace(/\.[^/.]+$/, "");
+
+            let queryString = `${window.location.origin}/${jVarPublicConfig.AdminFolder}/Html/Admin/SubTableColumns/Tabular/Alter/Toggles.html`;
+
+            //&subtablecolumnkey=InvGrid&inColumnName=FK
+
+            const myUrlWithParams = new URL(queryString);
+
+            myUrlWithParams.searchParams.append("inFolderName", LocalFolderName);
+            myUrlWithParams.searchParams.append("inFileName", jVarLocalFileNameOnly);
+            myUrlWithParams.searchParams.append("inItemName", LocalItemName);
+            myUrlWithParams.searchParams.append("inScreenName", LocalScreenName);
+
+            return myUrlWithParams.href;
+        };
+
+        return "";
+    });
+
     Handlebars.registerHelper('NumToWord', function (inputNumber) {
         return jVarGlobalUtilClass.FloatToWords(inputNumber);
     });
@@ -1839,4 +1918,4 @@ class KeshavSoftCrud {
 HandleBarsHelpers();
 jVarHbsTemplatesFill();
 
-console.log("pppppppppppppp----------");
+console.log("KeshavSoftCrudFuncs----------");
