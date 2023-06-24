@@ -81,7 +81,6 @@ let jFLocalButtonClick = ({ inEvent, inProjectName, inSubRoute }) => {
         jVarLocalJsonConfigAndItemConfig.inDataToSave = jVarLocalFetchPostData;
 
         let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/SubTable/Footer/Save`;
-        console.log("jVarLocalFetchUrl : ", jVarLocalFetchUrl, jVarLocalJsonConfigAndItemConfig);
 
         fetch(jVarLocalFetchUrl, {
             method: "post",
@@ -94,7 +93,7 @@ let jFLocalButtonClick = ({ inEvent, inProjectName, inSubRoute }) => {
             .then(response => response.json())
             .then(dataFromApi => {
                 if (dataFromApi.KTF === true) {
-                    window.location.href = "";
+               //     window.location.href = "";
                 } else {
                     Swal.fire(dataFromApi.KReason);
                 }
