@@ -98,6 +98,30 @@ let HandleBarsHelpers = () => {
         return "";
     });
 
+    Handlebars.registerHelper('HrefToSubTableToggles1', function (inDataAttributes) {
+        if (jVarGlobalPublicConfig === undefined === false) {
+            let jVarPublicConfig = jVarGlobalPublicConfig;
+
+            let jVarLocalJsonConfig = JSON.parse(inDataAttributes.JsonConfig);
+            let jVarLocalItemConfig = JSON.parse(inDataAttributes.ItemConfig);
+            let jVarLocalFileNameOnly = jVarLocalJsonConfig.inJsonFileName.replace(/\.[^/.]+$/, "");
+
+            let queryString = `${window.location.origin}/${jVarPublicConfig.AdminFolder}/Html/Admin/SubTableColumns/Tabular/Alter/Toggles.html`;
+            console.log("kkkkkkkkkkkkkkkkk : ", queryString, jVarLocalItemConfig.inItemName, jVarLocalItemConfig.inScreenName);
+            const myUrlWithParams = new URL(queryString);
+
+            myUrlWithParams.searchParams.append("inFolderName", jVarLocalJsonConfig.inFolderName);
+            myUrlWithParams.searchParams.append("inFileName", jVarLocalFileNameOnly);
+            myUrlWithParams.searchParams.append("inItemName", jVarLocalItemConfig.inItemName);
+            myUrlWithParams.searchParams.append("inScreenName", jVarLocalItemConfig.inScreenName);
+
+            return myUrlWithParams.href;
+        };
+
+        return "";
+    });
+
+
     Handlebars.registerHelper('HrefToSubTableToggles', function (inDataAttributes) {
         console.log("qqqqqqqq : ", inDataAttributes, typeof inDataAttributes);
         if (jVarGlobalPublicConfig === undefined === false) {
@@ -108,27 +132,35 @@ let HandleBarsHelpers = () => {
             let LocalScreenName = "";
 
             if ("JsonConfig" in inDataAttributes) {
-                if (typeof inDataAttributes.JsonConfig === 'object' && inDataAttributes.JsonConfig !== null) {
-                    if ("inFolderName" in inDataAttributes.JsonConfig) {
-                        LocalFolderName = inDataAttributes.JsonConfig.inFolderName;
+                try {
+                    let jVarLocalParsed = JSON.parse(inDataAttributes.JsonConfig);
+
+                    if ("inFolderName" in jVarLocalParsed) {
+                        LocalFolderName = jVarLocalParsed.inFolderName;
                     };
 
-                    if ("inJsonFileName" in inDataAttributes.JsonConfig) {
-                        LocalFileName = inDataAttributes.JsonConfig.inJsonFileName;
+                    if ("inJsonFileName" in jVarLocalParsed) {
+                        LocalFileName = jVarLocalParsed.inJsonFileName;
                     };
-                };
+                } catch (error) {
+
+                }
             };
 
             if ("ItemConfig" in inDataAttributes) {
-                if (typeof inDataAttributes.ItemConfig === 'object' && inDataAttributes.ItemConfig !== null) {
-                    if ("inItemName" in inDataAttributes.ItemConfig) {
-                        LocalItemName = Attributes.ItemConfig.inFolderName;
+                try {
+                    let jVarLocalParsed = JSON.parse(inDataAttributes.ItemConfig);
+
+                    if ("inFolderName" in jVarLocalParsed) {
+                        LocalItemName = jVarLocalParsed.inItemName;
                     };
 
-                    if ("inScreenName" in inDataAttributes.ItemConfig) {
-                        LocalScreenName = Attributes.ItemConfig.inScreenName;
+                    if ("inJsonFileName" in jVarLocalParsed) {
+                        LocalScreenName = jVarLocalParsed.inScreenName;
                     };
-                };
+                } catch (error) {
+
+                }
             };
 
             let jVarLocalFileNameOnly = LocalFileName.replace(/\.[^/.]+$/, "");
@@ -149,6 +181,7 @@ let HandleBarsHelpers = () => {
 
         return "";
     });
+
 
     Handlebars.registerHelper('NumToWord', function (inputNumber) {
         return jVarGlobalUtilClass.FloatToWords(inputNumber);
