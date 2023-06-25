@@ -1,0 +1,9 @@
+POST  http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/MainTable/WithSelectedColumns
+content-type: application/json
+
+{
+    "inFolderName": "25-06-2023_22_30_14",
+    "inFileName": "Transactions.json",
+    "inItemName": "sales",
+    "inScreenName": "Show"
+}
