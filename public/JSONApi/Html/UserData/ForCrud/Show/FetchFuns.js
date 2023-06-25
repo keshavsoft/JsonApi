@@ -14,8 +14,6 @@ let jVLocalVerticalShow = async ({ inProjectName, inSubRoute, inFolderName, inFi
     let jVarLocalScreenName = inScreenName;
     let jVarLocalJsonPk = inJsonPk;
 
-    //   let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/PullData/WithConfig`;
-    //   let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Fromjson`;
     let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/Tabular/Row/Show/ForInsert`;
 
     let response = await fetch(jVarLocalFetchUrl, {
@@ -43,17 +41,6 @@ let jVLocalVerticalShow = async ({ inProjectName, inSubRoute, inFolderName, inFi
         });
 
         return await true;
-        // let jVarLocalPrintButtons = document.querySelectorAll(".Options.Print");
-        // //MainTable Body Row Options Print
-        // jVarLocalPrintButtons.forEach((spanElement) => {
-        //     spanElement.addEventListener("click", (event) => {
-        //         jFPrintFromData({
-        //             inEvent: event,
-        //             inProjectName: jVarLocalRoute
-        //         })
-        //     });
-        // });
-
     };
 };
 

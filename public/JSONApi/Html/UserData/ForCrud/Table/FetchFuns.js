@@ -1,24 +1,8 @@
 import { ReturnFolderAndFileNameAndItemName } from "../CommonFuncs/urlSearchParams.js";
 import { jFShowFolderInBreadcrumb } from "../CommonFuncs/BreadcrumbFuncs.js";
+import { StartFunc as StartFuncFormLoad } from "./FormLoad/PullData/StartFunc.js";
 
 let jVarLocalObjectFromUrlSearchParams = ReturnFolderAndFileNameAndItemName();
-
-let jFShowFolderInBreadcrumb_Local = ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName }) => {
-    let jVarLocalBreadcrumbFolderNameId = document.getElementById("BreadcrumbFolderNameId");
-    jVarLocalBreadcrumbFolderNameId.href = `../Menu/AsCards/Files.html?FolderName=${inFolderName}`;
-    jVarLocalBreadcrumbFolderNameId.innerHTML = inFolderName;
-
-    let jVarLocalBreadcrumbFileNameId = document.getElementById("BreadcrumbFileNameId");
-    jVarLocalBreadcrumbFileNameId.href = `../Menu/AsCards/Items.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}`;
-    jVarLocalBreadcrumbFileNameId.innerHTML = inFileNameWithExtension;
-
-    let jVarLocalBreadcrumbItemNameId = document.getElementById("BreadcrumbItemNameId");
-    jVarLocalBreadcrumbItemNameId.href = `../Menu/AsCards/Screens.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}&ItemName=${inItemName}`;
-    jVarLocalBreadcrumbItemNameId.innerHTML = inItemName;
-
-    let jVarLocalBreadcrumbScreenNameId = document.getElementById("BreadcrumbScreenNameId");
-    jVarLocalBreadcrumbScreenNameId.innerHTML = inScreenName;
-};
 
 let jFTableShow = async ({ inProjectName, inSubRoute, inFolderName, inFileName, inItemName, inScreenName }) => {
     let jVarCardBody = document.getElementById("KCont1");
@@ -101,7 +85,7 @@ let StartFunc = async ({ inProjectName, inSubRoute }) => {
                         inScreenName: jVarLocalObjectFromUrlSearchParams.ScreenName
                     });
 
-                    return await jFTableShow({
+                    return await StartFuncFormLoad({
                         inProjectName, inSubRoute,
                         inFolderName: jVarLocalObjectFromUrlSearchParams.FolderName,
                         inFileName: jVarLocalObjectFromUrlSearchParams.FileName,
