@@ -1,9 +1,0 @@
-POST  http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/MainTable/WithSelectedColumns
-content-type: application/json
-
-{
-    "inFolderName": "Transactions",
-    "inFileName": "BANK-WITHDRAWALS",
-    "inItemName": "BANK-WITHDRAWAL",
-    "inScreenName": "Create"
-}
