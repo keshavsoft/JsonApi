@@ -4,7 +4,9 @@ import { StartFunc as VerticalStartFunc } from "./Vertical/FetchFuns.js";
 import { StartFunc as AddListenersFuncsStartFunc } from "./Vertical/AddListenersFuncs/StartFunc.js";
 import { StartFunc as CardHeaderStartFunc } from "./Vertical/AddListenersFuncs/Card/CardHeader/ButtonClicks.js";
 import { StartFunc as StartFuncClickFuncs } from "../ForDataHtml/Header/ClickFuncs.js";
+import { StartFunc as StartFuncToDataList } from "../ToDataList/FromLocalStorageKey.js";
 
+StartFuncToDataList();
 StartFuncClickFuncs();
 
 jFShowFoldersInMenu({

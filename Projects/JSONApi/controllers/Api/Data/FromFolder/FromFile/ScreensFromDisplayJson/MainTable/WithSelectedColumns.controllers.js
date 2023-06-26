@@ -21,7 +21,7 @@ const WithConfig  = (req, res) => {
     Repos.WithConfig({
         inJsonConfig: LocalJsonConfig,
         inItemConfig: LocalItemConfig,
-        inDataPK: LocalDataPk
+        inDataPk: LocalDataPk
     }).then(promiseData => {
         res.end(JSON.stringify(promiseData))
     });
