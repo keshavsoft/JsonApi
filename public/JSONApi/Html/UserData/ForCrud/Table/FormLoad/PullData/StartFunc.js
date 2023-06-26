@@ -6,7 +6,7 @@ let StartFunc = async ({ inProjectName, inSubRoute, inFolderName, inFileName, in
     let jVarLocalPostData = StartFuncPreparePostData({ inFolderName, inFileName, inItemName, inScreenName });
     let FetchData = await StartFuncPostFetch({ inProjectName, inSubRoute, inPostData: jVarLocalPostData });
 
-    return StartFuncAfterFetch({ inFetchData: FetchData });
+    StartFuncAfterFetch({ inFetchData: FetchData });
 };
 
 export { StartFunc }
