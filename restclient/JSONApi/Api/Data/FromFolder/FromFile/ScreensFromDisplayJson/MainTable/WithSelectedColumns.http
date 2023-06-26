@@ -2,9 +2,8 @@ POST  http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisp
 content-type: application/json
 
 {
-    "inFolderName": "25-06-2023_22_30_14",
-    "inFileName": "Transactions.json",
-    "inItemName": "sales",
-    "inScreenName": "Show",
-    "DataPk":"1022"
+    "inFolderName": "Transactions",
+    "inFileName": "BANK-WITHDRAWALS",
+    "inItemName": "BANK-WITHDRAWAL",
+    "inScreenName": "Create"
 }
