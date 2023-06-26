@@ -4,35 +4,12 @@ const StartFunc = async () => {
     let jVarLocalLocalStorageData = localStorage.getItem(jVarLocalKey);
     let jVarLocalLocalStorageDataAsJson = JSON.parse(jVarLocalLocalStorageData);
 
-    jFLocalFromArray({
-        inData: jVarLocalLocalStorageDataAsJson,
-        inDataListsID: jVarLocalDataList
-    });
-};
-
-const jFLocalMastersAccounts = ({ inDataListsID }) => {
-    let jVarLocalKey = "Masters-Accounts";
-    let jVarLocalLocalStorageData = localStorage.getItem(jVarLocalKey);
-    let jVarLocalLocalStorageDataAsJson = JSON.parse(jVarLocalLocalStorageData);
-    console.log("aaaaaaaaaaaa------------- : ", jVarLocalLocalStorageDataAsJson);
-    let LocalDataList = document.createElement("datalist");
-
-    if (inDataListsID === null === false) {
-        LocalDataList.setAttribute("id", jVarLocalKey);
-
-        inDataListsID.appendChild(LocalDataList);
+    if (jVarLocalLocalStorageDataAsJson === null === false) {
+        jFLocalFromArray({
+            inData: jVarLocalLocalStorageDataAsJson,
+            inDataListsID: jVarLocalDataList
+        });
     };
-
-    jVarLocalLocalStorageDataAsJson.forEach(LoopItemSub => {
-        let LocalDataListOption = document.createElement("option");
-        LocalDataListOption.setAttribute("value", LoopItemSub[0]);
-
-        if (LoopItemSub.length > 1) {
-            LocalDataListOption.innerHTML = LoopItemSub[1];
-        }
-
-        LocalDataList.appendChild(LocalDataListOption);
-    });
 };
 
 const jFLocalFromArray = ({ inData, inDataListsID }) => {
@@ -55,4 +32,4 @@ const jFLocalFromArray = ({ inData, inDataListsID }) => {
     });
 };
 
-StartFunc().then();
+export { StartFunc };

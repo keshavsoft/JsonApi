@@ -2,7 +2,7 @@ import { StartFunc as StartFuncDeleteFunc } from "./DeleteButton/StartFunc.js";
 
 let StartFunc = () => {
     let jVarLocalCardHeaderButtons = document.querySelectorAll(".KMainTableBodyRowShowButtonClass");
-
+    console.log("jVarLocalCardHeaderButtons : ", jVarLocalCardHeaderButtons);
     for (let i = 0; i < jVarLocalCardHeaderButtons.length; i++) {
         jVarLocalCardHeaderButtons[i].addEventListener("click", LocalButtonClick);
     };
