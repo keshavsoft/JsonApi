@@ -26,7 +26,4 @@ const WithConfig  = (req, res) => {
         res.end(JSON.stringify(promiseData))
     });
 }
-
-
-
 module.exports = { WithConfig };
