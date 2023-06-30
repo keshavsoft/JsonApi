@@ -1,5 +1,3 @@
-// import { ForItemsFetchAsPost } from "./ForItems.js";
-
 let FetchFiles = ({ inProjectName, inSubRoute, inFolderName }) => {
     let jVarLocalFolderName = inFolderName;
 
@@ -34,22 +32,6 @@ let FetchFiles = ({ inProjectName, inSubRoute, inFolderName }) => {
                 inFilesObjects: dataFromApi,
                 inFolderName: jVarLocalFolderName
             });
-
-            // let jVarLocalkeshavsoftfilesclick = document.getElementsByClassName("keshavsoftfilesclick");
-
-            // Array.from(jVarLocalkeshavsoftfilesclick).forEach((spanElement) => {
-            //     spanElement.addEventListener("click", (event) => {
-            //         let jVarInsideCurrentTarget = event.currentTarget;
-            //         let jVarLocalKeshavsoftGetFileName = jVarInsideCurrentTarget.getAttribute("keshavsoftfilename");
-            //         console.log("jVarLocalKeshavsoftGetFileName:", jVarLocalKeshavsoftGetFileName);
-
-
-            //         ForItemsFetchAsPost({
-            //             inFolderName: jVarLocalFolderName,
-            //             inFileNameWithExtension: jVarLocalKeshavsoftGetFileName
-            //         })
-            //     });
-            // });
         };
     });
 };

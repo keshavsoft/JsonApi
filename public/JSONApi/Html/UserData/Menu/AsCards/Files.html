@@ -671,8 +671,21 @@
     </template>
     
 
-    
     <template id="TemplateForFiles">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <div class="card-body">
+                        <h5 class="card-title">{{FileName}}</h5>
+                        <a href="Items.html?FolderName={{FolderName}}&FileName={{FileName}}" keshavsoftfilename="{{FileName}}" class="btn btn-primary keshavsoftfilesclick">Items -
+                            {{ItemCount}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template id="TemplateForFiles1">
         <div class="col-4">
             <div class="card mb-3">
                 <div class="card-header">
