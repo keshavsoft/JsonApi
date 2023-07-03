@@ -3,8 +3,6 @@ import { StartFunc as StartFuncButtonClickFuncs } from "./Table/Search/ButtonCli
 import { StartFunc as StartFuncFooter } from "./Table/Footer/SaveClick.js";
 
 let StartFunc = ({ inRoute, inSubRoute }) => {
-    console.log("11111aaaaaaajVarLocalCardHeaderButtons : ");
-    
     TableStartFunc({ inRoute, inSubRoute });
     
     StartFuncButtonClickFuncs();
