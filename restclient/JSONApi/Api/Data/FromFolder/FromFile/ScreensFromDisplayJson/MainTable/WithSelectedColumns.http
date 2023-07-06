@@ -1,0 +1,10 @@
+POST  http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/MainTable/WithSelectedColumns
+content-type: application/json
+
+
+{
+    "inFolderName": "Transactions",
+    "inFileName": "GST-SALES.json",
+    "inItemName": "GST-SALE",
+    "inScreenName": "Create"
+}
