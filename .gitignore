@@ -22,6 +22,7 @@ web.config
 /public/JSONUtility
 /public/ClientLogin
 /public/Garments
+/public/Cleaning
 
 /restclient/JSONAdminApi
 
