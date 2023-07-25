@@ -1,0 +1,8 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK
+content-type: application/json
+ 
+{   
+"inFolderName":"Masters",
+"inFileNameOnly":"CRM",
+"inItemName":"Customers"
+}
