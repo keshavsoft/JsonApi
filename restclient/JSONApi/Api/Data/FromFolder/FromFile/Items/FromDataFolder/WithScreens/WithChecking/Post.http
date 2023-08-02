@@ -1,0 +1,14 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking/Insert
+content-type: application/json
+
+{
+    "FolderName":"Transactions",
+    "FileNameOnly":"Gurudwara",
+    "ItemName":"Orders",
+    "ScreenName":"Create",
+    "JsonPk":1,
+    "DataToInsert":{
+      "ItemSerial":20
+    },
+    "SubTableKey":"ItemsInOrder"
+      }
