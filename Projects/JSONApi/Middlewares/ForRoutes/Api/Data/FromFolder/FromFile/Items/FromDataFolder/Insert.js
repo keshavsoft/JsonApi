@@ -10,7 +10,7 @@ exports.PostFunc = (req, res, next) => {
             KReason: "post requst body should contain : ",
             body: {
                 inPostData:"",
-                inJsonConfig:"",
+                inJsonConfig:"", 
                 inItemConfig: ""
             },
         });
