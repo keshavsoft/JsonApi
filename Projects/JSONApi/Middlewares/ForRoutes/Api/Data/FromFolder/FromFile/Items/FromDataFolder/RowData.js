@@ -11,7 +11,8 @@ exports.PostFunc = (req, res, next) => {
             body: {
                 FolderName:"",
                 FileNameOnly:"", 
-                ItemName: ""
+                ItemName: "",
+                JsonPk:""
             },
         });
         return;
