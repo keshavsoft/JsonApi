@@ -1,16 +1,32 @@
 POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/Insert
-Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6IksxMSIsIkRhdGFQayI6MjAxNywiaWF0IjoxNjY4MjUyMTcwfQ.L1a8OdpmHwyjOZE0xmffo8F5gcPPa_24UhR5uyEGBq4
 content-type: application/json
 
 {
         "inJsonConfig": {
-            "inFolderName": "Masters",
-            "inJsonFileName": "Customers.json"
-        }, "inItemConfig": {
-            "inItemName": "CustomerNames"
+            "inFolderName": "Transactions",
+            "inJsonFileName": "Gurudwara"
+        },
+         "inItemConfig": {
+            "inItemName": "Orders"
         },
         "inPostData": {
-            "CustomerName": "aaaaaaaaaaaaaa",
-            "Mobile": 9999999999
-        }
-    }
+            "ItemsInOrder":{              
+                 "1": {
+                 "ItemSerial": 1,
+                 "Category": "Men",
+                  "ItemName": "Men Shirt",
+                  "ItemNamePk": "2",
+                 "WashType": "DryWash",
+                 "WashTypePk": "2",
+                 "locationPk": "3",
+                 "location": "KESHAV",
+                 "Pcs": 1,
+                 "Rate": 60,
+                 "DisPer": 0,
+                 "AddOn": "0-0",
+                 "DeliveryDateTime": "2023-08-10T16:34:38",
+                 "Total": 60
+                }
+             }
+            }
+}

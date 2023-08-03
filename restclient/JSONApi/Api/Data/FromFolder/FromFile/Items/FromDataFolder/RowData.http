@@ -1,0 +1,9 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/RowData
+content-type: application/json
+ 
+{   
+"FolderName":"Transactions",
+"FileNameOnly":"Gurudwara", 
+"ItemName": "Orders",
+"JsonPk":"4"
+}
