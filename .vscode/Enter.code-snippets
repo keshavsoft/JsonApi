@@ -27,4 +27,118 @@
 		],
 		"description": "Log output to console"
 	}
+	"Mock document.getElementById": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockDocumentGetElementById",
+		"body": [
+			" let jVarLocal$1 = document.getElementById('$1');"
+		],
+		"description": "Log output to console"
+	},
+	"Empty Start Function": {
+		"scope": "javascript,typescript",
+		"prefix": "KStartFunc",
+		"body": [
+			"const StartFunc = ($1) => {",
+			"   	$0",
+			"	};",
+			"",
+			"export { StartFunc };"
+		],
+		"description": "Log output to console"
+	},
+	"Mock Template Function": {
+		"scope": "javascript,typescript",
+		"prefix": "KMock",
+		"body": [
+			"if (CommonMock.AllowMock) {",
+			"if (CommonMock.MockKey === '$1') {",
+			"let LocalMockData = require('./$TM_FILENAME_BASE.json');",
+			"};",
+			"};"
+		],
+		"description": "Log output to console"
+	},
+	"Mock Template Function with Promise Then": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockPromise",
+		"body": [
+			"if (CommonMock.AllowMock) {",
+			"	if (CommonMock.MockKey === '$1') {",
+			"		let LocalMockData = require('./import.json');",
+			"",
+			"		StartFunc({",
+			"			inDataPK: CommonMock.DataPK,",
+			"			...LocalMockData",
+			"		}).then(PromiseData => {",
+			"			console.log('PromiseData : ', PromiseData);",
+			"           $0",
+			"		});",
+			"	};",
+			"};"
+		],
+		"description": "Log output to console"
+	},
+	"Mock Template Function For Html": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockHtmlAssignToDom",
+		"body": [
+			"let jFLocalToInnerHtml$1 = ({ in$1 }) => {",
+			"	let jVarLocalHtmlId = '$1';",
+			"   let jVarLocal$1 = document.getElementById(jVarLocalHtmlId);",
+			"   jVarLocal$1.innerHTML = in$1;",
+			"};"
+		],
+		"description": "Log output to console"
+	},
+	"To Dom Input Value": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockHtmlAssignToDomInputValue",
+		"body": [
+			"let jFLocalToInput$1 = ({ in$1 }) => {",
+			"	let jVarLocalHtmlId = '$1';",
+			"   let jVarLocal$1 = document.getElementById(jVarLocalHtmlId);",
+			"   jVarLocal$1.value = in$1;",
+			"};"
+		],
+		"description": "Log output to console"
+	},
+	"Mock Template Function For Html to pull from Dom": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockHtmlAssignFromDom",
+		"body": [
+			"let jFLocalFromDom$1 = () => {",
+			"	let jVarLocalHtml$1 = '$1';",
+			"   let jVarHtml$1 = document.getElementById(jVarLocalHtml$1);",
+			"   let jVarHtml$1Value = jVarHtml$1.value.trim();",
+			"   return jVarHtml$1Value;",
+			"};"
+		],
+		"description": "Log output to console"
+	},
+	"Mock Function to pull from Dom innerHTML": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockHtmlAssignFromDom",
+		"body": [
+			"let jFLocalFromDom$1 = () => {",
+			"	let jVarLocalHtml$1 = '$1';",
+			"   let jVarHtml$1 = document.getElementById(jVarLocalHtml$1);",
+			"   let jVarHtml$1Value = jVarHtml$1.innerHTML.trim();",
+			"   return jVarHtml$1Value;",
+			"};"
+		],
+		"description": "Log output to console"
+	},
+	"Mock Template Function For Return Html Control": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockHtmlReturnHTMLControl",
+		"body": [
+			"let jFLocalReturnHTMLControlFor$1 = () => {",
+			"	let jVarLocalHtml$1 = '$1';",
+			"   let jVarHtml$1 = document.getElementById(jVarLocalHtml$1);",
+			"   return jVarHtml$1;",
+			"};"
+		],
+		"description": "Log output to console"
+	}
 }
