@@ -8,6 +8,7 @@ let CommonAsArrayWithPK = require("./FromDataFolder/AsArrayWithPK");
 let CommonRowData = require("./FromDataFolder/RowData");
 let CommonFilterData = require("./FromDataFolder/FilterData");
 let CommonAsObjectWithPK = require("./FromDataFolder/AsObjectWithPK");
+let CommonAsSubTable = require("./FromDataFolder/SubTable");
 
 router.use('/NoConfig', CommonNoConfig);
 router.use('/WithScreens', CommonWithScreens);
@@ -17,5 +18,6 @@ router.use('/AsArrayWithPK', CommonAsArrayWithPK);
 router.use('/RowData', CommonRowData);
 router.use('/FilterData', CommonFilterData);
 router.use('/AsObjectWithPK', CommonAsObjectWithPK);
+router.use('/SubTable', CommonAsSubTable);
 
 module.exports = router;
