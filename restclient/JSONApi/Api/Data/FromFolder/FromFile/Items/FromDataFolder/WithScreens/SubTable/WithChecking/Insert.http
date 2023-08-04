@@ -1,0 +1,27 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking/Insert
+content-type: application/json
+  
+{
+    "FolderName": "Transactions",
+    "FileNameOnly": "Gurudwara",
+    "ItemName": "Orders",
+    "ScreenName": "Create",
+    "JsonPk": "62",
+    "SubTableKey": "ItemsInOrder",
+    "DataToInsert": {
+        "ItemSerial": 2,
+        "Category": "Men",
+        "ItemName": "Men Shirt",
+        "ItemNamePk": "2",
+        "WashType": "DryWash",
+        "WashTypePk": "2",
+        "locationPk": "2",
+        "location": "ANF",
+        "Pcs": 1,
+        "Rate": 60,
+        "DisPer": 0,
+        "AddOn": "0-0",
+        "DeliveryDateTime": "",
+        "Total": 60
+    }
+}
