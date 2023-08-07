@@ -2,10 +2,14 @@ let CommonDataSupply = require("../../../../../../../../../../../DataSupply/Comm
 
 exports.WithPK = async ({ inDataPK, inJsonConfig, inItemConfig, inPostData, inRowPK, inSubTableKey, inSubTableRowPK }) => {
     let LocalDataToReturn = await CommonDataSupply.WithTransformBeforeSave({
-        inUserPK: inDataPK,
-        inJsonConfig,
-        inItemConfig, inPostData, inRowPK, inSubTableKey, inSubTableRowPK
+        UserPK: inDataPK,
+        JsonConfig: inJsonConfig,
+        ItemConfig: inItemConfig, 
+        DataToUpdate: inPostData, 
+        MainRowPK: inRowPK, 
+        InsertKey: inSubTableKey, 
+        SubTableRowPK: inSubTableRowPK
     });
-    
+
     return await LocalDataToReturn;
 };
