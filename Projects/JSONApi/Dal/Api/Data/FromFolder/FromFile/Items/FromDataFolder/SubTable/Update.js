@@ -1,7 +1,6 @@
-let CommonDataSupply = require("../../../../../../../../../../../DataSupply/CommonTableFuncs/SubTable/Update");
+let CommonDataSupply = require("../../../../../../../../../../DataSupply/CommonTableFuncs/SubTable/Row/UpdateWithOutScreen");
 
 exports.WithPK = async ({ inDataPK, inJsonConfig, inItemConfig, inPostData, inRowPK, inSubTableKey, inSubTableRowPK }) => {
-    return "this From Dal";
     let LocalDataToReturn = await CommonDataSupply.WithTransformBeforeSave({
         UserPK: inDataPK,
         JsonConfig: inJsonConfig,
