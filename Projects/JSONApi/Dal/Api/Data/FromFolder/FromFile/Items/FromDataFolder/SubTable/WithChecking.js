@@ -4,8 +4,10 @@ let CommonDataSupply = require("../../../../../../../../../../DataSupply/Fs/Conf
 let CommonDataSupplyDelete = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/DeleteData/FromPK");
 let CommonDataSupplyUpdateData = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/ConsiderDisplayJson/UpdateData/FromFolderFileItemName");
 
+let CommonDataSupplyNew = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/ToSubTable");
+
 exports.InsertFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inSubTableKey, inDataToInsert }) => {
-    let LocalReturnObject = await CommonDataSupply.StartFunc({
+    let LocalReturnObject = await CommonDataSupplyNew.StartFunc({
         inDataPK,
         inFolderName, inFileNameOnly, inItemName,
         inScreenName,
