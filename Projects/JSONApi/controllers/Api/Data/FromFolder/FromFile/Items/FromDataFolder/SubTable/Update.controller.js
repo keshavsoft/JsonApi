@@ -20,7 +20,7 @@ let WithPK = async (req, res, next) => {
         inSubTableRowPK: LocalSubTableRowPK
     });
 
-    res.JSON(PromiseData);
+    res.json(PromiseData);
 };
 
 module.exports = {
