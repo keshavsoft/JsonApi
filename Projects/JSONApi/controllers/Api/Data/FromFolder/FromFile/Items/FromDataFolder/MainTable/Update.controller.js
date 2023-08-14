@@ -1,13 +1,13 @@
 let Repos = require("../../../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/Update");
 
-let UpdateFunc = async (req, res, next) => {
-    let LocalJsonConfig = req.body.JsonConfig;
-    let LocalItemConfig = req.body.ItemConfig;
-    let LocalBody = req.body.inDataToUpdate;
-    let LocalRowPK = req.body.pk;
+let PostFunc = async (req, res, next) => {
+    let LocalJsonConfig = req.body.inJsonConfig;
+    let LocalItemConfig = req.body.inItemConfig;
+    let LocalBody = req.body.inPostData;
+    let LocalRowPK = req.body.inJsonPK;
     let LocalDataPk = req.KeshavSoft.DataPk;
-    
-    let PromiseData = await Repos.UpdateFunc({
+
+    let PromiseData = await Repos.PostFunc({
         inJsonConfig: LocalJsonConfig,
         inItemConfig: LocalItemConfig,
         inDataPK: LocalDataPk,
@@ -15,14 +15,10 @@ let UpdateFunc = async (req, res, next) => {
         inRowPK: LocalRowPK
     });
 
-    res.end(JSON.stringify(PromiseData));
-
-    // .then(PromiseData => {
-    //     res.end(JSON.stringify(PromiseData));
-    // });
+    res.json(PromiseData);
 };
 
 module.exports = {
-    UpdateFunc
+    PostFunc
 };
 

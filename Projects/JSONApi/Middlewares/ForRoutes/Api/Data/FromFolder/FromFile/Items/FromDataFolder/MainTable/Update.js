@@ -1,4 +1,4 @@
-exports.UpdateFunc = (req, res, next) => {
+exports.PostFunc = (req, res, next) => {
     if (("DataPk" in req.KeshavSoft) === false) {
         res.json({ KTF: false, KReason: "DataPk not found in Request" })
         return;
@@ -9,30 +9,30 @@ exports.UpdateFunc = (req, res, next) => {
             KTF: false,
             KReason: "post requst body should contain : ",
             body: {
-                JsonConfig:{},
-                ItemConfig:{}, 
-                inDataToUpdate: {},
-                pk: 0
+                inJsonConfig: {},
+                inItemConfig: {},
+                inPostData: {},
+                inJsonPK: 0
             },
         });
         return;
     };
-    if (("JsonConfig" in req.body) === false) {
-        res.json({ KTF: false, KReason: "JsonConfig not found in body" })
+    if (("inJsonConfig" in req.body) === false) {
+        res.json({ KTF: false, KReason: "inJsonConfig not found in body" })
         return;
     };
 
-    if (("ItemConfig" in req.body) === false) {
-        res.json({ KTF: false, KReason: "ItemConfig not found in body" })
+    if (("inItemConfig" in req.body) === false) {
+        res.json({ KTF: false, KReason: "inItemConfig not found in body" })
         return;
     };
 
-    if (("inDataToUpdate" in req.body) === false) {
-        res.json({ KTF: false, KReason: "inDataToUpdate not found in body" })
+    if (("inPostData" in req.body) === false) {
+        res.json({ KTF: false, KReason: "inPostData not found in body" })
         return;
     };
-    if (("pk" in req.body) === false) {
-        res.json({ KTF: false, KReason: "pk not found in body" })
+    if (("inJsonPK" in req.body) === false) {
+        res.json({ KTF: false, KReason: "inJsonPK not found in body" })
         return;
     };
     next();
