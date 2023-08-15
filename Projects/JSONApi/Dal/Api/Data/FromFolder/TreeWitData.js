@@ -1,5 +1,7 @@
-// let CommonFromDataSupply = require("../../../../../../DataSupply/Fs/Config/");
+let CommonFromDataSupply = require("../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/getDirectoriesWithDataAsTree");
 
-exports.GetFunc = async ({ inDataPK }) => {
-    return "i am Dal";
+exports.GetFunc = ({ inDataPK }) => {
+    let LocalFromDataSupply = CommonFromDataSupply.StartFunc({ inDataPK });
+    
+    return LocalFromDataSupply;
 };

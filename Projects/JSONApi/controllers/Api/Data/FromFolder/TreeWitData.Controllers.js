@@ -1,10 +1,11 @@
 let Repos = require("../../../../Repository/Api/Data/FromFolder/TreeWitData");
 
-let GetFunc = async (req, res) => {
+let GetFunc = (req, res) => {
   let LocalDataPk = req.KeshavSoft.DataPk;
 
-  let result = await Repos.GetFunc({ inDataPK: LocalDataPk });
-  res.sendStatus(200).json(result);
+  let result = Repos.GetFunc({ inDataPK: LocalDataPk });
+
+  res.json(result);
 };
 
 module.exports = { GetFunc }
