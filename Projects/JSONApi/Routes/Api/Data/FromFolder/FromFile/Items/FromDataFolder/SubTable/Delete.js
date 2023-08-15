@@ -1,7 +1,8 @@
 let express = require('express');
 let router = express.Router();
-let controllers = require("../../../../../../../../controllers/Api/Data/FromFolder/FromFile/Items/FromDataFolder/SubTable/Delete.controller");
+let CommonControllers = require("../../../../../../../../controllers/Api/Data/FromFolder/FromFile/Items/FromDataFolder/SubTable/Delete.controller");
+let Middlewares = require("../../../../../../../../Middlewares/ForRoutes/Api/Data/FromFolder/FromFile/Items/FromDataFolder/SubTable/Delete")
 
-router.post('/', controllers.WithPK);
+router.post('/', Middlewares.WithPK, CommonControllers.WithPK);
 
 module.exports = router;

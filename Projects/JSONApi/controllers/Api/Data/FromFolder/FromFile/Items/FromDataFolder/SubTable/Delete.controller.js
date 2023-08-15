@@ -22,6 +22,7 @@ let WithPK = async (req, res, next) => {
         InsertKey: LocalInsertKey,
         MainRowPK: LocalMainRowPK
     }).then(PromiseData => {
+        console.log("PromiseData",PromiseData);
         res.json(PromiseData);
     });
 };

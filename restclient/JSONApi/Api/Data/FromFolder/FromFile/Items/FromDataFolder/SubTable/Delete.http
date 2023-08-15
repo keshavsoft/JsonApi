@@ -1,0 +1,12 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/SubTable/Delete
+content-type: application/json
+  
+{
+    "FolderName": "Transactions",
+    "FileName": "Gurudwara.json",
+    "ItemName": "Orders",
+    "ScreenName": "Create",
+    "InsertKey": "ItemsInOrder",
+    "MainRowPK": "5",
+    "RowPK": "1"
+}
