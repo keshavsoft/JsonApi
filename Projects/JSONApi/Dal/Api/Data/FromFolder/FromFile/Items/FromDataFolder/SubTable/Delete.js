@@ -1,7 +1,7 @@
-let CommonDataSupply = require("../../../../../../../../../../DataSupply/CommonTableFuncs/SubTable/Row/Delete");
+let CommonDataSupply = require("../../../../../../../../../../DataSupply/CommonTableFuncs/SubTable/Row/DeleteOnly");
 
-exports.FromRowPK = async ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName, inJsonPK, inDataPK, InsertKey, MainRowPK }) => {
-    let LocalDataToReturn = await CommonDataSupply.SubTableDelete({ inFolderName, inFileNameWithExtension, inItemName, inScreenName, inJsonPK, inDataPK, InsertKey, MainRowPK });
+exports.FromRowPK = async ({ inFolderName, inFileNameWithExtension, inItemName, inJsonPK, inDataPK, InsertKey, MainRowPK }) => {
+    let LocalDataToReturn = await CommonDataSupply.SubTableDelete({ inFolderName, inFileNameWithExtension, inItemName, inJsonPK, inDataPK, InsertKey, MainRowPK });
 
     return await LocalDataToReturn;
 };
