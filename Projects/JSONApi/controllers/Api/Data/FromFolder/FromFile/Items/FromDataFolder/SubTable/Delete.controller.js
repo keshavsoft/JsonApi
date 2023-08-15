@@ -5,7 +5,6 @@ let WithPK = async (req, res, next) => {
     let LocalFolderName = req.body.FolderName;
     let LocalFileName = req.body.FileName;
     let LocalItemName = req.body.ItemName;
-    let LocalScreenName = req.body.ScreenName;
     let LocalJsonPK = req.body.RowPK;
     let LocalInsertKey = req.body.InsertKey;
     let LocalMainRowPK = req.body.MainRowPK;
@@ -16,7 +15,6 @@ let WithPK = async (req, res, next) => {
         inFolderName: LocalFolderName,
         inFileNameWithExtension: LocalFileName,
         inItemName: LocalItemName,
-        inScreenName: LocalScreenName,
         inJsonPK: LocalJsonPK,
         inDataPK: LocalDataPK,
         InsertKey: LocalInsertKey,

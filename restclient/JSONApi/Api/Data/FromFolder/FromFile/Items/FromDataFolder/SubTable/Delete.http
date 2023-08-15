@@ -5,8 +5,7 @@ content-type: application/json
     "FolderName": "Transactions",
     "FileName": "Gurudwara.json",
     "ItemName": "Orders",
-    "ScreenName": "Create",
     "InsertKey": "ItemsInOrder",
-    "MainRowPK": "5",
+    "MainRowPK": "1",
     "RowPK": "1"
 }
