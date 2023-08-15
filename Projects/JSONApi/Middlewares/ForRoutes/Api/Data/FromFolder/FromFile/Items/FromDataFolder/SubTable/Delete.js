@@ -12,7 +12,6 @@ exports.WithPK = (req, res, next) => {
                 FolderName:"",
                 FileName:"", 
                 ItemName: "",
-                ScreenName: "",
                 RowPK: "",
                 MainRowPK: "",
                 InsertKey: "",
@@ -33,10 +32,6 @@ exports.WithPK = (req, res, next) => {
 
     if (("ItemName" in req.body) === false) {
         res.json({ KTF: false, KReason: "ItemName not found in body" })
-        return;
-    };
-    if (("ScreenName" in req.body) === false) {
-        res.json({ KTF: false, KReason: "ScreenName not found in body" })
         return;
     };
     if (("RowPK" in req.body) === false) {
