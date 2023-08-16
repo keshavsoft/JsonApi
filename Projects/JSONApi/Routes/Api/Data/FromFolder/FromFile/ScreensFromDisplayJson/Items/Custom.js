@@ -13,6 +13,8 @@ router.get('/PostFromPk/:inRowPk', (req, res) => {
         inPurchasePK: LocalRowPk,
         inDataPk: LocalDataPk
     }).then(PromiseData => {
+        console.log("PromiseData : ", PromiseData);
+
         res.json(PromiseData);
     });
 
