@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express();
 // let Repos = require('../../../../../../../Repository/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Custom/PostFromPk')
-let Repos = require('../../../../Repository/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Custom/PostFromPk')
+// let Repos = require('../../../../Repository/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Custom/PostFromPk')
+let Repos = require('../../../../Repository/Api/Data/PostQrCodes/Maguva')
 
 router.get('/:inRowPk', (req, res) => {
-    console.log("hello");
     let LocalRowPk = req.params.inRowPk;
     let LocalDataPk = req.KeshavSoft.DataPk;
 
