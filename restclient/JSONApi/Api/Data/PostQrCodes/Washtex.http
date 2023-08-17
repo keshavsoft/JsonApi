@@ -1,0 +1,6 @@
+GET  http://localhost:4119/JSONApi/Api/Data/PostQrCodes/Washtex/1
+content-type: application/json
+
+{
+
+}
