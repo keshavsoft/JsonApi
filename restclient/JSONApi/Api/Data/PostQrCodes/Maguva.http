@@ -1,0 +1,6 @@
+GET  http://localhost:4119/JSONApi/Api/Data/PostQrCodes/Maguva/12
+content-type: application/json
+
+{
+        
+}
