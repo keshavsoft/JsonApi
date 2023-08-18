@@ -15,6 +15,58 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"Mock Log": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockImportJson",
+		"body": [
+			"console.log('$1 : ', $1);"
+		],
+		"description": "Log output to console"
+	},
+	"Mock Import Json": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockImportJson",
+		"body": [
+			"import ApiConfigJson from '$1' assert {type: 'json'};"
+		],
+		"description": "Log output to console"
+	},
+	"Mock Class AddListener": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockClassAddListener",
+		"body": [
+			"import { StartFunc as StartFuncClickFunc } from './ClickFunc.js';",
+			"",
+			"let StartFunc = () => {",
+			"    let jVarLocalClassName = document.getElementsByClassName('SettlementButtonClass');",
+			"",
+			"    for (let i = 0; i < jVarLocalClassName.length; i++) {",
+			"        jVarLocalClassName[i].addEventListener('click', StartFuncClickFunc);",
+			"    };",
+			"};",
+			"",
+			"export { StartFunc };"
+		],
+		"description": "Log output to console"
+	},
+	"Mock Class AddListener ClickFunc": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockClassAddListenerClickFunc",
+		"body": [
+			"let StartFunc = () => {",
+			"    let jVarLocalEvent = event;",
+			"    let jVarLocalCurrentTarget = jVarLocalEvent.currentTarget;",
+			"    let jVarLocalDataSet = jVarLocalCurrentTarget.dataset;",
+			"",
+			"    if ('$1' in jVarLocalDataSet) {",
+			"        let jVarLocal$1 = jVarLocalDataSet.$1;",
+			"    };",
+			"};",
+			"",
+			"export { StartFunc };"
+		],
+		"description": "Log output to console"
+	},
 	"Mock Template Function": {
 		"scope": "javascript,typescript",
 		"prefix": "KMock",
