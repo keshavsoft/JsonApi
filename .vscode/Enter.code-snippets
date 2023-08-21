@@ -15,6 +15,15 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"Mock Get Html Id": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockGetHtmlId",
+		"body": [
+			"let jVarLocalHtmlId = '$1';",
+			"let jVarLocal$1 = document.getElementById(jVarLocalHtmlId);"
+		],
+		"description": "Log output to console"
+	},
 	"Mock Log": {
 		"scope": "javascript,typescript",
 		"prefix": "KMockImportJson",
