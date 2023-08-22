@@ -1,0 +1,148 @@
+{
+    "Items": {
+        "1": {
+            "Category": "Men",
+            "ItemName": "M Shirt DW",
+            "DryWashRate": 60,
+            "Pcs": "2000",
+            "DateTime": "2023-08-11T12:19:38.149Z",
+            "UserPK": 3016,
+            "pk": 1
+        },
+        "2": {
+            "Category": "Men",
+            "ItemName": "M Pant DW",
+            "DryWashRate": 60,
+            "Pcs": "1000",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 2
+        },
+        "3": {
+            "Category": "Men",
+            "ItemName": "M Jeans DW",
+            "DryWashRate": 100,
+            "Pcs": "500",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 3
+        },
+        "4": {
+            "Category": "Men",
+            "ItemName": "M Jacket DW",
+            "DryWashRate": 200,
+            "Pcs": "250",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 4
+        },
+        "5": {
+            "Category": "Women",
+            "ItemName": "W Shirt DW",
+            "DryWashRate": 100,
+            "Pcs": "3000",
+            "DateTime": "2023-08-12T06:13:33.916Z",
+            "UserPK": 3016,
+            "pk": 5
+        },
+        "6": {
+            "Category": "Women",
+            "ItemName": "W Pant DW",
+            "DryWashRate": 90,
+            "Pcs": "2000",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 6
+        },
+        "7": {
+            "Category": "Women",
+            "ItemName": "W Saree DW",
+            "DryWashRate": 200,
+            "Pcs": "1000",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 7
+        },
+        "8": {
+            "Category": "Kids",
+            "ItemName": "K Shirt DW",
+            "DryWashRate": 60,
+            "Pcs": "200",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 8
+        },
+        "9": {
+            "Category": "Kids",
+            "ItemName": "K Pant DW",
+            "DryWashRate": 60,
+            "Pcs": "100",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 9
+        },
+        "10": {
+            "Category": "Household",
+            "ItemName": "H Blanket DW",
+            "DryWashRate": 200,
+            "Pcs": "2000",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 10
+        },
+        "11": {
+            "Category": "Household",
+            "ItemName": "H Pillow Covers DW",
+            "DryWashRate": 80,
+            "Pcs": "1000",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 11
+        },
+        "12": {
+            "Category": "Others",
+            "ItemName": "O Restaurant Curtains DW",
+            "DryWashRate": 250,
+            "Pcs": "1000",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 12
+        },
+        "13": {
+            "Category": "Others",
+            "ItemName": "O Restaurant Mats DW",
+            "DryWashRate": 200,
+            "Pcs": "500",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 13
+        },
+        "14": {
+            "Category": "Others",
+            "ItemName": "O Restaurant Blankets DW",
+            "DryWashRate": 300,
+            "Pcs": "2000",
+            "DateTime": "2023-08-12T07:08:24.859Z",
+            "UserPK": 3016,
+            "pk": 14
+        }
+    },
+    "CustomerNames": {
+        "1": {
+            "CustomerName": "Keshav",
+            "Mobile": "9848163021",
+            "City": "Kakinada",
+            "DateTime": "2023-08-11T15:54:44.061Z",
+            "UserPK": 3016,
+            "pk": 1
+        },
+        "2": {
+            "CustomerName": "Chakri",
+            "Mobile": "1111111119",
+            "City": "Vizag",
+            "DateTime": "2023-08-12T07:26:48.685Z",
+            "UserPK": 3016,
+            "pk": 2
+        }
+    }
+}

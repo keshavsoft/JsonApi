@@ -1,0 +1,124 @@
+{
+    "CustomerNames": {
+        "1": {
+            "pk": 1,
+            "CustomerName": "Keshav",
+            "Mobile": "9848163021",
+            "City": "Kakinada",
+            "DateTime": "2022-10-28T13:11:07.373Z",
+            "UserPK": 2022
+        },
+        "2": {
+            "pk": 2,
+            "CustomerName": "Chakri",
+            "Mobile": "1111111112",
+            "City": "Kakinada",
+            "DateTime": "2022-10-28T13:11:07.373Z",
+            "UserPK": 2022
+        }
+    },
+    "Customers": {
+        "1": {
+            "pk": 1,
+            "CustomerName": "Keshav",
+            "Mobile": "9848163021",
+            "City": "Kakinada",
+            "DateTime": "2022-10-28T13:11:07.373Z",
+            "UserPK": 2022
+        },
+        "2": {
+            "pk": 2,
+            "CustomerName": "Chakri",
+            "Mobile": "1111111111",
+            "City": "Kakinada",
+            "DateTime": "2022-10-28T13:11:07.373Z",
+            "UserPK": 2022
+        }
+    },
+    "Items": [
+        {
+            "pk": 1,
+            "Category": "Women",
+            "ItemName": "Women Saree",
+            "DryWashRate": 60,
+            "Pcs": 200
+        },
+        {
+            "pk": 2,
+            "Category": "Men",
+            "ItemName": "Men Shirt",
+            "DryWashRate": 60,
+            "Pcs": 200
+        },
+        {
+            "pk": 3,
+            "Category": "Women",
+            "ItemName": "Women Shirt",
+            "DryWashRate": 70,
+            "Pcs": 200
+        },
+        {
+            "pk": 16,
+            "Category": "Men",
+            "ItemName": "Men Pant",
+            "DryWashRate": 70,
+            "Pcs": 300
+        },
+        {
+            "pk": 18,
+            "Category": "Men",
+            "ItemName": "Men Jeans",
+            "DryWashRate": 100,
+            "Pcs": 250
+        },
+        {
+            "pk": 20,
+            "Category": "Men",
+            "ItemName": "Men Jacket",
+            "DryWashRate": 100,
+            "Pcs": 250
+        },
+        {
+            "pk": 21,
+            "Category": "Kids",
+            "ItemName": "Kids Shirt",
+            "DryWashRate": 50,
+            "Pcs": 1600
+        },
+        {
+            "pk": 22,
+            "Category": "Kids",
+            "ItemName": "Kids Pant",
+            "DryWashRate": 40,
+            "Pcs": 1000
+        },
+        {
+            "pk": 23,
+            "Category": "Household",
+            "ItemName": "Blanket",
+            "DryWashRate": 100,
+            "Pcs": 100
+        },
+        {
+            "pk": 24,
+            "Category": "Household",
+            "ItemName": "Pillow Covers",
+            "DryWashRate": 30,
+            "Pcs": 400
+        },
+        {
+            "pk": 25,
+            "Category": "Others",
+            "ItemName": "Restaurant Curtains",
+            "DryWashRate": 200,
+            "Pcs": 300
+        },
+        {
+            "pk": 26,
+            "Category": "Others",
+            "ItemName": "Restaurant Mats",
+            "DryWashRate": 150,
+            "Pcs": 400
+        }
+    ]
+}
