@@ -15,6 +15,18 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"Mock Middleware ifcondition": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockMiddlewareIfCondition",
+		"body": [
+
+			"if (('$1' in req.body) === false) {",
+				"res.json({ KTF: false, KReason: '$1 not found in body' })",
+				"return;",
+			"};"
+		],
+		"description": "Log output to console"
+	},
 	"Mock Get Html Id": {
 		"scope": "javascript,typescript",
 		"prefix": "KMockGetHtmlId",
