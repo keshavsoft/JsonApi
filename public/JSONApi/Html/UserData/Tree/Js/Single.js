@@ -1,3 +1,3 @@
-import { StartFunc as StartFuncEnteryFile } from "./FoamLoad/FetchFuncs/EnteryFile.js";
+import { StartFunc as StartFuncEntryFile } from "./FormLoad/FetchFuncs/EntryFile.js";
 
-StartFuncEnteryFile();
+StartFuncEntryFile();
