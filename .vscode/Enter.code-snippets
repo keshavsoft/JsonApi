@@ -15,6 +15,7 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+
 	"Mock 5-FetchFunc": {
 		"scope": "javascript,typescript",
 		"prefix": "KMockFetchFunc",
