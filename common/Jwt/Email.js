@@ -1,5 +1,5 @@
 var jwt = require('jsonwebtoken');
-let CommonToken = "k";
+let CommonToken = process.env.KS_EMAIL_TOKENSECRET;
 
 exports.CreateToken = ({ inUserName, inEmail }) => {
     return new Promise((resolve, reject) => {

@@ -15,7 +15,18 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-
+	"Mock Html Focus": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockHtmlFocus",
+		"body": [
+			"let jFLocalHtmlFocus$1 = () => {",
+			"   let jVarLocalHtmlId = '$1';",
+			"   let jVarLocal$1 = document.getElementById(jVarLocalHtmlId);",
+			"   jVarLocal$1.focus();",
+			"};"
+		],
+		"description": "Log output to console"
+	},
 	"Mock 5-FetchFunc": {
 		"scope": "javascript,typescript",
 		"prefix": "KMockFetchFunc",
