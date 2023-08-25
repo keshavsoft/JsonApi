@@ -1,4 +1,3 @@
-const { json } = require('express');
 const WebSocket = require('ws');
 
 let CommonjwtFunc = require("../../common/Jwt/Bs5");
@@ -75,8 +74,6 @@ let WsOnConnection = async (ws, req) => {
             ws.close();
         }
     } else {
-        console.log("else------ : ");
-        
         ws.on('message', (messageAsString) => {
             CommonController.incoming({
                 inComingMessage: messageAsString.toString(),
