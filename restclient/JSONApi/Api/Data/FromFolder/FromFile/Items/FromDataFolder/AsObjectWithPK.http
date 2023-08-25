@@ -1,8 +1,9 @@
 POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AsObjectWithPK
 content-type: application/json
  
-{   
-"inFolderName":"Masters",
-"inFileNameOnly":"CRM",
-"inItemName":"Customers"
-}
+ {
+       "inFolderName": "Transactions",
+    "inFileNameOnly": "Gurudwara",
+    "inItemName": "Orders"
+ }
+    
