@@ -26,4 +26,4 @@ web.config
 
 /restclient/JSONAdminApi
 
-.env
+live.env
