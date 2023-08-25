@@ -1,12 +1,11 @@
-let Repo = require("../../../../Repository/Validate/Users/InUserDataJson/ForUserNameAndPassword")
-// let CommonjwtFunc = require("../../../../../../common/Jwt/Bs5");
+let Repo = require("../../../../Repository/Validate/Users/InUserDataJson/ForCleaning")
 let CommonjwtFunc = require("../../../../../../common/Jwt/ForLogin/UserCredentials");
 
-let TokenToCookieFirmDetailsAlso = (req, res,) => {
+let TokenToCookie = (req, res,) => {
     let LocalUserName = req.body.inUserName;
     let LocalPassWord = req.body.inPassWord;
 
-    Repo.TokenToCookieFirmDetailsAlso({
+    Repo.TokenToCookie({
         inUserName: LocalUserName,
         inPassWord: LocalPassWord,
     }).then(PromiseData => {
@@ -14,7 +13,6 @@ let TokenToCookieFirmDetailsAlso = (req, res,) => {
             res.json(PromiseData);
         } else {
             if (PromiseData.kPK > 0) {
-           //     console.log("PromiseData : ", PromiseData);
                 CommonjwtFunc.CreateToken({
                     inUserName: LocalUserName,
                     inDataPk: PromiseData.kPK
@@ -27,7 +25,8 @@ let TokenToCookieFirmDetailsAlso = (req, res,) => {
                 });
             };
         };
-    })
+    });
+
 };
 
-module.exports = { TokenToCookieFirmDetailsAlso };
+module.exports = { TokenToCookie };

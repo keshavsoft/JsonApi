@@ -1,13 +1,30 @@
 var jwt = require('jsonwebtoken');
-// let CommonCheckDataPK = require("../../DataSupply/Fs/Config/CheckDataPK");
-let CommonFromDataSupply = require("../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/Check");
+// let CommonToken = process.env.KS_TOKEN_FORLOGIN;
+let CommonFromDataSupply = require("../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/Check");
 
-// let CommonToken = "k";
-let CommonToken = process.env.KS_TOKEN_FORLOGIN;
+exports.CreateToken = ({ inUserName, inDataPk }) => {
+    let LocalToken = process.env.KS_TOKEN_FORLOGIN;
+
+    return new Promise((resolve, reject) => {
+        jwt.sign({ UserName: inUserName, DataPk: inDataPk }, LocalToken, (err, token) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(token);
+            };
+        });
+    });
+};
+
+let LocalFromCoookies = (req, res, next) => {
+    LocalVerifyToken(req, res, req.cookies.KToken, next);
+};
 
 let LocalVerifyToken = (req, res, inKToken, next) => {
     try {
-        jwt.verify(inKToken, CommonToken, (err, authData) => {
+        let LocalToken = process.env.KS_TOKEN_FORLOGIN;
+
+        jwt.verify(inKToken, LocalToken, (err, authData) => {
             if (err) {
                 //  res.end(err);
                 res.end("Invalid Token!");
@@ -43,35 +60,6 @@ let LocalVerifyToken = (req, res, inKToken, next) => {
     };
 };
 
-exports.VerifyTokenOnly = async ({ inToken }) => {
-    return new Promise((resolve, reject) => {
-        jwt.verify(inToken, CommonToken, (err, authData) => {
-            if (err) {
-                reject(false);
-            } else {
-                resolve(true);
-            }
-        });
-    });
-};
-
-exports.VerifyTokenReturnData = async ({ inToken }) => {
-    return await jwt.verify(inToken, CommonToken);
-
-    // jwt.verify(inToken, CommonToken, async (err, authData) => {
-    //     console.log("aaaaaaaaaa ", err, authData);
-    //     if (err) {
-    //         return await err;
-    //     } else {
-    //         return await authData;
-    //     };
-    // });
-};
-
-let LocalFromCoookies = (req, res, next) => {
-    LocalVerifyToken(req, res, req.cookies.KToken, next);
-};
-
 let LocalFromHeaders = (req, res, next) => {
     if (req.get("ktoken") === undefined) {
         res.json({ KTF: false, KReason: "ktoken not found in request headers!" });
@@ -90,13 +78,4 @@ exports.ForKeshavSoftRedirectToLogin = (req, res, next) => {
             res.sendStatus(403);
         };
     };
-};
-
-exports.CreateToken = ({ inUserName, inDataPk }) => {
-    console.log("CommonToken : ", CommonToken);
-    return new Promise((resolve, reject) => {
-        jwt.sign({ UserName: inUserName, DataPk: inDataPk }, CommonToken, (err, token) => {
-            resolve(token);
-        });
-    });
 };

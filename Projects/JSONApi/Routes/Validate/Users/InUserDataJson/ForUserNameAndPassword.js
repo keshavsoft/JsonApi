@@ -5,6 +5,7 @@ let Repo = require("../../../../Repository/Validate/Users/InUserDataJson/ForUser
 let CommonjwtFunc = require("../../../../../../common/Jwt/Bs5");
 let CommonControllers = require("../../../../controllers/Validate/Users/InUserDataJson/ForUserNameAndPassword.Controllers")
 let CommonMiddlewares = require("../../../../Middlewares/Validate/Users/InUserDataJson/ForUserNameAndPassword")
+let CommonjwtUserCredentials = require("../../../../../../common/Jwt/ForLogin/UserCredentials");
 
 router.post('/TokenToCookie', (req, res,) => {
     let LocalUserName = req.body.inUserName;
@@ -18,7 +19,7 @@ router.post('/TokenToCookie', (req, res,) => {
             res.json(PromiseData);
         } else {
             if (PromiseData.kPK > 0) {
-                CommonjwtFunc.CreateToken({
+                CommonjwtUserCredentials.CreateToken({
                     inUserName: LocalUserName,
                     inDataPk: PromiseData.kPK
                 }).then((PromiseDataFromJwt) => {

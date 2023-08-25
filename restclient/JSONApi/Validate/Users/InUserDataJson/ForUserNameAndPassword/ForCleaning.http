@@ -1,0 +1,8 @@
+POST  http://localhost:4119/JSONApi/Validate/Users/InUserDataJson/ForCleaning/TokenToCookie
+content-type: application/json
+
+{
+     "inUserName": "L1",
+    "inPassWord": "L1"
+}
+
