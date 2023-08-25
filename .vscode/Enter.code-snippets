@@ -15,6 +15,25 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"Mock Template Function without Promise": {
+		"scope": "javascript,typescript",
+		"prefix": "KMockFuncWithOutPromise",
+		"body": [
+			"if (CommonMock.AllowMock) {",
+			"    if (CommonMock.MockKey === '$1') {",
+			"        let LocalMockData = require('./$TM_FILENAME_BASE.json');",
+			"",
+			"        let LocalData = StartFunc({",
+			"            inDataPK: CommonMock.DataPK,",
+			"            ...LocalMockData",
+			"        });",
+			"        console.log('LocalData : ', LocalData);",
+			"        $0",
+			"   };",
+			"};"
+		],
+		"description": "Log output to console"
+	},
 	"Mock Html Focus": {
 		"scope": "javascript,typescript",
 		"prefix": "KMockHtmlFocus",
