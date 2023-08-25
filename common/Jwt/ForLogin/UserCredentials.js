@@ -3,9 +3,9 @@ var jwt = require('jsonwebtoken');
 let CommonFromDataSupply = require("../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/Check");
 
 exports.CreateToken = ({ inUserName, inDataPk }) => {
-    let LocalToken = process.env.KS_TOKEN_FORLOGIN;
-
     return new Promise((resolve, reject) => {
+        let LocalToken = process.env.KS_TOKEN_FORLOGIN;
+
         jwt.sign({ UserName: inUserName, DataPk: inDataPk }, LocalToken, (err, token) => {
             if (err) {
                 reject(err);
