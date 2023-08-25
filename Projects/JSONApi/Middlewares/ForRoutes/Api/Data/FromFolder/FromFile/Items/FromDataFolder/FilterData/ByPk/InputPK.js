@@ -1,5 +1,4 @@
 exports.PostFunc = (req, res, next) => {
-    console.log("kkkkkkk");
     if (("DataPk" in req.KeshavSoft) === false) {
         res.json({ KTF: false, KReason: "DataPk not found in Request" })
         return;

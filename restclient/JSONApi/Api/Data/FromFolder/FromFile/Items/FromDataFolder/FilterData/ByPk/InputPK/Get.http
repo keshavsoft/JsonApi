@@ -1,4 +1,9 @@
 POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByPk/InputPK
 content-type: application/json
 
-{}
+{
+    "inFolderName": "Transactions",
+    "inFileNameOnly": "Gurudwara",
+    "inItemName": "Orders",
+    "inRowPk": "4"
+}
