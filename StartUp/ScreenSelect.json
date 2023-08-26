@@ -1,4 +1,5 @@
 {
-    "HomeScreenKey": "HomeHtml",
-    "HomeScreenKey1": "HomeHtmlForGarments"
+    "HomeScreenKey": "HomeHtmlForCleaning",
+    "HomeScreenKey1": "HomeHtmlForGarments",
+    "HomeScreenKey2": "HomeHtml"
 }
