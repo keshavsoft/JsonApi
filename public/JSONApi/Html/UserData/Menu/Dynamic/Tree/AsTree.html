@@ -203,10 +203,215 @@
 
     <div class="container">
 
-      <div id="tree"></div>
-    </div>
+      <datalist id="ReportsList"> </datalist>
+      <div class="row">
+          <div class="col-2">Select Report Name</div>
+          <div class="col-6">
+              <div class="input-group mt-2 d-print-none mb-3">
+                  <input type="text" class="form-control ReportSelectedClass" list="ReportsList" placeholder="Select Report Name" autofocus="">
+
+                  <button class="btn btn-outline-secondary" type="button" id="ReportButtonId">
+                      <span class="spinner-border spinner-border-sm" style="display: none;" role="status" aria-hidden="true" id="ReportButtonShowProcessId"></span> Go</button>
+
+              </div>
+          </div>
+      </div>
+
+
+
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Filters</button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#Conditions-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Conditions</button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="Columns-tab" data-bs-toggle="tab" data-bs-target="#Columns-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Columns</button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#ColumnOrder-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Column Order
+              </button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#ColumnWidths-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Column Widths
+              </button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                  Filtered Data</button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="Immute-tab" data-bs-toggle="tab" data-bs-target="#Immute-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Immute Data</button>
+          </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+              <form action="#" id="FilterFormId">
+
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Column Name</th>
+                              <th scope="col">Search Value</th>
+                              <th scope="col">Filter</th>
+                          </tr>
+                      </thead>
+                      <tbody id="FilterTableBody">
+                      </tbody>
+                  </table>
+              </form>
+          </div>
+          <div class="tab-pane fade" id="Conditions-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+              <label>Columns :</label>
+
+              <div class="input-group mt-2 d-print-none mb-3">
+                  <datalist id="ColumnsList"> </datalist>
+
+                  <input type="text" id="ColumnSelectedId" class="form-control" list="ColumnsList" placeholder="Select Folder">
+
+                  <button class="btn btn-outline-secondary" type="button" onclick="jFShowReportDataFromInput(event)" id="button-addon2">Go</button>
+              </div>
+
+              <div class="row">
+                  <div class="col">
+                      <div class="mb-3">
+                          <label for="" class="form-label">From Value</label>
+                          <input type="text" class="form-control" name="" id="FromValueId" aria-describedby="helpId" placeholder="">
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="mb-3">
+                          <label for="" class="form-label">From Condition</label>
+                          <input type="text" class="form-control" id="FromConditionId" list="FromConditionList">
+
+                          <datalist id="FromConditionList">
+                              <option value=">=">
+                              </option>
+                              <option value="<=">
+
+                              </option>
+                          </datalist>
+                      </div>
+                  </div>
+              </div>
+
+
+              <div class="row">
+                  <div class="col">
+                      <div class="mb-3">
+                          <label for="" class="form-label">To Value</label>
+                          <input type="text" class="form-control" name="" id="ToValueId" aria-describedby="helpId" placeholder="">
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="mb-3">
+                          <label for="" class="form-label">To Condition</label>
+                          <input type="text" class="form-control" id="ToConditionId" list="ToConditionList">
+
+                          <datalist id="ToConditionList">
+                              <option value=">=">
+                              </option>
+                              <option value="<=">
+
+                              </option>
+                          </datalist>
+                      </div>
+                  </div>
+              </div>
+
+              <button type="button" id="ConditionsButtonId" onclick="jFConditionsShowData(event)" class="btn btn-primary">Filter Data</button>
+          </div>
+          <div class="tab-pane fade" id="Columns-tab-pane" role="tabpanel" aria-labelledby="Columns-tab" tabindex="0">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Column Name</th>
+                          <th scope="col">Show</th>
+                      </tr>
+                  </thead>
+                  <tbody id="ColumnsTableBody">
+                  </tbody>
+              </table>
+          </div>
+          <div class="tab-pane fade" id="ColumnOrder-tab-pane" role="tabpanel" aria-labelledby="Columns-tab" tabindex="0">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Column Name</th>
+                          <th scope="col">Column Order</th>
+                      </tr>
+                  </thead>
+                  <tbody id="ColumnOrderTableBody">
+                  </tbody>
+              </table>
+          </div>
+          <div class="tab-pane fade" id="ColumnWidths-tab-pane" role="tabpanel" aria-labelledby="Columns-tab" tabindex="0">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Column Name</th>
+                          <th scope="col">Column Width</th>
+                      </tr>
+                  </thead>
+                  <tbody id="ColumnWidthsTableBody">
+                  </tbody>
+              </table>
+          </div>
+          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+              <div class="row mt-2">
+                  <div class="col" id="ShowFiltersId">
+                      Show Filters
+                  </div>
+                  <div class="col">
+                      <button type="button" id="FilterDataId" class="btn btn-success">
+                          Data with Filters</button>
+                  </div>
+              </div>
+              <div id="FilteredTableId">
+
+              </div>
+          </div>
+          <div class="tab-pane fade" id="Immute-tab-pane" role="tabpanel" aria-labelledby="Immute-tab" tabindex="0">
+              <div class="row">
+                  <div class="col">
+                      <button type="button" id="ImmuteShowButtonId" class="btn btn-primary">Show Immute Data</button>
+                  </div>
+              </div>
+              <div id="ImmuteTableId">
+
+              </div>
+          </div>
+      </div>
+  </div>
 
   </main>
+  <template id="FilterTableRow">
+    <tr>
+        <th scope="row">{{SNo}}</th>
+        <td>{{Name}}</td>
+        <td>
+            <input type="text" class="form-control SearchInput" aria-describedby="helpId" list="DataListForFilter-{{SNo}}" data-dataattribute="{{DataAttribute}}" name="{{DataAttribute}}">
+            <datalist id="DataListForFilter-{{SNo}}">
+            </datalist>
+        </td>
+        <td>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Consider
+                </label>
+            </div>
+        </td>
+    </tr>
+</template>
+<script src="/JSONReports/Js/handlebars/handlebars.min-v4.7.7.js"></script>
+<script src="/JSONReports/Js/lodash.js"></script>
 
   <script>
     let jVarLocalPresentViewData;
