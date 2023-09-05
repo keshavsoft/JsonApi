@@ -1,0 +1,9 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/FromJson
+content-type: application/json
+
+{
+    "inFolderName": "Masters",
+    "inFileName": "CRM.json",
+    "inItemName": "Items",
+    "inScreenName": "Create"
+}
