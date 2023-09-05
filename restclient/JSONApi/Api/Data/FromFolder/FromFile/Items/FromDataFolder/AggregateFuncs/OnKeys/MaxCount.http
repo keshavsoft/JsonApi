@@ -1,0 +1,8 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AggregateFuncs/OnKeys/Max/Count/2
+content-type: application/json
+ 
+{
+    "FolderName": "Masters",
+    "FileNameOnly": "CRM",
+    "ItemName": "CustomerNames"
+}
