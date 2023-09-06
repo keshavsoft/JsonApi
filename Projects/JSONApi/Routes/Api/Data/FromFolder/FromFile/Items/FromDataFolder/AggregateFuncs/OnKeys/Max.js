@@ -5,9 +5,8 @@ let CommonControllers = require("../../../../../../../../../controllers/Api/Data
 let Repos = require("../../../../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AggregateFuncs/OnKeys/Max");
 
 router.post('/', Middlewares.PostFunc, CommonControllers.PostFunc);
-router.post('/Count/:inCount', async (req, res) => {
-    console.log("kkkkkkkkkkk");
 
+router.post('/Count/:inCount', async (req, res) => {
     let LocalDataPk = req.KeshavSoft.DataPk;
     let LocalFolderName = req.body.FolderName;
     let LocalFileName = req.body.FileNameOnly;
@@ -23,8 +22,6 @@ router.post('/Count/:inCount', async (req, res) => {
     });
 
     res.end(JSON.stringify(PromiseData));
-
-
 });
 
 module.exports = router;
