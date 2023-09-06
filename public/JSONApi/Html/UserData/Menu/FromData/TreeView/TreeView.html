@@ -55,9 +55,8 @@
                             Parent
                         </a>
                     </li>
-
                     <li>
-                        <a href="../AllInOne/AllInOne.html" onclick="jFMenuClick.ItemClick(event)" class="nav-link text-white AllInOneAClass">
+                        <a href="../AllInOne/AllInOne.html" onclick="jFMenuClick.ItemClick(event)" class="nav-link text-white TogglesAClass">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                                 <path d="M4.5 9a3.5 3.5 0 1 0 0 7h7a3.5 3.5 0 1 0 0-7h-7zm7 6a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm-7-14a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm2.45 0A3.49 3.49 0 0 1 8 3.5 3.49 3.49 0 0 1 6.95 6h4.55a2.5 2.5 0 0 0 0-5H6.95zM4.5 0h7a3.5 3.5 0 1 1 0 7h-7a3.5 3.5 0 1 1 0-7z">
                                 </path>
@@ -65,8 +64,9 @@
                             AllInOne
                         </a>
                     </li>
+
                     <li>
-                        <a href="../TreeView/TreeView.html" onclick="jFMenuClick.ItemClick(event)" class="nav-link text-white TogglesAClass">
+                        <a href="../TreeView/TreeView.html" onclick="jFMenuClick.ItemClick(event)" class="nav-link text-white TreeViewAClass">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                                 <path d="M7 7V1.414a1 1 0 0 1 2 0V2h5a1 1 0 0 1 .8.4l.975 1.3a.5.5 0 0 1 0 .6L14.8 5.6a1 1 0 0 1-.8.4H9v10H7v-5H2a1 1 0 0 1-.8-.4L.225 9.3a.5.5 0 0 1 0-.6L1.2 7.4A1 1 0 0 1 2 7h5zm1 3V8H2l-.75 1L2 10h6zm0-5h6l.75-1L14 3H8v2z"/>
                               </svg>
@@ -178,6 +178,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
 
@@ -189,11 +190,12 @@
                 <button type="button"  class="btn btn-primary AccordionButtonClass" data-foldername="{{@../../key}}" data-filename="{{@../key}}" data-itemname="{{@key}}">Button</button>
             </div>
             <div class="card-body">
-                <table id="table-{{@../../key}}-{{@../key}}-{{@key}}">
+                <div id="tree-{{@../../key}}-{{@../key}}-{{@key}}"></div>
+                <!-- <table id="table-{{@../../key}}-{{@../key}}-{{@key}}">
                     <thead>
                         <tr id="table-head-row-{{@../../key}}-{{@../key}}-{{@key}}">
                         </tr>
-                    </thead>
+                    </thead> -->
                    
                
                 </table>
@@ -564,7 +566,7 @@
     <script src="./Js/bstreeview.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 
-    <script src="./Js/AllInOne.js" type="module"></script>
+    <script src="./Js/TreeView.js" type="module"></script>
 
 </body>
 
