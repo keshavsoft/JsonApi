@@ -1,10 +1,8 @@
 import { jFShowFoldersInMenu } from "./FromFolder.js";
-import { StartFunc as BuildCardsFuncsStartFunc } from "./BuildCardsFuncs.js";
+import { StartFunc as StartFuncEntry } from "./Addlistioners/Entry.js";
 
 jFShowFoldersInMenu({
     inProjectName: jVarGlobalProject,
     inSubRoute: jVarGlobalSubRoute
 });
-
-
-// BuildCardsFuncsStartFunc();
+StartFuncEntry();

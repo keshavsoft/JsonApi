@@ -1,9 +1,10 @@
+import { StartFunc as StartFuncBSVerticalIdButton } from "./ButtonClickFuncs/BSVerticalIdButton.js";
+import { StartFunc as StartFuncBSTableIdButton } from "./ButtonClickFuncs/BSTableIdButton.js";
+import { StartFunc as StartFuncBSTreeIdButton } from "./ButtonClickFuncs/BSTreeIdButton.js";
 const StartFunc = () => {
-    let jVarLocalHtmlId = 'localBSTableId';
-    let jVarLocallocalBSTableId = document.getElementById(jVarLocalHtmlId);
-
-    jVarLocallocalBSTableId.addEventListener("click", () => {
-    });
+    StartFuncBSVerticalIdButton();
+    StartFuncBSTableIdButton();
+    StartFuncBSTreeIdButton();
 };
 
 export { StartFunc };
