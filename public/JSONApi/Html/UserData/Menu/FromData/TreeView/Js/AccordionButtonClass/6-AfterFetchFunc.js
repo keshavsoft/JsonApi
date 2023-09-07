@@ -1,9 +1,10 @@
 let StartFunc = async ({ inResponse, inBodyData }) => {
-    await StartFuncForTree({inResponse,inBodyData});
+    await StartFuncForTree({ inResponse, inBodyData });
 };
 
-let jFPrepareDataForTree = ({inResponse}) => {
+let jFPrepareDataForTree = ({ inResponse }) => {
     let jVarLocalData = inResponse;
+    jVarLocalData = jVarLocalPresentViewData;
 
     if ("KTF" in jVarLocalData) {
         if (jVarLocalData.KTF) {
@@ -37,12 +38,12 @@ let jFLoop = ({ inDataValue, inText }) => {
     return LoopObject;
 };
 
-const StartFuncForTree = async ({inResponse,inBodyData}) => {
+const StartFuncForTree = async ({ inResponse, inBodyData }) => {
     let jVarLocalFolderName = inBodyData.inFolderName;
     let jVarLocalfilename = inBodyData.inFileNameOnly;
     let jVarLocalitemname = inBodyData.inItemName;
-    let data = jFPrepareDataForTree({inResponse});
-    console.log("data::",data);
+    let data = jFPrepareDataForTree({ inResponse });
+    console.log("data::", data);
 
     let NewData = Object.keys(data).map(element => {
         return jFLoop({

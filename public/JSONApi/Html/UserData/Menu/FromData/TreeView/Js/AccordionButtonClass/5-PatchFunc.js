@@ -25,7 +25,7 @@ let StartFunc = async ({ inFetchBody }) => {
 const localFetchFunc = async ({ inFetchBody }) => {
     // let jFetchUrl = `/${ApiConfigJson.ProjectName}/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableColumns/Toggles`;
     let jFetchUrl = `/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AsObjectWithPK`;
-   
+
     let jLocalFetchConfig = {
         method: "post",
         headers: {
@@ -38,12 +38,9 @@ const localFetchFunc = async ({ inFetchBody }) => {
     let response = await fetch(jFetchUrl, jLocalFetchConfig);
 
     let jVarLocalResponseData = await response.json();
-    console.log("jVarLocalResponseData:",jVarLocalResponseData);
+    jVarLocalPresentViewData = jVarLocalResponseData;
 
     StartFuncAfterFetchFunc({ inResponse: jVarLocalResponseData, inBodyData: inFetchBody });
-
-    // return await response.status;
-
-}
+};
 
 export { StartFunc };

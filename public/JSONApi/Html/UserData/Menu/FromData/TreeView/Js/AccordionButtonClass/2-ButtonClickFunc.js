@@ -8,7 +8,6 @@ let StartFunc = ({ inevent }) => {
     if (StartFuncCheckBeforeFetch()) {
         let jVarLocalPreparePostData = StartFuncPreparePostData({ CurrentTarget: jVarLocalCurrentTarget });
          StartFuncPatchFunc({ inFetchBody: jVarLocalPreparePostData });
-
     };
 };
 
