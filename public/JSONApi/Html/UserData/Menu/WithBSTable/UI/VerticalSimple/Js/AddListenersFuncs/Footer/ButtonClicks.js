@@ -2,7 +2,7 @@
 //import { StartFunc as StartFuncExtractValue } from "../../../CommonFuncs/Htmlnputs/ExtractValue.js";
 // import { StartFunc as StartFuncLoopInputs } from "../../../../CommonFuncs/Htmlnputs/LoopInputs.js";
 import { StartFunc as StartFuncLoopInputs } from "./../../CommonFuncs/Htmlnputs/LoopInputs.js";
-
+import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
 
 let StartFunc = async ({ inProjectName, inSubRoute }) => {
     let jVarLocalFind = document.querySelectorAll(".KVerticalFooterSaveButtonClass");
@@ -38,7 +38,8 @@ let Vertical = {
                     inProjectName, inSubRoute
                 }).then(PromiseData => {
                     if (PromiseData.KTF) {
-                         window.location.href = `Show.html${window.location.search}&JsonPk=${PromiseData.kPK}`;
+                        //  window.location.href = `Show.html${window.location.search}&JsonPk=${PromiseData.kPK}`;
+                          StartFuncAfterFetch();
                     };
                     // console.log("ssssssssss : ", PromiseData);
                 });
