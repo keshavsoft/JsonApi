@@ -1,10 +1,24 @@
 POST  http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/MainTable/WithSelectedColumns
 content-type: application/json
 
-
 {
-    "inFolderName": "Transactions",
-    "inFileName": "GST-SALES.json",
-    "inItemName": "GST-SALE",
+    "inFolderName": "Washing",
+    "inFileNameOnly": "",
+    "inItemName": "VoucherDetails",
+    "inFileName": "ToFactory.json",
     "inScreenName": "Create"
 }
+
+# {
+#     "inFolderName": "Masters",
+#     "inFileName": "CRM.json",
+#     "inItemName": "CustomerNames",
+#     "inScreenName": "Create"
+# }
+
+# {
+#     "inFolderName": "Washing",
+#     "inFileName": "ToFactory.json",
+#     "inItemName": "VoucherDetails",
+#     "inScreenName": "Create"
+# }

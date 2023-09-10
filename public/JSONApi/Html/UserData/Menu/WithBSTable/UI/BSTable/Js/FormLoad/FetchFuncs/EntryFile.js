@@ -5,17 +5,19 @@ let StartFunc = async () => {
     let jVarLocalFolderName = getUrlQueryParams({ inGetKey: "FolderName" });
     let jVarLocalFileNameOnly = getUrlQueryParams({ inGetKey: "FileName" });
     let jVarLocalItemName = getUrlQueryParams({ inGetKey: "ItemName" });
+    let jVarLocalScreenName = getUrlQueryParams({ inGetKey: "ScreenName" });
 
 
     await StartFuncFetchFunc({
         inFolderName: jVarLocalFolderName,
         inFileNameOnly: jVarLocalFileNameOnly,
         inItemName: jVarLocalItemName,
+        inScreenName:jVarLocalScreenName
     });
     jFLocalPrepareHeaderForDataOnly();
     var $table = $('#table');
 
-    $table.bootstrapTable({ data: Object.values(jVarLocalPresentViewData.JsonData) });
+    $table.bootstrapTable({ data: jVarLocalPresentViewData.DataFromServer[0].KData.TableData});
     // StartFuncAfterFetch();
 };
 
@@ -29,11 +31,11 @@ let getUrlQueryParams = ({ inGetKey }) => {
 let jFLocalPrepareHeaderForDataOnly = () => {
     let jVarLocalHtmlId = 'tableHeadRow';
     let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
-    let jVarLocalColumns = Object.keys(Object.values(jVarLocalPresentViewData.JsonData)[0]);
+    let jVarLocalColumns = jVarLocalPresentViewData.DataFromServer[0].KData.TableColumns;
     jVarLocalColumns.forEach(element => {
         let jVarLocalNewTh = document.createElement("th");
-        jVarLocalNewTh.innerHTML = element;
-        jVarLocalNewTh.dataset.field = element;
+        jVarLocalNewTh.innerHTML = element.DisplayName;
+        jVarLocalNewTh.dataset.field = element.DataAttribute;
         jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
     });
 }
