@@ -1,0 +1,21 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/InsertWithPk
+content-type: application/json
+
+{
+  "inPostData": {
+    "ProductName": "NIGHTHY",
+        "UnitRate": 681,
+        "pk": 6,
+        "sno": 1,
+        "Barcode": "316",
+        "DisPercentage": 0,
+        "DisRate": 0,
+        "GrossAmout": 681,
+        "Qty": null,
+        "BillPk": "1"
+  },
+  "FileNameOnly": "Bills",
+  "FolderName": "Sales",
+  "ItemName": "BillsQrCode",
+  "ScreenName": "Create"
+}

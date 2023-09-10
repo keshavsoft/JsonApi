@@ -68,8 +68,7 @@ let InsertWithTimeStamp = async (req, res, next) => {
     res.end(JSON.stringify(PromiseData));
 };
 
-
-let InsertWithPkFunc = async (req, res, next) => {
+let InsertWithPkFunc = (req, res, next) => {
     let LocalDataPk = req.KeshavSoft.DataPk;
     let LocalFolderName = req.body.FolderName;
     let LocalFileName = req.body.FileNameOnly;
@@ -78,24 +77,17 @@ let InsertWithPkFunc = async (req, res, next) => {
     let LocalJsonPK = req.body.JsonPk;
     let LocalDataToInsert = req.body.inPostData;
 
-    console.log("----------:", LocalDataToInsert);
-
-
-    let PromiseData = await Repos.InsertWithPkFunc({
+    let PromiseData = Repos.InsertWithPkFunc({
         inDataPK: LocalDataPk,
         inFolderName: LocalFolderName,
         inFileNameOnly: LocalFileName,
         inItemName: LocalItemName,
         inScreenName: LocalScreenName,
-        inJsonPk: LocalJsonPK,
+        inJsonPk: LocalJsonPK,  
         inDataToInsert: LocalDataToInsert
     });
 
     res.end(JSON.stringify(PromiseData));
-
-    // .then(PromiseData => {
-    //     res.end(JSON.stringify(PromiseData));
-    // });
 };
 
 let PostFunc = async (req, res, next) => {
