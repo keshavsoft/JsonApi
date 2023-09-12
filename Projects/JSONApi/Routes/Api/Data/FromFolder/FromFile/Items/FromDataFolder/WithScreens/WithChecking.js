@@ -10,6 +10,6 @@ router.post('/InsertWithTimeStamp', CommonMiddlewares.InsertWithTimeStamp, Commo
 router.post('/', CommonConrollers.PostFunc);
 router.delete('/', CommonConrollers.DeleteFunc);
 router.patch('/', CommonConrollers.PatchFunc);
-router.post('/InsertWithPk', CommonConrollers.InsertWithPkFunc);
+router.post('/InsertWithPk',CommonMiddlewares.InsertWithPk, CommonConrollers.InsertWithPkFunc);
 
 module.exports = router;
