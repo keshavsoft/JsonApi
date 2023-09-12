@@ -1,0 +1,12 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/InsertWithPk
+content-type: application/json
+
+{
+    "FolderName":"Transactions",
+    "FileNameOnly":"Kakinada",
+    "ItemName":"Orders",
+    "ScreenName":"Create",
+    "JsonPk":1,
+    "inPostData":"5"
+}
+   
