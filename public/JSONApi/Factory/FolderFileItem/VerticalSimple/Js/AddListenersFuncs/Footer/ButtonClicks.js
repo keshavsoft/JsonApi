@@ -4,7 +4,7 @@ import { StartFunc as StartFuncFetchFunc } from "./FetchFunc.js";
 
 import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
 
-import ApiConfigJson from '../../../../../../../../ApiConfig.json' assert {type: 'json'};
+import ApiConfigJson from '../../../../ConfigKeys/ProjectKeys.json' assert {type: 'json'};
 
 let StartFunc = async () => {
     let jVarLocalFind = document.querySelectorAll(".KVerticalFooterSaveButtonClass");

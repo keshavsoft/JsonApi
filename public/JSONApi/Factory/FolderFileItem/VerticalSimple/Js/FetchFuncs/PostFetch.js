@@ -1,5 +1,5 @@
 import { StartFunc as StartFuncFetchHeaders } from "./FetchHeaders/EntryFile.js";
-import ApiConfigJson from "../../../../../../../ApiConfig.json" assert {type: 'json'};
+import ApiConfigJson from "../../../ConfigKeys/ProjectKeys.json" assert {type: 'json'};
 
 let StartFunc = async () => {
     let jVarLocalFetchHeaders = StartFuncFetchHeaders();

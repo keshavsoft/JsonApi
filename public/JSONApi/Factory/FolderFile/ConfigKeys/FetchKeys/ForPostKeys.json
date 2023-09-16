@@ -3,5 +3,7 @@
     "inFileNameOnly": "ToFactory",
     "inFileName": "ToFactory",
     "inItemName": "QrCodeDetails",
-    "inScreenName": "Create"
+    "inScreenName": "Create",
+    "FolderName": "Washing",
+    "FileName": "ToFactory.json"
 }
