@@ -339,7 +339,10 @@ The above copyright notice and this permission notice shall be included in all c
                 jVarGlobalWs.onopen = () => {
                     console.log('Connection opened!');
                 }
-                jVarGlobalWs.onmessage = ({ data }) => showMessage(data);
+                jVarGlobalWs.onmessage = (event) => {
+                    console.log("event : ", event);
+                    showMessage(event.data);
+                };
                 jVarGlobalWs.onclose = function () {
                     jVarGlobalWs = null;
                 }
@@ -348,6 +351,8 @@ The above copyright notice and this permission notice shall be included in all c
                 alert("WebSocket NOT supported by your Browser!");
             };
         };
+
+        jFCheckWebSocket();
     </script>
 
     <script>
@@ -359,7 +364,19 @@ The above copyright notice and this permission notice shall be included in all c
     </script>
 
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+    <script>
+        let jFForIp = async () => {
+            let jVarLocalFetchUrl = "https://api.ipify.org/";
+            let response = await fetch(jVarLocalFetchUrl);
+            let data = await response.text();
+            return data;
+        };
 
+        jFForIp().then(PromiseData => {
+            localStorage.setItem("SystemPublicIp", PromiseData);
+            console.log("PromiseData : ", PromiseData);
+        })
+    </script>
 </body>
 
 </html>

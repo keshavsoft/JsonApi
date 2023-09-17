@@ -79,3 +79,17 @@ exports.ForKeshavSoftRedirectToLogin = (req, res, next) => {
         };
     };
 };
+
+exports.VerifyTokenOnly = ({ inToken }) => {
+    return new Promise((resolve, reject) => {
+        let LocalToken = process.env.KS_TOKEN_FORLOGIN;
+
+        jwt.verify(inToken, LocalToken, (err, authData) => {
+            if (err) {
+                reject(false);
+            } else {
+                resolve(true);
+            }
+        });
+    });
+};

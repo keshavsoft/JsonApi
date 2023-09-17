@@ -2,6 +2,7 @@ const WebSocket = require('ws');
 
 let CommonjwtFunc = require("../../common/Jwt/Bs5");
 let CommonController = require("./controller");
+let CommonUserCredentials = require("../../common/Jwt/ForLogin/UserCredentials");
 
 let wss;
 const clients = new Map();
@@ -24,23 +25,66 @@ var get_cookies = function (request) {
     return cookies;
 };
 
-let WsOnConnection = async (ws, req) => {
+let WsOnConnection = (ws, req) => {
     CommonController.insertToClients({
         inClients: clients,
         ws
     });
 
-    // const id = uuidv4();
-    // const color = Math.floor(Math.random() * 360);
-    // const metadata = { id, color };
-
-    // clients.set(ws, metadata);
-
-    let LocalCookie;
     const ip = req.socket.remoteAddress;
-  //  console.log("ip : ", ip, req.headers);
+    ws.send(ip);
+
+    ws.on('message', (messageAsString) => {
+        const message = {};
+
+        message.inComingMessage = messageAsString.toString();
+
+        const metadata = clients.get(ws);
+
+        message.sender = metadata.id;
+
+        if (req.headers.cookie !== undefined) {
+            let LocalCookie;
+            LocalCookie = get_cookies(req);
+
+            if (LocalCookie.hasOwnProperty("KToken")) {
+                CommonUserCredentials.VerifyTokenOnly({ inToken: LocalCookie.KToken }).then(PromiseData => {
+                    metadata.Keshav = 316;
+                }).catch(RejectData => {
+                    ws.close();
+                });
+            } else {
+                ws.close();
+            };
+        };
+
+        CommonController.incoming({
+            inComingMessage: messageAsString.toString(),
+            inClients: clients,
+            ws,
+            inClientsInfo: clientsInfo
+        });
+    });
+
+    ws.on('close', () => {
+        clients.delete(ws);
+        console.log('closed');
+    });
+
+    ws.send('Hai Socket established');
+};
+
+
+let WsOnConnection_17Sep2023 = async (ws, req) => {
+    CommonController.insertToClients({
+        inClients: clients,
+        ws
+    });
+
+    const ip = req.socket.remoteAddress;
     ws.send(ip);
     if (req.headers.cookie !== undefined) {
+        let LocalCookie;
         LocalCookie = get_cookies(req);
 
         if (LocalCookie.hasOwnProperty("KToken")) {
@@ -75,6 +119,15 @@ let WsOnConnection = async (ws, req) => {
         }
     } else {
         ws.on('message', (messageAsString) => {
+            const message = {};
+
+            message.inComingMessage = messageAsString.toString();
+
+            const metadata = clients.get(ws);
+
+            message.sender = metadata.id;
+            console.log("metadata : ", metadata, clients);
+
             CommonController.incoming({
                 inComingMessage: messageAsString.toString(),
                 inClients: clients,
@@ -140,7 +193,7 @@ let WsOnConnection_28Nov2022 = async (ws, req) => {
 
             message.sender = metadata.id;
             message.color = metadata.color;
-
+            console.log("metadata : ", metadata);
             const outbound = JSON.stringify(message);
 
             for (let [key, value] of clients.entries()) {

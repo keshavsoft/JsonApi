@@ -1,39 +1,51 @@
+let isStringified = (jsonValue) => { // use this function to check
+    try {
+        console.log("need to parse");
+        return JSON.parse(jsonValue);
+    } catch (err) {
+        console.log("not need to parse");
+
+        return jsonValue;
+    }
+};
+
 let insertToClientsInfo = ({ inComingMessage, inClientsInfo, inClientId }) => {
+    const json = isStringified(inComingMessage);
+
+    if (typeof json == "object") {
+        console.log("string is a valid json")
+    } else {
+        console.log("string is not a valid json")
+    }
+
     try {
 
-        let LocalIncomingMessageAsJson = JSON.parse(inComingMessage);
+        // console.log("inComingMessage : ", inComingMessage);
 
-        //console.log("inComingMessage : ", inComingMessage, JSON.parse(inComingMessage));
-        if ("inMessageType" in LocalIncomingMessageAsJson) {
+        // let LocalIncomingMessageAsJson = JSON.parse(inComingMessage, (key, value) => {
 
-            console.log("kkkkk : ", LocalIncomingMessageAsJson);
+        //     console.log("key, value : ", key, value);
 
-            //inClientsInfo.set(inClientId, LocalIncomingMessageAsJson.inDataAsObject);
+        // });
 
-            inClientsInfo.set(LocalIncomingMessageAsJson.inDataAsObject.inUserName, {
-                FirmName: LocalIncomingMessageAsJson.inDataAsObject.inFirmName,
-                ClientId: inClientId
-            });
-
-        };
-        console.log("inClientsInfo : ", inClientsInfo);
-
+        // if ("inMessageType" in LocalIncomingMessageAsJson) {
+        //     inClientsInfo.set(LocalIncomingMessageAsJson.inDataAsObject.inUserName, {
+        //         FirmName: LocalIncomingMessageAsJson.inDataAsObject.inFirmName,
+        //         ClientId: inClientId
+        //     });
+        // };
     } catch (error) {
-
+        console.log("error : ", error);
     };
 };
 
 let SwitchOnIncomingMessage = ({ inComingMessage, inWs, inClientsInfo, inUserName }) => {
-
-    console.log("SwitchOnIncomingMessage : ", inUserName, inComingMessage);
-
-
     switch (inComingMessage) {
         case "Back":
             inWs.send("------------");
             break;
         case "GiveDesktopClients":
-          //      inWs.send("------------GiveDesktopClients", inUserName);
+            //      inWs.send("------------GiveDesktopClients", inUserName);
             let LocalFoundClientInfo = inClientsInfo.get(inUserName);
             let LocalJsonToSend = {};
 
