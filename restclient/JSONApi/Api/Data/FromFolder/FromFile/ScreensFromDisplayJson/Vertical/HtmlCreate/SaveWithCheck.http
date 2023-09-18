@@ -1,0 +1,18 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/SaveWithCheck
+content-type: application/json
+
+{
+    "JsonConfig": {
+        "inFolderName": "Washing",
+        "inJsonFileName": "ToFactory.json"
+    },
+    "ItemConfig": {
+        "inItemName": "QrCodeDetails",
+        "inScreenName": "Create"
+    },
+    "inDataToSave": {
+        "pk": "1",
+        "Description": "",
+        "ItemName": "M Shirt DW"
+    }
+}

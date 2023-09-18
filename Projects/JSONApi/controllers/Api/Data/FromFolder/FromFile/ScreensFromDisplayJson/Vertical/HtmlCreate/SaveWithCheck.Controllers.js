@@ -14,8 +14,6 @@ const CheckAndSave = (req, res) => {
     }).then(promiseData => {
         res.end(JSON.stringify(promiseData))
     });
-}
-
-
+};
 
 module.exports = { CheckAndSave };
