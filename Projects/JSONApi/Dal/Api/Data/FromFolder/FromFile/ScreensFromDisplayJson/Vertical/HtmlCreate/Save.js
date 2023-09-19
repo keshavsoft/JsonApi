@@ -2,7 +2,7 @@
 let CommonDataSupply = require("../../../../../../../../../../DataSupply/CommonTableFuncs/FromVertical/Save");
 
 exports.CheckAndSave = async ({ inJsonConfig, inItemConfig, inDataPK, inPostData }) => {
-    let LocalFromCommonDataSupply = await CommonDataSupply.CheckAndSave({ inJsonConfig, inItemConfig, inDataPK, inPostData });
+    let LocalFromCommonDataSupply = await CommonDataSupply.CheckAndSave({ JsonConfig: inJsonConfig, ItemConfig: inItemConfig, inDataPK, inDataToSave: inPostData });
 
     return await LocalFromCommonDataSupply;
 };
