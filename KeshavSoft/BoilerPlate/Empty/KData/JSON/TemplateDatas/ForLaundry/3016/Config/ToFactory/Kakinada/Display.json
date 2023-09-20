@@ -754,7 +754,7 @@
                             "ConsiderFirmPeriod": false
                         },
                         "SaveCheck": {
-                            "Type": "PresentInData",
+                            "Type": "ArrayFilter",
                             "Validate": true
                         },
                         "TransformBeforeSave": {
@@ -779,7 +779,8 @@
                             "FolderName": "QrCodes",
                             "FileName": "Generate",
                             "ItemName": "Barcodes",
-                            "CheckColumnName": "pk"
+                            "CheckColumnName": "pk",
+                            "FilterString": "element[0] === inObjectToInsert.pk && element[1].GenerateReference.FileNameOnly==='Kakinada'"
                         }
                     },
                     "Footer": {

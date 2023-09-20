@@ -10,40 +10,42 @@ let StartFunc = () => {
     let jVarLocalFileValue = getUrlQueryParams({ inGetKey: "inFileName" });
     let jVarLocalItemValue = getUrlQueryParams({ inGetKey: "inItemName" });
     let jVarLocalScreenValue = getUrlQueryParams({ inGetKey: "inScreenName" });
-
-    jVarLocalBodyKeysJson.inFolderName = jVarLocalFolderValue;
-    jVarLocalBodyKeysJson.inFileName = jVarLocalFileValue;
-    jVarLocalBodyKeysJson.inItemName = jVarLocalItemValue;
-    jVarLocalBodyKeysJson.inScreenName = jVarLocalScreenValue;
-
-    if (jVarLocalBodyKeysJson.inFolderName === null ) {
+    if (jVarLocalFolderValue === null ) {
         Swal.fire({
             title: 'inFolderName Not Found',
             text: "inFolderName Not Found in Params",
             icon: 'error',
         });
-    }
-    else if (jVarLocalBodyKeysJson.inFileName === null ) {
+        return;
+    };
+    if (jVarLocalFileValue === null ) {
         Swal.fire({
             title: 'inFileName Not Found',
             text: "inFileName Not Found in Params",
             icon: 'error',
         });
+        return;
     }
-    else if (jVarLocalBodyKeysJson.inItemName === null ) {
+    if (jVarLocalItemValue === null ) {
         Swal.fire({
             title: 'inItemName Not Found',
             text: "inItemName Not Found in Params",
             icon: 'error',
         });
+        return;
     }
-    else if (jVarLocalBodyKeysJson.inScreenName === null ) {
+    if (jVarLocalScreenValue === null ) {
         Swal.fire({
             title: 'inScreenName Not Found',
             text: "inScreenName Not Found in Params",
             icon: 'error',
         });
+        return;
     }
+    jVarLocalBodyKeysJson.inFolderName = jVarLocalFolderValue;
+    jVarLocalBodyKeysJson.inFileName = jVarLocalFileValue.search(".") === -1 ? jVarLocalFileValue : jVarLocalFileValue.split(".")[0]
+    jVarLocalBodyKeysJson.inItemName = jVarLocalItemValue;
+    jVarLocalBodyKeysJson.inScreenName = jVarLocalScreenValue;
     
     KeysJson.body = JSON.stringify(jVarLocalBodyKeysJson);
 
