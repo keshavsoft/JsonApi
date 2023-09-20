@@ -2,8 +2,8 @@ POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFo
 content-type: application/json
  
 {
-    "FolderName": "Transactions",
-    "FileNameOnly": "kakinada",
-    "ItemName": "Orders",
-    "MapString":"CustomerData.CustomerName"
+    "FolderName": "QrCodes",
+    "FileNameOnly": "Generate",
+    "ItemName": "Barcodes",
+    "MapString":"GenerateReference.ReferncePk"
 }

@@ -4,7 +4,7 @@ let StartFunc1 = async ({ inFetchPostData }) => {
     let jVarLocalRoute = ApiConfigJson.ProjectName;
     let jVarLocalSubRoute = "Api";
 
-    let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Save`;
+    let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/SaveWithCheck`;
 
     fetch(jVarLocalFetchUrl, {
         method: "post",
