@@ -1,0 +1,10 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AggregateFuncs/OnValues/FilterAndGroupBy
+content-type: application/json
+ 
+{
+    "FolderName": "QrCodes",
+    "FileNameOnly": "Generate",
+    "ItemName": "Barcodes",
+    "MapString":"GenerateReference.ReferncePk",
+    "FilterString":"value.GenerateReference.FileNameOnly === 'Vzm'"
+}
