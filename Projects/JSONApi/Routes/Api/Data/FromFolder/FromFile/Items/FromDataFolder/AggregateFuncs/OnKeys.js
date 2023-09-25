@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let CommonMax = require("./OnKeys/Max");
+let CommonMaxWithFilter = require("./OnKeys/MaxWithFilter");
 let CommonMin = require("./OnKeys/Min");
 let CommonLastMonth = require("./OnKeys/LastMonth");
 let CommonLastWeek = require("./OnKeys/LastWeek");
@@ -9,6 +10,7 @@ let CommonTodayCount = require("./OnKeys/TodayCount");
 let CommonTotalCount = require("./OnKeys/TotalCount");
 
 router.use('/Max', CommonMax);
+router.use('/MaxWithFilter', CommonMaxWithFilter);
 router.use('/Min', CommonMin);
 router.use('/LastMonth', CommonLastMonth);
 router.use('/LastWeek', CommonLastWeek);
