@@ -1,17 +1,18 @@
 let jFShowFolderInBreadcrumb = ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName }) => {
     let jVarLocalBreadcrumbFolderNameId = document.getElementById("BreadcrumbFolderNameId");
-    jVarLocalBreadcrumbFolderNameId.href = `../Menu/AsCards/Files.html?FolderName=${inFolderName}`;
+    jVarLocalBreadcrumbFolderNameId.href = `../../Files.html?FolderName=${inFolderName}`;
     jVarLocalBreadcrumbFolderNameId.innerHTML = inFolderName;
 
     let jVarLocalBreadcrumbFileNameId = document.getElementById("BreadcrumbFileNameId");
-    jVarLocalBreadcrumbFileNameId.href = `../Menu/AsCards/Items.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}`;
+    jVarLocalBreadcrumbFileNameId.href = `../../Items.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}.json`;
     jVarLocalBreadcrumbFileNameId.innerHTML = inFileNameWithExtension;
 
     let jVarLocalBreadcrumbItemNameId = document.getElementById("BreadcrumbItemNameId");
-    jVarLocalBreadcrumbItemNameId.href = `../Menu/AsCards/Screens.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}&ItemName=${inItemName}`;
+    jVarLocalBreadcrumbItemNameId.href = `../../Screens.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}&ItemName=${inItemName}`;
     jVarLocalBreadcrumbItemNameId.innerHTML = inItemName;
 
     let jVarLocalBreadcrumbScreenNameId = document.getElementById("BreadcrumbScreenNameId");
+    jVarLocalBreadcrumbScreenNameId.href = `../../UIEntry/Options.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}&ItemName=${inItemName}&ScreenName=${inScreenName}`;
     jVarLocalBreadcrumbScreenNameId.innerHTML = inScreenName;
 };
 

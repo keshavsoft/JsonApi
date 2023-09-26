@@ -1,19 +1,24 @@
 import { ReturnFolderAndFileNameAndItemName } from "./urlSearchParams.js";
-import { ScreensFetchAsPost } from "./FetchFuncs.js";
 
 let jVarLocalFromReturnFolderAndFileNameAndItemName = ReturnFolderAndFileNameAndItemName();
 
-let jFShowFolderInBreadcrumb = ({ inFolderName, inFileNameWithExtension, inItemName }) => {
+let jFShowFolderInBreadcrumb = ({ inFolderName, inFileNameWithExtension, inItemName,inScreenName }) => {
     let jVarLocalBreadcrumbFolderNameId = document.getElementById("BreadcrumbFolderNameId");
-    jVarLocalBreadcrumbFolderNameId.href = `Files.html?FolderName=${inFolderName}`;
+    jVarLocalBreadcrumbFolderNameId.href = `../Files.html?FolderName=${inFolderName}`;
     jVarLocalBreadcrumbFolderNameId.innerHTML = inFolderName;
 
     let jVarLocalBreadcrumbFileNameId = document.getElementById("BreadcrumbFileNameId");
-    jVarLocalBreadcrumbFileNameId.href = `Items.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}.json`;
+    jVarLocalBreadcrumbFileNameId.href = `../Items.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}.json`;
     jVarLocalBreadcrumbFileNameId.innerHTML = inFileNameWithExtension;
 
     let jVarLocalBreadcrumbItemNameId = document.getElementById("BreadcrumbItemNameId");
+    jVarLocalBreadcrumbItemNameId.href = `../Screens.html?FolderName=${inFolderName}&FileName=${inFileNameWithExtension}&ItemName=${inItemName}`;
     jVarLocalBreadcrumbItemNameId.innerHTML = inItemName;
+
+    let jVarLocalBreadcrumbinScreenName = document.getElementById("BreadcrumbScreenNameId");
+    jVarLocalBreadcrumbinScreenName.innerHTML = inScreenName;
+
+
 
 };
 
@@ -35,25 +40,20 @@ let StartFunc = () => {
                 if (jVarLocalFromReturnFolderAndFileNameAndItemName.ItemName === "") {
                     alert("Please select Item Name!");
                 };
+                if ("ScreenName" in jVarLocalFromReturnFolderAndFileNameAndItemName) {
+                    if (jVarLocalFromReturnFolderAndFileNameAndItemName.ScreenName === "") {
+                        alert("Please select ScreenName Name!");
+                    };
 
-                jFShowFolderInBreadcrumb({
-                    inFolderName: jVarLocalFromReturnFolderAndFileNameAndItemName.FolderName,
-                    inFileNameWithExtension: jVarLocalFromReturnFolderAndFileNameAndItemName.FileName,
-                    inItemName: jVarLocalFromReturnFolderAndFileNameAndItemName.ItemName
-                });
+                    jFShowFolderInBreadcrumb({
+                        inFolderName: jVarLocalFromReturnFolderAndFileNameAndItemName.FolderName,
+                        inFileNameWithExtension: jVarLocalFromReturnFolderAndFileNameAndItemName.FileName,
+                        inItemName: jVarLocalFromReturnFolderAndFileNameAndItemName.ItemName,
+                        inScreenName: jVarLocalFromReturnFolderAndFileNameAndItemName.ScreenName
+                    });
 
-                if ("RowCount" in jVarLocalFromReturnFolderAndFileNameAndItemName) {
-                    LocalRowCount = jVarLocalFromReturnFolderAndFileNameAndItemName.RowCount;
+
                 };
-
-                ScreensFetchAsPost({
-                    inProjectName: jVarGlobalProject,
-                    inSubRoute: jVarGlobalSubRoute,
-                    inFolderName: jVarLocalFromReturnFolderAndFileNameAndItemName.FolderName,
-                    inFileNameWithExtension: jVarLocalFromReturnFolderAndFileNameAndItemName.FileName,
-                    inItemName: jVarLocalFromReturnFolderAndFileNameAndItemName.ItemName,
-                    inRowCount: LocalRowCount
-                });
             };
         };
 
