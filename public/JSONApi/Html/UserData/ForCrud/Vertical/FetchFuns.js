@@ -5,11 +5,12 @@ let jVarLocalObjectFromUrlSearchParams = ReturnFolderAndFileNameAndItemName();
 
 let jVLocalVerticalShow = async ({ inProjectName, inSubRoute, inFolderName, inFileName, inItemName, inScreenName }) => {
     let jVarCardBody = document.getElementById("KCont1");
+    let LocalinFileName  = inFileName.split(".").shift();
 
     let jVarLocalRoute = inProjectName;
     let jVarLocalSubRoute = inSubRoute;
     let jVarLocalFolderName = inFolderName;
-    let jVarLocalFileName = inFileName;
+    let jVarLocalFileName = LocalinFileName;
     let jVarLocalItemName = inItemName;
     let jVarLocalScreenName = inScreenName;
 
