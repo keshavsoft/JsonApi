@@ -1,11 +1,4 @@
-import KeysJson from './Keys.json' assert {type: 'json'};
-
 let StartFunc = () => {
-    let jVarLocalBodyKeys = {};
-    jVarLocalBodyKeys = {};
-
-    let jVarLocalBodyKeysJson = jVarLocalBodyKeys;
-
     let jVarLocalFolderValue = getUrlQueryParams({ inGetKey: "inFolderName" });
     let jVarLocalFileValue = getUrlQueryParams({ inGetKey: "inFileName" });
     let jVarLocalItemValue = getUrlQueryParams({ inGetKey: "inItemName" });
@@ -42,14 +35,8 @@ let StartFunc = () => {
         });
         return;
     }
-    jVarLocalBodyKeysJson.inFolderName = jVarLocalFolderValue;
-    jVarLocalBodyKeysJson.inFileName = jVarLocalFileValue.search(".") === -1 ? jVarLocalFileValue : jVarLocalFileValue.split(".")[0]
-    jVarLocalBodyKeysJson.inItemName = jVarLocalItemValue;
-    jVarLocalBodyKeysJson.inScreenName = jVarLocalScreenValue;
     
-    KeysJson.body = JSON.stringify(jVarLocalBodyKeysJson);
-
-    return KeysJson;
+    return true;
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {
