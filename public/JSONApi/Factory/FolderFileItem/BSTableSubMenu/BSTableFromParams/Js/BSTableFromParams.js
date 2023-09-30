@@ -9,10 +9,28 @@ const StartFunc = () => {
         StartFuncFormLoad();
 
         StartFuncShowOnDom({}).then(() => {
+            jFLocalHookListeners();
             StartFuncAfterDomLoad();
             // var $table = $('#table');
         });
     };
+};
+
+let jFLocalHookListeners = () => {
+
+    let jVarLocalDeleteClass = document.getElementsByClassName("remove");
+    console.log("jVarLocalDeleteClass", jVarLocalDeleteClass);
+    for (var i = 0; i < jVarLocalDeleteClass.length; i++) {
+        jVarLocalDeleteClass[i].addEventListener("click", (event) => jFLocalButtonClick({ inEvent: event }));
+    };
+};
+
+let jFLocalButtonClick = ({ inEvent }) => {
+    console.log("inEvent", inEvent);
+    let jVarLocalCurrentTarget = inEvent.currentTarget;
+    let jVarLocalClosestTr = jVarLocalCurrentTarget.closest('tr');
+    console.log("jVarLocalClosestTr", jVarLocalClosestTr);
+
 };
 
 StartFunc();

@@ -2,7 +2,6 @@ import { StartFunc as StartFuncAfterFetch } from "../FetchFuncs/AfterFetch/Entry
 
 let StartFunc = async () => {
     let jVarLocalDataNeeded = jVarLocalPrepareObject();
-    console.log("jVarLocalDataNeeded::",jVarLocalDataNeeded);
 
     if (jVarLocalDataNeeded !== null) {
 
@@ -12,13 +11,14 @@ let StartFunc = async () => {
 
 let jVarLocalPrepareObject = () => {
     let jVarLocalDataNeeded = {};
-    jVarLocalDataNeeded.BSTable = {};
+    jVarLocalDataNeeded.BSTableFromData = {};
 
-    jVarLocalDataNeeded.BSTable.AnchorLink = "../../BSTableSubMenu/BSTableFromParams/BSTableFromParams.html";
+    jVarLocalDataNeeded.BSTableFromData.AnchorLink = "../../BSTableSubMenu/BSTableFromParams/BSTableFromParams.html";
     jVarLocalDataNeeded = {
         ...jVarLocalDataNeeded,
-        ...jVarLocalVerticalFromParams(),
         ...jVarLocalKSTableFromScreenParams(),
+        ...jVarLocalKSTableFiltersFromScreen(),
+        ...jVarLocalVerticalFromParams(),
         ...jVarLocalTreeFromParams(),
         ...jVarLocalKSTreeFromParams()
     }
@@ -51,9 +51,17 @@ let jVarLocalKSTreeFromParams = () => {
 
 let jVarLocalKSTableFromScreenParams = () => {
     let jVarLocalDataNeeded = {};
-    jVarLocalDataNeeded.BSScreenFromParams = {};
+    jVarLocalDataNeeded.BSTableFromScreen = {};
 
-    jVarLocalDataNeeded.BSScreenFromParams.AnchorLink = "../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html";
+    jVarLocalDataNeeded.BSTableFromScreen.AnchorLink = "../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html";
+    return jVarLocalDataNeeded;
+};
+
+let jVarLocalKSTableFiltersFromScreen = () => {
+    let jVarLocalDataNeeded = {};
+    jVarLocalDataNeeded.BSTableFiltersFromScreen = {};
+
+    jVarLocalDataNeeded.BSTableFiltersFromScreen.AnchorLink = "../../BSTableSubMenu/BSTableFiltersFromScreen/BSTableFiltersFromScreen.html";
     return jVarLocalDataNeeded;
 };
 export { StartFunc }

@@ -7,9 +7,9 @@ let StartFunc = async () => {
     let jVarLocalFetchUrl = `/${ProjectKeys.ProjectName}/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/MainTable/WithSelectedColumns`;
 
     let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
-    let data = await response.json();
+    jVarGlobalPresentViewData = await response.json();
 
-    return await data;
+    return await jVarGlobalPresentViewData;
 };
 
 export { StartFunc };

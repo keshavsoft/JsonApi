@@ -1,16 +1,10 @@
-import { StartFunc as StartFuncFetchFuncs } from "./FetchFuncs/PostFetch.js";
+import { StartFunc as StartFuncFetchFromFuncs } from "./FetchFoamFuncs/Entry.js";
 
-import { StartFunc as StartFuncAfterFetch } from "./FetchFuncs/AfterFetch/EntryFile.js";
+import { StartFunc as StartFuncBreadcrumb } from "./Breadcrumb/Entery.js";
 
 let StartFunc = async () => {
-    let jVarLocalDataNeeded = await StartFuncFetchFuncs();
-
-    if (jVarLocalDataNeeded !== null) {
-        if (jVarLocalDataNeeded.KTF) {
-
-            StartFuncAfterFetch({ inDataToShow: jVarLocalDataNeeded.JsonData });
-        };
-    };
+    await StartFuncFetchFromFuncs();
+    StartFuncBreadcrumb();
 };
 
 export { StartFunc }
