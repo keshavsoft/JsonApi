@@ -2,15 +2,5 @@ POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFo
 content-type: application/json
 
 {
-    "inJsonConfig": {
-        "inFolderName": "Transactions",
-        "inJsonFileName": "Kakinada.json"
-    },
-    "inItemConfig": {
-        "inItemName": "Orders"
-    },
-    "inPostData": {
-        "k2": "kkkkkkk88"
-    },
-    "inJsonPK": 1
+   
 }
