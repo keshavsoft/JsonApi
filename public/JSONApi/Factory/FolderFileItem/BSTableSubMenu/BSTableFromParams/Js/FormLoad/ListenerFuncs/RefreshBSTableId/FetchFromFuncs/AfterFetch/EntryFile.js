@@ -1,14 +1,17 @@
+import { StartFunc as StartFuncKSMainTableRowDeleteClass } from "./KSMainTableRowDeleteClass/1-ClickAssign.js";
+
 let StartFunc = ({ inDataToShow }) => {
     let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
-    // jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow })
     var $table = $('#table');
-    $table.bootstrapTable(
-        {
-            data: jVarLocalDataToShow,
-            columns: jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow[0]})
-        });
 
+    $table.bootstrapTable("destroy").bootstrapTable({
+        data: jVarLocalDataToShow,
+        columns: jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow[0] })
+    });
+
+    StartFuncKSMainTableRowDeleteClass();
 };
+
 let jFLocalToArray = ({ inDataToShow }) => {
     let jVarLocalArray = [];
     Object.entries(inDataToShow).forEach(
@@ -23,18 +26,6 @@ let jFLocalToArray = ({ inDataToShow }) => {
     return jVarLocalArray;
 };
 
-let jFLocalPrepareHeaderForDataOnly1 = ({ data }) => {
-    console.log("data", data[0]);
-    let jVarLocalHtmlId = 'tableHeadRow';
-    let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
-    let jVarLocalColumns = Object.keys(data[0]);
-    jVarLocalColumns.forEach(element => {
-        let jVarLocalNewTh = document.createElement("th");
-        jVarLocalNewTh.innerHTML = element;
-        jVarLocalNewTh.dataset.field = element;
-        jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
-    });
-}
 let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
     // let data = jVarGlobalPresentViewData;
     let jVarLocalColumns = Object.keys(data);
@@ -61,7 +52,6 @@ let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
 };
 
 function operateFormatter(value, row, index) {
-    console.log("row",row);
     return [
         '<a class="like" href="#" onclick="jFLocal1()" title="Like">',
         '<i class="fa fa-heart">Show</i>',
