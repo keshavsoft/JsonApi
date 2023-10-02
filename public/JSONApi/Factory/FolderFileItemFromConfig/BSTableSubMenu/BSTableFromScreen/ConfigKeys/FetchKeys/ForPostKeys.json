@@ -1,7 +1,7 @@
 {
-    "inFolderName": "ToFactory",
-    "inFileNameOnly": "Kakinada",
-    "inFileName": "Kakinada",
-    "inItemName": "QrCodeDetails",
+    "inFolderName": "QrCodes",
+    "inFileNameOnly": "Generate",
+    "inFileName": "Generate",
+    "inItemName": "Barcodes",
     "inScreenName": "Create"
 }
