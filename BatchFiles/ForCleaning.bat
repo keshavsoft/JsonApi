@@ -1,6 +1,6 @@
 cd ../StaticWithInclude
 call node Cleaning
 
-xcopy public\Projects\Cleaning  ..\JsonApi\public\Cleaning\  /s /e /Y
+robocopy public\Projects\Cleaning  ..\JsonApi\public\Cleaning\  /MIR
 
 cd ../JsonApi
