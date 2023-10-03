@@ -16,6 +16,7 @@ let jVarLocalPrepareObject = () => {
     jVarLocalDataNeeded.BSTableFromData.AnchorLink = "../../BSTableSubMenu/BSTableFromParams/BSTableFromParams.html";
     jVarLocalDataNeeded = {
         ...jVarLocalDataNeeded,
+        ...jVarLocalKSTableFromScreen(),
         ...jVarLocalKSTableFiltersFromScreen(),
         ...jVarLocalVerticalFromParams(),
         ...jVarLocalTreeFromParams(),
@@ -45,6 +46,14 @@ let jVarLocalKSTreeFromParams = () => {
     jVarLocalDataNeeded.KSTreeFromParams = {};
 
     jVarLocalDataNeeded.KSTreeFromParams.AnchorLink = "../../TreeSubMenu/KSTreeFromParams/KSTreeFromParams.html";
+    return jVarLocalDataNeeded;
+};
+
+let jVarLocalKSTableFromScreen = () => {
+    let jVarLocalDataNeeded = {};
+    jVarLocalDataNeeded.BSTableFromScreen = {};
+
+    jVarLocalDataNeeded.BSTableFromScreen.AnchorLink = "../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html";
     return jVarLocalDataNeeded;
 };
 

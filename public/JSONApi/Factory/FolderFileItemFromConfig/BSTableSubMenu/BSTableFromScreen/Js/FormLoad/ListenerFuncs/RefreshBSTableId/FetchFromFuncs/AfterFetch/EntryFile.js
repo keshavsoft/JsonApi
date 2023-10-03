@@ -1,12 +1,14 @@
 import { StartFunc as StartFuncKSMainTableRowDeleteClass } from "./KSMainTableRowDeleteClass/1-ClickAssign.js";
 
 let StartFunc = ({ inDataToShow }) => {
-    let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
+    // let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
+    let jVarLocalDataToShow = inDataToShow;
+    console.log("jVarLocalDataToShow",jVarLocalDataToShow);
     var $table = $('#table');
 
     $table.bootstrapTable("destroy").bootstrapTable({
-        data: jVarLocalDataToShow,
-        columns: jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow[0] })
+        data: jVarLocalDataToShow.DataFromServer[0].KData.TableData,
+        columns: jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow.DataFromServer[0].KData.TableColumns })
     });
 
     StartFuncKSMainTableRowDeleteClass();
@@ -28,12 +30,14 @@ let jFLocalToArray = ({ inDataToShow }) => {
 
 let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
     // let data = jVarGlobalPresentViewData;
-    let jVarLocalColumns = Object.keys(data);
+    let jVarLocalColumns = data;
+    console.log("jVarLocalColumns",jVarLocalColumns);
     let jVarLocalReturnArray = [];
     jVarLocalReturnArray = jVarLocalColumns.map(element => {
+        console.log("element:",element);
         return {
-            title: element,
-            field: element,
+            title: element.DataAttribute,
+            field: element.DataAttribute,
             formatter: kFormatter
         };
     });

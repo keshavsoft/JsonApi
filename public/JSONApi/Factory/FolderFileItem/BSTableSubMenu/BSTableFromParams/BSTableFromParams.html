@@ -68,6 +68,15 @@
                         </li>
 
                         <li class="nav-item Bookings">
+                            <a id="BSTableFromScreenId" class="nav-link active" aria-current="page" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v4h10V2a1 1 0 0 0-1-1H4zm9 6h-3v2h3V7zm0 3h-3v2h3v-2zm0 3h-3v2h2a1 1 0 0 0 1-1v-1zm-4 2v-2H6v2h3zm-4 0v-2H3v1a1 1 0 0 0 1 1h1zm-2-3h2v-2H3v2zm0-3h2V7H3v2zm3-2v2h3V7H6zm3 3H6v2h3v-2z"></path>
+                                </svg>
+                                BSTable From Screen
+                            </a>
+                        </li>
+
+                        <li class="nav-item Bookings">
                             <a id="BSFiltersTableFromScreenId" class="nav-link active" aria-current="page" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                                     <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z"></path>
@@ -160,23 +169,8 @@
                         </button>
                     </div>
 
-                    <table class="table" id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true">
-                        <thead>
-                            <tr id="tableHeadRow">
-                                <!-- <th data-field="pk">ID</th>
-                                <th data-field="VoucherNumber" data-sortable="true">Voucher Number</th>
-                                <th data-field="DateTime">Date Time</th>
-                                <th data-field="Description">Description</th> -->
-                            </tr>
-                        </thead>
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
                     </table>
-                    <tbody id="KCont1">
-
-                    </tbody>
-                    <tfoot>
-
-                    </tfoot>
-
                 </div>
             </div>
         </div>
@@ -403,13 +397,22 @@
             jVarLocalSubmitButton.focus();
         });
     </script>
-
+ <script>
+    function detailFormatter(index, row) {
+        var html = []
+        $.each(row, function (key, value) {
+            html.push('<p><b>' + key + ':</b> ' + value + '</p>')
+        })
+        return html.join('')
+    };
+</script>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
     <script src="./Js/NaBarFuncs/EntryFile.js" type="module"></script>
 
     <script src="../../Js/headerChange.js"></script>
