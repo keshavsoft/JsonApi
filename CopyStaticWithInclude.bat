@@ -7,7 +7,6 @@ robocopy public\Projects\JSONApi  ..\JsonApi\public\JSONApi\  /MIR
 xcopy public\Projects\Garments  ..\JsonApi\public\Garments\  /s /e /Y
 xcopy public\Projects\JSONUtility  ..\JsonApi\public\JSONUtility\  /s /e /Y
 xcopy public\Projects\JSONReports  ..\JsonApi\public\JSONReports\  /s /e /Y
-xcopy public\Projects\Cleaning  ..\JsonApi\public\Cleaning\  /s /e /Y
 xcopy public\Projects\ClientLogin  ..\JsonApi\public\ClientLogin\  /s /e /Y
 
 cd ../JsonApi

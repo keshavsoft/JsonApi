@@ -21,6 +21,8 @@ let StartFunc = async ({ inResponse, inBodyData }) => {
           Toast.fire({
             icon: 'error',
             title: `Deleted successfully @RowPK${localInJsonPk}`
+          }).then(()=>{
+            window.location.href=""
           })
 
             // window.location.href = "";
