@@ -1,4 +1,4 @@
-let DataSupply = require("../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/GetDirectoriesGroup/FoldersAndFiles");
+let DataSupply = require("../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/ConfigFolder/GetDirectoriesGroup/FoldersAndFiles");
 
 let getFunc = ({ inDataPk }) => {
 
