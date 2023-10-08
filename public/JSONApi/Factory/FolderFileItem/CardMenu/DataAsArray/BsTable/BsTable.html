@@ -5,6 +5,8 @@
     <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <link href="./css/headers.css" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
@@ -16,69 +18,85 @@
     <!-- <link rel="stylesheet" href="/css/Bs5/bootstrap.min.css"> -->
     <link rel="stylesheet" href="/JSONReports/css/Bs5/bootstrap.min.css">
 
-
 </head>
 
 <body>
     <header>
-        <nav id="NavBarId" class="navbar navbar-expand-md navbar-dark bg-dark d-print-none" aria-label="KeshavSoft">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">KeshavSoft</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MenuNavItems" aria-controls="MenuNavItems" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <nav id="NavBarId" class="navbar navbar-expand-md navbar-dark bg-dark d-print-none" aria-label="KeshavSoft">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">KeshavSoft</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MenuNavItems" aria-controls="MenuNavItems" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="MenuNavItems">
-                    <ul class="navbar-nav me-auto" id="MenuNavContainerId">
-                        <li class="nav-item">
-                            <a href="../../Folders/Folders.html" class="nav-link text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z">
-                                    </path>
-                                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z">
-                                    </path>
-                                </svg>
-                                Parent
-                            </a>
-                        </li>
+            <div class="collapse navbar-collapse" id="MenuNavItems">
+                <ul class="navbar-nav me-auto" id="MenuNavContainerId">
+                    <li class="nav-item">
+                        <a href="../../Folders/Folders.html" class="nav-link text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z">
+                                </path>
+                                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z">
+                                </path>
+                            </svg>
+                            Parent
+                        </a>
+                    </li>
 
-                        <li>
-                            <a href="../Menu.html" class="nav-link DashboardAClass text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
-                                  </svg>
-                                Bs Table
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li id="HeaderLoginButtonId">
-                            <a href="#" class="nav-link text-white" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">
-                                <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
-                                    <use xlink:href="#person-x-fill"></use>
-                                </svg>
-                                Login
-                            </a>
-                        </li>
-                        <li id="HeaderUserIdLi" class="visually-hidden nav-item dropdown">
-                            <a href="#" id="HeaderUserIdDropDown" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link text-white dropdown-toggle">
-                                <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
-                                    <use xlink:href="#people-circle"></use>
-                                </svg>
-                                UserName
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="HeaderUserIdDropDown">
-                                <li><a class="dropdown-item" href="#" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">
-                                        <i class="bi bi-power" style="font-size: 1.3rem; color:orangered"></i>
-                                        logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <li>
+                        <a href="../BsTable/BsTable.html" class="nav-link DashboardAClass text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
+                              </svg>
+                            Bs Table
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../BsTree/BsTree.html" class="nav-link DashboardAClass text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"></path>
+                              </svg>
+                            Bs Tree
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../KSTree/KSTree.html" class="nav-link DashboardAClass text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                <path d="M7 7V1.414a1 1 0 0 1 2 0V2h5a1 1 0 0 1 .8.4l.975 1.3a.5.5 0 0 1 0 .6L14.8 5.6a1 1 0 0 1-.8.4H9v10H7v-5H2a1 1 0 0 1-.8-.4L.225 9.3a.5.5 0 0 1 0-.6L1.2 7.4A1 1 0 0 1 2 7h5zm1 3V8H2l-.75 1L2 10h6zm0-5h6l.75-1L14 3H8v2z"></path>
+                              </svg>
+                            Ks Table
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li id="HeaderLoginButtonId">
+                        <a href="#" class="nav-link text-white" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">
+                            <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
+                                <use xlink:href="#person-x-fill"></use>
+                            </svg>
+                            Login
+                        </a>
+                    </li>
+                    <li id="HeaderUserIdLi" class="visually-hidden nav-item dropdown">
+                        <a href="#" id="HeaderUserIdDropDown" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link text-white dropdown-toggle">
+                            <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            UserName
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="HeaderUserIdDropDown">
+                            <li><a class="dropdown-item" href="#" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">
+                                    <i class="bi bi-power" style="font-size: 1.3rem; color:orangered"></i>
+                                    logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
 
-                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+
     <main>
         <div class="container">
             <div class="card mt-3">
@@ -89,13 +107,14 @@
                 </div>
 
                 <div class="card-body">
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true">
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-toggle="true" data-show-fullscreen="true" data-show-columns="true" data-show-columns-toggle-all="true" data-detail-view="true" data-show-export="true" data-click-to-select="true" data-detail-formatter="detailFormatter" data-minimum-count-columns="2" data-show-pagination-switch="true" data-pagination="true" data-id-field="id" data-page-list="[10, 25, 50, 100, all]" data-show-footer="true" data-side-pagination="server" data-response-handler="responseHandler">
                     </table>
                 </div>
             </div>
         </div>
 
     </main>
+
     <footer class="footer mt-auto py-2 bg-light fixed-bottom">
         <div class="container">
             <div class="bg-light d-flex justify-content-between">
@@ -305,6 +324,42 @@
         };
     </script>
 
+    <script>
+        let jFChangeHeaderActiveClass = () => {
+            let jVarLocalPathArray = window.location.pathname.split("/");
+            let jVarLocalHTMLName = jVarLocalPathArray[jVarLocalPathArray.length - 1];
+            jFChangeNavAnchorClass({ inClassName: jVarLocalHTMLName.split(".")[0] });
+        };
+
+        let jFChangeNavAnchorClass = ({ inClassName }) => {
+            console.log("inClassName:", inClassName);
+            let jVarLocalId = "NavBarId";
+            let jVarLocalNavBarId = document.getElementById(jVarLocalId);
+
+            jFLocalRemoveActiveClassForAllATags({ inHtmlId: jVarLocalNavBarId });
+            jFLocalAddActiveClassToPresentHtml({ inHtmlId: jVarLocalNavBarId, inClassName });
+        };
+
+        let jFLocalRemoveActiveClassForAllATags = ({ inHtmlId }) => {
+            let jVarLocalA = inHtmlId.querySelectorAll("a");
+
+            for (let i = 0; i < jVarLocalA.length; i++) {
+                jVarLocalA[i].classList.remove("text-info");
+            };
+        };
+
+        let jFLocalAddActiveClassToPresentHtml = ({ inHtmlId, inClassName }) => {
+            let jVarLocalA = inHtmlId.querySelector(`[href*="${inClassName}"]`);
+
+            if (jVarLocalA === null === false) {
+                jVarLocalA.classList.remove("text-white");
+                jVarLocalA.classList.add("text-info");
+            };
+        };
+
+        jFChangeHeaderActiveClass();
+    </script>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
         </script>
@@ -313,9 +368,14 @@
         </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
     <script>
         let jVarGlobalPresentViewData;
     </script>
+
 
     <script type="module" src="./Js/BsTable.js"></script>
 </body>

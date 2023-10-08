@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Booking Customers Barcode</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- <link rel="stylesheet" href="./Laundry/css/bootstrap.min.css"> -->
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css">
+
+    <link rel="stylesheet" href="./Index/css/header.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example" id="NavBarId">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Today</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample06">
+                    <ul class="navbar-nav me-auto mb-2 mb-xl-0" id="KHeader">
+                        <li class="nav-item Bookings">
+                            <a href="../Dashboard.html" class="nav-link active">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z">
+                                    </path>
+                                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z">
+                                    </path>
+                                </svg>
+                                Parent
+                            </a>
+                        </li>
+
+                        <li class="nav-item Bookings">
+                            <a class="nav-link active" aria-current="page" href="./FromData/BsTable/BsTable.html" id="CustomerOrdersId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                        <path d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z"></path>
+                                        <path d="M15.854 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.707 0l-1.5-1.5a.5.5 0 0 1 .707-.708l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z"></path>
+                                </svg>
+                                From Data
+                            </a>
+                        </li>
+
+                        <li class="nav-item Bookings">
+                            <a class="nav-link active" aria-current="page" href="./FromConfig/BsTable/BsTable.html" id="CustomerOrdersId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                        <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"></path>
+                                        <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"></path>
+                                </svg>
+                                From Config
+                            </a>
+                        </li>
+
+
+                    </ul>
+                    <ul class="navbar-nav">
+
+
+                        <li id="HeaderLoginButtonId">
+                            <a href="#" class="nav-link text-white" id="NavBarloginId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z">
+                                    </path>
+                                </svg>
+                                Login
+                            </a>
+                        </li>
+
+                        <div id="HeaderUserIdLi" class="visually-hidden dropdown text-end">
+                            <a href="#" id="HeaderUserIdDropDown" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link text-white dropdown-toggle">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-check-fill d-block mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z">
+                                    </path>
+                                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z">
+                                    </path>
+                                </svg>
+
+                                UserName
+                            </a>
+                            <ul class="dropdown-menu text-small">
+                                <li><a class="dropdown-item" href="#" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">
+                                        <i class="bi bi-power" style="font-size: 1.3rem; color:orangered"></i>
+                                        logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container" id="KCont1">
+
+            <div id="AlertSuccessId" class="alert alert-success alert-dismissible fade show mt-2" role="alert" style="display: none;">
+                <strong id="AlertSuccessIdUserName">SavedPk</strong> User created sucessfully.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div class="alert alert-danger d-none" role="alert" id="DangerAlertId">
+                A simple danger alert—check it out!
+            </div>
+
+            <div class="alert alert-success d-none" role="alert" id="SuccessAlertId">
+                Success!
+            </div>
+
+        </div>
+    </main>
+
+    <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Enter client user credentials</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="LoginFormPopUpId" class="" onsubmit="return false" novalidate="">
+                        <div class="mb-3 form-floating is-valid">
+                            <input type="text" class="form-control" id="KUserNameInput" required="">
+                            <label for="KUserNameInput">User Name</label>
+                            <div class="invalid-feedback">
+                                User Name cannot be empty.
+                            </div>
+                        </div>
+                        <div class="mb-3 form-floating">
+                            <input type="password" class="form-control" id="KPasswordInput" required="">
+                            <label for="KPasswordInput">Password</label>
+                            <div class="invalid-feedback">
+                                Password cannot be empty.
+                            </div>
+                        </div>
+                        <input id="LoginButtonOnModalId" type="submit" class=" btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="ModalCreateCustomerId">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Under development.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="AlertWarningId" class="alert alert-warning alert-dismissible fade show" role="alert" style="display:none;">
+        <div id="AlertWarningMessageId"><strong>Sorry!</strong> Data not saved</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <footer class="footer mt-auto py-2 bg-light fixed-bottom">
+        <div class="container">
+            <div class="bg-light d-flex justify-content-between">
+                <div>KeshavSoft v10.25</div>
+                <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+        <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+    <script>
+        let jFSearchInputKeyPress = (event) => {
+            if (event.key === 'Enter') { // key code of the keybord key
+                event.preventDefault();
+                let jVarLocalCurrentTarget = event.currentTarget;
+                let jVarLocalClosestCard = jVarLocalCurrentTarget.closest(".card");
+                let jVarLocalTable = jVarLocalClosestCard.querySelector("table");
+
+                // your code to Run
+                LocalSearchTable({ inTable: jVarLocalTable });
+            };
+        };
+
+        let myFunction = () => {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("SearchQrCodeTable");
+            filter = input.value;
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            console.log("1111111111 : ", input, filter);
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    console.log("222222 : ", td.innerHTML);
+
+                    if (td.innerHTML.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        };
+
+        function LocalSearchTable({ inTable }) {
+            // Declare variables 
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("SearchQrCodeTable");
+            filter = input.value.toUpperCase();
+            //table = document.getElementById("myTable");
+
+            table = inTable;
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    let tdata = td[j];
+                    if (tdata) {
+                        if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="./Js/headerChange.js"></script> -->
+
+    <!-- <script type="module" src="./Dashboard.js"></script> -->
+</body>
+
+</html>

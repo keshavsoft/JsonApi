@@ -42,28 +42,16 @@ let StartFunc = () => {
         jVarLocalFilterObject[jVarLocalFilterKey] = jVarLoopInsideSearchInput.value;
     };
 
-    let jVarLocalNewData = JSON.parse(JSON.stringify(jVarGlobalPresentViewData));
-
-    // let jVarlocalTableData = jVarLocalNewData[0].KData.TableData;
+    let jVarLocalData = jVarGlobalPresentViewData.JsonData;
+    let jVarLocalNewData = JSON.parse(JSON.stringify(jVarLocalData));
 
     let jVarLocalFilteredData = _.filter(jVarLocalNewData, jVarLocalFilterObject);
-    // let jVarLocalPickData = _.map(jVarLocalNewData, "Credit");
-
-    let jVarLocalPickData = _.map(jVarGlobalPresentViewData, function (object) {
-        return _.pick(object, ['AccountName', 'Credit']);
+console.log();
+    let jVarLocalPickData = _.map(jVarLocalData, function (object) {
+        console.log("object",object);
+        return _.pick(object, Object.values(Object.keys(jVarLocalFilterObject)));
     });
-
-    // let jVarLocalSortedData = _.sortBy(jVarLocalFilteredData, "Date");
-
-    // jVarLocalNewData[0].KData.TableData = jVarLocalSortedData;
-
-
-
-    // LocalChangeTableColumns({ inTableColumns: jVarLocalNewData[0].KData.TableColumns });
-
-    // let jVarLocalFromCondition = jFConditionsShowData({ inData: jVarLocalNewData });
-
-    // let jVarLocalToShowData = KeshavSoftCrud.BuildFromArray(jVarLocalNewData);
+    console.log("jVarLocalPickData",jVarLocalPickData);
 
     let jVarLocalToShowData = [];
 
@@ -73,7 +61,6 @@ let StartFunc = () => {
             TableData: jVarLocalPickData
         }
     });
-    console.log("jVarLocalNewData : ", jVarLocalFilteredData);
     jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
         inData: jVarLocalToShowData,
         inHtmlParent: jVarLocalFilteredTableId

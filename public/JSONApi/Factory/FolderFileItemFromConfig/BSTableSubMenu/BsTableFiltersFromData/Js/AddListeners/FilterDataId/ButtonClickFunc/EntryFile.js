@@ -6,18 +6,17 @@ import { StartFunc as StartFuncTableColumns } from "./BsTableFuncs/TableColumns.
 let StartFunc = async () => {
     jFLocalShowFilters();
 
-    let jVarLocalData = jVarGlobalPresentViewData.JsonData
+    let jVarLocalData = jVarGlobalPresentViewData.JsonData;
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarLocalData));
     let jVarLocalDataToShow = jFLocalToArray({ jVarLocalData });
 
     let jVarLocalTableColumns = Object.keys(jVarLocalDataToShow[0]).map(element => {
         return element
     });
-    console.log("jVarLocalTableColumns : ", jVarLocalTableColumns);
     let jVarLocalShowColumnsArray = StartFuncShowColumnsArray();
 
     let localColumnsData = LocalInsertFunc({ jVarLocalTableColumns, jVarLocalShowColumnsArray });
-    console.log("localColumnsData : ", localColumnsData);
+    
     let jVarLocalFilteredData = StartFuncFilterData({ inData: jVarLocalNewData });
 
 
@@ -27,7 +26,7 @@ let StartFunc = async () => {
         return _.pick(object, [...jVarLocalFromColumnOrder, ..._.difference(jVarLocalShowColumnsArray, jVarLocalFromColumnOrder)]);
     });
 
-    let jVarLocalToShowData = [];k
+    let jVarLocalToShowData = [];
 
     jVarLocalToShowData.push({
         HTMLControlType: "TableFromData",

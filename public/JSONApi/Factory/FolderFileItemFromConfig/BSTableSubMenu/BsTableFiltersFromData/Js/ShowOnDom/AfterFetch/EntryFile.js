@@ -20,7 +20,7 @@ let StartFunc = ({ inResponseAsJson }) => {
                 };
             })
             let jVarLocalTableData = jVarLocalData;
-            
+
             StartFuncFilterTableBody({ inTableColumns: jVarLocalTableColumns });
             StartFuncColumnsTableBody({ inTableColumns: jVarLocalTableColumns });
             StartFuncColumnOrderTableBody({ inTableColumns: jVarLocalTableColumns });
@@ -32,6 +32,16 @@ let StartFunc = ({ inResponseAsJson }) => {
             });
         };
     };
+    let jVarLocalFromDelete = getUrlQueryParams({ inGetKey: "FromDelete" });
+    if (jVarLocalFromDelete) {
+        let jVarLocalDeletePk = getUrlQueryParams({ inGetKey: "DeletePk" });
+        let jVarLocalAlertDeleteIdHtmlId = 'AlertDeleteId';
+        let jVarLocalAlertDeleteId = document.getElementById(jVarLocalAlertDeleteIdHtmlId);
+        jVarLocalAlertDeleteId.style.display = "";
+        let jVarLocalStrong = jVarLocalAlertDeleteId.querySelector("strong");
+        jVarLocalStrong.innerHTML = jVarLocalDeletePk;
+    }
+
 };
 
 let jFLocalToArray = ({ jVarLocalData }) => {
@@ -46,6 +56,13 @@ let jFLocalToArray = ({ jVarLocalData }) => {
     );
 
     return jVarLocalArray;
+};
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 export { StartFunc }

@@ -1,4 +1,4 @@
-import ApiConfigJson from '../../../../../../../../Config.json' assert {type: 'json'};
+import ApiConfigJson from '../../../../ConfigKeys/ProjectKeys.json' assert {type: 'json'};
 import { StartFunc as StartFuncAfterFetchFunc } from "./6-AfterFetchFunc.js";
 
 let StartFunc = async ({ inFetchBody }) => {
@@ -23,7 +23,7 @@ let StartFunc = async ({ inFetchBody }) => {
 
 const localFetchFunc = async ({ inFetchBody }) => {
 
-    let jFetchUrl = `/${ApiConfigJson.Project}/${ApiConfigJson.SubRoute}/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/Delete`;
+    let jFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/Delete`;
 
     let response = await fetch(jFetchUrl, inFetchBody);
 
