@@ -1,0 +1,13 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/SaveRow/WithPk
+content-type: application/json
+
+{
+    "inFolderName": "ToFactory",
+    "inFileNameOnly": "Kakinada",
+    "inItemName": "QrCodeDetails",
+    "inDataToInsert": {
+        "pk": "20",
+        "ItemName": "",
+        "VoucherRef": ""
+    }
+}
