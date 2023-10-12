@@ -66,9 +66,37 @@ let StartFunc = () => {
         }, duration);
     };
 
+    let jFLocalParentATag = ({ inCurrentTarget }) => {
+        let jVarLocalCurrentTarget = inCurrentTarget;
+        let jVarReturnArray = [];
+        let jVarLocalParent = jVarLocalCurrentTarget.parentElement;
+        let jVarLocalParentParent = jVarLocalParent.parentElement;
+
+        if (jVarLocalParentParent.id === "KCont1") {
+            return jVarReturnArray;
+        };
+
+        if (jVarLocalParentParent === null === false) {
+            let jVarLocalATag = jVarLocalParentParent.querySelector("a");
+
+            let jVarLocalFromLoop = jFLocalParentATag({ inCurrentTarget: jVarLocalParentParent });
+
+            jVarReturnArray = [...jVarLocalFromLoop, jVarLocalATag.innerText];
+        };
+
+        return jVarReturnArray;
+    };
 
     let slideDown = (target, duration = 500) => {
-        console.log("dddddddddd");
+        let jVarLocalCurrentTarget = target;
+        console.log("aa", jVarLocalCurrentTarget);
+
+        let jVarLocalParent = jVarLocalCurrentTarget.parentElement;
+
+        let jVarLocalATag = jVarLocalParent.querySelector("a");
+        let jVarParentArray = jFLocalParentATag({ inCurrentTarget: jVarLocalParent });
+
+        jVarLocalATag.setAttribute("title", `${jVarParentArray.join(" / ")} / ${jVarLocalATag.innerText}`);
 
         target.style.removeProperty('display');
         let display = window.getComputedStyle(target).display;

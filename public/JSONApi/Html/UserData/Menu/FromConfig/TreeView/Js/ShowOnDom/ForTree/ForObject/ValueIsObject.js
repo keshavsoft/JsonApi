@@ -5,6 +5,9 @@ let jFLocalForTagsASpanAndI = () => {
     a1.classList.add("list-link");
     a1.classList.add("link-arrow");
 
+    a1.setAttribute("data-bs-toggle", "tooltip");
+    a1.setAttribute("title", "tooltip-----");
+
     let jVarLocalSpan = document.createElement("span");
     jVarLocalSpan.classList.add("list-icon");
 
