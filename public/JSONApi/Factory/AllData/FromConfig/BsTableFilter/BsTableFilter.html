@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    
+
     <header>
     <nav id="NavBarId" class="navbar navbar-expand-md navbar-dark bg-dark d-print-none" aria-label="KeshavSoft">
         <div class="container-fluid">
@@ -120,9 +120,9 @@
 
                         <thead>
                             <tr id="tableHeadRow">
-                  
+
                             </tr>
-                          </thead>
+                        </thead>
                         <!-- <thead>
                             <tr>
                               <th data-field="DataConfig.FolderName" data-filter-control="select">FolderName</th>
@@ -135,8 +135,8 @@
                             </tr>
                           </thead> -->
                     </table>
-                   
-                   
+
+
                 </div>
             </div>
         </div>
@@ -405,6 +405,9 @@
 
     <script>
         let jVarGlobalPresentViewData;
+        function kFormatter(value, row, index) {
+            return index + 1;
+        };
     </script>
 
 

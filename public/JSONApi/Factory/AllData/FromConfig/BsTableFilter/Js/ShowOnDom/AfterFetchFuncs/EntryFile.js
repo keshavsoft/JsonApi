@@ -21,6 +21,12 @@ let jFLocalPrepareHeaderForDataOnly = (inDataToShow) => {
 
     let jVarLocalColumns = Object.keys(inDataToShow.inDataToShow[0].DataConfig);
 
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "#";
+    jVarLocalNewTh.dataset.field = "";
+    jVarLocalNewTh.setAttribute("data-formatter", "kFormatter")
+    jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+
     jVarLocalColumns.forEach(element => {
         let jVarLocalNewTh = document.createElement("th");
         jVarLocalNewTh.innerHTML = element;
@@ -30,4 +36,7 @@ let jFLocalPrepareHeaderForDataOnly = (inDataToShow) => {
     });
 }
 
+function kFormatter(value, row, index) {
+    return index+1;
+};
 export { StartFunc };

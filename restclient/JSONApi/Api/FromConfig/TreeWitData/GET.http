@@ -1,0 +1,2 @@
+GET http://localhost:4119/JSONApi/Api/FromConfig/TreeWitData
+content-type: application/json
