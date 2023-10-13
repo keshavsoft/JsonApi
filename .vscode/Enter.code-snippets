@@ -231,7 +231,10 @@
 			"let jFLocalToInput$1 = ({ in$1 }) => {",
 			"	let jVarLocalHtmlId = '$1';",
 			"   let jVarLocal$1 = document.getElementById(jVarLocalHtmlId);",
-			"   jVarLocal$1.value = in$1;",
+			"   ",
+			"   if (jVarLocalInputProductNameId === null === false) {",
+			"      jVarLocal$1.value = in$1;",
+			"   };",
 			"};"
 		],
 		"description": "Log output to console"
