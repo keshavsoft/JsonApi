@@ -5,7 +5,7 @@ import { StartFunc as StartFuncAfterFetch } from "./6-AfterFetch.js";
 let StartFunc = async ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalJsonPk = jVarLocalCurrentTarget.dataset.pk;
-console.log("jVarLocalJsonPk",jVarLocalJsonPk);
+
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",

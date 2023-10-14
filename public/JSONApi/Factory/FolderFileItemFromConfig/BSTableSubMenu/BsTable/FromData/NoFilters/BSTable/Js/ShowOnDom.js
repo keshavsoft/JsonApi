@@ -1,6 +1,6 @@
-// import { StartFunc as StartFuncFetchFuncs } from "./FetchFuncs/PostFetch.js";
+import { StartFunc as StartFuncFetchFuncs } from "./FetchFuncs/PostFetch.js";
 
-// import { StartFunc as StartFuncAfterFetch } from "./FetchFuncs/AfterFetch/EntryFile.js";
+import { StartFunc as StartFuncAfterFetch } from "./FetchFuncs/AfterFetch/EntryFile.js";
 
 let StartFunc = async () => {
     let jVarLocalHtmlId = 'RefreshBSTableId';
