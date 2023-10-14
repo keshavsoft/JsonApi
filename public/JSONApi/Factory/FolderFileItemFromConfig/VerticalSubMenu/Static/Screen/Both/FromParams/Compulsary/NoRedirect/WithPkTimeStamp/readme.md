@@ -1,0 +1,1 @@
+In this, all the foldername, filename, itemname, screenname are obtained from config

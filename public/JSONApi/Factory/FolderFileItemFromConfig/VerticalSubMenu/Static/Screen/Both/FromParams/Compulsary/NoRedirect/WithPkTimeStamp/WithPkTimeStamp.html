@@ -6,15 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css">
-
     <title>TabularColumnsData</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <!-- Custom styles for this template -->
     <link href="./css/headers.css" rel="stylesheet">
 </head>
@@ -28,11 +22,12 @@
         </symbol>
     </svg>
 
+
     <header>
     <div class="container" id="NavBarId">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">KeshavSoft</a>
+                <a class="navbar-brand" href="#">MAGUVAA</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarsExample03">
                     <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                         <li class="nav-item">
-                            <a href="../../../Dashboard.html" class="nav-link text-white">
+                            <a href="../../Menu.html" class="nav-link text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z">
                                     </path>
@@ -50,58 +45,44 @@
                                 Parent
                             </a>
                         </li>
-                        <li class="nav-item Bookings">
-                            <a id="MenuId" class="nav-link active" aria-current="page" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"></path>
-                                </svg>
-                                Menu
-                            </a>
-                        </li>
-                      
-                        <li class="nav-item Bookings">
-                            <a class="nav-link active" aria-current="page" href="../BSTableFromData/BSTableFromData.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
-                                </svg>
-                                BSTable From Data
-                            </a>
-                        </li>
-
-                        <li class="nav-item Bookings">
-                            <a class="nav-link active" aria-current="page" href="../BSTableFromScreen/BSTableFromScreen.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z"></path>
-                                </svg>
-                                BSTable From Screen
-                            </a>
-                        </li>
-
-                        <li class="nav-item Bookings">
-                            <a class="nav-link active" aria-current="page" href="../BSTableFiltersFromData/BSTableFiltersFromData.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z"></path>
-                                </svg>
-                                BSTableFiltersFromData
-                            </a>
-                        </li>
+                       
                         <li class="nav-item">
-                            <a id="VerticalFromParamsId" href="../../VerticalSubMenu/Menu.html" class="nav-link text-white">
+                            <a href="../AsIs/AsIs.html" class="nav-link text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"></path>
+                                        <path d="M2.242 2.194a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.256-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53zm0 4a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.255-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53zm0 4a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.255-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53z"></path>
+                                </svg>
+                                AsIs
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="../AsIsWithTimeStamp/AsIsWithTimeStamp.html" class="nav-link text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                                     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"></path>
+                                </svg>
+                                AsIsWithTimeStamp
+                            </a>
+                        </li>
 
-                                </svg>
-                                VerticalSubMenu
-                            </a>
-                        </li>
-                        <li class="nav-item Bookings">
-                            <a class="nav-link active" aria-current="page" href="../BSTable/Menu.html">
+                        <li class="nav-item">
+                            <a href="../WithPk/WithPk.html" class="nav-link text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
+                                    <path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"></path>
                                 </svg>
-                                BSTable
+                                WithPk
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="../WithPkTimeStamp/WithPkTimeStamp.html" class="nav-link text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"></path>
+                                </svg>
+                                WithPkTimeStamp
+                            </a>
+                        </li>
+
                     </ul>
                     <ul class="navbar-nav">
                         <li id="HeaderLoginButtonId">
@@ -171,73 +152,86 @@
         </div>
     </div>
 
+    <!-- <main>
+        <div class="container">
+            <div class="card mt-2">
+                <div class="card-header">
+                    Scan Qrcode
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="InputPkId" class="form-label">Pk</label>
+                        <input type="text" class="form-control" id="InputPkId" placeholder="Scan QrCode" autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label for="InputItemNameId" class="form-label">Item Name</label>
+                        <input type="text" class="form-control" id="InputItemNameId" placeholder="Enter Item Name"
+                            autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label for="InputVoucherNumberId" class="form-label">Voucher Number</label>
+                        <input type="text" class="form-control" id="InputVoucherNumberId"
+                            placeholder="Enter Voucher Number" autofocus>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-success" id="ButtonSaveId">Save</button>
+                </div>
+            </div>
+        </div>
+    </main> -->
 
     <main>
         <div class="container">
-            <div id="AlertSuccessId" class="alert alert-success alert-dismissible fade show mt-2" role="alert" style="display: none;">
-                <strong id="RowPkInsertSuccessStrongId">SavedPk</strong> Saved
-                Sucessfully.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-
-            <div class="card mt-3">
+            <div class="card mt-2">
                 <div class="card-header">
-                    <div class="clearfix">
-                        <div class="float-start">Bs Table</div>
-                        <div class="float-end">
-                            <a id="RefreshBSTableId" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"></path>
-                                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z">
-                                    </path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                    Scan Qrcode
                 </div>
                 <div class="card-body">
-                    <div id="AlertDeleteId" class="alert alert-danger alert-dismissible fade show mt-2" role="alert" style="display: none;">
-                        <strong></strong> Deleted Successfully
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                        </button>
+                    <div class="mb-3">
+                        <label for="InputPkId" class="form-label">Pk</label>
+                        <input type="text" class="form-control" id="InputPkId" placeholder="Scan QrCode" autofocus="">
                     </div>
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
-                    </table>
+                    <div class="mb-3">
+                        <label for="InputProductNameId" class="form-label">Product Name</label>
+                        <input type="text" class="form-control" id="InputProductNameId" placeholder="Enter Product Name" autofocus="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="InputSalePriceId" class="form-label">Sale Price</label>
+                        <input type="text" class="form-control" id="InputSalePriceId" placeholder="Enter Sale Price" autofocus="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="InputVoucherRefId" class="form-label">Voucher Ref</label>
+                        <input type="text" class="form-control" id="InputVoucherRefId" placeholder="Enter VoucherRef" autofocus="">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-success" id="ButtonSaveId">Save</button>
                 </div>
             </div>
         </div>
     </main>
-
+    
     <footer class="footer mt-auto py-3 bg-light fixed-bottom">
-        <div class="container">
-            <div class="bg-light d-flex justify-content-between">
-                <div>KeshavSoft v4.17</div>
+    <div class="container">
+        <div class="bg-light d-flex justify-content-between">
+            <div>KeshavSoft</div>
 
-                <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
-            </div>
+            <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script>
-        function detailFormatter(index, row) {
-            var html = []
-            $.each(row, function (key, value) {
-                html.push('<p><b>' + key + ':</b> ' + value + '</p>')
-            })
-            return html.join('')
-        };
+        let jVarGlobalPresentViewData;
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
-
-    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
-
-    <script src="../../Js/headerChange.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="./Js/BSTableFromData.js" type="module"></script>
+    <script src="./Js/headerChange.js"></script>
+
+    <script src="./Js/WithPkTimeStamp.js" type="module"></script>
 </body>
 
 </html>
