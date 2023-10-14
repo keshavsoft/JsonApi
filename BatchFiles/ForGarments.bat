@@ -1,5 +1,5 @@
 cd ../StaticWithInclude
-call node Start
+call node Garments
 
 robocopy public\Projects\Garments  ..\JsonApi\public\Garments\  /MIR
 
