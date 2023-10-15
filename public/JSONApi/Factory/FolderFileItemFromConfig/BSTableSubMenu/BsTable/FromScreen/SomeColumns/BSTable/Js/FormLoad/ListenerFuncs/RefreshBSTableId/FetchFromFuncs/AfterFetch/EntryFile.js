@@ -2,6 +2,7 @@ import { StartFunc as StartFuncKSMainTableRowDeleteClass } from "./KSMainTableRo
 import { StartFunc as StartFuncPrepareColumns } from "./BuildTable/PrepareColumns.js";
 
 let StartFunc = ({ inDataToShow }) => {
+    jFLocalHideSpinner();
     let jVarLocalDataToShow = inDataToShow;
 
     var $table = $('#table');
@@ -12,6 +13,12 @@ let StartFunc = ({ inDataToShow }) => {
     });
 
     StartFuncKSMainTableRowDeleteClass();
+};
+
+let jFLocalHideSpinner=()=>{
+    let jVarLocalSpinnerId = document.getElementById("SpinnerId");
+    jVarLocalSpinnerId.style.display = "none";
+
 };
 
 export { StartFunc }

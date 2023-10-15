@@ -1,4 +1,6 @@
 import ColumnPk from "./TableColumns/ColumnPk.json" assert { type: "json" };
+import ColumnProductName from "./TableColumns/ColumnProductName.json" assert { type: "json" };
+import ColumnSalePrice from "./TableColumns/ColumnSalePrice.json" assert { type: "json" };
 
 let StartFunc = ({ data }) => {
     let jVarLocalColumns = data;
@@ -6,6 +8,9 @@ let StartFunc = ({ data }) => {
     console.log("ColumnPk : ", ColumnPk);
 
     jVarLocalReturnArray.push(ColumnPk);
+    jVarLocalReturnArray.push(ColumnProductName);
+    jVarLocalReturnArray.push(ColumnSalePrice);
+
     // jVarLocalReturnArray = jVarLocalColumns.map(element => {
     //     return {
     //         title: element.DataAttribute,
