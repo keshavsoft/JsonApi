@@ -23,6 +23,7 @@ web.config
 /public/Garments
 /public/Cleaning
 /public/Hackathon
+/public/CleaningPos
 
 /restclient/JSONAdminApi
 
