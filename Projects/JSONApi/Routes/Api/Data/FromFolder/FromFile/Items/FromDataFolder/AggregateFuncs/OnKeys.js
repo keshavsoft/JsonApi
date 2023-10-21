@@ -8,6 +8,7 @@ let CommonLastWeek = require("./OnKeys/LastWeek");
 let CommonPreviousDay = require("./OnKeys/PreviousDay");
 let CommonTodayCount = require("./OnKeys/TodayCount");
 let CommonTotalCount = require("./OnKeys/TotalCount");
+let CommonWithFilter = require("./OnKeys/WithFilter");
 
 router.use('/Max', CommonMax);
 router.use('/MaxWithFilter', CommonMaxWithFilter);
@@ -17,5 +18,6 @@ router.use('/LastWeek', CommonLastWeek);
 router.use('/PreviousDay', CommonPreviousDay);
 router.use('/TodayCount', CommonTodayCount);
 router.use('/TotalCount', CommonTotalCount);
+router.use('/WithFilter', CommonWithFilter);
 
 module.exports = router;

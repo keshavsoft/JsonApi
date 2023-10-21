@@ -1,0 +1,10 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AggregateFuncs/OnKeys/WithFilter/TotalCount
+content-type: application/json
+ 
+{
+    "FolderName": "QrCodes",
+    "FileNameOnly": "Generate",
+    "ItemName": "Barcodes",
+    "FilterString": "(new Date(value.BookingData.OrderData.Currentdateandtime)).toLocaleDateString() === `${(new Date()).toLocaleDateString()}`"
+
+}
