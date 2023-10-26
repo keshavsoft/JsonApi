@@ -1,0 +1,8 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/Screens/GetData/AsArrayOfObjects
+content-type: application/json
+ 
+{   
+"inFolderName":"ToFactory",
+"inFileNameWithExtension":"Kakinada.json",
+"inItemName":"VoucherDetails"
+}
