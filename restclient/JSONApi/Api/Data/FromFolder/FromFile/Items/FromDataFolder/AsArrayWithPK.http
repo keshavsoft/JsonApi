@@ -2,7 +2,8 @@ POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFo
 content-type: application/json
  
 {   
-"inFolderName":"Masters",
-"inFileNameOnly":"CRM",
-"inItemName":"Customers"
+"inFolderName":"ToFactory",
+"inFileNameOnly":"Kakinada",
+"inItemName":"VoucherDetails",
+"inScreenName":"Create"
 }
