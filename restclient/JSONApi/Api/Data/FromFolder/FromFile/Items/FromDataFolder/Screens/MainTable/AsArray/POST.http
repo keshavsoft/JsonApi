@@ -1,0 +1,9 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/Screens/MainTable/AsArray
+content-type: application/json
+ 
+{   
+"inFolderName":"ToFactory",
+"inFileNameOnly":"Kakinada",
+"inItemName":"VoucherDetails",
+"inScreenName":"Create"
+}
