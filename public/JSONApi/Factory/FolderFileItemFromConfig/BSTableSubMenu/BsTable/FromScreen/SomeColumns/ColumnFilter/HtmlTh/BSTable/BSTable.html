@@ -17,6 +17,102 @@
     <title>TabularColumnsData</title>
     <!-- Custom styles for this template -->
     <link href="./css/headers.css" rel="stylesheet">
+
+    <style>
+        .loader {
+            width: 120px;
+            height: 150px;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(#ddd 50%, #bbb 51%),
+                linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd),
+                radial-gradient(ellipse at center, #aaa 25%, #eee 26%, #eee 50%, #0000 55%),
+                radial-gradient(ellipse at center, #aaa 25%, #eee 26%, #eee 50%, #0000 55%),
+                radial-gradient(ellipse at center, #aaa 25%, #eee 26%, #eee 50%, #0000 55%);
+            background-position: 0 20px, 45px 0, 8px 6px, 55px 3px, 75px 3px, 95px 3px;
+            background-size: 100% 4px, 1px 23px, 30px 8px, 15px 15px, 15px 15px, 15px 15px;
+            position: relative;
+            border-radius: 6%;
+            animation: shake 3s ease-in-out infinite;
+            transform-origin: 60px 180px;
+        }
+
+        .loader:before {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 100%;
+            width: 7px;
+            height: 5px;
+            background: #aaa;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 102px 0 #aaa;
+        }
+
+        .loader:after {
+            content: "";
+            position: absolute;
+            width: 95px;
+            height: 95px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: 20px;
+            background-color: #bbdefb;
+            background-image: linear-gradient(to right, #0004 0%, #0004 49%, #0000 50%, #0000 100%),
+                linear-gradient(135deg, #64b5f6 50%, #607d8b 51%);
+            background-size: 30px 100%, 90px 80px;
+            border-radius: 50%;
+            background-repeat: repeat, no-repeat;
+            background-position: 0 0;
+            box-sizing: border-box;
+            border: 10px solid #DDD;
+            box-shadow: 0 0 0 4px #999 inset, 0 0 6px 6px #0004 inset;
+            animation: spin 3s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg)
+            }
+
+            50% {
+                transform: rotate(360deg)
+            }
+
+            75% {
+                transform: rotate(750deg)
+            }
+
+            100% {
+                transform: rotate(1800deg)
+            }
+        }
+
+        @keyframes shake {
+
+            65%,
+            80%,
+            88%,
+            96% {
+                transform: rotate(0.5deg)
+            }
+
+            50%,
+            75%,
+            84%,
+            92% {
+                transform: rotate(-0.5deg)
+            }
+
+            0%,
+            50%,
+            100% {
+                transform: rotate(0)
+            }
+        }
+    </style>
+
 </head>
 
 <body class="mb-5">
@@ -140,7 +236,7 @@
         </nav>
     </div>
 </header>
-    
+
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -174,10 +270,13 @@
     <div class="container mt-2">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../../../../../../../../../Html/UserData/Menu/Menu.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../../../../../../../../../Html/UserData/Menu/Menu.html">Home</a>
+                </li>
                 <li class="breadcrumb-item"><a href="../../../../../../../../Dashboard.html">Factory</a></li>
-                <li class="breadcrumb-item"><a href="../../../../../../../../FolderFileItemFromConfig/BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">FolderFileItemFromConfig</a></li>
-                <li class="breadcrumb-item"><a href="../../../../../../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">BSTableSubMenu</a></li>
+                <li class="breadcrumb-item"><a href="../../../../../../../../FolderFileItemFromConfig/BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">FolderFileItemFromConfig</a>
+                </li>
+                <li class="breadcrumb-item"><a href="../../../../../../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">BSTableSubMenu</a>
+                </li>
                 <li class="breadcrumb-item"><a href="../../../../../../BsTable/Menu.html">BSTable</a></li>
                 <li class="breadcrumb-item"><a href="../../../../Menu.html">FromScreen</a></li>
                 <li class="breadcrumb-item"><a href="../../../Menu.html">SomeColumns</a></li>
@@ -217,18 +316,26 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         </button>
                     </div>
-                    
-                    <div class="spinner-border" id="SpinnerId" role="status">
+
+                    <div class="spinner-border" id="SpinnerId" role="status" style="display: none;">
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true">
+                    <div class="row" id="WashingMachineImageId">
+                        <div class="col">
+                            <div class="text-bg-secondary p-3 mx-auto" style="width:fit-content;">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true" data-show-footer="true">
                         <thead>
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn">#</th>
                                 <th data-field="pk">pk</th>
                                 <th data-field="ProductName" data-filter-control="select">ProductName</th>
-                                <th data-field="SalePrice" data-filter-control="select">SalePrice</th>
+                                <th data-field="SalePrice" data-filter-control="select" data-footer-formatter="priceFormatter">SalePrice</th>
                             </tr>
                         </thead>
                     </table>
@@ -256,9 +363,19 @@
             return html.join('')
         };
 
-        function jFLocalSerialColumn(value, row, index){
+        function jFLocalSerialColumn(value, row, index) {
             return index + 1;
         };
+
+        function priceFormatter(data) {
+    var field = this.field
+    return '₹ ' + data.map(function (row) {
+        console.log("row",row);
+      return +row.SalePrice
+    }).reduce(function (sum, i) {
+      return sum + i
+    }, 0)
+  }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>

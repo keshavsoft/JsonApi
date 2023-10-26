@@ -1,0 +1,1 @@
+robocopy ..\StaticWithInclude\public\Projects\Cleaning  public\Cleaning\  /MIR

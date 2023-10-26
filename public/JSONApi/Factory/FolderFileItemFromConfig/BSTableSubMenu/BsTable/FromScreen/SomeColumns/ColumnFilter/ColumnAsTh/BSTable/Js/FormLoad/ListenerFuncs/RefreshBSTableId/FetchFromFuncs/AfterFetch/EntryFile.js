@@ -2,7 +2,9 @@ import { StartFunc as StartFuncKSMainTableRowDeleteClass } from "./KSMainTableRo
 import { StartFunc as StartFuncPrepareColumns } from "./BuildTable/PrepareColumns.js";
 
 let StartFunc = ({ inDataToShow }) => {
-    jFLocalHideSpinner();
+    jFLocalHideWashingMachineImageId();
+
+    // jFLocalHideSpinner();
     let jVarLocalDataToShow = inDataToShow;
 
     var $table = $('#table');
@@ -21,5 +23,11 @@ let jFLocalHideSpinner=()=>{
     jVarLocalSpinnerId.style.display = "none";
 
 };
+
+let jFLocalHideWashingMachineImageId = () => {
+    let jVarLocalSpinnerId = document.getElementById("WashingMachineImageId");
+    jVarLocalSpinnerId.style.display = "none";
+};
+
 
 export { StartFunc }

@@ -6,6 +6,7 @@ let StartFunc = () => {
     jVarLocalNewTh.innerHTML = "SalePrice";
     jVarLocalNewTh.dataset.field = "SalePrice";
     jVarLocalNewTh.setAttribute("data-filter-control", "select");
+    jVarLocalNewTh.setAttribute("data-footer-formatter", "priceFormatter");
     jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
 };
 

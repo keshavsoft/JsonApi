@@ -4,7 +4,6 @@ let StartFunc = () => {
 
     let jVarLocalNewTh = document.createElement("th");
     jVarLocalNewTh.innerHTML = "#";
-    jVarLocalNewTh.dataset.field = "#";
     jVarLocalNewTh.setAttribute("data-formatter", "jFLocalSerialColumn");
     jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
 };
