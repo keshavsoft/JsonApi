@@ -1,7 +1,1 @@
 GET http://localhost:4119/JSONApi/Api/Data/FromFolder/GetDirs/MenuWithDesign
-
-###
-GET http://localhost:4119/JSONApi/Api/Data/FromFolder/GetDirs/AsArray
-
-###
-GET http://localhost:4119/JSONApi/Api/Data/FromFolder/GetDirs/AsTree
