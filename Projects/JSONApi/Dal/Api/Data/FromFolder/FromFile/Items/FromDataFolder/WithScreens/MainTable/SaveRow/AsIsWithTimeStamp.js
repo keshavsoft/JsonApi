@@ -1,8 +1,8 @@
-// let CommonDataSupply = require("../../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/GeneratePk/EntryFile");
+let CommonDataSupply = require("../../../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/GeneratePk/EntryFile");
 
 exports.PostFunc = ({ inFolderName, inFileNameOnly, inItemName, inScreenname, inDataPK, inDataToInsert }) => {
 
-    return "From Dal"
+    // return "From Dal"
 
     let LocalReturnObject = CommonDataSupply.StartFunc({
         inFolderName: inFolderName,
