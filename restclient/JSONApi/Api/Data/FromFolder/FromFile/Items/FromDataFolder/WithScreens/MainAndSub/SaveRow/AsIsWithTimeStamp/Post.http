@@ -1,0 +1,14 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/MainAndSub/SaveRow/AsIsWithTimeStamp
+content-type: application/json
+
+{
+    "inFolderName": "ToFactory",
+    "inFileNameOnly": "Kakinada",
+    "inItemName": "QrCodeDetails",
+    "inScreenName": "Create",
+    "inDataToInsert": {
+        "pk": "88",
+        "ItemName": "55ss",
+        "VoucherRef": "sv"
+    }
+}
