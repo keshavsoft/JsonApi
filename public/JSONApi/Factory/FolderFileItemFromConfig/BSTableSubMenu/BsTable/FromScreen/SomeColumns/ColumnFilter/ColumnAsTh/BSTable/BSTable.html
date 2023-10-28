@@ -18,100 +18,8 @@
     <!-- Custom styles for this template -->
     <link href="./css/headers.css" rel="stylesheet">
 
-    <style>
-        .loader {
-            width: 120px;
-            height: 150px;
-            background-color: #fff;
-            background-repeat: no-repeat;
-            background-image: linear-gradient(#ddd 50%, #bbb 51%),
-                linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd),
-                radial-gradient(ellipse at center, #aaa 25%, #eee 26%, #eee 50%, #0000 55%),
-                radial-gradient(ellipse at center, #aaa 25%, #eee 26%, #eee 50%, #0000 55%),
-                radial-gradient(ellipse at center, #aaa 25%, #eee 26%, #eee 50%, #0000 55%);
-            background-position: 0 20px, 45px 0, 8px 6px, 55px 3px, 75px 3px, 95px 3px;
-            background-size: 100% 4px, 1px 23px, 30px 8px, 15px 15px, 15px 15px, 15px 15px;
-            position: relative;
-            border-radius: 6%;
-            animation: shake 3s ease-in-out infinite;
-            transform-origin: 60px 180px;
-        }
-
-        .loader:before {
-            content: "";
-            position: absolute;
-            left: 5px;
-            top: 100%;
-            width: 7px;
-            height: 5px;
-            background: #aaa;
-            border-radius: 0 0 4px 4px;
-            box-shadow: 102px 0 #aaa;
-        }
-
-        .loader:after {
-            content: "";
-            position: absolute;
-            width: 95px;
-            height: 95px;
-            left: 0;
-            right: 0;
-            margin: auto;
-            bottom: 20px;
-            background-color: #bbdefb;
-            background-image: linear-gradient(to right, #0004 0%, #0004 49%, #0000 50%, #0000 100%),
-                linear-gradient(135deg, #64b5f6 50%, #607d8b 51%);
-            background-size: 30px 100%, 90px 80px;
-            border-radius: 50%;
-            background-repeat: repeat, no-repeat;
-            background-position: 0 0;
-            box-sizing: border-box;
-            border: 10px solid #DDD;
-            box-shadow: 0 0 0 4px #999 inset, 0 0 6px 6px #0004 inset;
-            animation: spin 3s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg)
-            }
-
-            50% {
-                transform: rotate(360deg)
-            }
-
-            75% {
-                transform: rotate(750deg)
-            }
-
-            100% {
-                transform: rotate(1800deg)
-            }
-        }
-
-        @keyframes shake {
-
-            65%,
-            80%,
-            88%,
-            96% {
-                transform: rotate(0.5deg)
-            }
-
-            50%,
-            75%,
-            84%,
-            92% {
-                transform: rotate(-0.5deg)
-            }
-
-            0%,
-            50%,
-            100% {
-                transform: rotate(0)
-            }
-        }
-    </style>
+    <link href="./css/WashingMachine.css" rel="stylesheet">
+   
 </head>
 
 <body class="mb-5">
@@ -145,56 +53,22 @@
                                 Parent
                             </a>
                         </li>
+                       
                         <li class="nav-item Bookings">
-                            <a id="MenuId" class="nav-link active" aria-current="page" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"></path>
-                                </svg>
-                                Menu
-                            </a>
-                        </li>
-                      
-                        <li class="nav-item Bookings">
-                            <a class="nav-link active" aria-current="page" href="../BSTableFromData/BSTableFromData.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
-                                </svg>
-                                BSTable From Data
-                            </a>
-                        </li>
-
-                        <li class="nav-item Bookings">
-                            <a class="nav-link active" aria-current="page" href="../BSTableFromScreen/BSTableFromScreen.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z"></path>
-                                </svg>
-                                BSTable From Screen
-                            </a>
-                        </li>
-
-                        <li class="nav-item Bookings">
-                            <a class="nav-link active" aria-current="page" href="../BSTableFiltersFromData/BSTableFiltersFromData.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z"></path>
-                                </svg>
-                                BSTableFiltersFromData
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="VerticalFromParamsId" href="../../VerticalSubMenu/Menu.html" class="nav-link text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"></path>
-
-                                </svg>
-                                VerticalSubMenu
-                            </a>
-                        </li>
-                        <li class="nav-item Bookings">
-                            <a class="nav-link active" aria-current="page" href="../BSTable/Menu.html">
+                            <a class="nav-link active" aria-current="page" href="../BSTable/BSTable.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
                                 </svg>
                                 BSTable
+                            </a>
+                        </li>
+
+                        <li class="nav-item Bookings">
+                            <a class="nav-link active" aria-current="page" href="../BSTableWithDelete/BSTableWithDelete.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z"></path>
+                                </svg>
+                                BSTableWithDelete
                             </a>
                         </li>
                     </ul>
@@ -292,7 +166,7 @@
             </div>
 
             <div id="AlertInfoId" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
-                <p style="display: inline;">Serial Number dataset(#) stops the filters to function properly.</p> 
+                <p style="display: inline;">Dataset field of Serial Number (#) stops the filters to work properly.</p> 
             </div>
             <div id="AlertInfoSuccessId" class="alert alert-success alert-dismissible fade show mt-2" role="alert">
                 <p style="display: inline;">Filters work perfectly when the serial number dataset is not given.</p>
@@ -386,6 +260,7 @@
 
     <!-- <script src="../../Js/headerChange.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./Js/headerChange.js"></script>
 
     <script src="./Js/BSTableFromScreen.js" type="module"></script>
 </body>

@@ -109,7 +109,7 @@
         </nav>
     </div>
 </header>
-
+    
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -143,19 +143,16 @@
     <div class="container mt-2">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../../../../../../../../../Html/UserData/Menu/Menu.html">Home</a>
-                </li>
+                <li class="breadcrumb-item"><a href="../../../../../../../../../Html/UserData/Menu/Menu.html">Home</a></li>
                 <li class="breadcrumb-item"><a href="../../../../../../../../Dashboard.html">Factory</a></li>
-                <li class="breadcrumb-item"><a href="../../../../../../../../FolderFileItemFromConfig/BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">FolderFileItemFromConfig</a>
-                </li>
-                <li class="breadcrumb-item"><a href="../../../../../../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">BSTableSubMenu</a>
-                </li>
+                <li class="breadcrumb-item"><a href="../../../../../../../../FolderFileItemFromConfig/BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">FolderFileItemFromConfig</a></li>
+                <li class="breadcrumb-item"><a href="../../../../../../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">BSTableSubMenu</a></li>
                 <li class="breadcrumb-item"><a href="../../../../../../BsTable/Menu.html">BSTable</a></li>
                 <li class="breadcrumb-item"><a href="../../../../Menu.html">FromScreen</a></li>
                 <li class="breadcrumb-item"><a href="../../../Menu.html">SomeColumns</a></li>
                 <li class="breadcrumb-item"><a href="../../../Menu.html">ColumnFilter</a></li>
-                <li class="breadcrumb-item"><a href="../../Menu.html">HtmlTh</a></li>
-                <li class="breadcrumb-item active" aria-current="page">BSTable</li>
+                <li class="breadcrumb-item"><a href="../../Menu.html">ColumnAsTh</a></li>
+                <li class="breadcrumb-item active" aria-current="page">BSTableWithDelete</li>
             </ol>
         </nav>
     </div>
@@ -166,6 +163,13 @@
                 <strong id="RowPkInsertSuccessStrongId">SavedPk</strong> Saved
                 Sucessfully.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div id="AlertInfoId" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                <p style="display: inline;">Dataset field of Serial Number (#) stops the filters to work properly.</p> 
+            </div>
+            <div id="AlertInfoSuccessId" class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                <p style="display: inline;">Filters work perfectly when the serial number dataset is not given.</p>
             </div>
 
             <div class="card mt-3">
@@ -189,7 +193,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         </button>
                     </div>
-
+                    
                     <div class="spinner-border" id="SpinnerId" role="status" style="display: none;">
                         <span class="visually-hidden">Loading...</span>
                     </div>
@@ -202,13 +206,10 @@
                         </div>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true" data-show-footer="true">
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-show-footer="true">
                         <thead>
                             <tr id="tableHeadRow">
-                                <th data-formatter="jFLocalSerialColumn">#</th>
-                                <th data-field="pk">pk</th>
-                                <th data-field="ProductName" data-filter-control="select">ProductName</th>
-                                <th data-field="SalePrice" data-filter-control="select" data-footer-formatter="priceFormatter">SalePrice</th>
+                                
                             </tr>
                         </thead>
                     </table>
@@ -236,14 +237,21 @@
             return html.join('')
         };
 
-        function jFLocalSerialColumn(value, row, index) {
+        function operateFormatter(value, row, index) {
+    return [
+        `<a class="KSMainTableRowDelete" data-pk=${row.pk} href="#">`,
+        'Delete',
+        '</a>',
+    ].join('')
+};
+
+        function jFLocalSerialColumn(value, row, index){
             return index + 1;
         };
 
         function priceFormatter(data) {
     var field = this.field
     return '₹ ' + data.map(function (row) {
-        console.log("row",row);
       return +row.SalePrice
     }).reduce(function (sum, i) {
       return sum + i
@@ -262,7 +270,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./Js/headerChange.js"></script>
 
-    <script src="./Js/BSTableFromScreen.js" type="module"></script>
+    <script src="./Js/BSTableWithDelete.js" type="module"></script>
 </body>
 
 </html>

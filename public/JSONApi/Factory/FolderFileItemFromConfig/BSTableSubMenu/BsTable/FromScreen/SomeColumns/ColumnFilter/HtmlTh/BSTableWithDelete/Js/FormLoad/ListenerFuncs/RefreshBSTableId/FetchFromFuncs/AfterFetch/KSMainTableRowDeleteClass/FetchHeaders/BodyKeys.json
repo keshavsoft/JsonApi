@@ -1,0 +1,10 @@
+{
+    "inJsonConfig": {
+        "inFolderName": "QrCodes",
+        "inJsonFileName": "Generate.json"
+    },
+    "inItemConfig": {
+        "inItemName": "Barcodes"
+    },
+    "inJsonPK": 8
+}

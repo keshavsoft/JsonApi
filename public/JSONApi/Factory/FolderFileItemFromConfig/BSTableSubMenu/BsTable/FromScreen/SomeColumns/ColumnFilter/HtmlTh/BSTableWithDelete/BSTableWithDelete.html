@@ -155,7 +155,7 @@
                 <li class="breadcrumb-item"><a href="../../../Menu.html">SomeColumns</a></li>
                 <li class="breadcrumb-item"><a href="../../../Menu.html">ColumnFilter</a></li>
                 <li class="breadcrumb-item"><a href="../../Menu.html">HtmlTh</a></li>
-                <li class="breadcrumb-item active" aria-current="page">BSTable</li>
+                <li class="breadcrumb-item active" aria-current="page">BSTableWithDelete</li>
             </ol>
         </nav>
     </div>
@@ -207,8 +207,9 @@
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn">#</th>
                                 <th data-field="pk">pk</th>
-                                <th data-field="ProductName" data-filter-control="select">ProductName</th>
-                                <th data-field="SalePrice" data-filter-control="select" data-footer-formatter="priceFormatter">SalePrice</th>
+                                <th data-field="ProductName">ProductName</th>
+                                <th data-field="SalePrice" data-footer-formatter="priceFormatter">SalePrice</th>
+                                <th data-formatter="operateFormatter">Delete</th>
                             </tr>
                         </thead>
                     </table>
@@ -236,6 +237,14 @@
             return html.join('')
         };
 
+        function operateFormatter(value, row, index) {
+    return [
+        `<a class="KSMainTableRowDelete" data-pk=${row.pk} href="#">`,
+        'Delete',
+        '</a>',
+    ].join('')
+};
+
         function jFLocalSerialColumn(value, row, index) {
             return index + 1;
         };
@@ -261,8 +270,7 @@
     <!-- <script src="../../Js/headerChange.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./Js/headerChange.js"></script>
-
-    <script src="./Js/BSTableFromScreen.js" type="module"></script>
+    <script src="./Js/BSTableWithDelete.js" type="module"></script>
 </body>
 
 </html>
