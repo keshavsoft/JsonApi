@@ -536,8 +536,8 @@
                         }
                     },
                     "HtmlAttributes": {
-                        "KTF": false,
-                        "list": ""
+                        "KTF": true,
+                        "list": "FactoryId"
                     },
                     "KDataAttributes": {
                         "onkeypress": false,
