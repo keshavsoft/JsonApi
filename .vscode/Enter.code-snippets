@@ -232,7 +232,7 @@
 			"	let jVarLocalHtmlId = '$1';",
 			"   let jVarLocal$1 = document.getElementById(jVarLocalHtmlId);",
 			"   ",
-			"   if (jVarLocalInputProductNameId === null === false) {",
+			"   if (jVarLocal$1 === null === false) {",
 			"      jVarLocal$1.value = in$1;",
 			"   };",
 			"};"
