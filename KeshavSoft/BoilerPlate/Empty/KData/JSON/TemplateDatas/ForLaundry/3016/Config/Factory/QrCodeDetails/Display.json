@@ -2694,8 +2694,8 @@
                             "Transform": false
                         },
                         "DefaultShowData": {
-                            "FolderName": "ToFactory",
-                            "FileName": "Vzm",
+                            "FolderName": "Factory",
+                            "FileName": "VoucherDetails",
                             "ItemName": "VoucherDetails",
                             "CheckColumnName": "pk",
                             "FilterString": "element[0] === inObjectToInsert.VoucherRef"
