@@ -48,7 +48,7 @@
                             "FileName": "QrCodeDetails",
                             "ItemName": "QrCodeDetails",
                             "CheckColumnName": "pk",
-                            "FilterString": "element[0] === inObjectToInsert.pk && element[1].VoucherRef===inObjectToInsert.VoucherRef"
+                            "FilterString": "element[0] === InDataToInsert.pk && element[1].VoucherRef===InDataToInsert.VoucherRef"
                         }
                     },
                     "Footer": {
@@ -1840,7 +1840,7 @@
                             "FileName": "VoucherDetails",
                             "ItemName": "VoucherDetails",
                             "CheckColumnName": "pk",
-                            "FilterString": "element[0] === inObjectToInsert.VoucherRef"
+                            "FilterString": "element[0] === InDataToInsert.VoucherRef"
                         }
                     },
                     "Footer": {
