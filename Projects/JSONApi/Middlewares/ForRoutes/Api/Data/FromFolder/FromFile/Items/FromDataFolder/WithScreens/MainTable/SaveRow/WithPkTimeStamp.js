@@ -17,6 +17,7 @@ exports.PostFunc = (req, res, next) => {
 
     if (("KeshavSoft" in req) === false) res.json({ KTF: false, KReason: "KeshavSoft not found in Request" });
     if (("DataPk" in req.KeshavSoft) === false) res.json({ KTF: false, KReason: "DataPk not found in KeshavSoft" });
+    if (("kUserName" in req.KeshavSoft) === false) res.json({ KTF: false, KReason: "kUserName not found in KeshavSoft" });
     if (("inFolderName" in req.body) === false) res.json({ KTF: false, KReason: "inFolderName not found in body" });
     if (("inFileNameOnly" in req.body) === false) res.json({ KTF: false, KReason: "inFileNameOnly not found in body" });
     if (("inItemName" in req.body) === false) res.json({ KTF: false, KReason: "inItemName not found in body" });
