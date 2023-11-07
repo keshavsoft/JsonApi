@@ -7,6 +7,7 @@ let PostFunc = (req, res, next) => {
     let LocalScreenName = req.body.inScreenName;
     let LocalDataToInsert = req.body.inDataToInsert;
     let LocalDataPk = req.KeshavSoft.DataPk;
+    let LocalDatakUserName = req.KeshavSoft.kUserName;
 
     let PromiseData = Repos.PostFunc({
         inFolderName: LocalFolderName,
@@ -14,7 +15,8 @@ let PostFunc = (req, res, next) => {
         inItemName: LocalItemName,
         inScreenname: LocalScreenName,
         inDataPK: LocalDataPk,
-        inDataToInsert: LocalDataToInsert
+        inDataToInsert: LocalDataToInsert,
+        inDatakUserName: LocalDatakUserName
     });
 
     res.json(PromiseData);
