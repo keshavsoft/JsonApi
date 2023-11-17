@@ -25,6 +25,7 @@ web.config
 /public/ForWebSocket
 /public/Hackathon
 /public/CleaningPos
+/public/ForDashboards
 
 /restclient/JSONAdminApi
 
