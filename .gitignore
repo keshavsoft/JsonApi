@@ -22,6 +22,7 @@ web.config
 /public/ClientLogin
 /public/Garments
 /public/Cleaning
+/public/ForWebSocket
 /public/Hackathon
 /public/CleaningPos
 
