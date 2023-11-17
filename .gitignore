@@ -24,6 +24,7 @@ web.config
 /public/Cleaning
 /public/Hackathon
 /public/CleaningPos
+/public/ForDashboards
 
 /restclient/JSONAdminApi
 
