@@ -11,7 +11,6 @@ let CommonOnMessage = require('./OnMessage')
 let CommonVerifyToken = require('./VerifyToken');
 let CommonFromDataSupply = require("../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/AsArray/EntryFile");
 
-
 let CommonLogChat = true;
 
 let StartFunc = (server) => {
@@ -29,8 +28,8 @@ var get_cookies = function ({ inRequest }) {
         var parts = cookie.match(/(.*?)=(.*)$/)
         cookies[parts[1].trim()] = (parts[2] || '').trim();
     });
-    return cookies;
 
+    return cookies;
 };
 
 let WsOnConnection = (ws, req) => {
@@ -42,15 +41,18 @@ let WsOnConnection = (ws, req) => {
     let LocalGetCookie = get_cookies({ inRequest: req });
     let LocalTokenName = "KToken";
     let LocalDataPK;
+
     if (LocalTokenName in LocalGetCookie) {
-
         LocalDataPK = CommonVerifyToken({ inKToken: LocalGetCookie[LocalTokenName], inws: ws });
-
-        console.log("get_cookies", LocalGetCookie, LocalDataPK);
     }
     else {
         ws.close();
-    }
+    };
+
+    if (LocalDataPK === undefined) {
+        ws.close();
+    };
+
     LocalFuncSaveToJson({ inDataPK: LocalDataPK, inws: ws, inClients: clients });
 
     const ip = req.socket.remoteAddress;
@@ -78,16 +80,15 @@ let LocalFuncSaveToJson = ({ inDataPK, inws, inClients }) => {
     let LocalFileName = "ConnectedClients";
     let LocalItemName = "MetadataAsArray";
     const metadata = inClients.get(inws);
+
     let LocalFromForExistence = CommonFromDataSupply.StartFunc(
         {
             inFolderName: LocalFolderName,
             inFileNameOnly: LocalFileName,
             inItemName: LocalItemName,
             inDataPK,
-            inDataToInsert: JSON.stringify(metadata)
+            inDataToInsert: metadata
         });
-console.log("hi",LocalFromForExistence);
 };
-
 
 module.exports = StartFunc;

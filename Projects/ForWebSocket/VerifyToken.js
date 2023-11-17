@@ -1,6 +1,36 @@
+let jwt = require("jsonwebtoken");
 let CommonFromDataSupply = require("../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/Check");
 
 let LocalVerifyToken = ({ inKToken, inws }) => {
+    try {
+        let LocalToken = process.env.KS_TOKEN_FORLOGIN;
+
+        let LocalauthData = jwt.verify(inKToken, LocalToken);
+
+        if (("DataPk" in LocalauthData) === false) {
+            inws.close();
+        } else {
+            // let LocalFromForExistence = CommonCheckDataPK.ForExistence({ inDataPK: authData.DataPk });
+            let LocalFromForExistence = CommonFromDataSupply.ForExistence({ inDataPK: LocalauthData.DataPk });
+
+            if ("KTF" in LocalFromForExistence) {
+                if (LocalFromForExistence.KTF === false) {
+                    inws.close();
+                } else {
+
+                    // req.KeshavSoft.kUserName = authData.UserName;
+                    return parseInt(LocalauthData.DataPk);
+                };
+            } else {
+                inws.close();
+            };
+        };
+    } catch (error) {
+        inws.close();
+    };
+};
+
+let LocalVerifyToken1 = ({ inKToken, inws }) => {
     try {
         let LocalToken = process.env.KS_TOKEN_FORLOGIN;
 
