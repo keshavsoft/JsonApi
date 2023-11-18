@@ -53,7 +53,10 @@ let WsOnConnection = (ws, req) => {
         ws.close();
     };
 
-    LocalFuncSaveToJson({ inDataPK: LocalDataPK, inws: ws, inClients: clients });
+    LocalFuncSaveToJson({
+        inDataPK: LocalDataPK, inws: ws, inClients: clients,
+        inRequest: req
+    });
 
     const ip = req.socket.remoteAddress;
     ws.send(ip);
@@ -75,11 +78,14 @@ let WsOnConnection = (ws, req) => {
     ws.send('Hai Socket established');
 };
 
-let LocalFuncSaveToJson = ({ inDataPK, inws, inClients }) => {
+let LocalFuncSaveToJson = ({ inDataPK, inws, inClients, inRequest }) => {
     let LocalFolderName = "ForChat";
     let LocalFileName = "ConnectedClients";
     let LocalItemName = "MetadataAsArray";
     const metadata = inClients.get(inws);
+
+    const ip = inRequest.socket.remoteAddress;
+    metadata.remoteAddress = ip;
 
     let LocalFromForExistence = CommonFromDataSupply.StartFunc(
         {

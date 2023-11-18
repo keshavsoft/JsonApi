@@ -43,6 +43,7 @@ let jFIsEntry = ({ inParentUl, inKey, inValue }) => {
     };
 
     if (Array.isArray(jVarLocalValue)) {
+        console.log("11111111111 : ", jVarLocalValue);
         StartFuncValueIsArray({ inParentLiTag: l1, inKey });
 
         let jVarLocalUl = document.createElement("ul");
