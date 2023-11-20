@@ -1,4 +1,4 @@
-let CommonFromDataSupply = require("../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/ItemNameInsert/ItemNameOnly");
+let CommonFromDataSupply = require("../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/ItemNameInsert/ItemNameAsArray");
 
 let StartFunc = ({ inVerifyToken, inws, inClients }) => {
     let LocalFolderName = "ForChat";
@@ -13,8 +13,6 @@ let StartFunc = ({ inVerifyToken, inws, inClients }) => {
             inItemName: LocalItemName,
             inDataPK: inVerifyToken.DataPk,
         });
-
-    console.log("new log",LocalFromForExistence);
 };
 
 module.exports = StartFunc;
