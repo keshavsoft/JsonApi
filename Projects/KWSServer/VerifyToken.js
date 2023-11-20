@@ -19,7 +19,7 @@ let LocalVerifyToken = ({ inKToken, inws }) => {
                 } else {
 
                     // req.KeshavSoft.kUserName = authData.UserName;
-                    return parseInt(LocalauthData.DataPk);
+                    return LocalauthData;
                 };
             } else {
                 inws.close();
