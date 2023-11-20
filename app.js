@@ -7,7 +7,7 @@ let CommonProjectNameForJSONAdminApi = "JSONAdminApi";
 let CommonProjectNameForJSONUtility = "JSONUtility";
 
 let Commoncontrollers = require("./controllers/missedAll.controller");
-let CommonForWebSocketStart = require("./Projects/ForWebSocket/EntryFile");
+let CommonForWebSocketStart = require("./Projects/KWSServer/EntryFile");
 let CommonHomeController = require("./StartUp/Home.controller");
 
 require('dotenv').config()
