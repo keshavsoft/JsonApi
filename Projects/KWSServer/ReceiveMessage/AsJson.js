@@ -5,10 +5,19 @@ let CommonBroadcastOnly = require('../BroadcastOnly');
 let CommonPrivateMessage = require('../PrivateMessage');
 let CommonOnlineClients = require('../OnlineClients');
 let CommonRefreshOnlineClients = require('../RefreshOnlineClients');
+let CommonSaveToJsonOnMessage = require("../LogHistory/OnMessage/EntryFile")
 
-let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss }) => {
+let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerifyToken }) => {
 
     let LocalJsonData = inMessageAsJson;
+    let LocalItemName = inMetadata.id;
+    LocalJsonData.InwardMessage = true;
+    
+    CommonSaveToJsonOnMessage({ 
+        inVerifyToken, 
+        inItemName: LocalItemName,
+        inMessage: LocalJsonData 
+    })
 
     if (LocalJsonData.From === "Service" && LocalJsonData.Type === "SysInfo") {
         inMetadata.SysMAC = LocalJsonData.SysMac

@@ -10,7 +10,6 @@ let CommoninsertToClients = require('./insertToClients')
 let CommonOnMessage = require('./OnMessage')
 let CommonVerifyToken = require('./VerifyToken');
 let CommonSaveToJsonOnConnections = require("./LogHistory/OnConnection/EntryFile")
-let CommonSaveToJsonOnMessage = require("./LogHistory/OnMessage/EntryFile")
 
 let CommonLogChat = true;
 
@@ -69,10 +68,9 @@ let WsOnConnection = (ws, req) => {
             inMessageAsString: messageAsString,
             inClients: clients,
             inws: ws,
-            inwss: wss
+            inwss: wss,
+            inVerifyToken: LocalFromVerifyToken
         }));
-
-    // CommonSaveToJsonOnMessage({ inVerifyToken: LocalFromVerifyToken, inws: ws, inClients: clients, inMessage: messageAsString });
 
     ws.on('close', () => {
         console.log('closed');

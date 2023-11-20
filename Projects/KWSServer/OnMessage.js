@@ -1,16 +1,15 @@
 let CommonAsJson = require('./ReceiveMessage/AsJson');
 let CommonAsString = require('./ReceiveMessage/AsString');
 
-let StartFunc = ({ inMessageAsString, inClients, inws, inwss }) => {
-    console.log('aaaaaaaa : ', inMessageAsString.toString());
+let StartFunc = ({ inMessageAsString, inClients, inws, inwss, inVerifyToken }) => {
     const metadata = inClients.get(inws);
+    let LocalMessageAsString = inMessageAsString.toString();
     try {
-        let LocalJsonData = JSON.parse(inMessageAsString.toString());
-        CommonAsJson({ inMessageAsJson: LocalJsonData, inws: inws, inMetadata: metadata, inClients, inwss });
+        let LocalJsonData = JSON.parse(LocalMessageAsString);
+        CommonAsJson({ inMessageAsJson: LocalJsonData, inws: inws, inMetadata: metadata, inClients, inwss, inVerifyToken });
 
     } catch (error) {
-        CommonAsString({ inwss, inMessageAsString: inMessageAsString, inMetadata: metadata });
-
+        CommonAsString({ inwss, inMessageAsString: LocalMessageAsString, inMetadata: metadata, inVerifyToken });
     };
 };
 
