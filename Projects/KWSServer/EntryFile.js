@@ -9,7 +9,8 @@ let CommonOnlineClientsFromSendMessage = require('./SendMessage/OnlineClients')
 let CommoninsertToClients = require('./insertToClients')
 let CommonOnMessage = require('./OnMessage')
 let CommonVerifyToken = require('./VerifyToken');
-let CommonFromDataSupply = require("../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/AsArray/EntryFile");
+let CommonSaveToJsonOnConnections = require("./LogHistory/OnConnection/EntryFile")
+let CommonSaveToJsonOnMessage = require("./LogHistory/OnMessage/EntryFile")
 
 let CommonLogChat = true;
 
@@ -40,21 +41,21 @@ let WsOnConnection = (ws, req) => {
 
     let LocalGetCookie = get_cookies({ inRequest: req });
     let LocalTokenName = "KToken";
-    let LocalDataPK;
+    let LocalFromVerifyToken;
 
     if (LocalTokenName in LocalGetCookie) {
-        LocalDataPK = CommonVerifyToken({ inKToken: LocalGetCookie[LocalTokenName], inws: ws });
+        LocalFromVerifyToken = CommonVerifyToken({ inKToken: LocalGetCookie[LocalTokenName], inws: ws });
     }
     else {
         ws.close();
     };
 
-    if (LocalDataPK === undefined) {
+    if (LocalFromVerifyToken.DataPk === undefined) {
         ws.close();
     };
 
-    LocalFuncSaveToJson({
-        inDataPK: LocalDataPK, inws: ws, inClients: clients,
+    CommonSaveToJsonOnConnections({
+        inVerifyToken: LocalFromVerifyToken, inws: ws, inClients: clients,
         inRequest: req
     });
 
@@ -71,30 +72,13 @@ let WsOnConnection = (ws, req) => {
             inwss: wss
         }));
 
+    // CommonSaveToJsonOnMessage({ inVerifyToken: LocalFromVerifyToken, inws: ws, inClients: clients, inMessage: messageAsString });
+
     ws.on('close', () => {
         console.log('closed');
     });
 
     ws.send('Hai Socket established');
-};
-
-let LocalFuncSaveToJson = ({ inDataPK, inws, inClients, inRequest }) => {
-    let LocalFolderName = "ForChat";
-    let LocalFileName = "ConnectedClients";
-    let LocalItemName = "MetadataAsArray";
-    const metadata = inClients.get(inws);
-
-    const ip = inRequest.socket.remoteAddress;
-    metadata.remoteAddress = ip;
-
-    let LocalFromForExistence = CommonFromDataSupply.StartFunc(
-        {
-            inFolderName: LocalFolderName,
-            inFileNameOnly: LocalFileName,
-            inItemName: LocalItemName,
-            inDataPK,
-            inDataToInsert: metadata
-        });
 };
 
 module.exports = StartFunc;
