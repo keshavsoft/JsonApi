@@ -44,12 +44,12 @@ let WsOnConnection = (ws, req) => {
 
     if (LocalTokenName in LocalGetCookie) {
         LocalFromVerifyToken = CommonVerifyToken({ inKToken: LocalGetCookie[LocalTokenName], inws: ws });
+
+        if (LocalFromVerifyToken.DataPk === undefined) {
+            ws.close();
+        };
     }
     else {
-        ws.close();
-    };
-
-    if (LocalFromVerifyToken.DataPk === undefined) {
         ws.close();
     };
 
