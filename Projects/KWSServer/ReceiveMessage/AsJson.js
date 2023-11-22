@@ -34,6 +34,10 @@ let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerify
 
         LocalFuncForBroadcastAll({ inwss, inMetadata, LocalJsonData });
     }
+    if (LocalJsonData.Type === "OneToOneMessage") {
+
+        LocalFuncForOneToOneMessage({ inwss, inMetadata, LocalJsonData });
+    }
     if (LocalJsonData.Type === "PrivateMessage") {
 
         LocalFuncForPrivateMessage({ inwss, inMetadata, LocalJsonData, inClients });
@@ -104,6 +108,18 @@ let LocalFuncForBroadcastAll = ({ inwss, inMetadata, LocalJsonData }) => {
     LocalObjectToSend.JsonData.FromId = inMetadata.id;
     LocalObjectToSend.JsonData.FromMessage = LocalMessageAsString;
 
+    CommonBroadcast({ inwss: inwss, inmessage: JSON.stringify(LocalObjectToSend) });
+}
+
+let LocalFuncForOneToOneMessage = ({ inwss, inMetadata, LocalJsonData }) => {
+    let LocalMessageAsString = LocalJsonData.Message;
+    let LocalObjectToSend = {};
+    LocalObjectToSend.MessageType = "OneToOneMessage";
+    LocalObjectToSend.JsonData = {};
+    LocalObjectToSend.JsonData.FromName = inMetadata.Name;
+    LocalObjectToSend.JsonData.FromId = inMetadata.id;
+    LocalObjectToSend.JsonData.FromMessage = LocalMessageAsString;
+console.log("One=-------------",LocalObjectToSend);
     CommonBroadcast({ inwss: inwss, inmessage: JSON.stringify(LocalObjectToSend) });
 }
 
