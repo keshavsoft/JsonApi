@@ -6,6 +6,7 @@ let CommonPrivateMessage = require('../PrivateMessage');
 let CommonOnlineClients = require('../OnlineClients');
 let CommonRefreshOnlineClients = require('../RefreshOnlineClients');
 let CommonSaveToJsonOnMessage = require("../LogHistory/OnMessage/EntryFile")
+let CommonOneToOneMessage = require("./AsJson/OneToOneMessage");
 
 let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerifyToken }) => {
 
@@ -36,7 +37,7 @@ let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerify
     }
     if (LocalJsonData.Type === "OneToOneMessage") {
 
-        LocalFuncForOneToOneMessage({ inwss, inMetadata, LocalJsonData });
+        CommonOneToOneMessage({ inwss, inMetadata, LocalJsonData, inClients });
     }
     if (LocalJsonData.Type === "PrivateMessage") {
 
@@ -108,18 +109,6 @@ let LocalFuncForBroadcastAll = ({ inwss, inMetadata, LocalJsonData }) => {
     LocalObjectToSend.JsonData.FromId = inMetadata.id;
     LocalObjectToSend.JsonData.FromMessage = LocalMessageAsString;
 
-    CommonBroadcast({ inwss: inwss, inmessage: JSON.stringify(LocalObjectToSend) });
-}
-
-let LocalFuncForOneToOneMessage = ({ inwss, inMetadata, LocalJsonData }) => {
-    let LocalMessageAsString = LocalJsonData.Message;
-    let LocalObjectToSend = {};
-    LocalObjectToSend.MessageType = "OneToOneMessage";
-    LocalObjectToSend.JsonData = {};
-    LocalObjectToSend.JsonData.FromName = inMetadata.Name;
-    LocalObjectToSend.JsonData.FromId = inMetadata.id;
-    LocalObjectToSend.JsonData.FromMessage = LocalMessageAsString;
-console.log("One=-------------",LocalObjectToSend);
     CommonBroadcast({ inwss: inwss, inmessage: JSON.stringify(LocalObjectToSend) });
 }
 
