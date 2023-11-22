@@ -5,21 +5,26 @@ let StartFunc = ({ inVerifyToken, inws, inClients, inRequest }) => {
     let LocalFileName = "ConnectedClients";
     let LocalItemName = "MetadataAsArray";
     const metadata = inClients.get(inws);
+    let LocalFromForExistence;
 
-    const ip = inRequest.socket.remoteAddress;
-    metadata.UserInfo = {};
-    metadata.UserInfo.remoteAddress = ip;
-    metadata.UserInfo.UserPk = inVerifyToken.UserName;
+    if (inVerifyToken === undefined === false) {
 
-    let LocalFromForExistence = CommonFromDataSupply.StartFunc(
-        {
-            inFolderName: LocalFolderName,
-            inFileNameOnly: LocalFileName,
-            inItemName: LocalItemName,
-            inDataPK: inVerifyToken.DataPk,
-            inDataToInsert: metadata
-        });
-    
+
+        const ip = inRequest.socket.remoteAddress;
+        metadata.UserInfo = {};
+        metadata.UserInfo.remoteAddress = ip;
+        metadata.UserInfo.UserPk = inVerifyToken.UserName;
+
+        LocalFromForExistence = CommonFromDataSupply.StartFunc(
+            {
+                inFolderName: LocalFolderName,
+                inFileNameOnly: LocalFileName,
+                inItemName: LocalItemName,
+                inDataPK: inVerifyToken.DataPk,
+                inDataToInsert: metadata
+            });
+    };
+
     return LocalFromForExistence;
 };
 
