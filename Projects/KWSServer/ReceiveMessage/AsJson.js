@@ -7,6 +7,7 @@ let CommonOnlineClients = require('../OnlineClients');
 let CommonRefreshOnlineClients = require('../RefreshOnlineClients');
 let CommonSaveToJsonOnMessage = require("../LogHistory/OnMessage/EntryFile")
 let CommonOneToOneMessage = require("./AsJson/OneToOneMessage");
+let CommonOldMessages = require("./AsJson/OldMessages");
 
 let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerifyToken }) => {
 
@@ -38,6 +39,10 @@ let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerify
     if (LocalJsonData.Type === "OneToOneMessage") {
 
         CommonOneToOneMessage({ inwss, inMetadata, LocalJsonData, inClients });
+    }
+    if (LocalJsonData.Type === "OldMessages") {
+
+        CommonOldMessages({ inwss, inMetadata, LocalJsonData, inClients, inVerifyToken });
     }
     if (LocalJsonData.Type === "PrivateMessage") {
 
