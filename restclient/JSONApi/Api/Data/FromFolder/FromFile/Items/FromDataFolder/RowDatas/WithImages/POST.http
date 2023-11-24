@@ -1,0 +1,9 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/RowDatas/WithImage
+content-type: application/json
+ 
+{   
+"inFolderName":"Masters",
+"inFileNameOnly":"CRM", 
+"inItemName": "CustomerNames",
+"inRowPk":"4"
+}
