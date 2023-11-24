@@ -11,6 +11,7 @@ let CommonAsObjectWithPK = require("./FromDataFolder/AsObjectWithPK");
 let CommonAsSubTable = require("./FromDataFolder/SubTable");
 let CommonAsMainTable = require("./FromDataFolder/MainTable");
 let CommonAggregateFuncs = require("./FromDataFolder/AggregateFuncs");
+let CommonRowDatas = require("./FromDataFolder/RowDatas");
 
 router.use('/NoConfig', CommonNoConfig);
 router.use('/WithScreens', CommonWithScreens);
@@ -23,6 +24,7 @@ router.use('/AsObjectWithPK', CommonAsObjectWithPK);
 router.use('/SubTable', CommonAsSubTable);
 router.use('/MainTable', CommonAsMainTable);
 router.use('/AggregateFuncs', CommonAggregateFuncs);
+router.use('/RowDatas', CommonRowDatas);
 
 
 module.exports = router;
