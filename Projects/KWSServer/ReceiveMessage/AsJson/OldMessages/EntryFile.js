@@ -6,15 +6,16 @@ let StartFunc = ({ inVerifyToken, inItemName }) => {
 
   let LocalItemName = inItemName;
 
-  let LocalFromForExistence = CommonFromDataSupply.StartFunc(
-    {
-      inFolderName: LocalFolderName,
-      inFileNameOnly: LocalFileName,
-      inItemName: LocalItemName,
-      inDataPK: inVerifyToken.DataPk,
-    });
+  let LocalDataNeeded = CommonFromDataSupply.StartFunc({
+    inFolderName: LocalFolderName,
+    inFileNameOnly: LocalFileName,
+    inItemName: LocalItemName,
+    inDataPK: inVerifyToken.DataPk,
+  });
 
-  return LocalFromForExistence;
+  
+
+  return LocalDataNeeded;
 };
 
 module.exports = StartFunc;

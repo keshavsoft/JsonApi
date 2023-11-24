@@ -14,11 +14,11 @@ let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerify
     let LocalJsonData = inMessageAsJson;
     let LocalItemName = inMetadata.id;
     LocalJsonData.InwardMessage = true;
-    
-    CommonSaveToJsonOnMessage({ 
-        inVerifyToken, 
+
+    CommonSaveToJsonOnMessage({
+        inVerifyToken,
         inItemName: LocalItemName,
-        inMessage: LocalJsonData 
+        inMessage: LocalJsonData
     })
 
     if (LocalJsonData.From === "Service" && LocalJsonData.Type === "SysInfo") {
@@ -39,11 +39,12 @@ let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerify
     if (LocalJsonData.Type === "OneToOneMessage") {
 
         CommonOneToOneMessage({ inwss, inMetadata, LocalJsonData, inClients });
-    }
-    if (LocalJsonData.Type === "OldMessages") {
+    };
 
+    if (LocalJsonData.Type === "OldMessages") {
         CommonOldMessages({ inwss, inMetadata, LocalJsonData, inClients, inVerifyToken });
-    }
+    };
+
     if (LocalJsonData.Type === "PrivateMessage") {
 
         LocalFuncForPrivateMessage({ inwss, inMetadata, LocalJsonData, inClients });

@@ -15,9 +15,9 @@ let incoming = ({ inComingMessage, inClients, ws, inClientsInfo, inUserName }) =
         inUserName
     });
 
-    [...inClients.keys()].forEach((client) => {
-        client.send(inComingMessage.toString());
-    });
+    // [...inClients.keys()].forEach((client) => {
+    //     client.send(inComingMessage.toString());
+    // });
 };
 
 

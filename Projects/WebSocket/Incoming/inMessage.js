@@ -40,6 +40,7 @@ let insertToClientsInfo = ({ inComingMessage, inClientsInfo, inClientId }) => {
 };
 
 let SwitchOnIncomingMessage = ({ inComingMessage, inWs, inClientsInfo, inUserName }) => {
+    console.log("aaaaaaaaaaaa : ", inComingMessage);
     switch (inComingMessage) {
         case "Back":
             inWs.send("------------");
