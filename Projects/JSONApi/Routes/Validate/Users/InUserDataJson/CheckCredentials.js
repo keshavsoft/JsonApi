@@ -6,5 +6,4 @@ let CommonMiddlewares = require("../../../../Middlewares/Validate/Users/InUserDa
 
 router.post('/', CommonMiddlewares.PostFunc, Controllers.PostFunc);
 
-
 module.exports = router;

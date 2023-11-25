@@ -10,7 +10,7 @@ let Commoncontrollers = require("./controllers/missedAll.controller");
 let CommonForWebSocketStart = require("./Projects/KWSServer/EntryFile");
 let CommonHomeController = require("./StartUp/Home.controller");
 
-require('dotenv').config()
+require('dotenv').config();
 
 const express = require('express');
 const http = require('http');
@@ -72,4 +72,12 @@ function normalizePort(val) {
 server.listen(port, () => {
     console.log(`Listening in port : ${port}`);
     console.log(`Click to open : http://localhost:${port}`);
+    process.env.UUID = uuidv4();
 });
+
+function uuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+};

@@ -9,7 +9,6 @@ let PostFunc = ((req, res,) => {
         inUserName: LocalUserName,
         inPassWord: LocalPassWord,
     });
-    res.json(Response);
 
     if (Response.KTF === false) {
         res.json(Response);

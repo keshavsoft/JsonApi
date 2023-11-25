@@ -1,18 +1,21 @@
-let CommonFromDataSupply = require("../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/ItemNameInsert/ItemNameAsArray");
+// let CommonFromDataSupply = require("../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/ItemNameInsert/ItemNameAsArray");
 
-let StartFunc = ({ inVerifyToken, inws, inClients }) => {
+let CommonToKey = require("../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/ToKey/ToArray");
+
+let StartFunc = ({ inDataPK, inItemName, inClients, inMessage }) => {
     let LocalFolderName = "ForChat";
-    let LocalFileName = "ChatHistory";
-    const metadata = inClients.get(inws);
-    let LocalItemName = metadata.id;
+    //let LocalFileName = "ChatHistory";
 
-    let LocalFromForExistence = CommonFromDataSupply.StartFuncNoAsync(
-        {
-            inFolderName: LocalFolderName,
-            inFileNameOnly: LocalFileName,
-            inItemName: LocalItemName,
-            inDataPK: inVerifyToken.DataPk,
-        });
+    let LocalFileName = process.env.UUID;
+
+    let LocalFromForExistence = CommonToKey.StartFunc({
+        inFolderName: LocalFolderName,
+        inFileNameOnly: LocalFileName,
+        inItemName,
+        inDataPK,
+        inMainRowPK: "Chat",
+        inDataToInsert: inMessage
+    });
 };
 
 module.exports = StartFunc;

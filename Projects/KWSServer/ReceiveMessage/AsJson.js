@@ -1,25 +1,23 @@
-const WebSocket = require('ws');
-
 let CommonBroadcast = require('../Broadcast');
 let CommonBroadcastOnly = require('../BroadcastOnly');
 let CommonPrivateMessage = require('../PrivateMessage');
 let CommonOnlineClients = require('../OnlineClients');
 let CommonRefreshOnlineClients = require('../RefreshOnlineClients');
-let CommonSaveToJsonOnMessage = require("../LogHistory/OnMessage/EntryFile")
+// let CommonSaveToJsonOnMessage = require("../LogHistory/OnMessage/EntryFile");
 let CommonOneToOneMessage = require("./AsJson/OneToOneMessage");
 let CommonOldMessages = require("./AsJson/OldMessages");
+let CommonSaveToJsonOnMessage = require("../LogHistory/OnMessage/EntryFile");
 
 let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerifyToken }) => {
-
     let LocalJsonData = inMessageAsJson;
     let LocalItemName = inMetadata.id;
     LocalJsonData.InwardMessage = true;
 
     CommonSaveToJsonOnMessage({
-        inVerifyToken,
+        inDataPK: inVerifyToken.DataPk,
         inItemName: LocalItemName,
         inMessage: LocalJsonData
-    })
+    });
 
     if (LocalJsonData.From === "Service" && LocalJsonData.Type === "SysInfo") {
         inMetadata.SysMAC = LocalJsonData.SysMac

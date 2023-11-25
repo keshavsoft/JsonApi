@@ -3,10 +3,10 @@ let CommonToChatHistory = require("../ToChatHistory/InsertItem")
 
 let StartFunc = ({ inVerifyToken, inws, inClients, inRequest }) => {
     let LocalFromConnectedClients = CommonToConnectedClients({ inVerifyToken, inws, inClients, inRequest });
-    
+
     if (LocalFromConnectedClients === undefined === false) {
         if (LocalFromConnectedClients.KTF === true) {
-            CommonToChatHistory({ inVerifyToken, inws, inClients, inRequest })
+        //    CommonToChatHistory({ inVerifyToken, inws, inClients, inRequest })
         }
     };
 };

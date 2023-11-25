@@ -1,7 +1,7 @@
-let CommonToChatHistoryToItem = require("../ToChatHistory/ToItem")
+let CommonToChatHistoryToItem = require("../ToChatHistory/InsertItem")
 
-let StartFunc = ({ inVerifyToken, inItemName, inMessage }) => {
-    let LocalToChatHistoryToItem = CommonToChatHistoryToItem({ inVerifyToken, inItemName, inMessage });
+let StartFunc = ({ inDataPK, inItemName, inMessage }) => {
+    let LocalToChatHistoryToItem = CommonToChatHistoryToItem({ inDataPK, inItemName, inMessage });
 };
 
 module.exports = StartFunc;

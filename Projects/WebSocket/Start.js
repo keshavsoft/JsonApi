@@ -9,11 +9,9 @@ const clients = new Map();
 const clientsInfo = new Map();
 
 let StartFunc = (server) => {
-
     wss = new WebSocket.Server({ server });
 
     wss.on("connection", WsOnConnection);
-
 };
 
 var get_cookies = function (request) {

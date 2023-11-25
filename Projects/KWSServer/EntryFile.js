@@ -18,6 +18,7 @@ let StartFunc = (server) => {
 
     wss.on("connection", WsOnConnection);
 };
+
 var get_cookies = function ({ inRequest }) {
     var cookies = {};
 
@@ -70,8 +71,6 @@ let WsOnConnection = (ws, req) => {
     CommonOnlineClientsFromSendMessage({ inmessage: CommonOnlineClients({ inClients: clients }), inws: ws });
 
     ws.on('message', (messageAsString) => {
-            console.log("KKK",process.env.UID);
-
         CommonOnMessage({
             inMessageAsString: messageAsString,
             inClients: clients,
