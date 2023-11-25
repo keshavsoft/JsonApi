@@ -1,4 +1,4 @@
-let DataSupply = require("../../../../../../DataSupply/Fs/Config/JSONFolder/LoginFolder/UserDataJsonFile/Find/UserCredentialsWithFolderCheck");
+let DataSupply = require("../../../../../../DataSupply/Fs/Config/JSONFolder/LoginFolder/UserDataJsonFile/Find/CredentialsCheckAndLog");
 
 let PostFunc = ({ inUserName, inPassWord }) => {
     return DataSupply.StartFunc({ inUserName, inPassWord });
