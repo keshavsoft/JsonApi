@@ -1,0 +1,9 @@
+POST  http://localhost:4119/JSONApi/Validate/Users/InUserDataJson/CheckCredentials
+content-type: application/json
+
+
+{
+    "inUserName": "K1",
+    "inPassWord": "K1"
+}
+

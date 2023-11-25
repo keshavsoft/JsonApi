@@ -25,6 +25,7 @@ let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerify
         inMetadata.SysMAC = LocalJsonData.SysMac
     };
     if (LocalJsonData.Type === "AlterClient") {
+        process.env.UID = "keshav";
 
         LocalFuncForAlterClient({ LocalJsonData, inMetadata, inws, inClients, inwss });
     }
@@ -37,6 +38,7 @@ let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerify
         LocalFuncForBroadcastAll({ inwss, inMetadata, LocalJsonData });
     }
     if (LocalJsonData.Type === "OneToOneMessage") {
+        process.env.UID = "OneToOne";
 
         CommonOneToOneMessage({ inwss, inMetadata, LocalJsonData, inClients });
     };

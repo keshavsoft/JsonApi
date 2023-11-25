@@ -58,8 +58,8 @@ let WsOnConnection = (ws, req) => {
     };
 
     CommonSaveToJsonOnConnections({
-        inVerifyToken: LocalFromVerifyToken, 
-        inws: ws, 
+        inVerifyToken: LocalFromVerifyToken,
+        inws: ws,
         inClients: clients,
         inRequest: req
     });
@@ -69,14 +69,17 @@ let WsOnConnection = (ws, req) => {
 
     CommonOnlineClientsFromSendMessage({ inmessage: CommonOnlineClients({ inClients: clients }), inws: ws });
 
-    ws.on('message', (messageAsString) =>
+    ws.on('message', (messageAsString) => {
+            console.log("KKK",process.env.UID);
+
         CommonOnMessage({
             inMessageAsString: messageAsString,
             inClients: clients,
             inws: ws,
             inwss: wss,
             inVerifyToken: LocalFromVerifyToken
-        }));
+        })
+    });
 
     ws.on('close', () => {
         console.log('closed');
