@@ -1,0 +1,14 @@
+[
+    {
+        "UserPk": 902,
+        "AccessInfo": {
+            "QrCodes": {
+                "Generate": {
+                    "Barcodes": {
+                        "DeleteRight": false
+                    }
+                }
+            }
+        }
+    }
+]
