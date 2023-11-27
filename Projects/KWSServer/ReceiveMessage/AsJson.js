@@ -36,13 +36,13 @@ let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerify
         LocalFuncForBroadcastAll({ inwss, inMetadata, LocalJsonData });
     }
     if (LocalJsonData.Type === "OneToOneMessage") {
-        process.env.UID = "OneToOne";
+        // process.env.UID = "OneToOne";
 
         CommonOneToOneMessage({ inwss, inMetadata, LocalJsonData, inClients });
     };
 
     if (LocalJsonData.Type === "OldMessages") {
-        CommonOldMessages({ inwss, inMetadata, LocalJsonData, inClients, inVerifyToken });
+        CommonOldMessages({ inws, inMetadata, LocalJsonData, inClients, inVerifyToken });
     };
 
     if (LocalJsonData.Type === "PrivateMessage") {

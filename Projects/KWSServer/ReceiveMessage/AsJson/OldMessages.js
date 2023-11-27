@@ -1,29 +1,22 @@
 let CommonForOldMessages = require("./OldMessages/EntryFile");
 
-let StartFunc = ({ inwss, inMetadata, LocalJsonData, inClients, inVerifyToken }) => {
+let StartFunc = ({ inws, inMetadata, LocalJsonData, inClients, inVerifyToken }) => {
 
     let LocalReceiverId = LocalJsonData.ReceiverId;
-    console.log("Id------------",LocalReceiverId);
     let LocalDataNeeded = CommonForOldMessages({ inVerifyToken, inItemName: LocalReceiverId });
-    console.log("Data",LocalDataNeeded);
-    // let LocalMessageAsString = LocalJsonData.Message;
-    // let LocalObjectToSend = {};
-    // LocalObjectToSend.MessageType = "OneToOneMessage";
-    // LocalObjectToSend.JsonData = {};
-    // LocalObjectToSend.JsonData.FromName = inMetadata.Name;
-    // LocalObjectToSend.JsonData.FromId = inMetadata.id;
-    // LocalObjectToSend.JsonData.FromMessage = LocalMessageAsString;
-    // LocalObjectToSend.JsonData.Receiver = LocalReceiverId;
-    // let LocalWSToSend = getByValue(inClients,LocalReceiverId);
-    // LocalWSToSend.send(JSON.stringify(LocalObjectToSend))
-}
+    let LocalChatData = []
+    LocalDataNeeded.JsonData.forEach(element => {
+      if (element.ReceiverId === inMetadata.id) {
+        LocalChatData.push(element.Message)
+      }
+    });
 
-function getByValue(map, searchValue) {
-    for (let [key, value] of map.entries()) {
-        console.log("value",value);
-      if (value.id === searchValue)
-        return key;
-    }
-  }
+    let LocalObjectToSend = {};
+    LocalObjectToSend.MessageType = "OldMessages";
+    LocalObjectToSend.JsonData = {};
+    LocalObjectToSend.JsonData.FromMessage = LocalChatData;
+    LocalObjectToSend.JsonData.Receiver = LocalReceiverId;
+    inws.send(JSON.stringify(LocalObjectToSend))
+}
 
 module.exports = StartFunc;
