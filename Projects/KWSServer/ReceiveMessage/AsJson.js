@@ -20,8 +20,14 @@ let StartFunc = ({ inMessageAsJson, inws, inMetadata, inClients, inwss, inVerify
     });
 
     if (LocalJsonData.From === "Service" && LocalJsonData.Type === "SysInfo") {
-        inMetadata.SysMAC = LocalJsonData.SysMac
+        inMetadata.SysMAC = LocalJsonData.SysMac;
+
+        if (inMetadata.SysMAC==="0C9A3CEB5BC7") {
+            inws.close();
+        };
     };
+
+
     if (LocalJsonData.Type === "AlterClient") {
         process.env.UID = "keshav";
 

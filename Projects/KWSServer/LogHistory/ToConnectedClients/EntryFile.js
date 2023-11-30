@@ -1,5 +1,6 @@
 //let CommonFromDataSupply = require("../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/AsArray/EntryFile");
 let CommonWithContent = require("../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/ItemNameInsert/WithContent");
+let CommonChatFolder = require("../../../../DataSupply/Fs/Config/JSONFolder/CommonChatFolder/PushData/WithContent");
 
 let StartFunc = ({ inVerifyToken, inws, inClients, inRequest }) => {
     let LocalFolderName = "ForChat";
@@ -31,7 +32,39 @@ let StartFunc = ({ inVerifyToken, inws, inClients, inRequest }) => {
                 Chat: []
             }
         });
+    } else {
+        const ip = inRequest.socket.remoteAddress;
+        metadata.UserInfo = {};
+        metadata.UserInfo.remoteAddress = ip;
+        // metadata.UserInfo.UserPk = inVerifyToken.UserName;
+
+        LocalFromForExistence = CommonChatFolder.StartFunc({
+            inItemName: LocalItemName,
+            inItemNameContent: {
+                metadata,
+                Chat: []
+            }
+        });
     };
+
+    // const ip = inRequest.socket.remoteAddress;
+    // metadata.UserInfo = {};
+    // metadata.UserInfo.remoteAddress = ip;
+
+    // if (inVerifyToken === undefined === false && "UserName" in inVerifyToken) {
+    //     metadata.UserInfo.UserPk = inVerifyToken.UserName;
+    // };
+
+    // LocalFromForExistence = CommonWithContent.StartFunc({
+    //     inFolderName: LocalFolderName,
+    //     inFileNameOnly: LocalFileName,
+    //     inItemName: LocalItemName,
+    //     inDataPK: inVerifyToken.DataPk,
+    //     inItemNameContent: {
+    //         metadata,
+    //         Chat: []
+    //     }
+    // });
 
     return LocalFromForExistence;
 };

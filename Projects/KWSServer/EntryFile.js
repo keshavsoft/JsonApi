@@ -42,20 +42,19 @@ let WsOnConnection = (ws, req) => {
     let LocalGetCookie = get_cookies({ inRequest: req });
     let LocalTokenName = "KToken";
     let LocalFromVerifyToken;
-
+    console.log("aaaaaaaaaaaa : ", LocalGetCookie);
     if (LocalTokenName in LocalGetCookie) {
         LocalFromVerifyToken = CommonVerifyToken({ inKToken: LocalGetCookie[LocalTokenName], inws: ws });
+
         if (LocalFromVerifyToken === false) {
             ws.close();
         };
+
         if (LocalFromVerifyToken.DataPk === undefined) {
             ws.close();
         };
-        let metadata = clients.get(ws);
-        metadata.Name = LocalFromVerifyToken.UserName;
-    }
-    else {
-        ws.close();
+    } else {
+    //    ws.close();
     };
 
     CommonSaveToJsonOnConnections({
