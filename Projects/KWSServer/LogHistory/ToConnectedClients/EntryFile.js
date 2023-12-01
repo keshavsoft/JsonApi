@@ -1,6 +1,6 @@
 //let CommonFromDataSupply = require("../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/AsArray/EntryFile");
 let CommonWithContent = require("../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/PushData/ItemNameInsert/WithContent");
-let CommonChatFolder = require("../../../../DataSupply/Fs/Config/JSONFolder/CommonChatFolder/PushData/WithContent");
+let CommonChatFolder = require("../../../../DataSupply/Fs/Config/JSONFolder/CommonChatFolder/JsonFile/ItemName/PushData/WithContent");
 
 let StartFunc = ({ inVerifyToken, inws, inClients, inRequest }) => {
     let LocalFolderName = "ForChat";
