@@ -3,8 +3,6 @@ var router = express();
 let Repos = require('../../../../../../../Repository/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Custom/PostFromPk')
 
 router.get('/PostFromPk/:inRowPk', (req, res) => {
-    console.log("jjjjjjjjjjjjj");
-    // res.end("ssssssssssssssss");
     let LocalRowPk = req.params.inRowPk;
     let LocalDataPk = req.KeshavSoft.DataPk;
 
@@ -17,7 +15,6 @@ router.get('/PostFromPk/:inRowPk', (req, res) => {
 
         res.json(PromiseData);
     });
-
 });
 
 module.exports = router;
