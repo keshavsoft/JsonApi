@@ -1,5 +1,3 @@
-// let CommonSaveToJsonOnConnections = require("./LogHistory/OnConnection/EntryFile")
-
 let StartFunc = ({ inClients, ws }) => {
     const id = uuidv4();
     const color = Math.floor(Math.random() * 360);

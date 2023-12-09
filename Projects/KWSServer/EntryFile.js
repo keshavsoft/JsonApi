@@ -1,36 +1,14 @@
 const WebSocket = require('ws');
-let jwt = require('jsonwebtoken');
 let wss;
 const clients = new Map();
-const clientsInfo = new Map();
-
-let CommonOnlineClients = require('./OnlineClients')
-let CommonOnlineClientsFromSendMessage = require('./SendMessage/OnlineClients')
 let CommoninsertToClients = require('./insertToClients')
-let CommonOnMessage = require('./OnMessage')
-let CommonVerifyToken = require('./VerifyToken');
+let CommonOnMessage = require('./OnMessage/EntryFile');
 let CommonSaveToJsonOnConnections = require("./LogHistory/OnConnection/EntryFile")
-
-let CommonLogChat = true;
 
 let StartFunc = (server) => {
     wss = new WebSocket.Server({ server });
 
     wss.on("connection", WsOnConnection);
-};
-
-var get_cookies = function ({ inRequest }) {
-    var cookies = {};
-
-    if (("headers" in inRequest) === false) return cookies;
-    if (("cookie" in inRequest.headers) === false) return cookies;
-
-    inRequest.headers.cookie.split(';').forEach(function (cookie) {
-        var parts = cookie.match(/(.*?)=(.*)$/)
-        cookies[parts[1].trim()] = (parts[2] || '').trim();
-    });
-
-    return cookies;
 };
 
 let WsOnConnection = (ws, req) => {
@@ -39,51 +17,42 @@ let WsOnConnection = (ws, req) => {
         ws
     });
 
-    let LocalGetCookie = get_cookies({ inRequest: req });
-    let LocalTokenName = "KToken";
-    let LocalFromVerifyToken;
-    console.log("aaaaaaaaaaaa : ", LocalGetCookie);
-    if (LocalTokenName in LocalGetCookie) {
-        LocalFromVerifyToken = CommonVerifyToken({ inKToken: LocalGetCookie[LocalTokenName], inws: ws });
-
-        if (LocalFromVerifyToken === false) {
-            ws.close();
-        };
-
-        if (LocalFromVerifyToken.DataPk === undefined) {
-            ws.close();
-        };
-    } else {
-    //    ws.close();
-    };
-
-    CommonSaveToJsonOnConnections({
-        inVerifyToken: LocalFromVerifyToken,
-        inws: ws,
-        inClients: clients,
-        inRequest: req
-    });
+    // CommonSaveToJsonOnConnections({
+    //     inVerifyToken: LocalFromVerifyToken,
+    //     inws: ws,
+    //     inClients: clients,
+    //     inRequest: req
+    // });
 
     const ip = req.socket.remoteAddress;
-    ws.send(ip);
+    console.log("ip L : ", ip, ws.remoteAddress);
+    // const ip1 = req.headers['x-forwarded-for'].split(',')[0].trim();
+    console.log("ip - : ", req.headers);
 
-    CommonOnlineClientsFromSendMessage({ inmessage: CommonOnlineClients({ inClients: clients }), inws: ws });
+    ws.on('message', (data, isBinary) => {
+        console.log("aaaaaaaaaaa : ", data.toString(), isBinary);
 
-    ws.on('message', (messageAsString) => {
-        CommonOnMessage({
-            inMessageAsString: messageAsString,
-            inClients: clients,
-            inws: ws,
-            inwss: wss,
-            inVerifyToken: LocalFromVerifyToken
-        })
+        // wss.clients.forEach(function each(client) {
+        //     if (client !== ws && client.readyState === WebSocket.OPEN) {
+        //         client.send(data, { binary: isBinary });
+        //     }
+        // });
+
+        // CommonOnMessage({
+        //     inData: data
+        // });
+
+        setTimeout(function timeout() {
+            ws.send(Date.now());
+        }, 500);
     });
 
     ws.on('close', () => {
         console.log('closed');
     });
 
-    ws.send('Hai Socket established');
+    // ws.send('Hai Socket established');
+    ws.send(Date.now());
 };
 
 module.exports = StartFunc;
