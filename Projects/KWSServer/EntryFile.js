@@ -24,10 +24,10 @@ let WsOnConnection = (ws, req) => {
     //     inRequest: req
     // });
 
-    const ip = req.socket.remoteAddress;
-    console.log("ip L : ", ip, ws.remoteAddress);
+    // const ip = req.socket.remoteAddress;
+    // console.log("ip L : ", ip, ws.remoteAddress);
     // const ip1 = req.headers['x-forwarded-for'].split(',')[0].trim();
-    console.log("ip - : ", req.headers);
+    // console.log("ip - : ", req.headers);
 
     ws.on('message', (data, isBinary) => {
         console.log("aaaaaaaaaaa : ", data.toString(), isBinary);
@@ -38,9 +38,9 @@ let WsOnConnection = (ws, req) => {
         //     }
         // });
 
-        // CommonOnMessage({
-        //     inData: data
-        // });
+        CommonOnMessage({
+            inData: data
+        });
 
         setTimeout(function timeout() {
             ws.send(Date.now());
