@@ -7,7 +7,7 @@ must do before node
 
 follow below steps for development
 
-1.  copy DataSupply folder from Repo: JSONDataSupply
+1.  run the batch file /BatchFiles/CopyDataSupply.bat
 2.  copy KData folder from root: KeshavSoft
 3.  run npm i
 4.  run node app
