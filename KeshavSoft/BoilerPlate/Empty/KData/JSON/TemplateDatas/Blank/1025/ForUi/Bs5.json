@@ -1,0 +1,16 @@
+{
+    "Folders": {
+        "Elements": {
+            "Masters": {
+                "DisplayName": "Masters",
+                "MenuClass": "text-white",
+                "IconClass": "table"
+            },
+            "Transactions": {
+                "DisplayName": "Transactions",
+                "MenuClass": "text-info",
+                "IconClass": "speedometer2"
+            }
+        }
+    }
+}
