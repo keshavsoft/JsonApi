@@ -10,7 +10,7 @@ exports.WithConfig = async ({ inDataPk, inJsonConfig, inItemConfig }) => {
     //let LocalDataToReturn = await CommonDataSupply.StartFunc({ inDataPk, inJsonConfig, inItemConfig });
 
     let LocalDataToReturn = await CommonDataSupply.StartFunc({ inDataPk, inFolderName, inFileName, inItemName, inScreenName });
-
+    console.log("LocalDataToReturn : ", LocalDataToReturn);
     return await LocalDataToReturn;
 };
 
