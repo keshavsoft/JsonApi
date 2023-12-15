@@ -1,10 +1,10 @@
 // let CommonChatFolder = require("./DataSupply/Fs/Config/JSONFolder/CommonChatFolder/JsonFile/PushDataToFile/CreateFileOnly");
 
 let StartFunc = () => {
-    console.log(`Listening in some local port...`);
+    console.log(`Listening in some local port : 4119`);
 
     // console.log(`Listening in port : ${port}`);
-    // console.log(`Click to open : http://localhost:${port}`);
+     console.log(`Click to open : http://localhost:4119`);
     process.env.UUID = uuidv4();
 //    LocalFuncToWebSocketAsFile();
 };
