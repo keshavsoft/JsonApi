@@ -6,5 +6,6 @@ jFShowFoldersInMenu({
     inProjectName: jVarGlobalProject,
     inSubRoute: jVarGlobalSubRoute
 });
+
 StartFuncBuildCardsFuncs();
 StartFuncEntry();

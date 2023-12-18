@@ -2,7 +2,7 @@ import { ReturnFolderAndFileNameAndItemName } from "./urlSearchParams.js";
 
 let jVarLocalFromReturnFolderAndFileNameAndItemName = ReturnFolderAndFileNameAndItemName();
 
-let jFShowFolderInBreadcrumb = ({ inFolderName, inFileNameWithExtension, inItemName,inScreenName }) => {
+let jFShowFolderInBreadcrumb = ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName }) => {
     let jVarLocalBreadcrumbFolderNameId = document.getElementById("BreadcrumbFolderNameId");
     jVarLocalBreadcrumbFolderNameId.href = `../Files.html?FolderName=${inFolderName}`;
     jVarLocalBreadcrumbFolderNameId.innerHTML = inFolderName;
@@ -17,9 +17,6 @@ let jFShowFolderInBreadcrumb = ({ inFolderName, inFileNameWithExtension, inItemN
 
     let jVarLocalBreadcrumbinScreenName = document.getElementById("BreadcrumbScreenNameId");
     jVarLocalBreadcrumbinScreenName.innerHTML = inScreenName;
-
-
-
 };
 
 let StartFunc = () => {
