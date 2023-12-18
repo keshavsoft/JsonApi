@@ -1,0 +1,14 @@
+{
+    "Firm": {
+        "FirmName": "",
+        "FromDate": "01-04-2023",
+        "ToDate": "31-03-2024",
+        "Config": {
+            "Ui": {
+                "Login": {
+                    "RedirectPage": "/Cleaning/POS/Booking/BranchTemplate/Dashboard/Dashboard.html?BranchName=Kakinada"
+                }
+            }
+        }
+    }
+}
