@@ -32,7 +32,10 @@ let SubRouteJSONUtility = require(`./Projects/${CommonProjectNameForJSONUtility}
 
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', express.static(path.join(__dirname, 'public')))
+
 app.use(express.json({ limit: '100mb' }));
 
 // app.get('/', function (req, res, next) {
