@@ -7,6 +7,7 @@ let StartFunc = async () => {
     let jVarLocalItemName = getUrlQueryParams({ inGetKey: "ItemName" });
     let jVarLocalScreenName = getUrlQueryParams({ inGetKey: "ScreenName" });
 
+
     await StartFuncFetchFunc({
         inFolderName: jVarLocalFolderName,
         inFileNameOnly: jVarLocalFileNameOnly,
