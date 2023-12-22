@@ -1,0 +1,5 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/GetData
+content-type: application/json
+ 
+{   
+}

@@ -7,6 +7,7 @@ let CommonItemsDisplayForFile = require("./FromFile/ItemsDisplayForFile");
 let CommonInsert = require("./FromFile/Insert");
 let CommonScreensFromDisplayJson = require("./FromFile/ScreensFromDisplayJson");
 let CommonGetFilesAsTree = require("./FromFile/GetFilesAsTree");
+let CommonKeys = require("./FromFile/Keys");
 
 router.use('/GetFiles', CommonGetFiles);
 router.use('/Items', CommonItems);
@@ -15,5 +16,6 @@ router.use('/ItemsDisplayForFile', CommonItemsDisplayForFile);
 router.use('/Insert', CommonInsert);
 router.use('/ScreensFromDisplayJson', CommonScreensFromDisplayJson);
 router.use('/GetFilesAsTree', CommonGetFilesAsTree);
+router.use('/Keys', CommonKeys);
 
 module.exports = router;
