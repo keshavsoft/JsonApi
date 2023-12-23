@@ -2,6 +2,6 @@ POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Keys/AsArray
 content-type: application/json
  
 {   
-    "inFolderName":"Quotations",
-    "inFileNameOnly":"Rjy"
+    "inFolderName":"Transactions",
+    "inFileNameOnly":"Journals"
 }

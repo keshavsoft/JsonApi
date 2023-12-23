@@ -1,0 +1,7 @@
+POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/GetData
+content-type: application/json
+ 
+{   
+    "inFolderName":"Transactions",
+    "inFileNameOnly":"Journals"
+}
